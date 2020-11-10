@@ -1,0 +1,6 @@
+/public/
+out/
+resources/
+node_modules/
+.tmp_*
+/build/build/

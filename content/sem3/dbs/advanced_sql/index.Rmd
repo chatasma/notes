@@ -1,0 +1,174 @@
+---
+title: "Advanced SQL"
+date: "November 9th, 2020"
+output: pdf_document
+---
+
+```{r include = FALSE}
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+```
+
+## Advanced SQL
+
+What is this section about? Advanced SQL is a pretty generic title, but hey that's what the slides were named. In this chapter we are concerned about 4 topics:
+
+* Accessing SQL from a programming language
+* Functions and Procedures
+* Triggers
+* Recursive Queries
+
+## Why do we need a programming language?
+
+SQL is a powerful language, but a database programmer needs a general purpose programming language for at least two reasons:
+
+* SQL cannot express every query. Often, SQL is used in an embedded fashion with general purpose programming language for such queries.
+* Doing meaningful stuff with the data, i.e. showing it to a user via an interface. Querying data is just one task in an application.
+
+## Approaches for accessing SQL from a programming language
+
+There are two:
+
+* Dynamic SQL
+  * Dynamically build SQL queries at runtime as character strings and send them to the server
+  * APIs: JDBC for Java, ODBC for C/C++/PHP/Visual Basic
+* Embedded SQL
+  * At compile time, SQL statements are translated to function calls which connnect to the dabatase using an API that provides dynamic SQL facilities.
+
+One issue: A challenge with mixing SQL with a programming language is how data is handled in each. In SQL, we work with **relations** which are tables; in programming languages, we work with **variables** which roughly corresponds to attributes of a tuple in a relation. There needs to be a mechanism so that the programming language can handle the result of a query.
+
+## JDBC
+
+We will be going over JDBC, which an API for Java which allows it to communicate to database systems using SQL. It supports querying/updating/retrieving data and metadata retrieval.
+
+How JDBC communicates with the server:
+
+* Opens a connection to the server
+* App creates a $\texttt{Statement}$ object
+* Executes queries using the object by sending the SQL query and fetching the results
+* Exception mechanism to handle errors
+
+JDBC sections:
+
+* Connecting to the Database
+* Shipping SQL Statements to the Database System
+* Exceptions and Resource Management
+* Retrieving the Result of a Query
+* Prepared Statements
+* Callable Statements
+* Metadata Features
+* Other Features
+* Database Access from Python
+
+## Connecting to the Database
+
+Well, to use SQL we need a database server. This can be a PostgreSQL server running on another machine or something else. Then, you must connect. In JDBC you can do this using the $\texttt{DriverManager.getConnection()}$ method.
+
+## Creating a Statement Object
+
+When there is a database connection, you can start interacting with the database using the **Statement** class. A Statement represents a SQL statement (with no parameters).
+
+There are three kinds of **Statement** objects:
+
+* Statement: Simple SQL query with no params
+* PreparedStatement: subclass of Statement that can have params
+* CallableStatement: subclass of PreparedStatement that can have a stored procedure that can have parameters
+
+## Executing the statement
+
+The **Statement** class has a $\texttt{executeQuery()}$ method and a $\texttt{executeUpdate()}$ method. Depending on whether the statement is a query or nonquery, you choose the respective one.
+
+* $\texttt{executeQuery()}$ returns a **ResultSet** object (the relation returned).
+* $\texttt{executeUpdate()}$ returns number of rows/tuples affected, if it's a DDL statement it returns 0.
+
+Examples:
+
+```{java}
+// Returns ResultSet object with appropriate tuples
+statement.executeQuery("SELECT * FROM INSTRUCTOR");
+```
+```{java}
+// Returns number of tuples affected (inserted in this case)
+statement.executeUpdate("INSERT INTO instructor VALUES('77987', 'Kim', 'Physics', 98000)");
+```
+
+## Exception and Resource Management
+
+You can use Java's *try {...} catch {...}* for handling exceptions. Two classes
+of exceptions for JDBC
+
+* SQLException - specific SQL exception
+* Exception - General Java exception
+
+With JDBC 4.1 and higher, you can use Java's *try-with-resources* syntax to
+close *ResultSet*, *Statement*, and *Connection* objects automatically.
+
+## Retrieving the Result of a Query
+
+Essentially, when you do a query you'll get back a relation. A relation is a
+set of tuples. The **RelationSet** object has an internal cursor which is like
+some internal state to dictate what row it is currently looking at in the set.
+Then, you can use methods such as $\texttt{getString()}$ and
+$\texttt{getFloat()}$ which take in a column index or name as a parameter, and
+get the appropriate value. Can use the $\texttt{wasNull()}$ method to see if
+the value was null.
+
+## Prepared Statement
+
+Remember, this is the statement that has the parameters. Prepared statements
+have $\texttt{?}$ for values that will be provided later. You use the methods
+such as $\texttt{setString()}$ and $\texttt{setInt()}$. Here is an example.
+
+```{java}
+// where conn is a Connection instance
+PreparedStatement pStmt = conn.prepareStatement("INSERT INTO instructor VALUES (?,?,?,?)");
+
+pStmt.setString(1, "8877");
+pStmt.setString(2, "Alice");
+pStmt.setString(3, "Finance");
+pStmt.setInt(3, 125000);
+
+pStmt.executeUpdate();
+
+pStmt.setString(1, "888");
+pStmt.executeUpdate();
+```
+
+`r colorize("WARNING:", "red")` **DO NOT** create SQL queries by concatening SQL.
+This can open the door for **SQL Injection**, a malicious attack. You have been
+warned. Always use PreparedStatements instead.
+
+![SQL Injection Moments](/home/chatt/school/notes/img/sql_injection_xkcd.png)
+
+## Update Data in a Table using JDBC
+
+This is pretty straightforward if you understood the concepts from before.
+Create a PreparedStatement, make a connection, set the values using the
+appropriate methods, and use $\texttt{executeUpdate()}$ to execute the
+statement.
+
+## Metadata
+
+**What is it?**
+
+Data, about the data. Like the name of each data field.
+
+**Why should I care about it?**
+
+The Java application (in our scenario) doesn't really know anything about the target database unless it is hardcoded. A Java program would otherwise need to determine the information at runtime to figure out information about the database schema. This approach (determining info at runtime) is preferred since it makes the app more flexible and robust to changes in the database schema.
+
+**How do I use it in JDBC?**
+
+Well, a query result is given in the form of a $\texttt{ResultSet}$ object. It is defined to have a method called $\texttt{getMetadata()}$ which returns a $\texttt{ResultSetMetaData}$ object that contains metadata about the result set. This includes methods such as $\texttt{getColumnCount()}$ and $\texttt{getColumnName()}$ and $\texttt{getColumnTypeName()}$. This is very useful since you do not need to hardcode the schema into the application.
+
+## References
+
+[JDBC API Docs](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)
+
+[PreparedStatement](https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html)

@@ -1,0 +1,123 @@
+---
+title: "Recombinant DNA Technology"
+date: "November 9th, 2020"
+output: pdf_document
+---
+## Overview
+
+1. Cloning Genes: The Tool Kit
+   + Enzymes
+   + Vectors
+   + Host Cells
+2. Identifying specific clones by Screening
+3. PCR Cloning without Host cells
+4. Characterizing Clones
+5. DNA Sequencing
+
+## Cloning DNA
+
+1. Restriction enzymes to produce DNA fragments.
+2. Combine with vector DNA to produce recombinant DNA molecules (host cell).
+3. Transfer recombinant vectors into the host cell to clone the recombinant DNA molecules.
+
+### Restriction Enzymes
+
+- They cut DNA into fragments
+* They are made by bacteria as a defense against bacteriophages
+* Recognizes a specific sequence (**restriction site**) and cuts the DNA into fragments.
+* Cleaves both strands of DNA.
+
+### Recognition Sequences are often Palindromes
+
+* **Palindrome**:
+  * Symmetry exhibited by recognition sequences.
+
+### Making Recombinant DNA molecules
+
+* Taking DNA from two different sources into a single molecule. (Recombinant DNA)
+* Take DNA from each source.
+* Cut each one with the same restriction enzyme.
+* Mix.
+
+### DNA Cloning with Plasmids
+
+* **Plasmid**:
+  * Goal is to use a carrier molecules
+  * They replicate independently from the chromosomes within bacterial cells. 
+  * Extrachromosomal double-stranded DNA.
+* **Plasmids used in DNA cloning**:
+  * Genetically modified bacterial plasmids engineered to contain:
+    * A convenient amount of restriction sites.
+    * A marker gene to select for presence in host cell.
+
+* Procedure
+  * Isolate DNA
+  * Cut cloning site
+  * Transfer recombinant vectors to host cell
+  * Grow them on nutrient medium
+  * Check colonies that contain the recombinant vector
+
+## Identifying Specific Clones
+
+* Requires a tag called a **probe** to identify specific clones.
+* **Probe**: a DNA (or RNA) molecule that has been labeled with radioactivity or a fluorescent dye.
+* Uses **molecular hybridization**.
+
+### Molecular Hybridization
+
+* **What is it**:
+  * Probes are used as targets for lysing.
+  * Reactions are carried out on a *substrate* and *not a solution*.
+* **How**:
+    - Melt DNA into single strands attached to a substrate.
+    * RNA labeled with radioactivity or fluorescent dye.
+    * The RNA and DNA will form a double-stranded hybrid molecule that is able to be detected.
+
+### Gel Electrophoresis of DNA
+
+In an electrical field, samples containing different size DNA fragmentswill migrate through a gel containing pores of fixed sizes.
+
+This is done using the charge properties of DNA. DNA in gel is visualized with a UV-visible dye.
+
+### Southern Blots
+
+* Used to identify which clones contain a given DNA sequence.
+* Cut DNA with restriction enzyme, separate fragments on a gel.
+
+### Polymerase Chain Reaction
+
+* PCR requires two primers:
+  * Primers are short, single-stranded sequences. One end complementary to 5' end and the other complementary to the 3' end of a DNA fragment.
+  * DNA is mixed with DNA polymerase.
+  * Primers are annealed and DNA is denatured
+* Steps in PCR Cycle:
+  * Denature DNA
+  * Lower the temp to 45-65 C. Anneal primers to 5' and 3' ends of DNA.
+  * Adjust temp to 65-75 C. Add DNA polymerase and dNTPs for strand extension.
+  * Repeat using thermocycler
+* One of the most **widely used** in genetics and molecular biology.
+  * Used to screen for mutations involved in genetic disorders.
+  * Allele-specific probes used for diagnosing genetic disorders.
+  * Amplifies DNA from small samples for forensic analysis.
+
+## DNA Sequencing
+
+* **Dideoxynucleotide sequencing**
+  * Was most common method.
+  * **Dideoxynucleotide**: Deoxynucleotide with a hydrogen at 3$'$ instead of an OH.
+  * Insertion of a dideoxynucletide in a new strand of DNA causes the synthesis to terminate (No OH group to attach to).
+  * Shortest chain (lowest on gel after electrophoresis) represents the first termination. The gel is read from **bottom up**.
+  * Automated sequencing using Sanger method that uses nucleotides labeled with fluorescent dyes. Software aided.
+
+### High Throughput Sequencing
+
+* Done with Sanger sequencing.
+* In 2008, NHGRI started research program to drive cost down to $1000 per genome in 10 years.
+* Several methods have been developed since then, and the cost is at the $1000 level.
+
+### Creating Transgenic Animals
+
+* To study human disease, hundreds of transgenic animal strains carrying mutant alleles for genetic disorders have been created.
+* These allow researches to study early how the disorders manifest, i.e. the molecular basis and test drug therapies.
+* Mice with HD (Huntington's disease) with 48 or 89 CAG repeats had paralleling events (brain cell counts dropped) with humans.
+

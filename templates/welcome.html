@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+            * {
+                font-family: 'Raleway', sans-serif;
+            }
+
+            body {
+                margin: 3vh 15vw 3vh 15vw;
+                line-height: 1.7em;
+            }
+
+            .bolded {
+                font-weight: bold;
+            }
+
+            @media screen and (max-width: 576px) {
+                body {
+                    margin: 3vh 2vw 3vh 2vw;
+                    line-height: 1.7em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Notes</h1>
+
+        <p>Welcome to my notes. This site is a compilation of the notes I took during my undergraduate degree at <a target=_blank href="http://iit.edu/">IIT</a> for Computer Science (and Bioinformatics). These notes are for personal use, but if you find them useful that's great as well. Here is the list of courses I took notes for.</p>
+
+        $'COURSE_LISTING'
+
+        <div class="other">
+            <h1>Other</h1>
+            <ul>
+                <li><span class="bolded">Portable &amp; Shareable</span> -- Being able to share the notes in multiple formats is very convenient. With various formats, the content becomes more easily shareable.</li>
+                <li><span class="bolded">Not absurdly detailed</span> -- I wanted my notes to simply reflect how I understood certain concepts. The details of each concept were not necessary for me to include in the notes, rather I wanted to record how I understood a concept.</li>
+                <li><span class="bolded">Easy to write</span> -- I wanted to spend minimal time when it came to actually transcribing the notes. I would use LaTeX, however, this often comes with the cost of spending time with its syntax. I wanted a format that was easy to write, but also supported the various types of contents I would come across, such as equations, code, graphs, and pictures.</li>
+                <li><span class="bolded">Searchable</span> -- When finals came around or when it was time to do some homework, it would be extremely convenient if I could just search for a keyword or concept across the notes I took and find out where certain topics fit in and were discussed. </li>
+            </ul>
+
+            <p>To accomplish these goals, I first chose the format of my notes: <span class="bolded">R Markdown</span>. Since it was Markdown, it was very <span class="bolded">easy to write</span>. However, it was also very powerful, as you could have embedded R code to manipulate the content of the document dynamically. It also <span class="bolded">converted between various formats</span> which was very nice.</p>
+
+            <p>It was also very convenient to have the format as a plain text file. With Word documents and others, the file is typically a binary or archive file. It requires you to have a program that can understand the file format and provide you with an environment to edit and read the content. WYSIWYG can be nice, but often you will have to navigate specific menus in a specific program to get what you want. With plain text, you can use <span class="bolded">any text editor</span> to edit the file. Different text editors have different features and advantages, so it is convenient to have a format such that you can use any text editor. And with plain text, it makes it much easier <span class="bolded">to search</span>, which was one of my goals. I used <a href="https://github.com/ggreer/the_silver_searcher" target=_blank>the silver searcher</a> which is some wizardly piece of software that could search through large directories very quickly for text. If I were using a WYSIWYG editor, this would not have been the case.</p>
+        </div>
+    </body>
+</html>
