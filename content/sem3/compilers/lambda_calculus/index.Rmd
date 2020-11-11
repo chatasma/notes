@@ -102,6 +102,19 @@ Ok, so **what are $\beta$-reductions?**. The $\beta$-reduction is simply stating
 
 This may remind you of functional programming languages like OCaml. It's almost like a computation. It seems beta reductions can be applied continuously such that it eventually terminates. Though, it is very possible to have an abstraction such as $(\beta x, xx)$, where subsequent beta reductions would never terminate the reduction process. This is a property of **untyped lambda calculus**, but not typed lambda calculus. Another difference between these two types of lambda calculus is that untyped lambda calculus doesn't care what kind of data it's working with. Typed lambda calculus does, i.e. if you wanted an abstraction that only worked on numbers. In untyped lambda calculus there is no way to constrain it to certain types of inputs.
 
+## Combinators
+
+Combinators are simply $\lambda$-terms that do not have free variables. There are a few special combinators. Here are some:
+
+* **B combinator** - $\lambda x [ \lambda y [ \lambda z [ x(yz) ]]]$
+  * Function Composition
+* **Y combinator** - $\lambda f [( \lambda x [f(xx)])( \lambda x [f(xx)])]$
+  * Curry's Paradoxical combinator. Can be used to implement recursion in functional languages.
+
 ## References
 
 [Wikipedia](https://en.wikipedia.org/wiki/Lambda_calculus)
+
+[Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/lambda-calculus/)
+
+[Medium Article on the Y Combinator](https://medium.com/@ayanonagon/the-y-combinator-no-not-that-one-7268d8d9c46)

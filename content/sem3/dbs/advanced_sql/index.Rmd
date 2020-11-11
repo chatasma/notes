@@ -144,7 +144,7 @@ pStmt.executeUpdate();
 This can open the door for **SQL Injection**, a malicious attack. You have been
 warned. Always use PreparedStatements instead.
 
-![SQL Injection Moments](/home/chatt/school/notes/img/sql_injection_xkcd.png)
+![SQL Injection Moments](../../../../img/sql_injection_xkcd.png)
 
 ## Update Data in a Table using JDBC
 
