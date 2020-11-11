@@ -167,6 +167,141 @@ The Java application (in our scenario) doesn't really know anything about the ta
 
 Well, a query result is given in the form of a $\texttt{ResultSet}$ object. It is defined to have a method called $\texttt{getMetadata()}$ which returns a $\texttt{ResultSetMetaData}$ object that contains metadata about the result set. This includes methods such as $\texttt{getColumnCount()}$ and $\texttt{getColumnName()}$ and $\texttt{getColumnTypeName()}$. This is very useful since you do not need to hardcode the schema into the application.
 
+There is also a $\texttt{DatabaseMetaData}$ interface which provides methods to get metadata of the database itself. This includes data such as the db product name, product version, driver name, number of tables, etc. It can be accessed through the $\texttt{Connection}$ interface, which has a $\texttt{getMetaData}$ which returns a $\texttt{DatabaseMetaData}$ object, which has many methods to get metadata of the database and DBMS the app is connected to.
+
+## Transaction Control in JDBC
+
+By default, each SQL statement is treated as a transaction that's committed automatically. Automatic commit can be turned off at the connection level.
+
+```java
+conn.setAutoCommit(false);
+```
+
+Transactions then need to be committed or rolled back explicitly
+
+```java
+conn.commit();
+conn.rollback();
+```
+
+To turn auto commit back on:
+
+```java
+conn.setAutoCommit(false);
+```
+
+## Other JDBC features
+
+Calling functions and procedures
+
+```java
+CallableStatement cStmt1 = conn.prepareCall("{? = call some function(?)}");
+CallableStatement cStmt2 = conn.prepareCall("{call some procedure(?,?)}");
+```
+
+## ODBC
+
+**What is it?** It stands for Open DataBase Connectivity Standard. It is a standard API for connecting to a database, sending queries/updates to it, and getting results back.
+
+<span>![ODBC and JDBC](../../../../img/jdbc_odbc_comparison.png)</span>
+
+## Embedded SQL
+
+An Embedded SQL approach involves having direct SQL code in the host language. The SQL standard defines a set of embeddings of SQL in a variety of languages. The way it is processed though is different from how Dynamic SQL is done. Embedded SQL is translated at compile time by a preprocessor to constructs in the host lanaguage so the compiler of the host language can compile it.
+
+Typically, the way Embedded SQL is written is the following:
+
+```SQL
+EXEC SQL <SQL STATEMENT>:
+```
+
+Where the statement starts with $\texttt{EXEC SQL}$ and terminates with a $\texttt{;}$. This does vary by language though, so this is not the exact way embedded SQL is written across languages.
+
+Before executing SQL though, the program needs to connect to the database. This is done by doing the following:
+
+```SQL
+EXEC SQL connect to <server> user <username> using <password>;
+```
+
+Variables in the host language can be used in the Embedded SQL. They are preceded with a colon to denote that they are variables of the host language.
+
+Variables though must be declared in a DECLARE section. Example:
+
+```SQL
+EXEC SQL BEGIN DECLARE SECTION;
+  int credit_amount;
+EXEC SQL END DECLARE SECTION;
+```
+
+There's also a concept of cursors in embedded SQL. These are just like pointers to a row. Basic overview of how they work:
+
+* Declare a cursor that defines a result set.
+* Open the cursor to establush the result set.
+* Fetch the data into locals, one row at a time.
+* Close the cursor when done.
+
+## SQL Functions and Procedures
+
+Allows developers to write their own functions and store them in the database. Can invoke them from SQL statements. This is good for a few reasons:
+
+* Multiple applications can access the procedures
+* Single source of truth
+* Apps can call the procedures instead of directly updating DB relations
+
+Example SQL function
+
+```SQL
+CREATE FUNCTION dept_count(dept_name varchar(20))
+RETURNS integer
+BEGIN
+DECLARE d_count integer;
+  SELECT COUNT (*) INTO d_count
+  FROM instructor
+  WHERE instructor.dept_name = dept_name
+RETURN d_count;
+END;
+```
+
+There are also SQL procedures and pgSQL (PostgreSQL) functions which are similar in nature. 
+
+One drawback to user-defined functions is that they can't execute transactions. You can't commit inside a function or rollback. PistgreSQL 11 did introduce stored procedures which supported transactions, so that allowed for commiting and rolling back inside of procedures.
+
+You can even create external language routines, where you can use a language such as Java, C#, C, or C++. This is nice since it is typically more efficient and more expressive. Though, there are a few drawbacks.
+
+* Code needed for the function might have to be loaded into the database system, which can lead to accidental corruption of the DB structures. It is also a security risk.
+* There are alternatives which could be less performant but have better security.
+* Direct execution in the database system's address space is used when efficiency is more important than security.
+
+There are ways to deal with the security problems.
+
+* Use sandbox echniques within the database query execution process. This includes using a safe language like Java or having the code have its own memory area.
+* Running the external functions in a separate process, so that it does not have access to the database process's memory.
+  * Parameters and results are then communicated via IPC (Inter-process communication).
+
+These are good but they come with their performance costs. Many database systems support both approaches but also allow for direct execution if needed.
+
+## Triggers
+
+Triggers are like callbacks that are called when certain modifications are made to the database. They can be used to implement integrity constraints that SQL can't express. These were introduced to the SQL standard in SQL:1999.
+
+Triggering events can include **insert**, **delete**, or **update**. Triggers can be restricted to specific attributes, and the value can be accessed in the trigger.
+
+Triggers can be activated before the event actually happens, to prevent invalid updates or modify it so it is valid.
+
+  - For example, if a grade is set to $\texttt{F}$ for a student, we could have a trigger that updates their $\texttt{tot\_creds}$ so that their credit hours reflect the change.
+
+## When to not use Triggers
+
+* Maintaining summary data
+* Replicating databases by recording changes to special relations, and having another process apply the changes over to a replica
+
+Nowadays, there are better ways for these
+
+* Databases now provide ways to maintain summary data
+* Databases provide built-in support for replication
+
+Triggers can be useful, but they are best avoided when alternatives exist.
+
 ## References
 
 [JDBC API Docs](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)

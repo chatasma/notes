@@ -1,0 +1,70 @@
+---
+title: "Genomics and Genome Analysis"
+date: "November 11th, 2020"
+output: pdf_document
+---
+
+1. Sequence the genome.
+2. Compile sequence.
+3. Annotate sequence.
+4. Screen the sequence to find genes (Open Reading Frames)
+5. Classify the genes
+6. Study the encoded proteins
+7. Establish the genotype phenotype connection
+
+## Types of Genomics
+
+* Structural Genomics -- What does the gene look like
+* Functional Genomics -- What does the gene do
+* Comparative Genomics -- Comparing genomic sequence of different strains/species
+
+## The Human Genome Project
+
+NIH (National Institutes of Health) sponsored the HGP (Human Genome Project) which began in 1990 with a 10 year plan. It had a step by step plan to cut the genome into setions, chromosome by chromosome, each section to be sequenced.
+
+## Clone-By-Clone Sequencing Strategy
+
+For each chromosome:
+
+* Genetic map is constructed. This map has markers each about a million base pairs apart.
+* Physical maps, markers spaced about 100k base pairs apart.
+* YAC map (Yeast Artificial Chromosome map). Set of overlapping clones covering 0.5-1.0 million base pairs.
+* Nucleotide sequence. Using the overlapping clone, the sequence is discovered.
+
+## The Other Human Genome Project
+
+A former NIH employee, Craig Venter, wasn't too fond of the methodology being used for the HGP. He went out and formed his own company, Celera, funded by pharmaceutical firms to sequence the genome using a different method. The method was called **shotgun sequencing**. Venter started by sequencing genomes of bacteria and fruit flies, and then moved on to humans. Celera started sequencing of the human genome in late 1999 and already had a draft sequence by June of 2000.
+
+Celera had around 100 sequencers running 24/7 to sequence the human genome. Celera built a factory for research supplies near the sequencing building just to get things done faster.
+
+HGP took around 10 years, Celera took about 2. Both came with a draft sequence by June 2000.
+
+## Compiling the sequence
+
+**Well, is it accurate?** The NIH HGP sequenced around 12 times, and Celera did 35.6 times.
+
+**How complete is the sequence?** Proofreading was needed, and filling gaps wasn't completed.
+
+## Shotgun Sequencing
+
+**Whole Genome Sequencing**, also known as Shotgun Sequencing, essentially cut the genomic DNA with various restriction enzymes, and then used software to assemble a chromosome. The fragments aligned based on identical DNA sequences and created an assembly of contiguous fragments, aka "contigs".
+
+## Assembly of Contigs
+
+Using the alignment of contigs to assemble a sequence.
+
+## The Human Genomes, Stats
+
+* Size: 3.2 Gb (Haploid)
+* Chromosomes: 24 (22 autosomes, X, Y)
+* % Protein Coding: 5% (exons + introns)
+* Intergenic Spacer: 75%
+* Repetitive Sequences: >50%
+* Genes: ~20k
+* Gene Density: 1 gene/100k bp
+
+## ORF Hunting
+
+**What is an ORF?** An ORF is a triple that encodes an amino acid.
+
+Look for ORFs to find potential coding sequences.

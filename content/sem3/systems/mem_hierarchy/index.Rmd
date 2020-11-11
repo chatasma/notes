@@ -1,0 +1,84 @@
+---
+title: "Memory Hierarchy & Caching"
+date: "November 11th, 2020"
+output: pdf_document
+---
+
+## Von Neumann architecture
+
+Programs and data stored in the same memory. Memory acts as an ideal device to store instructions and operands (RAM). Realistically, memory is a combination of storage systems with very different properties. Common types of "memory" are:
+
+* SRAM 
+* DRAM
+* NVRAM
+* HDD
+
+## SRAM
+
+**S**tatic **R**andom **A**ccess **M**emory
+
+* Data is stable if power is supplised
+* 6+ transistors per bit
+* Expensive but fast
+
+## DRAM
+
+**D**ynamic **R**andom **A**ccess **M**emory
+
+* 1 capacitor and 1 transistor per bit
+  * Requires a periodical refresh (64ms)
+  * Much denser and cheaper than SRAM
+
+## NVRAM eg. Flash
+
+**N**on-**V**oltaile **R**andom **A**ccess **M**emory
+
+* Data persist without power
+* 1+ bits/transistors
+* Updates may require block erasuer
+* Flash has limited writes per block
+
+## HDD
+
+**H**ard **D**isk **D**rive
+
+* Spinning magnetic platters with read/write heads
+* Data access requires a mechanical seek
+
+## Distance
+
+* Speed of light is 1ft/ns
+* 3GHz CPU, 4in/cycle
+  * Max access distance (round trip) = 2 in
+* It is worth keeping things we need often close to the CPU
+
+## Relative Speeds
+
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+speeds.data <- data.frame(
+    Type = c("Registers", "On-board SRAM", "Off-board SRAM", "DRAM", "SSD", "HDD"),
+    Size = c("8 - 32 words", "32 - 256 KB", "256 KB - 16 MB","128 MB - 64 GB", "$\\leqslant$ 1 TB", "$\\leqslant$ 4 TB"),
+    Access_Latency = c("0-1 cycles", "1-3 cycles", "~10 cycles", "~100 cycles", "~10k cycles", "~10mil cycles"),
+    Unit = c("ns", "ns", "ns", "ns", "$\\mu$s", "ms")
+)
+knitr::kable(speeds.data)
+```
+
+
+## Caching
+
+Have to compromise, between smaller faster costlier vs larger slower cheaper. Use the fast as much as possible, fall back on the slow. Compiler optimization is also considered as a cache because it can reduce memory references in the code. Registers are also cool but they are pretty small in terms of size.
+
+One option is to manage the cache directly from the code. That's a pretty terrible idea though since then you are locked into the cache implementation from your code, and the cache would have to somehow be shared between processes. Caching is a hardware-level concern, it's the job of the **memory management unit (MMU)**. It is useful to know how it works though, so we can write code that cooperates with it.
+
+## Locailities of Reference
+
+* Temporal Locality
+  * If data was accessed recently, it's probably gonna be accessed again.
+* Spatial Locality
+  * If data was accessed at a given address, nearby data will probably be accessed (contiguous data structures).
+  * Modern DRAM is designed to transfer bursts of data (~32-64 bytes) efficiently. Idea is to transfer array to cache, and then access the cache only.
+
+## Cache Organization
+
+**Where to store cached data?** How do we map address $k$ to a cache slot?
