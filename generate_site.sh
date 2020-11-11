@@ -2,7 +2,7 @@
 
 base_dir="$(pwd)"
 target_dir="$(pwd)/public"
-target_content="${target_dir}/notes"
+target_content="${target_dir}/all"
 
 if [ -d $target_dir ]; then
     rm -r $target_dir

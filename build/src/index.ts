@@ -12,7 +12,7 @@ if (process.argv.length < 5) {
 const contentPath = argv[2];
 const publicPath = argv[3];
 const templatesPath = argv[4];
-const notesSubdirName = "notes";
+const notesSubdirName = "all";
 const publicContentPath = path.join(publicPath, notesSubdirName);
 
 interface ResourceIdentity {
@@ -40,7 +40,7 @@ const courses : Course[] = [];
         for (let courseName of courseNames) {
             const coursePath = path.join(semesterPath, courseName);
             const courseMetadataPath = path.join(coursePath, ".course_data")
-            const course : Course = {full_name: courseName, dir_name: courseName, access_path: `${notesSubdirName}/${path.relative(semesterPath, coursePath)}`, topics: []};
+            const course : Course = {full_name: courseName, dir_name: courseName, access_path: `${notesSubdirName}/${path.relative(semesterPath, coursePath)}/`, topics: []};
             let courseMetadata : any = null;
             try {
                 courseMetadata = await parseCSV(courseMetadataPath);
@@ -52,7 +52,7 @@ const courses : Course[] = [];
                 const topicFileStat = fs.statSync(topicPath);
                 if (!topicFileStat.isDirectory()) continue;
                 const topicMetadataFilePath = path.join(topicPath, ".topic_data");
-                let topic : Topic = {full_name: topicName, dir_name: topicName, access_path: path.relative(semesterPath, topicPath)};
+                let topic : Topic = {full_name: topicName, dir_name: topicName, access_path: topicName};
                 let topicMetadata : any = null;
                 try {
                     topicMetadata = await parseCSV(topicMetadataFilePath);
