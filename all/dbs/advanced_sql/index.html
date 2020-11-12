@@ -631,7 +631,7 @@ END;</code></pre>
 <p>Triggering events can include <strong>insert</strong>, <strong>delete</strong>, or <strong>update</strong>. Triggers can be restricted to specific attributes, and the value can be accessed in the trigger.</p>
 <p>Triggers can be activated before the event actually happens, to prevent invalid updates or modify it so it is valid.</p>
 <ul>
-<li>For example, if a grade is set to <span class="math inline">\(\texttt{F}\)</span> for a student, we could have a trigger that updates their <span class="math inline">\(\texttt{tot\_creds}\)</span> so that their credit hours reflect the change.</li>
+<li>For example, if a grade is set to <span class="math inline">\(\texttt{F}\)</span> for a student, we could have a trigger that updates their <code>tot_creds</code> so that their credit hours reflect the change.</li>
 </ul>
 </div>
 <div id="when-to-not-use-triggers" class="section level2">
