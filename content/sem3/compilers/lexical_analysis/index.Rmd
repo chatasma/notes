@@ -29,7 +29,7 @@ printf("Total = %d\n", score);
 
 ## Strings and Languages
 
-* An **alphabet** is any fintie set of symbols.
+* An **alphabet** is any finite set of symbols.
   * `{0, 1}` is the binary alphabet.
   * ASCII
   * Unicode
@@ -64,7 +64,7 @@ Where:
 `letter_` -- Represents any letter or the underscore
 `digit` -- Stands for any digit
 `|` -- This stands for the union
-`*` -- 0 or more occurences
+`*` -- 0 or more occurrences
 
 The juxtaposition of `letter_` with the other parts of the expression implicitly represents concatenation
 
@@ -105,7 +105,7 @@ $$
 
 ## Regular Expression Extensions
 
-After Kleene introduced regular expressions with basic operators such as union, concatenation, and Kleene closure. extensions have been added. These extensions have been incorporated into software such as Unix utilties (`lex`) that are useful for lexical analyzers.
+After Kleene introduced regular expressions with basic operators such as union, concatenation, and Kleene closure. These extensions have been incorporated into software such as Unix utilities (`lex`) that are useful for lexical analyzers.
 
 * `+` -- One or more instances
 * `?` -- Zero or one instance
