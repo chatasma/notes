@@ -1,0 +1,123 @@
+---
+title: "Lexical Analysis"
+date: "November 11th, 2020"
+output: pdf_document
+---
+
+The job of the **lexical analyzer** is to read input characters of the source program, group them into lexemes, and then as output produce a sequence of tokens that the parser can use for syntax analysis. Both the parser and lexical analyzer interact with the **symbol table**.
+
+Since the lexical analyzer is the part that deals with the actual source of the program, it may do more than just identify lexemes. This includes error messages (think of line numbers, lexical analyzer keeps track of these) and stripping out comments/whitespace. The lexical analyzer can also perform **macro expansion** if the program has macros.
+
+## Lexical Analysis vs Parsing
+
+**Why have the parser and lexer as separate phases?** Simply put:
+
+* Simplicity -- Imagine if the parser had to deal with comments and whitespace. That would make the program considerably more complex
+* Efficiency -- A separate lexical analyzer can use specialized techniques that serve only the lexical task.
+* Portability -- Since they are separated, the inputs and outputs can be granularized
+
+## Tokens, Patterns, and Lexemes
+
+What's the difference?
+
+```C
+printf("Total = %d\n", score);
+```
+
+* `printf` is a **lexeme**, that matches a **pattern**, for the **token** *id*.
+* `"Total = %d\n"` is a **lexeme**, matching the **token** *literal*.
+
+## Strings and Languages
+
+* An **alphabet** is any fintie set of symbols.
+  * `{0, 1}` is the binary alphabet.
+  * ASCII
+  * Unicode
+* A **string** is a finite sequence of symbols drawn from the alphabet
+  * Length of a string `s` is denoted by `|s|`
+  * The empty string is denoted by $\epsilon$ 
+* A **language** is a set of strings for a specific alphabet
+  * $\{ \epsilon \}$ is considered to be a languge
+* Concatenation of `x` and `y` (where they are strings) is denoted as `xy`.
+  * The empty string is the identity under concatenation;
+    * That is, for a string `s`, $\epsilon s = s\epsilon = s$
+  * If concatenation is thought of as exponentiation, consider the following
+    * $s^{0} = \epsilon$
+    * $s^{i} = s^{i - 1}s$
+
+## Operations on Languages
+
+* The union between two languages is pretty straightforward considering languages are set of strings, we can leave that to Set Theory.
+* Concatenating two languages involves taking a string from the first language and a string from the second, in all possible ways, and concatenating those.
+* The Kleene closure ($L^{*}$) of a language is concatenating a language to itself 0 or more times
+* The Positive closure ($L^{+}$) of a language is the same as a Kleene closure, but doesn't include 0 times. That means, $\epsilon$ would not be in $L^{+}$ unless it was in L itself.
+
+## Regular Expressions
+
+**Regular expressions** are a notation for describing languages that can be built from operations on symbols of some alphabet. For example, we can use the following to describe the language of C identifiers:
+```
+letter_ ( letter_ | digit ) *
+```
+
+Where:
+
+`letter_` -- Represents any letter or the underscore
+`digit` -- Stands for any digit
+`|` -- This stands for the union
+`*` -- 0 or more occurences
+
+The juxtaposition of `letter_` with the other parts of the expression implicitly represents concatenation
+
+Any regular expression `r` represents a language `L(r)`. The rules of regular expressions can be derived using some fancy induction which we don't need to go over.
+
+Some precedence rules:
+
+* The unary operator `*` has highest precedence and is left associative.
+* Concatenation has second highest precedence and is left associative.
+* `|` has lowest precedence and is left associative.
+
+This means that `(a)|((b)*(c))` is the same as `a|b*c`.
+
+## Regular Definitions
+
+Sometimes we want to give regular expressions names. Like this:
+
+$$
+\begin{aligned}
+& d_{1} \rightarrow r_{1} \\
+& d_{2} \rightarrow r_{2} \\
+& ... \\
+& d_{n} \rightarrow r_{n}
+\end{aligned}
+$$
+
+Where $d_{n}$ is some symbol not in the relevant alphabet, and $r_{n}$ is some regular expression concerning the relevant alphabet.
+
+Example: C identifiers
+
+$$
+\begin{aligned}
+& letter\_ \rightarrow A\ |\ B\ |\ \cdot \cdot \cdot \ |\ Z\ |\ a\ |\ b\ |\ \cdot \cdot \cdot\ |\ z\ |\ \_\ \\
+& digit \rightarrow 0\ |\ 1\ |\ \cdot \cdot \cdot \ |\ 9\ \\
+& id \rightarrow letter\_\ (\ letter\_\ |\ digit\ )*
+\end{aligned}
+$$
+
+## Regular Expression Extensions
+
+After Kleene introduced regular expressions with basic operators such as union, concatenation, and Kleene closure. extensions have been added. These extensions have been incorporated into software such as Unix utilties (`lex`) that are useful for lexical analyzers.
+
+* `+` -- One or more instances
+* `?` -- Zero or one instance
+* $[a_{1}a_{2} \cdot \cdot \cdot a_{n}]$ -- Character class. Shorthand for $a_{1}\ |\ a_{2}\ |\ \cdot \cdot \cdot\ |\ a_{n}$
+
+## Finite Automata
+
+Two types:
+
+**NFA** -- *Nondeterministic finite automata* can have states which have several transitions for several input symbols, and the empty string $\epsilon$ is a possible transition. 
+**DFA** -- *Deterministic finite automata* has states that only have one transition per input symbol, and the empty string $\epsilon$ is not a possible transition. Set of DFAs is a subset of all NFAs.
+
+## References
+
+[Dragon Book](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)

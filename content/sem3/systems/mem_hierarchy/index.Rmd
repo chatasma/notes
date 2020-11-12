@@ -61,7 +61,7 @@ speeds.data <- data.frame(
     Access_Latency = c("0-1 cycles", "1-3 cycles", "~10 cycles", "~100 cycles", "~10k cycles", "~10mil cycles"),
     Unit = c("ns", "ns", "ns", "ns", "$\\mu$s", "ms")
 )
-knitr::kable(speeds.data)
+knitr::kable(speeds.data, col.names = gsub("[_]", " ", names(speeds.data)))
 ```
 
 
@@ -71,7 +71,7 @@ Have to compromise, between smaller faster costlier vs larger slower cheaper. Us
 
 One option is to manage the cache directly from the code. That's a pretty terrible idea though since then you are locked into the cache implementation from your code, and the cache would have to somehow be shared between processes. Caching is a hardware-level concern, it's the job of the **memory management unit (MMU)**. It is useful to know how it works though, so we can write code that cooperates with it.
 
-## Locailities of Reference
+## Localities of Reference
 
 * Temporal Locality
   * If data was accessed recently, it's probably gonna be accessed again.

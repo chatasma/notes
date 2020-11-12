@@ -288,7 +288,7 @@ Triggering events can include **insert**, **delete**, or **update**. Triggers ca
 
 Triggers can be activated before the event actually happens, to prevent invalid updates or modify it so it is valid.
 
-  - For example, if a grade is set to $\texttt{F}$ for a student, we could have a trigger that updates their $\texttt{tot\_creds}$ so that their credit hours reflect the change.
+  - For example, if a grade is set to $\texttt{F}$ for a student, we could have a trigger that updates their `tot_creds` so that their credit hours reflect the change.
 
 ## When to not use Triggers
 

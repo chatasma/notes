@@ -1,0 +1,25 @@
+---
+title: "AC Circuits"
+date: "November 11th, 2020"
+output: pdf_document
+---
+
+## Formulas
+
+Reactance of Capacitor
+
+$$
+X_{c} = \frac{1}{\omega C}
+$$
+
+***
+
+Reactance of Inductor
+
+$$
+X_{L} = \omega L
+$$
+
+Notes:
+
+* $V_{L}(t)$ leads $I_{L}(t)$ leads by 90$^\circ$ for Generator and Inductor circuit.
