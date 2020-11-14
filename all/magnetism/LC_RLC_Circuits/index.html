@@ -427,13 +427,39 @@ summary {
 </div>
 <div id="formulas" class="section level2">
 <h2>Formulas</h2>
+<p>Maximum charge of Capacitor:</p>
+<p><span class="math display">\[
+Q_{max} = CV
+\]</span></p>
+<p>Energy in Capacitor of LC circuit:</p>
+<p><span class="math display">\[
+U_{C} = \frac{1}{2C} Q_{max}^{2} cos^{2}( \omega t + \phi ) = \frac{q^{2}(t)}{2C}
+\]</span></p>
+<p>Energy of an LC circuit at an arbitrary time:</p>
+<p><span class="math display">\[
+\frac{q^{2}(t)}{2C} + \frac{Li^{2}}{2}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><code>q(t)</code> is the capacitor charge as function of time</li>
+<li><code>i(t)</code> is the current as function of time</li>
+<li><code>L</code> is the inductance</li>
+<li><code>C</code> is the capacitance</li>
+</ul>
+<hr />
+<p>Since there is no energy disspiated in the ideal LC circuit (no resistance), the following holds true:</p>
+<p><span class="math display">\[
+U = \frac{1}{2} \frac{q^{2}}{C} + \frac{1}{2} Li^{2} = \frac{1}{2} \frac{q_{0}^{2}}{C} = \frac{1}{2} LI_{0}^{2}
+\]</span></p>
+<p>In other words, the energy that both the capacitor and inductor store (as a sum) is equal to any of the individual components (inductor/capacitor) if they held maximum charge.</p>
+<hr />
 <p>Current of an LC circuit:</p>
 <p><span class="math display">\[
 i = \pm \frac{1}{\sqrt{LC}} \sqrt{Q^{2} - q(t)^{2}}
 \]</span></p>
 <p>This can be derived using Kirchoff’s voltage law.</p>
 <hr />
-<p>Charge in inductor of an LC circuit at time t:</p>
+<p>Charge in capacitor of an LC circuit at time <code>t</code>:</p>
 <p><span class="math display">\[
 q(t) = Q cos( \omega t + \phi )
 \]</span></p>
@@ -512,6 +538,7 @@ P = V_{rms} I_{rms} cos( \phi )
 <p><a href="https://en.wikiversity.org/wiki/RLC_circuit">RLC Circuit - Wikiversity</a></p>
 <p><a href="https://courses.lumenlearning.com/boundless-physics/chapter/alternating-currents/">Lumenlearning</a></p>
 <p><a href="https://www.youtube.com/watch?v=2GvqQvohP2k">RLC Circuit Problem worked out</a></p>
+<p><a href="https://phys.libretexts.org/Bookshelves/University_Physics/Book%3A_University_Physics_(OpenStax)/Map%3A_University_Physics_II_-_Thermodynamics_Electricity_and_Magnetism_(OpenStax)/14%3A_Inductance/14.06%3A_Oscillations_in_an_LC_Circuit">Libretext on Oscillations in an LC Circuit</a></p>
 </div>
 
 
