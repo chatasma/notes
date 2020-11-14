@@ -18,6 +18,43 @@ The formulas in this section for RLC circuits will be for series RLC circuits.
 
 ## Formulas
 
+Maximum charge of Capacitor:
+
+$$
+Q_{max} = CV
+$$
+
+Energy in Capacitor of LC circuit:
+
+$$
+U_{C} = \frac{1}{2C} Q_{max}^{2} cos^{2}( \omega t + \phi ) = \frac{q^{2}(t)}{2C}
+$$
+
+Energy of an LC circuit at an arbitrary time:
+
+$$
+\frac{q^{2}(t)}{2C} + \frac{Li^{2}}{2}
+$$
+
+Where:
+
+* `q(t)` is the capacitor charge as function of time
+* `i(t)` is the current as function of time
+* `L` is the inductance
+* `C` is the capacitance
+
+***
+
+Since there is no energy disspiated in the ideal LC circuit (no resistance), the following holds true:
+
+$$
+U = \frac{1}{2} \frac{q^{2}}{C} + \frac{1}{2} Li^{2} = \frac{1}{2} \frac{q_{0}^{2}}{C} = \frac{1}{2} LI_{0}^{2}
+$$
+
+In other words, the energy that both the capacitor and inductor store (as a sum) is equal to any of the individual components (inductor/capacitor) if they held maximum charge.
+
+***
+
 Current of an LC circuit:
 
 $$
@@ -28,7 +65,8 @@ This can be derived using Kirchoff's voltage law.
 
 ***
 
-Charge in inductor of an LC circuit at time t:
+
+Charge in capacitor of an LC circuit at time `t`:
 
 $$
 q(t) = Q cos( \omega t + \phi )
@@ -138,3 +176,5 @@ Where:
 [Lumenlearning](https://courses.lumenlearning.com/boundless-physics/chapter/alternating-currents/)
 
 [RLC Circuit Problem worked out](https://www.youtube.com/watch?v=2GvqQvohP2k)
+
+[Libretext on Oscillations in an LC Circuit](https://phys.libretexts.org/Bookshelves/University_Physics/Book%3A_University_Physics_(OpenStax)/Map%3A_University_Physics_II_-_Thermodynamics_Electricity_and_Magnetism_(OpenStax)/14%3A_Inductance/14.06%3A_Oscillations_in_an_LC_Circuit)

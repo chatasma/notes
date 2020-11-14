@@ -4,6 +4,20 @@ date: "November 11th, 2020"
 output: pdf_document
 ---
 
+## AC Circuits
+
+Alternating current is what it sounds like. The current and voltage change direction constantly in an AC circuit.
+
+**Why do we use AC?** AC is very efficient in transmitting over long distances.
+
+**What's a sinusoid?** It's a sine wave, you can imagine we will come across sine waves when it comes to alternating current, given how a sine wave oscillates.
+
+**Is there a symbol for it like DC?** Yes, it has a cool sinusoid in it.
+
+```{r, fig.align="center", out.width = "100px", out.height = "100px", echo = FALSE}
+knitr::include_graphics("../../../../img/ac_symbol.png")
+```
+
 ## Generator and Resistor circuit
 
 Point of the circuit is to implement a generator that will oppose resistive dampening (LC circuits) by sustaining voltage and current oscillations.
@@ -89,3 +103,4 @@ $$
 Notes:
 
 * $V_{L}(t)$ **leads** $I_{L}(t)$ by 90$^\circ$ for Generator and Inductor circuit.
+
