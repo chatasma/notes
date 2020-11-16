@@ -506,6 +506,10 @@ V_{L_{max}} = I_{m} X_{L} = (2.35 A)(1.5 \Omega ) = 3.53 V
 <div id="summary" class="section level3">
 <h3>Summary</h3>
 <p>Generally, if you want to <strong>find a circuit parameter in an LCR circuit</strong>, you are going to <strong>want to use phasors</strong>. Use the frequency to determine the reactances of the inductor and capacitor, and then once you have those you can find the impedance of the circuit pretty easily (see equation). After you get the impedance, you can find the maximum current of the circuit, which will allow you to find any circuit parameter, at any time.</p>
+<p>Might also be worth having this formula, lets you find voltage as well if you know the phase difference for individual components.</p>
+<p><span class="math display">\[
+I = I_{max} sin( \Omega t - \phi )
+\]</span></p>
 </div>
 </div>
 <div id="formulas" class="section level2">
@@ -523,10 +527,6 @@ I_{c} = \frac{\varepsilon_{m}}{X_{C}} cos( \omega t )
 <p><span class="math display">\[
 V_{c} = \frac{Q}{C} = \varepsilon_{m} sin( \omega t )
 \]</span></p>
-<p>Notes:</p>
-<ul>
-<li><span class="math inline">\(V_{L}(t)\)</span> <strong>lags</strong> <span class="math inline">\(I_{L}(t)\)</span> by 90<span class="math inline">\(^\circ\)</span> for Generator and Capacitor circuit.</li>
-</ul>
 <hr />
 <p><strong>Concerning Generator and Inductor Circuit</strong></p>
 <p>Reactance of Inductor</p>
@@ -555,9 +555,13 @@ I_{m} = \frac{\varepsilon_{m}}{\sqrt{R^{2} + ( X_{L} - X_{C} )^{2}}} = \frac{\va
 <p><span class="math display">\[
 Z = \sqrt{R^{2} + ( X_{L} - X_{C} )^{2}}
 \]</span></p>
-<p>Notes:</p>
+</div>
+<div id="things-to-keep-in-mind" class="section level2">
+<h2>Things to keep in mind</h2>
 <ul>
 <li><span class="math inline">\(V_{L}(t)\)</span> <strong>leads</strong> <span class="math inline">\(I_{L}(t)\)</span> by 90<span class="math inline">\(^\circ\)</span> for Generator and Inductor circuit.</li>
+<li><span class="math inline">\(V_{L}(t)\)</span> <strong>lags</strong> <span class="math inline">\(I_{L}(t)\)</span> by 90<span class="math inline">\(^\circ\)</span> for Generator and Capacitor circuit.</li>
+<li><span class="math inline">\(phi\)</span> is positive when <span class="math inline">\(X_{C} &lt; X_{L}\)</span>. This can be seen from the <span class="math inline">\(tan \phi\)</span> equation.</li>
 </ul>
 </div>
 
