@@ -433,6 +433,81 @@ I_{R}R = \varepsilon_{m} sin( \omega t )
 <p>In other words, the voltage of the generator is equal to the voltage drop of the resistor.</p>
 <p>If you plot both the voltage and current for a generator and resistor circuit, they are in phase (aligned).</p>
 </div>
+<div id="analyzing-an-ac-circuit-question" class="section level2">
+<h2>Analyzing an AC Circuit Question</h2>
+<div id="problem" class="section level3">
+<h3>Problem</h3>
+<p>First, consider the following circuit:</p>
+<p><img src="data:image/png;base64,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" width="100px" height="100px" style="display: block; margin: auto;" /></p>
+<p>This circuit is composed of a generator, resistor, inductor, and capacitor.</p>
+<p>Here are relevant values:</p>
+<ul>
+<li><span class="math inline">\(\varepsilon_{m}\)</span> – 9V (Maximum Voltage of Generator)</li>
+<li><span class="math inline">\(\omega\)</span> – <span class="math inline">\(300 \frac{rad}{sec}\)</span> (Frequency of Generator)</li>
+<li>R – 2 <span class="math inline">\(\Omega\)</span> (Resistance of Resistor)</li>
+<li>L – 5 mH (Inductance of Inductor)</li>
+<li>C – 700 <span class="math inline">\(\mu F\)</span> (Capacitance of capacitor)</li>
+</ul>
+<p><strong>Question:</strong> What is the maximum voltage across the inductor, <span class="math inline">\(V_{L_{max}}\)</span>?</p>
+</div>
+<div id="explained-solution" class="section level3">
+<h3>Explained Solution</h3>
+<p>Well, first it’s important to note that <strong>any</strong> circuit problem can be done using Kirchoff’s Laws. However, this in particular is an AC circuit problem. For these problems, we take an approach that uses <strong>phasors</strong>. Phasors are a form of geometric analysis which will allow us to form an <strong>impedance triangle</strong> using the voltage drops of the individual components (resistor, inductor, and capacitor in this case). Recall that the impedance is simply the measure of opposition a circuit presents when a voltage is applied. The impedance triangle will allow us to calculate the <strong>impedance of the circuit</strong>. When the impedance of the circuit is obtained, we can essentially compute <strong>any circuit value</strong> we need, including but not limited to the <strong>phase, maximum voltages, and maximum current</strong>.</p>
+<p>So, with all that being said, it’s obvious we first want to create our impedance triangle. To construct the triangle, we first need to determine the reactances of both the inductor and capacitor. These parameters are trivial to find, as they are functions of the <strong>frequency of the generator, capacitance, and inductance</strong>. Once those numeric values are found, the geometric triangle can actually be constructed by drawing out the phasors. A valid question to ask is what the orientation of the vectors in the phasor diagram will be. These are determined by the actual phase relationships of the voltages of the components. In our scenario:</p>
+<ul>
+<li>The voltage across the inductor is going to lead the resistor by 90<span class="math inline">\(^\circ\)</span></li>
+<li>The voltage across the resistor is going to lead the capacitor by 90<span class="math inline">\(^\circ\)</span></li>
+</ul>
+<p>The phasors are then added <strong>as vectors</strong>. Since we are dealing with an LCR circuit, the vectors in question are the following:</p>
+<ul>
+<li>The resistance of the resistor</li>
+<li>The reactance of the inductor</li>
+<li>The reactance of the capacitor</li>
+</ul>
+<p>The sum of the vectors gets us the <strong>impedance of the circuit</strong>:</p>
+<p><span class="math display">\[
+\vec{Z} = \vec{R} + \vec{X_{L}} + \vec{X_{C}}
+\]</span></p>
+<p>Since we are adding these <strong>as vectors</strong>, calculating the magnitude is done as so:</p>
+<p><span class="math display">\[
+Z = \sqrt{R^{2} + ( X_{L} - X_{C} )^{2}}
+\]</span></p>
+<p>Then, the maximum current in the circuit can be calculated using the impedance value.</p>
+<p><span class="math display">\[
+I_{m} = \frac{\varepsilon_{m}}{Z}
+\]</span></p>
+<p>Then, finding the voltage across the inductor is simple – <strong>Ohm’s law</strong>. Instead of a resistance, we use a reactance. Reactance is similar to resistance, but it differs in the fact that the energy is not dissipated as heat, but rather the energy is stored in the reactance (think of inductors and capacitors).</p>
+<p><span class="math display">\[
+V_{L_{max}} = I_{m} X_{L}
+\]</span></p>
+</div>
+<div id="implementation-of-explained-solution" class="section level3">
+<h3>Implementation of Explained Solution</h3>
+<p>Find reactances of inductor and capacitor:</p>
+<p><span class="math display">\[
+X_{L} = \omega L = ( 300 \frac{rad}{sec} ) ( 0.005H ) = 1.5 \Omega
+\]</span> <span class="math display">\[
+X_{C} = \frac{1}{\omega C} = \frac{1}{( 300 \frac{rad}{sec} )(0.7 \times 10^{-3} F)} = 4.76 \Omega
+\]</span></p>
+<p>Find magnitude of circuit impedance:</p>
+<p><span class="math display">\[
+Z = \sqrt{2^{2} + 3.26^{2}} \Omega = 3.83 \Omega
+\]</span></p>
+<p>Find maximum value of current:</p>
+<p><span class="math display">\[
+I_{m} = \frac{\varepsilon_{m}}{Z} = \frac{9V}{3.83 \Omega} = 2.35 A
+\]</span></p>
+<p>Find maximum voltage of inductor:</p>
+<p><span class="math display">\[
+V_{L_{max}} = I_{m} X_{L} = (2.35 A)(1.5 \Omega ) = 3.53 V
+\]</span></p>
+<p><strong>Answer:</strong> 3.53 V</p>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>Generally, if you want to <strong>find a circuit parameter in an LCR circuit</strong>, you are going to <strong>want to use phasors</strong>. Use the frequency to determine the reactances of the inductor and capacitor, and then once you have those you can find the impedance of the circuit pretty easily (see equation). After you get the impedance, you can find the maximum current of the circuit, which will allow you to find any circuit parameter, at any time.</p>
+</div>
+</div>
 <div id="formulas" class="section level2">
 <h2>Formulas</h2>
 <p><strong>Concerning Generator and Capacitor Circuit</strong></p>
