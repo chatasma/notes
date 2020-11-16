@@ -128,6 +128,12 @@ $$
 
 Generally, if you want to **find a circuit parameter in an LCR circuit**, you are going to **want to use phasors**. Use the frequency to determine the reactances of the inductor and capacitor, and then once you have those you can find the impedance of the circuit pretty easily (see equation). After you get the impedance, you can find the maximum current of the circuit, which will allow you to find any circuit parameter, at any time.
 
+Might also be worth having this formula, lets you find voltage as well if you know the phase difference for individual components.
+
+$$
+I = I_{max} sin( \Omega t - \phi )
+$$
+
 ## Formulas
 
 **Concerning Generator and Capacitor Circuit**
@@ -149,10 +155,6 @@ Voltage for Capacitor
 $$
 V_{c} = \frac{Q}{C} = \varepsilon_{m} sin( \omega t )
 $$
-
-Notes:
-
-* $V_{L}(t)$ **lags** $I_{L}(t)$ by 90$^\circ$ for Generator and Capacitor circuit.
 
 ***
 
@@ -196,7 +198,8 @@ $$
 Z = \sqrt{R^{2} + ( X_{L} - X_{C} )^{2}}
 $$
 
-Notes:
+## Things to keep in mind
 
 * $V_{L}(t)$ **leads** $I_{L}(t)$ by 90$^\circ$ for Generator and Inductor circuit.
-
+* $V_{L}(t)$ **lags** $I_{L}(t)$ by 90$^\circ$ for Generator and Capacitor circuit.
+* $phi$ is positive when $X_{C} < X_{L}$. This can be seen from the $tan \phi$ equation.
