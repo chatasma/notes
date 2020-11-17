@@ -1,0 +1,101 @@
+---
+title: "AC Circuits: Resonance and Power"
+date: "November 16th, 2020"
+output: pdf_document
+---
+
+What this section is about:
+
+* Resonance
+* Power
+* Transformers
+
+## Some Review from AC Circuits
+
+Properties of Phase:
+
+* $\phi$ is positive when $X_{L} > X_{C}$ ($I$ lags $\varepsilon$)
+* $\phi$ is negative when $X_{L} < X_{C}$ ($I$ leads $\varepsilon$)
+
+## Resonance
+
+$I_{m}$ is maxed out when:
+
+* $\omega$ = $\omega_{0}$
+* $Z$ (impedance) is minimized ($X_{L} = X_{C}$)
+* $\omega_{0} = \frac{1}{\sqrt{LC}}$
+* Maximum current is delivered to the circuit when **the driving frequency is set to the natural frequency of the corresponding LC circuit**.
+  * At this frequency it is as if the resistor is the only element present.
+  * The current through the resistor would also be at phase with the generator.
+  * $\phi$ is 0 when in resonance
+
+## Formulas
+
+"Frequency dependence of the maximum current"
+
+$$
+cos( \phi ) = \frac{1}{\sqrt{1+Q^{2} \frac{( x^{2} - 1 )^{2}}{x^{2}}}}
+$$
+
+$$
+I_{m} = \frac{\varepsilon_{m}}{R} \frac{1}{\sqrt{1+Q^{2} \frac{( x^{2} - 1 )^{2}}{x^{2}}}}
+$$
+
+Where:
+
+$x$ is...
+
+$$
+x = \frac{ \omega }{ \omega_{0} }
+$$
+
+$\omega_{0}$ is...
+
+$$
+\omega_{0} = \frac{1}{\sqrt{LC}}
+$$
+
+$Q^{2}$ is...
+
+$$
+Q^{2} = \frac{L}{R^{2} C}
+$$
+
+***
+
+Average Power per Cycle
+
+$$
+P_{generator} = P_{resistor} = \frac{1}{2} I_{m} \varepsilon_{m} cos( \phi ) = \varepsilon_{rms} I_{rms} cos( \phi ) = \frac{\varepsilon_{rms}^{2}}{R} cos^{2}( \phi )
+$$
+
+Notes:
+
+* Power of generator is equal to power of resistor
+* $cos ( \phi )$ is also known as power factor.
+* $rms$ is Root Mean Squared
+
+***
+
+*Transformer Equations*
+
+$$
+V_{S} = \frac{N_{S}}{N_{P}} V_{P}
+$$
+
+$$
+I_{P} = \frac{N_{S}}{N_{P}} I_{S}
+$$
+
+Where:
+
+* $V_{S}$ is the induced voltage in the secondary coil
+* $V_{P}$ is the voltage of the generator for the primary coil
+* $N_{P}$ is the number of turns in the primary coil
+* $N_{S}$ is the number of turns in the secondary coil
+* $I_{P}$ is current of primary coil
+* $I_{S}$ is current of secondary coil
+
+Notes:
+
+* Transformer only works for changing currents. Induced voltage of secondary coil for DC is 0 since there will not be any change in flux.

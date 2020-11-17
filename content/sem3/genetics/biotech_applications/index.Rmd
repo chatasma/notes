@@ -1,0 +1,112 @@
+---
+title: "Biotechnology Applications"
+date: "November 16th, 2020"
+output: pdf_document
+---
+
+* Biopharmaceuticals
+  * Insulin
+* Agriculture: Modifying Crops
+  * Glyphosate Resistance
+  * Nutritional Enhancement
+* Forensics
+  * STR Profiles
+  * Cases
+* Gene Editing
+  * CRISPR
+
+## What is Biotechnology?
+
+**Biotechnology** is "any technological application that uses biological systems, living organisms, or derivatives thereof, to make or modiy products or processes for specific use".
+
+## Insulin
+
+* First used in 1922 to treat Type I diabetes.
+* Extracted and purified from pancrease glands of animals (cows, pigs, horses).
+* Eli Lilly started large scale production of highly purified insulin in 1923
+* By 1970, insulin production was large scale.
+* By 1977, Lilly contracted competing institutions to use recombinant DNA technology to produce insulin.
+
+## Making Insulin: 1970s
+
+* **8000 pounds** of pancreas glands needed to make **1 pound** of insulin.
+* Required 56 million animals per year.
+
+## Cloning the Insulin Gene
+
+* Insulin is a portein hormone with 51 amino acids on two different polypeptide chains.
+* The chains are held together by disulfide bonds.
+* Making eukaryotic proteins in bacterial hosts is difficult since bacteria doesn't work well with eukaryotic proteins.
+
+## Biotechnology and Crop Plants
+
+Usages:
+
+* Herbicide Resistance
+* Nutritional Enhancement
+* Disease Resistance
+* Cold Resistance
+
+## Gene for Glyphosate Resistance
+
+* EPSP synthase, an enzyme important in amino acid biosynthesis, is cloned from resistance strain of _E. coli._ and the gene is transferred to corn and soybeans.
+* High levels of EPSP synthase make cell resistant to glyphosate, a herbicide that inhibits EPSP synthase.
+
+## Nutritional Enhancement
+
+* Vitamin A deficiency is the **leading cause** of childhold blindness in 118 countries.
+* 140-180 million children are affected
+* 500,000 go blind every year, die in 1 year.
+* 600,000 women die from childborth complications, most of which are curable with Vitamin A.
+* Golden Rice Project offers a partial solution to this problem.
+  * Approach consists of introducing necessary enzymes to enable rice grains to process precursor molecules present in the grain.
+  * This serves as a $\beta$-Carotene pathway, which is the vitamin A precursor.
+
+## Biotechnology in Forensics
+
+* Forensics is the use of science and technology to investigate and establish facts in criminal or civil courts of law.
+* Typically involves recovery and analysis of biological samples.
+* Palo Verde tree case
+  * Two seed pods found in bed of Mark Allen Bogan's truck
+  * Geneticist matched seeds to a palo verde tree, which was at the site where Denise Johnson was strangled. 
+
+## STR DNA Profiling
+
+STRs (short trandem repeats) are repeats of base pairs (2-9 in length) repeated 7-40 times. Each cluster is a heritable allele.
+Hundreds of STR loci are present **in the human genome**.
+FBI and other law enforcement selected 13 of the STR loci to be used as a set for forensic analysis. The markers are known as the **CODIS** panel (**CO**mbined **D**NA **I**ndex **S**ystem)
+
+## DNA Profiles: Methodology
+
+* Each primer set is tagged with fluorescent dyes.
+* After the DNA is amplified, there are large amounts of the fluorescently labeled primer sets.
+
+## Phylogenetic Analysis and HIV
+
+* An AIDS patient with no known risk factors had an invasive procedure done by an HIV positive dentist.
+* There were 6 others who were also infected.
+* Envolopne genes from each patient and HIV positive controls were analyzed by:
+  * amino acid signature
+  * phylogenetic analysis
+  * genetic distance measurements
+* 5/6 patients were infected by the dentist
+* There are shared evolutionary relationships in the DNA sequence. These are used in **Phylogenetic Tree Analysis**.
+
+## Gene Editing Systems
+
+* Zinc finger nucleases (ZFNs)
+  * Combines a zinc-finger DNA binding protein with a DNA-cutting enzyme. Each protein can then be synthesized to recognize the zinc-finger and cut the nuclease at specific sites
+* TALENs
+  * TAL subunits can be assembled to recognize any DNA sequence of choice. Coupled with a DNA-cutting enzyme to form TALEN. TALENs can then recognize and cut at specific sequences.
+* CRISPR/Cas
+  * CRISPR is an RNA with one end that binds to any DNA sequence of choice, the other binds to a DNA-cutting enzyme.
+* In each system, DNA at cut sides can be modified, deleted, or replaced in specific ways.
+
+## CRISPR/Cas systems
+
+* Help bacteria resist viral infection.
+* **C**lusted **R**egular **I**nterspaced **P**alindromic **R**epeat.
+* Simple two component system
+  * Guide RNA (sgRNA) with a target finding sequence and a duplex structure that binds to Cas.
+  * Cas9 an endonuclease that makes double stranded cuts in DNA at target site.
+
