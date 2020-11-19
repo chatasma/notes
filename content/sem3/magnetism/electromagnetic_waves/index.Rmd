@@ -1,0 +1,77 @@
+---
+title: "Displacement Current and Electromagnetic Waves"
+date: "November 18th, 2020"
+output: pdf_document
+---
+
+## Formulas
+
+Maxwell's Equations
+
+*Gauss' Law for E fields*
+
+$$
+\oint \vec{E} \cdot d\vec{A} = \frac{Q_{enclosed}}{\epsilon_{0}}
+$$
+
+*Gauss' Law for B fields*
+
+$$
+\oint \vec{B} \cdot d\vec{A} = 0
+$$
+
+*Faraday's Law*
+
+$$
+\oint \vec{E} \cdot d\vec{l} = - \frac{d}{dt} \int \vec{B} \cdot d\vec{A}
+$$
+
+*Ampere's Law* (**not modified**)
+
+$$
+\oint \vec{B} \cdot d\vec{l} = \mu_{0} I_{enclosed} + ???
+$$
+
+***
+
+Displacement Current
+
+$$
+I_{D} = \epsilon_{0} \frac{d \Phi_{E}}{dt}
+$$
+
+***
+
+Modified Ampere's Law
+
+$$
+\oint \vec{B} \cdot \vec{dl} = \mu_{0} ( I + I_{D} )
+$$
+
+***
+
+Wave Review
+
+* Amplitude -- $A$
+* Wave Number -- $k = \frac{2 \pi}{\lambda}$
+* Wavelength -- $\lambda$
+* Angular Frequency -- $\omega = \frac{2 \pi}{T}$
+* Period -- $T$
+* Frequency -- $f = \frac{1}{T}$
+* Velocity -- $v = \lambda f = \frac{\omega}{k}$
+
+***
+
+Other
+
+$$
+B_{y} = \frac{k}{ \omega } E_{0} cos( kz - \omega t )
+$$
+
+$$
+B_{0} = \frac{E_{0}}{c}
+$$
+
+$$
+c = 3 \times 10^{8} m/s
+$$
