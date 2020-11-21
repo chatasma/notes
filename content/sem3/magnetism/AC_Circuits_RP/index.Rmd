@@ -99,3 +99,91 @@ Where:
 Notes:
 
 * Transformer only works for changing currents. Induced voltage of secondary coil for DC is 0 since there will not be any change in flux.
+
+## Worked Out Example
+
+Consider the circuit below:
+
+```{r, fig.align="center", out.width = "100px", out.height = "100px", echo = FALSE}
+knitr::include_graphics("../../../../img/example_acrp_problem.png")
+```
+
+It is composed of a generator, a resistor, an inductor, and a capacitor.
+
+Here are some values associated with this problem:
+
+* $\varepsilon_{m}$ = 100 V
+* $L$ = 3 mH
+* $C$ = 5 $\mu$F
+* $I_{m}( \omega_{0} )$ = 4 A
+
+## Question
+
+What is the peak current, $I_{m} ( \omega_{0} / 2 )$, when the frequency is half the resonant frequency?
+
+## Scoping out the problem
+
+Since this is an AC circuit, we can usually determine any unknown circuit parameter using phasors. First, it is good to know that at the resonant frequency, the maximum peak current is reached. This is when $X_{L} = X_{C}$, in other words this is when the impedance of the circuit is solely due to the resistor (since $X_{L} - X_{C}$ is `0`, that means the impedance only depends on the resistor).
+
+## Analyzing how to tackle the problem
+
+Our plan of attack will be the following
+
+* Find the resonant frequency (by setting the reactances equal to each other)
+* Create Impedance Triangle when the frequency is half
+  * To do this, we need to know the resistance in the circuit.
+  * Determine reactances
+  * Add Phasors as Vectors
+* Find maximum current at $\omega_{0} / 2$ using the calculated Impedance value
+
+## Implementation of plan
+
+Find resonant frequency
+
+$$
+X_{L} = X_{C}
+$$
+$$
+\omega L = \frac{1}{ \omega C }
+$$
+$$
+\omega_{0} = \frac{1}{ \sqrt{LC} }
+$$
+$$
+\omega_{0} = 8165\ rad/sec
+$$
+
+Finding resistance of circuit. We know at resonant frequency this is just equal to:
+
+$$
+R = \frac{\varepsilon_{m}}{I_{m} ( \omega_{0} )} = \frac{100 V}{4 A} = 25 \Omega
+$$
+
+Find new reactances:
+
+$$
+X_{L} = 0.5 \omega_{0} C
+$$
+$$
+X_{C} = \frac{1}{0.5 \omega_{0} C}
+$$
+
+Find reactance component in impedance formula:
+
+$$
+X_{L} - X_{C} = -36.7 \Omega
+$$
+
+Find max current at $\omega_{0} / 2$:
+
+$$
+I_{max} = \frac{\varepsilon_{m}}{Z} = 2.25 A
+$$
+
+Problem solved! Let's summarize what we did so this might help for future problems:
+
+* As an AC circuit problem (LCR), we can use phasors
+* Understand properties of circuit when the frequency is at the resonant frequency
+  * The reactances are equal to each other
+  * The resistance can be found using the maximum current at resonant frequency and maximum voltage.
+* Using impedance triangle, we can find any circuit parameter
