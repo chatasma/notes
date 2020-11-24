@@ -1,0 +1,185 @@
+---
+title: "Properties Of Electromagnetic Waves"
+date: "November 23rd, 2020"
+output: pdf_document
+header-includes: \usepackage{siunitx}
+---
+
+## E and B in Electromagnetic Waves
+
+Let's talk about the relationship between electric and mangetic fields in a electromagnetic wave. Consider a plain harmonic wave:
+
+* Assume the electric field only has an x-component:
+$$
+E = E_{x} = E_{0} sin( kz - \omega t )
+$$
+  * The oscillations in space are specified by the wave number $k$ (wave number).
+  * The oscillations in time are specified by $\omega$ (angular frequency).
+  * These quantities are related by the velocity of the wave, which is given below
+  $$
+  c = \frac{\omega}{k} = \frac{1}{\sqrt{\mu_{0} \varepsilon_{0}}}
+  $$
+  * If the wave travels in the positive z direction, there is a magnetic field produced in the positive y direction. It is in phase with the electric field.
+  $$
+  B_{y} = B_{0} = sin ( kz - \omega t )
+  $$
+  * Notice that the value of E and B are independent of the x and y values.
+
+## Magntidues of Electric and Magnetic Field
+
+The magnitudes of the magnetic and electric field of an electromagnetic wave are related by:
+
+$$
+E = cB
+$$
+
+## Electromagnetic Spectrum
+
+There exist electromagnetic waves that span 20 orders or more of magnitude -- the spectrum varies in wavelength (and hence frequency). Different types of waves include:
+
+* On the high wavelength / low frequency end ($10^{9}$ Hz), radio waves
+* In the middle / normal-ish ($10^{15}$ Hz), visible light
+* On the low wavelength / high frequency end (> $10^{21}$ Hz), gamma waves
+
+## The Doppler Shift
+
+The Doppler Shift is the fact that an observer will observe a higher frequency of electromagnetic waves as the distance between the observer and the source of the waves decreases.
+
+See **Formulas** for some insight on the key formula related to this section.
+
+## Energy in Electromagnetic Waves
+
+Electromagnetic waves have energy. How do we know? Well they produce electric and magnetic fields, and we know the energy densities in those fields (see *Formulas*). As a result, we can find out the energy of an electromagnetic wave at a given point and a given time.
+
+Using some math, we can find out that the energy density of the magnetic field is equal to energy density of the electric field. Thus, the total energy is:
+
+$$
+\mu = 2 * \mu_{E} = 2 * \frac{1}{2} \varepsilon_{0} E^{2} = \varepsilon_{0} E^{2}
+$$
+
+This equation and more are provided in the *Formulas* section
+
+## An Example
+
+Sunlight Intensity on Earth
+
+$$
+I = 100 \frac{mW}{cm^{2}} = 1 \frac{kW}{m^{2}}
+$$
+
+Sunlight Electric Field Strength
+
+$$
+E^{2}_{rms} = \mu_{0} c I
+$$
+
+$$
+E_{rms} = 614 \frac{V}{m}
+$$
+
+Impedance of Free Space
+
+$$
+Z_{0} = \mu_{0} c = 377 \Omega
+$$
+
+## Photons
+
+How is energy transported in E-M waves? **Photons**. These are the quanta of electromagnetic radiation; photons are quantum objects that exhibit properties of waves and particles.
+
+Photons exhibit an energy proportional to their frequency:
+
+$$
+E = hf
+$$
+
+Photons also carry momentum:
+
+$$
+p = \frac{E}{c} = \frac{h}{\lambda}
+$$
+
+Where:
+
+* $h$ is Planck's Constant ($1.24 \times 10^{-6} eV \cdot m$)
+
+## Formulas
+
+Velocity
+
+$$
+c = \frac{\omega}{k} = \frac{1}{\sqrt{\mu_{0} \varepsilon_{0}}} = \frac{E_{0}}{B_{0}} = 3 \times 10^{8} m/s
+$$
+
+Doppler Shift
+
+$$
+f' = f \sqrt{\frac{1 \pm \beta}{1 \mp \beta}}
+$$
+
+Where:
+
+* $f'$ is the frequency observed
+* $f$ is the source frequency
+* $\beta$ is defined as
+$$
+\beta = \frac{v}{c}
+$$
+
+Notes:
+
+* The top signs of the $\pm$ and $\mp$ symbols correspond to when the distance decreases. Vice versa for the bottom signs.
+* Consequently, the frequency increases if distance decreases, and vice versa.
+* The magnitude of the shift depends only on the relative velocity $v$.
+* When $\beta$ << 1 (<< denotes "much less than"):
+
+$$
+f' \approx f (1 \pm \beta )
+$$
+
+Energy of an electric field:
+
+$$
+\mu_{E} = \frac{1}{2} \varepsilon_{0} E^{2}
+$$
+
+Energy of a magnetic field:
+
+$$
+\mu_{B} = \frac{1}{2} \frac{B^{2}}{\mu_{0}}
+$$
+
+Energy of electromagnetic wave:
+
+$$
+\mu = \varepsilon_{0} E^{2}
+$$
+
+Average Energy Density
+
+$$
+\langle u \rangle = \frac{1}{2} \varepsilon_{} E_{0}^{2}
+$$
+
+Intensity (Average power per area)
+
+$$
+I = \frac{1}{2} c \varepsilon_{0} E_{0}^{2}
+$$
+
+Poynting Vector (Instantaneous power per wave per unit area)
+
+* Vector
+$$
+\vec{S} \equiv \frac{\vec{E} \times \vec{B}}{\mu_{0}}
+$$
+
+* Magnitude
+$$
+S = c \varepsilon_{0} E^{2}
+$$
+
+* Average Magnitude
+$$
+\langle S \rangle = I
+$$
