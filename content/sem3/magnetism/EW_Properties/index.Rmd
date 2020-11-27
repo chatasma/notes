@@ -103,6 +103,66 @@ Where:
 
 * $h$ is Planck's Constant ($1.24 \times 10^{-6} eV \cdot m$)
 
+## Example
+
+A wave's magnetic field vector formula is given below.
+
+$$
+\vec{B} = (5 \mu T) sin ( ky - \omega t) \vec{z}
+$$
+
+### Question
+
+What is the vector expression for the corresponding Electric Field?
+
+### Conceptual Analysis
+
+* Speed of waves is $3 \times 10^{8}$ m/s.
+* Oscillations in E are in phase with B.
+* $\frac{E_{0}}{B_{0}} = c$
+
+### Strategic Analysis
+
+* Determine magnitude of electric field
+* Determine direction of electric field oscillations from the direction of:
+  * magnetic field oscillations
+  * propagation of wave
+
+### Implementation
+
+Determine magnitude of electric field
+
+$$
+E_{0} = c B_{0} = ( 3 \times 10^{8} ) ( 5 \times 10^{-6} )
+$$
+
+$$
+E_{0} = 1500 N/C
+$$
+
+Determine direction of the propagation of the wave: from the magnetic field oscillation formula we see it is in the *positive y direction*.
+
+We can find the electric field due to the fact that $\vec{E} \times \vec{B}$ points in the direction of propagation. Thus, the direction of the electric field points in the *negative x* direction.
+
+The vector expression for the corresponding Electric Field is then:
+
+$$
+\vec{E} = ( 1500 N/C ) sin ( ky - \omega t ) ( - \hat{x} )
+$$
+
+### Review
+
+This problem was just a reflection on how the electric and magnetic fields are related for an electromagnetic wave. This relationship is due to Faraday's and Ampere's law.
+
+$$
+\frac{E_{0}}{B_{0}} = c
+$$
+
+It is also worth noting that we knew the phase of the electric field and magnetic field were in phase with each other since this was an electromagnetic wave.
+
+We also knew that $\vec{E} \times \vec{B}$ gave us the direction of propagation for the wave, which was needed to determine the direction of the final vector.
+
+
 ## Formulas
 
 Velocity
