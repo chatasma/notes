@@ -1,0 +1,31 @@
+---
+title: "Evolution and the Human Genome"
+date: "December 2nd, 2020"
+output: pdf_document
+---
+
+## Speciation
+
+* Reduced gene flow between population leads to genetic divergence from mutation, natural selection, and drift.
+* The genetic divergence may eventually lead to **speciation**.
+* Usually, speciation creates two or more distinct species from one ancestral group.
+* Defined by reproductive isolation, independent branches on phylogenetic tree.
+
+* Speciation creates evolutionarily independent populations
+* Defining a Species
+  * **Biological**: Reproductively isolated; do not interbreed or fail to produce fertile offspring
+  * **Morphological**: structural features (size, shape, etc.)
+  * **Phylogenetic**: reconstruction of evolutionary history (descent from common ancestor)
+
+## Reproductive Isolation
+
+* Reduced gene flow, selection, drift can lead to formation of new species.
+* Speciation results in formation of reproductive isolating mechanisms:
+* Prezygotic isolating mechanisms
+  * Prevent mating from taking place.
+* Postzygotic isolating mechanisms
+  * Create reproductive isolation even when members of two population mate with each other.
+
+## Average time for Speciation
+
+Average time is like 100k to 10 mil years.

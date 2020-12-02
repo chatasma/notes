@@ -1,0 +1,60 @@
+---
+title: "Parsing"
+date: "November 30th, 2020"
+output: pdf_document
+---
+
+The parsing problem for a grammar is finding a parse tree or a derivation for a sequence of tokens for the grammar. A **parser** is said to be an algorithm that solves that problem. A parser finds a derivation *implictly*.
+
+How does a parser work?
+
+## FIRST and FOLLOW
+
+
+The `FIRST` and `FOLLOW` functions are important functions for top-down and bottom-up parsers. The output of each function is a set. $FIRST(\alpha)$ is defined as the set of terminals that begin strings derived from $\alpha$. 
+
+Rules for computing `FIRST`:
+
+* If $X$ is a terminal, $FIRST(X) = {X}$
+* If $X$ is a nonterminal, and $X \rightarrow Y_{1}Y{2} ... Y_{k}$ for some $k \geq 1$ then we can place a symbol $a$ if:
+  * The symbol $a$ appears for some $i$, where $i \leq k$.
+  * If $\epsilon$ appears for all $1 \leq i \leq i - 1$, or $i = 1$.
+* Assuming the previous conditions (If $X$ is a nonterminal, and $X \rightarrow Y_{1}Y_{2} ... Y_{k}$), if $\epsilon$ appears for all $i$ for $1$ to $k$, then add $\epsilon$ to $FIRST(X)$ 
+* If $X \rightarrow \epsilon$ is a production, add $\epsilon$ to $FIRST(X)$
+
+Rules for computing `FOLLOW` (specifically, $FOLLOW(A)$ in these rules):
+
+If $A$ in $FOLLOW(A)$ is the start symbol, place $\$$ in $FOLLOW(S)$. $\$$ signifies the input rightend marker.
+If there is a production $A \rightarrow \alpha B \beta$, then everything from $FIRST(\beta)$, except for $\epsilon$, is in $FOLLOW(B)$
+If there is a production $A \rightarrow \alpha B$, or a production $A \rightarrow \alpha B \beta$, where $FIRST(\beta)$ contain $\epsilon$, then everything in $FOLLOW(A)$ is in $FOLLOW(B)$
+
+## Top-Down Parsers
+
+Top-down parsers start from the start nonterminal and form the parse tree, top-down. It uses a **lookahead token**, a single token that can be used to determine between grammar rules. 
+
+Top-down parsers are also called *predictive parsers* because of the lookahead token used.
+
+What do we do in the case that the single lookahead token is not enough information to resolve the ambiguity? In example:
+
+$$
+E \rightarrow T
+E \rightarrow T + E
+$$
+
+We can left-factor the $T$ out:
+
+$$
+E \rightarrow T R
+R \rightarrow \epsilon
+R \rightarrow + E
+$$
+
+Now the lookahead token can figure out what's up.
+
+# Bottom-Up Parsing
+
+A bottom-up parser builds a parse tree from the bottom up. Start with the tokens given, and figure out what productions produce the token.
+
+## References
+
+[ECU Notes](http://www.cs.ecu.edu/karl/5220/spr16/Notes/Parsing/parsers.html)
