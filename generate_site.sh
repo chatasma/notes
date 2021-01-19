@@ -3,16 +3,17 @@
 base_dir="$(pwd)"
 target_dir="$(pwd)/public"
 target_content="${target_dir}/all"
+target_semesters=("sem4")
 
-if [ -d $target_dir ]; then
-    rm -r $target_dir
-fi
+# if [ -d $target_dir ]; then
+#     rm -r $target_dir
+# fi
 
 mkdir $target_dir 
 mkdir $target_content
 
 cd content
-for semester in */ ; do
+for semester in ${target_semesters[@]} ; do
     cd ${semester}
     echo "Semester: ${semester}"
     echo "----------"

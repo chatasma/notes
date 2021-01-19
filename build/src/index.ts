@@ -15,6 +15,8 @@ const templatesPath = argv[4];
 const notesSubdirName = "all";
 const publicContentPath = path.join(publicPath, notesSubdirName);
 
+const targetSemesters : string[] = ["sem4"];
+
 interface ResourceIdentity {
     full_name: string;
     access_path: string;
@@ -33,6 +35,7 @@ const courses : Course[] = [];
 (async () => {
     const semesterNames = fs.readdirSync(contentPath, "utf-8");
     for (let semesterName of semesterNames) {
+        if (!targetSemesters.includes(semesterName)) continue;
         const semesterPath = path.join(contentPath, semesterName);
         const semesterFileStat = fs.statSync(semesterPath);
         if (!semesterFileStat.isDirectory()) continue;
