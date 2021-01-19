@@ -1,7 +1,7 @@
 #!/bin/bash
 
 base_dir="$(pwd)"
-target_dir="$(pwd)/public"
+target_dir="$(pwd)/../notes_build"
 target_content="${target_dir}/all"
 target_semesters=("sem4")
 
@@ -49,4 +49,4 @@ cd $base_dir
 cp ./templates/welcome.html ${welcome_page}
 
 # Main page
-node build/ ./content/ ./public/ ./templates/
+node build/ ./content/ ../notes_build/ ./templates/
