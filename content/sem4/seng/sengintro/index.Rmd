@@ -1,0 +1,95 @@
+---
+title: "Introduction to Software Engineering"
+date: "January 19th, 2021"
+output: pdf_document
+---
+
+* Professional Software Development
+  * What is meant by software engineering.
+* Software engineering ethics
+  * A brief introduction to ethical issues that affect Software Engineering.
+* Case Studies
+  * An introduction to three examples that are used in later chapters of the book
+
+## Software Engineering
+
+**Software engineering** is an engineering discipline concerned with all aspects of the software production cycle, from the early stages of specification to maintaining the system after it is actually being used.
+
+**Engineering discipline** -- Using appropriate theroies and methods to solve the problems at hand, keeping in mind constraints that can be organizational, financial, or something else.
+
+**All aspects of software production** -- The technical parts are a minor detail in this class. Project management, the development of tools, methods to support software production are all important for Software Engineering.
+
+## Importance of Software Engineering
+
+* Lots of people rely on technology, especially software, nowadays. It is important therefore to create reliable and trustworthy systems economically and quickly.
+* In the long run, it is very worth investing in to using software engineering methods. If you were to treat it as a personal project, costs will usually follow on being able to change the software. Being able to maintain the software after it has gone in to use is critical.
+
+
+## Software Process Activities
+
+* Software Specification
+  * Customers and engineers define what software is needed to be produced and its respective constraints.
+* Software development
+  * This is where the software is desgined and programmed.
+* Software validation
+  * Making sure the software is actually what the customer wanted
+* Software evolution
+  * Modifying the software to adapt to changing customer and market needs.
+
+## General Issues that affect Software
+
+* Heterogeneity
+  * More and more systems are required to operate on distributed systems, across networks. This includes different types of computer and mobile devices.
+* Business and social change
+  * Business and societies change, and the software needs to reflect the changes. To be able to change the existing software and rapidly develop new software is not a trivial task.
+* Security and trust
+  * We need to be able to trust the software
+
+## Application Types
+
+* Stand-alone applications
+  * Application systems that usually run as standalone executables. They include all the necessary functionality and do not need to be connected to a network.
+* Interactive transaction-based applications
+  * These applications execute on a remote computer and are accessed by users from their own PCs or terminals. They include web apps such as e-commerce applications.
+* Embedded control systems
+  * There are ALOT of embedded systems, which are software control systems that control and manage hardware devices.
+* Batch processing systems
+  * Business systems that are designed to process large amounts of data, and create corresponding outputs.
+* Entertainment systems
+  * Systems primarily for personal use, like games
+* Systems for modeling and simulation
+  * Systems developed by scientists and engineers to model physical processes or situations which can include many, separate, interacting objects
+* Data collection systems
+  * Systems that collect data from their environment using sensors, and then send that data to other systems for processing
+* Systems of systems
+  * Systems that are composed of a number of other software systems
+
+## Software Engineering Diversity
+
+* There are a great amount of types of software systems. Thus, there are no universal set of software techniques that is applicable to all of them.
+* The software engineering methods and tools used depend on the type of application, the requirements of the customer, and the background of the development team.
+
+## Software Engineering Fundamentals
+
+There are fundamental principles that apply to all types of software systems, regardless of the development techniques used.
+
+* Systems should be developed using a managed understood development process.
+* Dependability and performance are important for any system
+* Understanding and managing the software specification and requirements are important
+* When appropriate, reuse software that has already been developed instead of writing new software
+
+## Software Engineering Ethics
+
+* Being honest and ethically responsible is necessary as a software engineer
+* Following principles that are morally right is important
+
+## Issues of Professional Responsibility
+
+* Confidentiality
+  * Respecting the confidentiality of employers/clients is understood to be necessary. 
+* Competence
+  * Engineers shouldn't do work they know is out of reach of their competence.
+* IP (Intellectual Property) rights
+  * Engineers should be aware of laws governing the use of IP and ensure the IP of employers/clients is protected
+* Computer misuse
+  * Engineers should not use their technical skills to misuse other computers.
