@@ -15,7 +15,7 @@ const templatesPath = argv[4];
 const notesSubdirName = "all";
 const publicContentPath = path.join(publicPath, notesSubdirName);
 
-const targetSemesters : string[] = ["sem4"];
+const targetSemesters : string[] = ["sem3", "sem4"];
 
 interface ResourceIdentity {
     full_name: string;

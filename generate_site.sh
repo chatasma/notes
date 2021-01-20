@@ -3,7 +3,7 @@
 base_dir="$(pwd)"
 target_dir="$(pwd)/../notes_build"
 target_content="${target_dir}/all"
-target_semesters=("sem4")
+target_semesters=("sem3" "sem4")
 
 # if [ -d $target_dir ]; then
 #     rm -r $target_dir
