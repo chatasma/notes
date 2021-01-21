@@ -1,32 +1,43 @@
 #!/bin/bash
 
+function join_by { local IFS="$1"; shift; echo "$*"; }
+
 base_dir="$(pwd)"
-target_dir="$(pwd)/../notes_build"
+source_content="${base_dir}/content"
+target_dir="$(pwd)/public"
 target_content="${target_dir}/all"
-target_semesters=("sem3" "sem4")
+
+selected_semesters=(4)
+
+semesters_joined=$(join_by "," "${selected_semesters[@]}")
+echo $semesters_joined
+target_semesters=()
+for semester_num in ${selected_semesters[@]} ; do
+    target_semesters+=("sem${semester_num}")
+done
 
 # if [ -d $target_dir ]; then
 #     rm -r $target_dir
 # fi
 
-mkdir $target_dir 
-mkdir $target_content
+mkdir -p $target_dir 
+mkdir -p $target_content
 
-cd content
+cd ${source_content}
 for semester in ${target_semesters[@]} ; do
     cd ${semester}
     echo "Semester: ${semester}"
     echo "----------"
     for course in */ ; do
         cd ${course}
-        mkdir "${target_content}/${course}"
+        mkdir -p "${target_content}/${course}"
         echo ""
         echo "Course: ${course}"
         echo "----------"
         echo ""
         for topic in */ ; do
             cd ${topic}
-            mkdir "${target_content}/${course}/${topic}"
+            mkdir -p "${target_content}/${course}/${topic}"
             echo "Compiling ${topic}..."
             make html &> /dev/null
             if [ $? -ne 0 ]; then
@@ -49,4 +60,4 @@ cd $base_dir
 cp ./templates/welcome.html ${welcome_page}
 
 # Main page
-node build/ ./content/ ../notes_build/ ./templates/
+node build/ ./content/ ./public/ ./templates/ ${semesters_joined}

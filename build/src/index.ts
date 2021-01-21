@@ -12,10 +12,11 @@ if (process.argv.length < 5) {
 const contentPath = argv[2];
 const publicPath = argv[3];
 const templatesPath = argv[4];
+const targetSemesterNums : number[] = process.argv.length >= 6 ? argv[5].split(',').map(Number) : [3, 4];
 const notesSubdirName = "all";
 const publicContentPath = path.join(publicPath, notesSubdirName);
 
-const targetSemesters : string[] = ["sem3", "sem4"];
+const targetSemesters : string[] = targetSemesterNums.map((x) => 'sem' + x);
 
 interface ResourceIdentity {
     full_name: string;
@@ -30,9 +31,25 @@ interface Course extends ResourceIdentity {
 interface Topic extends ResourceIdentity {
     dir_name: string;
 }
+
+interface CourseListing {
+    full_name: string; 
+    link_name: string;
+}
+
 const courses : Course[] = [];
 
 (async () => {
+    let courseListingMetadata : any = null;
+    try {
+        courseListingMetadata = await parseCSV(`${contentPath}/course_map.csv`);
+    } catch(e) {}
+    let courseListing : CourseListing[] = [];
+    if (courseListing != null) {
+        courseListing = courseListingMetadata.map((course_entry : Array<string>) => {
+            return {full_name: course_entry[0], link_name: `${notesSubdirName}/${course_entry[1]}/`};
+        });
+    }
     const semesterNames = fs.readdirSync(contentPath, "utf-8");
     for (let semesterName of semesterNames) {
         if (!targetSemesters.includes(semesterName)) continue;
@@ -67,7 +84,7 @@ const courses : Course[] = [];
         }
     }
 
-    const course_links = courses.map(mapIdentityToAnchor);
+    const course_links = courseListing.map(mapListingToAnchor);
     const listed_course_links = makeHTMLList(course_links);
 
     const course_listing_pattern = new RegExp("\\$'COURSE_LISTING'", "gi");
@@ -103,6 +120,10 @@ function makeHTMLList(links: string[]) : string {
     return `<ul>${links.map((elem) => `<li>${elem}</li>`).reduce((a, c) => a + c, "")}</ul>`;
 }
 
+
+function mapListingToAnchor(listing: CourseListing) : string {
+    return `<a href="${listing.link_name}">${listing.full_name}</a>`;
+}
 
 function mapIdentityToAnchor(identifier: ResourceIdentity) : string {
     return `<a href="${identifier.access_path}">${identifier.full_name}</a>`;
