@@ -2,6 +2,7 @@
 
 Requirements to build:
 - R (with R Markdown)
+- Pandoc
 - NodeJS
 - Bash
 
@@ -10,7 +11,7 @@ To build:
 ```
 cd build
 yarn install # or npm
-tsc
+tsc # if ts not globally installed, ./node_modules/.bin/tsc
 cd ..
 ./generate_site.sh
 ```
