@@ -39,7 +39,8 @@ for semester in ${target_semesters[@]} ; do
             cd ${topic}
             mkdir -p "${target_content}/${course}/${topic}"
             echo "Compiling ${topic}..."
-            make html &> /dev/null
+            # make html &> /dev/null
+            make html
             if [ $? -ne 0 ]; then
                 echo "There was an error compiling ${topic}. Exiting"
                 exit 1
