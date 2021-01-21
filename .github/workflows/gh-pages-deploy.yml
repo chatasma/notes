@@ -1,0 +1,42 @@
+name: gh-pages-deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Setup R
+          uses: r-lib/actions/setup-r@v1
+        - name: Installs R Markdown
+          run: |
+            Rscript -e "install.packages('rmarkdown')"
+        - name: Setup Node
+          uses: actions/setup-node@v2
+          with:
+              node-version: '12'
+        - name: Install Build Dependencies and Compile
+          run: |
+            cd build
+            npm install
+            ./node_modules/.bin/tsc
+            cd ..
+        - name: Build
+          run: |
+            chmod +x generate_site.sh 
+            ./generate_site.sh
+        - name: Deploy
+          run: |
+            git config user.name github-actions
+            git config user.name github-actions@github.com
+            mv public/ /var/tmp/notes_build
+            git clean -d -x -f
+            git checkout gh-pages
+            git reset --hard HEAD
+            git rm -r *
+            mv /var/tmp/notes_build/* .
+            git add .
+            git commit -m "Updated GH Pages"
+            git push
