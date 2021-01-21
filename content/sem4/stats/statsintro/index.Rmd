@@ -29,3 +29,10 @@ Data
 
 * Frequency - Number of observations (i.e. 2 entries of a subinterval)
 * Relative Frequency - Percentage of observations (i.e. 2 entries of a subinterval / 40 total entries)
+
+Graphs
+
+* Histogram
+  * Plots frequencies of different intervals
+
+Sometimes we are interested in the shape of the graphed frequencies. Whether it is skewed to the left/right, symmetric, or whatever.

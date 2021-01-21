@@ -1,0 +1,85 @@
+---
+title: "Numerical Methods"
+date: "January 21st, 2021"
+output: pdf_document
+---
+After going over graphical methods in the previous section, we now go over numerical methods.
+
+* Consider a data set $n$ observations. $\{x_{1}, x_{2}, ... , x_{n}\}$
+* **Sample mean** $\bar{x}$
+$$
+\bar{x} = \frac{x_{1} + ... + x_{n}}{n} = \frac{1}{n}
+$$
+* Similarly, there exists a population mean $\mu$
+* **Sample median**, $\tilde{x}$ this is just the middle number in the dataset \
+If $n$ is odd:
+$$
+\tilde{x} = (x_{(n + 1)/2})
+$$
+If $n$ is even:
+$$
+\tilde{x} = \frac{1}{2} (x_{\frac{n}{2}} + x_{\frac{n}{2} + 1})
+$$
+* Example: $\{-3, 0, 4 \}$ \
+$$
+ \bar{x} = \frac{1}{3} (-3 + 0 + 4) = \frac{1}{3}
+$$
+$$
+\tilde{x} = 0
+$$
+
+
+* **Sample variance** denoted by $s^{2}$
+$$
+s^{2} = \frac{(x_{1} - \bar{x})^{2} + (x_{2} - \bar{x})^{2} + ... + (x_{n} - \bar{x})^{2}}{n - 1}
+$$
+
+* **Population variance** denoted by $\sigma^{2}$
+
+* **Sample standard deviation** is the square root of variance \
+$$
+s = \sqrt{s^{2}}
+$$
+
+* **Population standard deviation** is denoted by $\sigma$
+
+* **Sample range** \
+$$
+x_{max} - x_{min}
+$$
+
+* Example: $\{0, 1, 5 \}$
+  * Sample mean \
+$$
+\bar{x} = \frac{0 + 1 + 5}{3} = 2
+$$
+  * Sample variance \
+$$
+s^{2} = \frac{(0 - 2)^{2} + (1 - 2)^{2} + (5 - 2)^{2}}{3 - 1} = 7
+$$
+  * Sample standard deviation \
+$$
+s = \sqrt{7}
+$$
+
+Now we start talking about probability
+
+* Sample space and events
+  * **Set**: Collection of distinct objects
+    * Examples:
+      * NBA teams: `{ Balls, Lakers }`
+      * Fruits: `{ Kiwi, Watermelons, Orange}`
+    * **Subset**:
+      * Let A and B be two sets.
+      * Every element of A is an element of B, then A is a subset of B
+      * If B does NOT contain additional elements, then A and B are equal
+      * However, if B did contain additional elements, then A is a **proper subset** of B, because it is not equal to B and is a subset. A subset can include itself, a proper subset cannot.
+  * **Experiment**: A process that generates a set of data
+  * **Sample Space**: A set of all possible $\text{\underline{outcomes}}$ of a statistical experiment
+    * For example, for flipping a coin the *sample space* is `S = {H, T}`
+    * Consider flipping two coins, our *sample space* would be `S = {HH, HT, TH, TT}`
+    * Another example, tossing two die. The size of the sample space is $6^{2} = 36$
+      * `S = {(1, 1), (1, 2), ..., (6, 6)}`
+  * **Event**: A subset of *sample space*
+    * Considering the dice example, if the sum of the dice were 7:
+      * `E = {(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)}`
