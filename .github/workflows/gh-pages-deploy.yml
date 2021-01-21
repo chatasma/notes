@@ -42,5 +42,4 @@ jobs:
             git rm -r *
             mv /var/tmp/notes_build/* .
             git add .
-            git commit -m "Updated GH Pages"
-            git push origin gh-pages
+            git diff-index --quiet HEAD || (git commit -m "Updated GH Pages"; git push origin gh-pages)
