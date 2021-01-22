@@ -140,7 +140,7 @@ pStmt.setString(1, "888");
 pStmt.executeUpdate();
 ```
 
-`r colorize("WARNING:", "red")` **DO NOT** create SQL queries by concatening SQL.
+`r colorize("WARNING:", "red")` **DO NOT** create SQL queries by concatenating SQL.
 This can open the door for **SQL Injection**, a malicious attack. You have been
 warned. Always use PreparedStatements instead.
 
