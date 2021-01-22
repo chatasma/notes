@@ -1,0 +1,146 @@
+---
+title: "Overview"
+date: "January 22nd, 2021"
+output: pdf_document
+---
+
+## Agenda
+
+* Why do we need an OS
+* What does an OS do?
+* What are some secondary concerns?
+* How is an OS organized?
+
+## Why do we need an OS?
+
+**Question**: What would programming look like without an OS?
+
+* Consider a `hello world` program
+* Consider a complex program requiring a compiler
+* Consider a situation when we need multiple programs
+* Consider I/O
+
+## What does an OS do?
+
+**What is an operating system?**
+
+Dictionary definition:
+
+> The software that supports a computer's basic functions, such as **scheduling tasks**, **executing applications**, and **controlling peripherals**.
+
+
+* **Tasks & Applications**: These are running programs, or processes
+  * A process is a program in execution
+  * The instructions and data are stored **in memory**
+  * The instructions and fetched and executed on the **CPU**
+* **Peripherals**: I/O devices (Hardware)
+
+So the OS runs processes and access hardware:
+
+* Process**es** -- _concurrent_ execution of $\ge$ 1 program
+* Goal is to make this seamless, efficient, and robust
+
+**Problem:** CPU, memory, and I/O devices are limited resources
+
+  * It is possible that the number of current processes exceeds the number of execution cores
+  * It is possible that the total amount of memory required for our programs exceeds the physical RAM
+  * It is possible that the number of file accesses exceeds the capacity a storage device can handle
+
+For CPU and Memory, the OS's solution is to **virtualize** them.
+
+* Virtualization? Meaning, we want each process to have its own private CPU and its own memory address space
+  * The OS _allocates_ and _multiplexes_ CPU time and memory across all processes using available hardware
+
+For I/O devices, an OS may mediate access via abstract interfaces, rather than provide the virtualization
+
+* Simplify and secure I/O operations
+* e.g., uniform API for reading/writing
+  * memory mapped access to "block" devices
+
+I/O devices also enable *persistence* (i.e. non-volatile storage)
+
+* Filesystems serve as namespaces for storing and accessing data
+* Manipulating persistent data from dynamic, volatile processes can be tricky (i.e. crashing during writing to disk)
+  * Requires mechanisms to guarantee robustness
+
+Primary OS responsibilities
+
+* Virtualization
+* Concurrency
+* Persistence
+
+## Secondary concerns?
+
+Processes can run at the same time whle sharing system resources
+
+* Processes should be protected from each other, and isolated from the rest of the system.
+* Security is a related concern.
+
+Software attack vectors:
+
+* Address fabrication (trying to address memory not allocated for the process)
+* Buffer overflow (give it more bytes than it is supposed to have)
+
+Software mechanisms:
+
+* Static verification (e.g. type-checking) -- programs must "pass" to be run
+* Run-time tools (e.g. garbage collection, exception handling)
+
+Common approach to approach this from hardware are "rings" of protection:
+
+* x86 has a CPL (current privilege level) flag
+  * CPL=3 -> "user" mode
+  * CPL=0 -> "supervisor/kernel" mode
+    * Access to special instructions and hardware
+
+How to modify CPL?
+
+Q: Ok to allow the user directly modify CPL before calling OS?
+A: No, the user can set CPL to 0 and run arbitrary code
+
+Q: What about combining CPL "set instruction with "jump" instruction to force instruction pointer change?
+A: No, user can jump into their code
+
+Q: Ok, how about they have to jump into the OS?
+A: No, they can jump to anywhere in the OS
+
+* Solution on x86: `int` instruction
+  * sets the CPL to 0
+  * But, it also loads a **pre-defined** OS entry point from an _interrupt descriptor table_
+  * IDT base address can only be set when CPL=0
+    * This is by the _privileged_ `lidt` instruction
+    * Only happens during the boot process
+
+Tight integration of software & hardware permits safe, controlled jumps between running user/OS code
+
+* example of an application binary interface ("ABI")
+  * contrast this with an API
+
+Isolation is possible, but what code is run in user mode? What code is run in kernel mode?
+
+* Longstanding debate in OS design/organization
+
+## How is an OS organized?
+
+What are the top-level modules of an OS which must run in privileged/kernel mode?
+
+"Standard" OS modules:
+
+* Virtual Memory
+* Scheduler
+* Device drivers
+* File System
+* IPC
+
+Privileged modules constitute the "core" of the operating system; i.e., the **OS kernel**.
+
+Simple approach: all of them are privileged
+
+* Entire OS runs in kernel mode
+  * known as a monolitic kernel
+
+Alternative approach: _minimum_ privilege
+
+* i.e. have a _microkernel_ with a minimal set of privileged services
+  * everything else runs in user mode
+    * microkernel relays requests
