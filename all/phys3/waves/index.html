@@ -414,6 +414,147 @@ summary {
 </ul></li>
 </ul>
 </div>
+<div id="formulas" class="section level2">
+<h2>Formulas</h2>
+<p>Shape of a sinusoidal wave moving in the positive direction of an <span class="math inline">\(x\)</span> axis</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:sine_shape}
+    y(x, t) = y_{m} sin( kx - \omega t )
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(y_{m}\)</span> is the maximum displacement (amplitude) of the wave</li>
+<li><span class="math inline">\(k\)</span> is the angular wave number</li>
+<li><span class="math inline">\(\omega\)</span> is the angular frequency</li>
+<li><span class="math inline">\(kx - \omega t\)</span> is the phase</li>
+</ul>
+<p>Angular wave number in terms of the wavelength</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:wave_number}
+    k = \frac{2 \pi}{\lambda}
+\end{equation}\]</span></p>
+<p>Period <span class="math inline">\(T\)</span> and frequency <span class="math inline">\(f\)</span> of the wave are related to <span class="math inline">\(\omega\)</span> by</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:frequency_omega}
+    \frac{\omega}{2 \pi} = f = \frac{1}{T}
+\end{equation}\]</span></p>
+<p>Wave speed <span class="math inline">\(v\)</span> is related to parameters like the wavelength, frequency, angular frequency, and angular wave number by the following</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:wave_speed}
+    v = \frac{\omega}{k} = \frac{\lambda}{T} = \lambda f
+\end{equation}\]</span></p>
+<p>Wave speed <strong>across a string</strong></p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:wave_speed_string}
+    v = \sqrt{\frac{\tau}{\mu}}
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\tau\)</span> is the elastic property, or the <strong>tension</strong> in this case</li>
+<li><span class="math inline">\(\mu\)</span> is the inertial property, or the <strong>linear density</strong> in this case</li>
+</ul>
+<p>Rate of energy transmission (rate at which kinetic energy is carried along by the wave) is given by:</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:energy_transmission}
+    \frac{dK}{dT} = \frac{1}{1} \mu v \omega^{2} y^{2}_{m} cos^{2}(kx - \omega t)
+\end{equation}\]</span></p>
+<p>Average power of transverse wave</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:avg_power_transverse_1}
+    P_{avg} = 2 (\frac{dK}{dt})_{avg}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:avg_power_transverse_2}
+    P_{avg} = \frac{1}{2} \mu v \omega^{2} y^{2}_{m}
+\end{equation}\]</span></p>
+<p>Principle of superposition for waves</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:superposition_waves}
+    y&#39;(x,t) = y_{1}(x,t) + y_{2}(x,t)
+\end{equation}\]</span></p>
+<p>If the two waves are out of phase by some difference <span class="math inline">\(\phi\)</span>, the resulting amplitude by superposition is:</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:phase_diff_amplitude}
+    y&#39;(x,t) = [ 2y_{m} cos ( \frac{1}{2} \phi ) ] sin (kx - \omega t + \frac{1}{2} \phi )
+\end{equation}\]</span></p>
+<p>Notes:</p>
+<ul>
+<li>This equation can be derived using some trigonometric formulas, it is best to have it as a reference instead of actually deriving it</li>
+</ul>
+</div>
+<div id="problems" class="section level2">
+<h2>Problems</h2>
+<div id="chapter-16" class="section level3">
+<h3>Chapter 16</h3>
+<div id="question-21" class="section level4">
+<h4>Question 21</h4>
+<p>This is a problem regarding <strong>wave speed on a stretched string</strong>.</p>
+<blockquote>
+<p>A 100 g wire is held under a tension of 250 N with one end at <span class="math inline">\(x=0\)</span> and the other at <span class="math inline">\(x = 10.0m\)</span>. At time <span class="math inline">\(t = 0\)</span>, pulse 1 is sent along the wire from the end at <span class="math inline">\(x = 10.0m\)</span>. At time <span class="math inline">\(x = 30.0ms\)</span>, pulse 2 is sent along the wire from the end at <span class="math inline">\(x = 0\)</span>. At what position <span class="math inline">\(x\)</span> do the pulses begin to meet?</p>
+</blockquote>
+<p>This question asks for the position of which two waves will meet along a wire. First, let us find the speed of the waves as this will help in seeing how much distance the first wave travels, since it is sent along the wire first. For this, equation  can be used. Though, the linear density first needs to be found as a prerequisite to the equation. To find this, we divide the mass of the wire (0.1kg) by the length (10.0m). After plugging the values into equation , it turns out the speed of both of the waves are <code>158.11 m/s</code>. Now, to find the distance traveled of pulse 1, we multiply that velocity by the time elapsed before pulse 2 is sent, which is 30.0ms, or .03s.</p>
+<p>The distance traveled of pulse 1 in 30 milliseconds turns out to be 4.743m. Subtract this from 10m and it can be understood that pulse 1 is now 5.2567m displaced from the origin <span class="math inline">\(x = 0\)</span>. Now, we know pulse 2 is sent along the wire, and that both of the pulses have the same velocity. In other words, the pulses will both travel the same distance in the same amount of time. Thus, we simply divide 5.2567m by 2 to find where they will meet, and the answer is <code>2.63m</code>.</p>
+</div>
+<div id="question-27" class="section level4">
+<h4>Question 27</h4>
+<p><em>This question has a figure necessary to solve the problem, see the book for the figure</em></p>
+<p>This is a problem regarding <strong>energy and power of a wave traveling along a string</strong>.</p>
+<blockquote>
+<p>A sinusoidal wave is sent along a string with a linear density of <span class="math inline">\(2.0 g/m\)</span>. As it travels, the kinetic energies of the mass elements along the string vary. Figure 16-37a gives the rate <span class="math inline">\(dK/dt\)</span> at which kinetic energy passes through the string elements at a particular instant, plotted as a function of distance <span class="math inline">\(x\)</span> along the string. Figure 16-37b is similar except that it gives the rate at which kinetic energy passes through a particular mass element (at a particular location), plotted as a function of time <span class="math inline">\(t\)</span>. For both figures, the scale on the vertical (rate) axis is set by <span class="math inline">\(R_{s}\)</span> = 10 W. What is the amplitude of the wave?</p>
+</blockquote>
+<p>Here are a few quantities we can identify before solving the problem:</p>
+<ul>
+<li><strong>Frequency</strong> – <span class="math inline">\(\frac{1}{0.002} = 500 Hz\)</span>
+<ul>
+<li>Notice the period is given to us in Figure 16-37b</li>
+</ul></li>
+<li><strong>Angular Frequency</strong> – 3141.59 rad/sec
+<ul>
+<li>This can be derived from frequency, using equation </li>
+</ul></li>
+<li><strong>Wavelength</strong> – 0.20m
+<ul>
+<li>Notice this is given to us in Figure 16-37a</li>
+</ul></li>
+<li><strong>Wave Speed</strong> – 200 m/s
+<ul>
+<li>From the wavelength and frequency, we can find the wave speed using equation </li>
+</ul></li>
+<li><strong>Max value of the rate of kinetic energy</strong> – 10W
+<ul>
+<li>Notice this is given to us in the figures</li>
+</ul></li>
+</ul>
+<p>Using equation , we can determine that the cosine squared term will evaluate to one if the rate is at its maximum. This is because the maximum of the cosine squared function will be 1. Thus, the cosine squared term goes away.</p>
+<p>Now, we left with an equation with parameters of which we all have:</p>
+<ul>
+<li>Maximum value of rate of kinetic energy</li>
+<li>Linear Density</li>
+<li>Wave Speed</li>
+<li>Angular Frequency</li>
+</ul>
+<p>We rearrange the equation like so:</p>
+<p><span class="math display">\[
+y_{m} = \sqrt{\frac{2 \frac{dK}{dt}}{\mu v \omega^{2}}}
+\]</span></p>
+<p>Recall <span class="math inline">\(y_{m}\)</span> is the maximum displacement, or the amplitude, of a mass element on the string which is what we are looking for.</p>
+<p>Answer: <code>0.0032m</code></p>
+</div>
+<div id="question-31" class="section level4">
+<h4>Question 31</h4>
+<p>This is a problem regarding <strong>interference of waves</strong>.</p>
+<blockquote>
+<p>Two identical traveling waves, moving in the same direction, are out of phase by <span class="math inline">\(\frac{\pi}{2}\)</span> rad. What is the amplitude of the resultant wave in terms of the common amplitude <span class="math inline">\(y_{m}\)</span> of the two combining waves?</p>
+</blockquote>
+<p>For this question we simply use equation </p>
+<p>In specific, we focus on this term:</p>
+<p><span class="math display">\[
+[ 2y_{m} cos ( \frac{1}{2} \phi ) ]
+\]</span></p>
+<p>Plugging in <span class="math inline">\(\phi\)</span>, this simplifies to <span class="math inline">\(2 cos( \frac{\pi}{4} ) y_{m}\)</span>, or <span class="math inline">\(1.41 y_{m}\)</span>, which is our answer</p>
+</div>
+</div>
+</div>
 
 
 
