@@ -75,7 +75,7 @@ Now we start talking about probability
       * If B does NOT contain additional elements, then A and B are equal
       * However, if B did contain additional elements, then A is a **proper subset** of B, because it is not equal to B and is a subset. A subset can include itself, a proper subset cannot.
   * **Experiment**: A process that generates a set of data
-  * **Sample Space**: A set of all possible $\text{\underline{outcomes}}$ of a statistical experiment
+  * **Sample Space**: A set of all possible _outcomes_ of a statistical experiment
     * For example, for flipping a coin the *sample space* is `S = {H, T}`
     * Consider flipping two coins, our *sample space* would be `S = {HH, HT, TH, TT}`
     * Another example, tossing two die. The size of the sample space is $6^{2} = 36$

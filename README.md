@@ -4,6 +4,7 @@ Requirements to build:
 - R (with R Markdown)
 - Pandoc
 - NodeJS
+- GNU Make
 - Bash
 
 To build:

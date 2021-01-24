@@ -18,7 +18,7 @@ output: pdf_document
 
 ## Superposition and Standing waves
 
-* Add thw amplitudes
+* Add the amplitudes
 * Multiple harmonic waves can propogate on a string independently of each other
 
 ![Superposition Example](../../../../img/superposition_stuff.png)
@@ -114,6 +114,19 @@ Notes:
 
 * This equation can be derived using some trigonometric formulas, it is best to have it as a reference instead of actually deriving it
 
+Equation describing a standing wave
+
+\begin{equation}
+    \label{eq:standing_wave}
+    y'(x, t) = [ 2 y_{m} sin kx ] cos ( \omega t )
+\end{equation}
+
+A standing wave can be setup on a string of length $L$, if its wavelength is related to $L$ in the following fashion
+
+\begin{equation}
+    \label{eq:standing_wave_wavelength}
+    \lambda = \frac{2L}{n}
+\end{equation}
 
 ## Problems
 
@@ -184,3 +197,28 @@ $$
 $$
 
 Plugging in $\phi$, this simplifies to $2 cos( \frac{\pi}{4} ) y_{m}$, or $1.41 y_{m}$, which is our answer
+
+#### Question 49
+
+_This question has a figure necessary to solve the problem, see the book for the figure_
+
+This is a problem regarding **standing waves and resonance**.
+
+
+> A nylon guitar string has a D linear density of 7.20 g/m and is under a tension of 150 N. The fixed supports are distance D = 90.0 cm apart. The string is oscillating in the standing wave pattern shown in Fig. 16-39. Calculate the
+> 
+> * speed
+> * wavelength
+> * frequency
+> 
+> of the traveling waves whose superposition gives this standing wave.
+
+The speed can be calculated using equation \ref{eq:wave_speed_string}. This comes out to be `144.33 m/s`. Then, the wavelength can be found by noticing that this standing wave is resnoating at the third harmonic (see equation \ref{eq:standing_wave_wavelength}). Thus, the wavelength can be found:
+
+$$
+\lambda = \frac{2L}{n}
+$$
+
+Where $n = 3$. So $\lambda = \frac{2L}{3}$. Thus, $\lambda$ is `60.0cm`.
+
+Finally, finding the frequency is simple, using equation \ref{eq:wave_speed}. This comes out to be `241 Hz`.
