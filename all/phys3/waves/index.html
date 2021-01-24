@@ -397,7 +397,7 @@ summary {
 <div id="superposition-and-standing-waves" class="section level2">
 <h2>Superposition and Standing waves</h2>
 <ul>
-<li>Add thw amplitudes</li>
+<li>Add the amplitudes</li>
 <li>Multiple harmonic waves can propogate on a string independently of each other</li>
 </ul>
 <div class="figure">
@@ -481,6 +481,16 @@ summary {
 <ul>
 <li>This equation can be derived using some trigonometric formulas, it is best to have it as a reference instead of actually deriving it</li>
 </ul>
+<p>Equation describing a standing wave</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:standing_wave}
+    y&#39;(x, t) = [ 2 y_{m} sin kx ] cos ( \omega t )
+\end{equation}\]</span></p>
+<p>A standing wave can be setup on a string of length <span class="math inline">\(L\)</span>, if its wavelength is related to <span class="math inline">\(L\)</span> in the following fashion</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:standing_wave_wavelength}
+    \lambda = \frac{2L}{n}
+\end{equation}\]</span></p>
 </div>
 <div id="problems" class="section level2">
 <h2>Problems</h2>
@@ -552,6 +562,26 @@ y_{m} = \sqrt{\frac{2 \frac{dK}{dt}}{\mu v \omega^{2}}}
 [ 2y_{m} cos ( \frac{1}{2} \phi ) ]
 \]</span></p>
 <p>Plugging in <span class="math inline">\(\phi\)</span>, this simplifies to <span class="math inline">\(2 cos( \frac{\pi}{4} ) y_{m}\)</span>, or <span class="math inline">\(1.41 y_{m}\)</span>, which is our answer</p>
+</div>
+<div id="question-49" class="section level4">
+<h4>Question 49</h4>
+<p><em>This question has a figure necessary to solve the problem, see the book for the figure</em></p>
+<p>This is a problem regarding <strong>standing waves and resonance</strong>.</p>
+<blockquote>
+<p>A nylon guitar string has a D linear density of 7.20 g/m and is under a tension of 150 N. The fixed supports are distance D = 90.0 cm apart. The string is oscillating in the standing wave pattern shown in Fig. 16-39. Calculate the</p>
+<ul>
+<li>speed</li>
+<li>wavelength</li>
+<li>frequency</li>
+</ul>
+<p>of the traveling waves whose superposition gives this standing wave.</p>
+</blockquote>
+<p>The speed can be calculated using equation . This comes out to be <code>144.33 m/s</code>. Then, the wavelength can be found by noticing that this standing wave is resnoating at the third harmonic (see equation ). Thus, the wavelength can be found:</p>
+<p><span class="math display">\[
+\lambda = \frac{2L}{n}
+\]</span></p>
+<p>Where <span class="math inline">\(n = 3\)</span>. So <span class="math inline">\(\lambda = \frac{2L}{3}\)</span>. Thus, <span class="math inline">\(\lambda\)</span> is <code>60.0cm</code>.</p>
+<p>Finally, finding the frequency is simple, using equation . This comes out to be <code>241 Hz</code>.</p>
 </div>
 </div>
 </div>
