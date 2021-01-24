@@ -8,7 +8,7 @@ After going over graphical methods in the previous section, we now go over numer
 * Consider a data set $n$ observations. $\{x_{1}, x_{2}, ... , x_{n}\}$
 * **Sample mean** $\bar{x}$
 $$
-\bar{x} = \frac{x_{1} + ... + x_{n}}{n} = \frac{1}{n}
+\bar{x} = \frac{x_{1} + ... + x_{n}}{n} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
 $$
 * Similarly, there exists a population mean $\mu$
 * **Sample median**, $\tilde{x}$ this is just the middle number in the dataset \
