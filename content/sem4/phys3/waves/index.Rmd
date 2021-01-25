@@ -313,13 +313,13 @@ $$
 \frac{D}{v_{w}}
 $$
 
-* This part of the question ties in both of the previous parts -- it tells us that while the wavefront that was in the submerged wate was coming at $\theta = 90^{\circ}$, our brain interprets this as coming from the angle described in the first part of the question, hence the label _Underwater illusion_ for the question. We know that $v$ is `343 m/s` and $v_{w}$ is `1481 m/s`, and intuitively the $\delta t$ has to be the same for both. Thus, we can determine the following: \
+* This part of the question ties in both of the previous parts -- it tells us that while the wavefront that was in the submerged wate was coming at $\theta = 90^{\circ}$, our brain interprets this as coming from the angle described in the first part of the question, hence the label _Underwater illusion_ for the question. We know that $v$ is `343 m/s` and $v_{w}$ is `1481 m/s`, and intuitively the $\Delta t$ has to be the same for both. Thus, we can determine the following: \
 \
 $$
 \frac{D}{v_{w}} = \frac{D sin ( \theta )}{v}
 $$
 \
-This is because the $\delta t$ is the same, so we can set the expressions equal to each other. Solving this equation for $\theta$:
+This is because the $\Delta t$ is the same, so we can set the expressions equal to each other. Solving this equation for $\theta$:
 \
 $$
 \theta = sin^{-1} ( \frac{v}{v_{w}} )
