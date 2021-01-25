@@ -491,6 +491,34 @@ summary {
     \label{eq:standing_wave_wavelength}
     \lambda = \frac{2L}{n}
 \end{equation}\]</span></p>
+<p>General intensity of a sound wave. Intensity at a surface is defined as the average rate per unit area at which energy is transferred by a sound wave through or onto the surface.</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:general_intensity}
+    I = \frac{P}{A}
+\end{equation}\]</span></p>
+<p>Intensity <span class="math inline">\(I\)</span> in terms of the respective sound wave’s amplitude, <span class="math inline">\(s_{m}\)</span></p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:intensity_amplitude}
+    I = \frac{1}{2} \rho v \omega^{2} s^{2}_{m}
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\rho\)</span> is the density of the medium in which the sound is traveling</li>
+</ul>
+<p>Intensity <span class="math inline">\(I\)</span> at a distance <span class="math inline">\(r\)</span> from a point source that emtis sound waves of power <span class="math inline">\(P_{s}\)</span> isotropically (this means it emits sound waves of the power equally in all directions)</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:isotropic_intensity}
+    I = \frac{P_{s}}{4 \pi r^{2}}
+\end{equation}\]</span></p>
+<p>Sound level <span class="math inline">\(\beta\)</span> in decibels from an intensity <span class="math inline">\(I\)</span></p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:decibel_intensity}
+    \beta = ( 10 dB ) log \frac{I}{I_{0}} 
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(I_{0} = 10^{-12}\ W/m^{2}\)</span>; <span class="math inline">\(I_{0}\)</span> is a reference intensity level.</li>
+</ul>
 </div>
 <div id="problems" class="section level2">
 <h2>Problems</h2>
@@ -583,8 +611,8 @@ y_{m} = \sqrt{\frac{2 \frac{dK}{dt}}{\mu v \omega^{2}}}
 <p>Where <span class="math inline">\(n = 3\)</span>. So <span class="math inline">\(\lambda = \frac{2L}{3}\)</span>. Thus, <span class="math inline">\(\lambda\)</span> is <code>60.0cm</code>.</p>
 <p>Finally, finding the frequency is simple, using equation . This comes out to be <code>241 Hz</code>.</p>
 </div>
-<div id="question-49-1" class="section level4">
-<h4>Question 49</h4>
+<div id="question-10" class="section level4">
+<h4>Question 10</h4>
 <p><em>This question has a figure necessary to solve the problem, see the book for the figure</em></p>
 <p>This is a problem regarding <strong>traveling sound waves</strong>.</p>
 <blockquote>
@@ -624,6 +652,35 @@ This is because the <span class="math inline">\(\delta t\)</span> is the same, s
 \theta = 13.4^{\circ}
 \]</span></p></li>
 </ul>
+</div>
+<div id="question-33" class="section level4">
+<h4>Question 33</h4>
+<p>This is a problem regarding <strong>intensity and sound level</strong>.</p>
+<blockquote>
+<p>Male <em>Rana catesbeiana</em> bullfrogs are known for their loud mating call. The call is emitted not by the frog’s mouth but by its eardrums, which lie on the surface of the head. And, surprisingly, the sound has nothing to do with the frog’s inflated throat. If the emitted sound has a frequency of 260 Hz and a sound level of 85 dB (near the eardrum), what is the amplitude of the eardrum’s oscillation? The air density is 1.21 kg/<span class="math inline">\(m^{3}\)</span>.</p>
+</blockquote>
+<p>Knowing the sound level (85 dB), we can determine the intensity using formula .</p>
+<p><span class="math display">\[
+\beta = ( 10 dB ) log \frac{I}{I_{0}}
+\]</span></p>
+<p><span class="math display">\[
+10^{\frac{\beta}{10 dB}} * I_{0} = I
+\]</span></p>
+<p><span class="math display">\[
+10^{\frac{85\ dB}{10\ dB}} * 10^{-12} = 3.16 * 10^{-4}
+\]</span></p>
+<p>Now, since we have <span class="math inline">\(I\)</span>, we can use  to find the amplitude of the soundwave</p>
+<p><span class="math display">\[
+I = \frac{1}{2} \rho v \omega^{2} s^{2}_{m}
+\]</span></p>
+<p><span class="math display">\[
+\sqrt{\frac{2I}{\rho v \omega^{2}}} = s_{m}
+\]</span></p>
+<p>Notice, we can find <span class="math inline">\(\omega\)</span> since we have <code>f = 260 Hz</code>, using equation .</p>
+<p><span class="math display">\[
+\omega = 2 \pi * 260 = 1633.63
+\]</span></p>
+<p>Now, we have all the values to solve for <span class="math inline">\(s_{m}\)</span>. Answer comes out to be <span class="math inline">\(7.6 \times 10^{-7}\ m\)</span>, or <span class="math inline">\(0.76\ \mu m\)</span>.</p>
 </div>
 </div>
 </div>
