@@ -222,3 +222,51 @@ $$
 Where $n = 3$. So $\lambda = \frac{2L}{3}$. Thus, $\lambda$ is `60.0cm`.
 
 Finally, finding the frequency is simple, using equation \ref{eq:wave_speed}. This comes out to be `241 Hz`.
+
+#### Question 49
+
+_This question has a figure necessary to solve the problem, see the book for the figure_
+
+This is a problem regarding **traveling sound waves**.
+
+> One clue used by your brain to determine the direction of a source of sound is the time delay $\Delta$t between the arrival of the sound at the ear closer to the source and the arrival at the farther ear. Assume that the source is distant so that a wavefront from it is approximately planar when it reaches you, and let D represent the separation between your ears.
+> 
+> * If the source is located at angle $\theta$ in front of you (Fig. 17-31), what is $\Delta$t in terms of D and the speed of sound $v$ in air?
+> * If you are submerged in water and the sound source is directly to your right, what is $\Delta$t in terms of D and the speed of sound $v_{w}$ in water?
+> * Based on the time-delay clue, your brain interprets the submerged sound to arrive at an angle $\theta$ from the forward direction. Evaluate $\theta$ for fresh water at $20^{\circ}C$.
+
+* The question first asks for the time delay between the arrival of the sound at the right ear and the arrival of the sound at the left ear (based on the figure, it comes to the right ear first) in terms of $D$ and the speed of sound $v$ in the air. \
+\
+For this, we simply use $t = \frac{d}{v}$. The distance ($d$) the wavefront will travel to the left ear is given by $D sin ( \theta )$. This is because the wavefront is planar and makes an angle $\theta$ with the right ear. We find $d$, which is the side opppsite to the angle using sine. Thus, $\Delta t = \frac{D sin ( \theta )}{v}$.
+
+* For this question, we just extend the answer from the first part, but we now know that $\theta = 90^{\circ}$ and $v$ is now the speed of sound in water, or $v_{w}$. Thus, we get: \
+\
+$$
+\frac{D sin ( 90^{\circ} )}{v_{w}}
+$$
+\
+This simplifies to:
+\
+$$
+\frac{D}{v_{w}}
+$$
+
+* This part of the question ties in both of the previous parts -- it tells us that while the wavefront that was in the submerged wate was coming at $\theta = 90^{\circ}$, our brain interprets this as coming from the angle described in the first part of the question, hence the label _Underwater illusion_ for the question. We know that $v$ is `343 m/s` and $v_{w}$ is `1481 m/s`, and intuitively the $\delta t$ has to be the same for both. Thus, we can determine the following: \
+\
+$$
+\frac{D}{v_{w}} = \frac{D sin ( \theta )}{v}
+$$
+\
+This is because the $\delta t$ is the same, so we can set the expressions equal to each other. Solving this equation for $\theta$:
+\
+$$
+\theta = sin^{-1} ( \frac{v}{v_{w}} )
+$$
+\
+$$
+\theta = sin^{-1} ( \frac{343\ m/s}{1481\ m/s} )
+$$
+\
+$$
+\theta = 13.4^{\circ}
+$$
