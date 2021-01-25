@@ -1,0 +1,49 @@
+---
+title: "Software Processes"
+date: "January 25th, 2021"
+output: pdf_document
+---
+
+Topics Covered
+
+* Software Process Models
+* Process Activities
+* Coping With Change
+* Process improvement
+
+## What is a Software Process?
+
+* A structured set of activities required to develop a software system, such as specifying a data model, designing a user interface, etc. and the ordering of these activities.
+* Process descriptions may include
+  * **Products**, which are the outcomes of a process activity;
+  * **Roles**, which reflect the responsibilities of the people invovled in the process.
+  * **Pre- and post-conditions**, statements that are true before and after (respectively) a process activity has been enacted or a product produced.
+
+## Software Process Models
+
+* The waterfall model
+  * Plan-driven model. Separate and distinct phases of specification and development.
+* Incremental development
+  * Specification, development, and validation are **interleaved**. May be plan-driven or agile.
+* Integration and configuration
+  * The system is assembled from existing configurable components. May be plan-driven or agile.
+
+In practice, most large systems are developed using a process that incorporates elements across these models
+
+Waterfall Development
+
+<span>![Waterfall Development](../../../../img/waterfall_development_diagram.png)</span>
+
+Incremental Development
+
+<span>![Incremental Development](../../../../img/incremental_development_diagram.png)</span>
+
+See slides for detailed benefits/problems between these 3 process models.
+
+## Software Specification
+
+* The process of establishing what services are required, and what the constraints are on the system's operation and development.
+* Requirements engineering process
+  * What do the system stakeholders require/expect from the system?
+  * Requirements Specification -- defining the requirements in detail
+  * Requirements validation -- checking the validity of the requirements

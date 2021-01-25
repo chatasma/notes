@@ -28,7 +28,33 @@ output: pdf_document
 * Two constant tones at slightly different frequencies:
   * Interference alternately, constructive and destructive
 
+### Doppler Effect
+
+* Car horns and sirens sound higher-pitched when approaching us, lower-pitched when going away from us. That's the Doppler effect
+* Mathematically you take in an input frequency, the speed of sound, and the speeds of both the detector and source. An output frequency is given from the function, see formulas for the Doppler Effect
+* This equation does not apply when moving faster than the speed of sound
+
+### Shock Waves
+
+Cause of sonic boom -- the source outruns its own sound:
+
+$$
+sin \theta = \frac{v}{v_{s}}
+$$
+
 ## Formulas
+
+Doppler Effect
+
+$$
+f^{'} = f \frac{v \pm v_{D}}{v \pm v_{S}}
+$$
+
+Where:
+
+* $v$ is the speed of sound
+* $v_{D}$ is the speed of the detector
+* $v_{S}$ is the speed of the source
 
 Shape of a sinusoidal wave moving in the positive direction of an $x$ axis
 
@@ -146,7 +172,7 @@ Where:
 
 * $\rho$ is the density of the medium in which the sound is traveling
 
-Intensity $I$ at a distance $r$ from a point source that emtis sound waves of power $P_{s}$ isotropically (this means it emits sound waves of the power equally in all directions)
+Intensity $I$ at a distance $r$ from a point source that emits sound waves of power $P_{s}$ isotropically (this means it emits sound waves of the power equally in all directions)
 
 \begin{equation}
     \label{eq:isotropic_intensity}
@@ -345,3 +371,23 @@ $$
 $$
 
 Now, we have all the values to solve for $s_{m}$. Answer comes out to be $7.6 \times 10^{-7}\ m$, or $0.76\ \mu m$.
+
+#### Question 71
+
+This is a problem regarding **intensity and sound level**.
+
+> At a distance of 10km, a `100 Hz` horn, assumed to be an isotropic point source, is barely audible. At what distance would it begin to cause pain?
+
+First, pain threshold is `120 dB`. For an isotropic source, the intensity is given by formula \ref{eq:isotropic_intensity}.
+
+So:
+
+$$
+\beta = ( 10\ dB ) log \frac{r^{2}_{O}}{r^{2}}
+$$
+
+$$
+r = \sqrt{\frac{(1000\ m)^{2}}{10^{12}}}
+$$
+
+Answer: $r = 1cm$

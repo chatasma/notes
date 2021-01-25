@@ -1,0 +1,94 @@
+---
+title: "Thermodynamics"
+date: "January 25th, 2021"
+output: pdf_document
+---
+
+Science of how:
+
+* Temperature differences can be used to do work
+  * Heat Engines
+* Work can be used to make temperature differences
+  * Refrigerators
+
+* "Invented" by Sadi Carnot (_Reflections on the Motive Power of Fire_, Carnot 1824)
+  * after early investigations by others
+
+* But 1st, we need to understand **temperature**
+
+## Zeroth law of Thermodynamics
+
+* The zeroth law of thermodynamics helps us define temperature.
+* Define Kevlin temperature scale:
+  * Absolute 0 = $0 K$
+  * $H_{2}O$ triple point $T_{3}$ = $273.16 K$
+* 1 K = $\frac{T_{3}}{273.16}$
+* If two bodies are in thermal equilibrium with a third body, they are also in thermal equilibrium with each other
+* Enables use of thermometers -- gives meaning to "temperature"
+  * What do we mean by thermal equlibrium
+    * Condition such that all the physical properties have stopped changing with time
+
+**How do we measure temperature?** -- Constant-Volume Gas Thermometer
+
+* Immerse bulb in liquid, wait until quilibrium
+* Use Hg (mercury) manometer to measure change in gas pressure:
+  * Adjust the height of the Hg reservoir $R$ to maintain constant gas volume
+  * Use Hg height difference $h$ from left side to right side to determine $p$
+* Then the desired temperature is $T = (273.16K) (\frac{p}{p_{3}})$
+  * $p_{3}$ is the pressure at the triple point of water
+  * **More precisely** we use a limit for the fractional component, where gas approaches 0
+
+## Celsius and Fahrenheit
+
+* Celsius and Fahrenheit exist
+* Conversions are simple
+
+$$
+T_{C} = T - 273.15^{\circ}
+$$
+$$
+T_{F} = \frac{9}{5} T_{C} + 32^{\circ}
+$$
+
+Note that $T$ is implictly Kelvin.
+
+## Thermal Expansion
+
+* Atoms and molecules are in constant motion
+* As $T$ increases, their **kinetic energies** increase
+  * Equilibrium intermolecular and interatomic separations increase
+  * objects expand
+* Length increase described by $\Delta L$ = $L \alpha \Delta T$ where $\alpha$ is the coefficient of linear expression, $\approx$ constant (small temperature dependence)
+    * There is a table for $\alpha$ for substances in the slide (Units are given as $10^{-6}/C^{\circ}$)
+* Volume expansion: consider cube with sides of length $L$
+  * $V = L^{3}$
+  * $\beta \approx 3 \alpha$
+    * Good approximation
+
+## Heat Absorption
+
+* Heat $\equiv$ energy transferred from one body to another due to a temperature difference
+  * e.g. from a system to its environment, or v.v.
+* Units: joules (J), BTU, cal, or kcal
+  * 1 cal = $3.968 \times 10^{-3}$ = 4.1868 J
+
+## Specific Heat
+
+* **Heat capacity** $C$ of an object is proportionality constant between heat $Q$ absorbed or lost and resulting temperature change $\Delta T$ of object
+
+$$
+Q = mc\Delta T
+$$
+
+* Heat capacity per unit mass is the specific heat
+  * Also useful is the **molar specific heat**, the heat capacity per mole
+    * The specific heat across substances for molar units $\approx$ constant for metals.
+  * Water has an unusually high specific heat
+    * $C_{H_{2}0}$ defines the calorie
+
+## Heats of Transformation
+
+* Phase changes (vaporizing, freezing, melting) occur at _constant_ $T$
+  * But still involves heat transfer $Q = Lm$
+* Heat of vaporization: $L_{V}$
+* Heat of fusion: $L_{F}$
