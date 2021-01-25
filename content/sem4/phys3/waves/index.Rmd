@@ -128,6 +128,42 @@ A standing wave can be setup on a string of length $L$, if its wavelength is rel
     \lambda = \frac{2L}{n}
 \end{equation}
 
+General intensity of a sound wave. Intensity at a surface is defined as the average rate per unit area at which energy is transferred by a sound wave through or onto the surface.
+
+\begin{equation}
+    \label{eq:general_intensity}
+    I = \frac{P}{A}
+\end{equation}
+
+Intensity $I$ in terms of the respective sound wave's amplitude, $s_{m}$
+
+\begin{equation}
+    \label{eq:intensity_amplitude}
+    I = \frac{1}{2} \rho v \omega^{2} s^{2}_{m}
+\end{equation}
+
+Where:
+
+* $\rho$ is the density of the medium in which the sound is traveling
+
+Intensity $I$ at a distance $r$ from a point source that emtis sound waves of power $P_{s}$ isotropically (this means it emits sound waves of the power equally in all directions)
+
+\begin{equation}
+    \label{eq:isotropic_intensity}
+    I = \frac{P_{s}}{4 \pi r^{2}}
+\end{equation}
+
+Sound level $\beta$ in decibels from an intensity $I$
+
+\begin{equation}
+    \label{eq:decibel_intensity}
+    \beta = ( 10 dB ) log \frac{I}{I_{0}} 
+\end{equation}
+
+Where:
+
+* $I_{0} = 10^{-12}\ W/m^{2}$; $I_{0}$ is a reference intensity level.
+
 ## Problems
 
 ### Chapter 16
@@ -223,7 +259,7 @@ Where $n = 3$. So $\lambda = \frac{2L}{3}$. Thus, $\lambda$ is `60.0cm`.
 
 Finally, finding the frequency is simple, using equation \ref{eq:wave_speed}. This comes out to be `241 Hz`.
 
-#### Question 49
+#### Question 10
 
 _This question has a figure necessary to solve the problem, see the book for the figure_
 
@@ -270,3 +306,42 @@ $$
 $$
 \theta = 13.4^{\circ}
 $$
+
+#### Question 33
+
+This is a problem regarding **intensity and sound level**.
+
+> Male _Rana catesbeiana_ bullfrogs are known for their loud mating call. The call is emitted not by the frog's mouth but by its eardrums, which lie on the surface of the head. And, surprisingly, the sound has nothing to do with the frog’s inflated throat. If the emitted sound has a frequency of 260 Hz and a sound level of 85 dB (near the eardrum), what is the amplitude of the eardrum’s oscillation? The air density is 1.21 kg/$m^{3}$.
+
+
+Knowing the sound level (85 dB), we can determine the intensity using formula \ref{eq:decibel_intensity}.
+
+$$
+\beta = ( 10 dB ) log \frac{I}{I_{0}}
+$$
+
+$$
+10^{\frac{\beta}{10 dB}} * I_{0} = I
+$$
+
+$$
+10^{\frac{85\ dB}{10\ dB}} * 10^{-12} = 3.16 * 10^{-4}
+$$
+
+Now, since we have $I$, we can use \ref{eq:intensity_amplitude} to find the amplitude of the soundwave
+
+$$
+I = \frac{1}{2} \rho v \omega^{2} s^{2}_{m}
+$$
+
+$$
+\sqrt{\frac{2I}{\rho v \omega^{2}}} = s_{m}
+$$
+
+Notice, we can find $\omega$ since we have `f = 260 Hz`, using equation \ref{eq:frequency_omega}.
+
+$$
+\omega = 2 \pi * 260 = 1633.63
+$$
+
+Now, we have all the values to solve for $s_{m}$. Answer comes out to be $7.6 \times 10^{-7}\ m$, or $0.76\ \mu m$.
