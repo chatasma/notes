@@ -19,7 +19,7 @@ output: pdf_document
 ## Superposition and Standing waves
 
 * Add the amplitudes
-* Multiple harmonic waves can propogate on a string independently of each other
+* Multiple harmonic waves can propagate on a string independently of each other
 
 ![Superposition Example](../../../../img/superposition_stuff.png)
 
@@ -55,6 +55,15 @@ Where:
 * $v$ is the speed of sound
 * $v_{D}$ is the speed of the detector
 * $v_{S}$ is the speed of the source
+
+Notes:
+
+* The signs for this are a headache to remember in my opinion
+* `+` when receiver moves towards the source
+* `-` when receiver moves away the source
+* `+` when source moves away the receiver
+* `-` when source moves towards the receiver
+* The gigachad way to remember this is to say the receiver is a thief and the source is a victim. The thief sees it as a positive `+` if it gets closer to the victim, but a negative `-` if they going away from the victim. The victim, the source of the thief's desired goods, sees it as a positive `+` if it can get away from the thief, but as a negative `-` if they get closer to the thief.
 
 Shape of a sinusoidal wave moving in the positive direction of an $x$ axis
 
@@ -197,6 +206,43 @@ Beats arise when two slightly different frequencies, $f_{1}$ and $f_{2}$, are de
     f_{beat} = f_{1} - f_{2}
 \end{equation}
 
+Standing sound wave patterns can be set up in pipes. Though, this is conditional on if a proper wavelength is introduced.
+
+A pipe **open** at both ends will have resonant frequencies:
+
+\begin{equation}
+    \label{eq:open_pipe_resonance}
+    f = \frac{v}{\lambda} = \frac{nv}{2L}
+\end{equation}
+
+Where:
+
+* $n$ is a natural number, so 1, 2, 3, ...
+* $v$ is the speed of sound in the air of the pipe
+
+A pipe **closed at one end and open at the other** will have resonant frequencies:
+
+\begin{equation}
+    \label{eq:kinda_closed_resonance}
+    f = \frac{v}{\lambda} = \frac{nv}{4L}
+\end{equation}
+
+Where:
+
+* $n$ is 1, 3, 5... so a positive odd integer.
+* $v$ is the speed of sound in the air of the pipe
+
+Frequency for a fixed string is given by:
+
+\begin{equation}
+    \label{eq:fixed_string_resonance}
+    f = \frac{nv}{2L}
+\end{equation}
+
+Where:
+
+* $n$ is 1, 2, 3, ... so a natural number.
+
 ## Problems
 
 ### Chapter 16
@@ -282,7 +328,7 @@ This is a problem regarding **standing waves and resonance**.
 > 
 > of the traveling waves whose superposition gives this standing wave.
 
-The speed can be calculated using equation \ref{eq:wave_speed_string}. This comes out to be `144.33 m/s`. Then, the wavelength can be found by noticing that this standing wave is resnoating at the third harmonic (see equation \ref{eq:standing_wave_wavelength}). Thus, the wavelength can be found:
+The speed can be calculated using equation \ref{eq:wave_speed_string}. This comes out to be `144.33 m/s`. Then, the wavelength can be found by noticing that this standing wave is resonating at the third harmonic (see equation \ref{eq:standing_wave_wavelength}). Thus, the wavelength can be found:
 
 $$
 \lambda = \frac{2L}{n}
@@ -306,7 +352,7 @@ This is a problem regarding **traveling sound waves**.
 
 * The question first asks for the time delay between the arrival of the sound at the right ear and the arrival of the sound at the left ear (based on the figure, it comes to the right ear first) in terms of $D$ and the speed of sound $v$ in the air. \
 \
-For this, we simply use $t = \frac{d}{v}$. The distance ($d$) the wavefront will travel to the left ear is given by $D sin ( \theta )$. This is because the wavefront is planar and makes an angle $\theta$ with the right ear. We find $d$, which is the side opppsite to the angle using sine. Thus, $\Delta t = \frac{D sin ( \theta )}{v}$.
+For this, we simply use $t = \frac{d}{v}$. The distance ($d$) the wavefront will travel to the left ear is given by $D sin ( \theta )$. This is because the wavefront is planar and makes an angle $\theta$ with the right ear. We find $d$, which is the side opposite to the angle using sine. Thus, $\Delta t = \frac{D sin ( \theta )}{v}$.
 
 * For this question, we just extend the answer from the first part, but we now know that $\theta = 90^{\circ}$ and $v$ is now the speed of sound in water, or $v_{w}$. Thus, we get: \
 \
@@ -320,7 +366,7 @@ $$
 \frac{D}{v_{w}}
 $$
 
-* This part of the question ties in both of the previous parts -- it tells us that while the wavefront that was in the submerged wate was coming at $\theta = 90^{\circ}$, our brain interprets this as coming from the angle described in the first part of the question, hence the label _Underwater illusion_ for the question. We know that $v$ is `343 m/s` and $v_{w}$ is `1481 m/s`, and intuitively the $\Delta t$ has to be the same for both. Thus, we can determine the following: \
+* This part of the question ties in both of the previous parts -- it tells us that while the wavefront that was in the submerged wave was coming at $\theta = 90^{\circ}$, our brain interprets this as coming from the angle described in the first part of the question, hence the label _Underwater illusion_ for the question. We know that $v$ is `343 m/s` and $v_{w}$ is `1481 m/s`, and intuitively the $\Delta t$ has to be the same for both. Thus, we can determine the following: \
 \
 $$
 \frac{D}{v_{w}} = \frac{D sin ( \theta )}{v}
@@ -361,7 +407,7 @@ $$
 10^{\frac{85\ dB}{10\ dB}} * 10^{-12} = 3.16 * 10^{-4}
 $$
 
-Now, since we have $I$, we can use \ref{eq:intensity_amplitude} to find the amplitude of the soundwave
+Now, since we have $I$, we can use \ref{eq:intensity_amplitude} to find the amplitude of the sound wave
 
 $$
 I = \frac{1}{2} \rho v \omega^{2} s^{2}_{m}
@@ -490,7 +536,7 @@ $$
 f^{'}_{D} = f_{s} \frac{v + 0}{v \pm 3}
 $$
 
-Recall, `+` in this context means the distance becomes greater between the source and the destination, so the tuning fork that is getting further away from the person would have a `+` sign for its Doppler effect expression; conversely, the tuning fork that is approaching the person would have a `-` sign. Now, it is simple to calculate the frequencies, but let us first look at the beats frequency expression
+Recall, `+` in this context is used because the source moves away from the receiver, so the tuning fork that is getting further away from the person would have a `+` sign for its Doppler effect expression; conversely, the tuning fork that is approaching the person would have a `-` sign (source approaches receiver). Now, it is simple to calculate the frequencies, but let us first look at the beats frequency expression
 
 $$
 f_{beats} = f_{1} - f_{2}
@@ -511,3 +557,111 @@ f_{beats} = 440 ( \frac{343}{340} - \frac{343}{346} )
 $$
 
 Thus, $f_{beats}$ is 7.7 Hz, our answer. 
+
+#### Question 39
+
+This is a problem regarding **sources of musical sound**.
+
+> * Find the speed of waves on a violin string of mass 800mg and length 22.0 cm if the fundamental frequency is 920 Hz.
+> * What is the tension in the string?
+> * For the fundamental [frequency], what is the wavelength of the waves on the string
+> * For the fundamental [frequency], what is the wavelength of the sound waves emitted by the string?
+
+First, we should recognize the fundamental frequency is the first harmonic; in other words, this means that $n = 1$ in the expression shown in equation \ref{eq:fixed_string_resonance}. With this formula, we know that the wavelength has a certain relationship with the frequency; we will figure out the speed in this scenario but the concept is the same.
+
+$$
+f = \frac{nv}{2L}
+$$
+
+Recall $n = 1$
+
+$$
+f = \frac{v}{2L}
+$$
+
+$$
+v = f * 2L
+$$
+
+We find that $v$ is `404.8 m/s`, the answer to the first part of the question. The question then asks what the tension is. For this, we can simply apply formula \ref{eq:wave_speed_string}.
+
+$$
+v = \sqrt{\frac{\tau}{\mu}}
+$$
+
+Let us solve for tension $\tau$ now:
+
+$$
+\tau = v^{2} * \mu
+$$
+
+Recall that $\mu$ is the linear density and is just the mass per unit length. So we do the mass of the string over its length:
+
+$$
+\tau = v^{2} * \frac{(800 / \text{1e6})}{(22.0 / 100)}
+$$
+
+$$
+\tau = 404.8^{2} * \frac{(800 / \text{1e6})}{(22.0 / 100)}
+$$
+
+Following through we find $\tau$ to be 595.87 N. Now the question asks us for the wavelength of the waves on the string. For this, we already know the speed of the waves and the frequency, so it is just a simple application of $v = \lambda f$. We find $\lambda$ to be 0.44 m.
+
+Now the question asks us for the wavelength of the sound waves emitted from the string. This is like part c, however, instead of the speed we calculated earlier we use the speed of sound in air, 343 m/s. So we find $\lambda$ to be 0.37m.
+
+#### Question 53
+
+This is a problem regarding **beats**.
+
+> Two identical piano wires have a fundamental frequency of 600 Hz when kept under the same tension. What fractional increase in the tension of one wire will lead to the occurrence of 6.0 beats/s when both wires oscillate simultaneously?
+
+6.0 beats/s corresponds to this
+
+$$
+f_{beats} = x - 600Hz
+$$
+
+$$
+6 = x - 600Hz
+$$
+
+We assign x to the frequency of the tuning fork that will be increased. We know that $x$ must be 606Hz.
+
+Now, we must determine the tension increase to up that frequency to 606Hz from 600Hz. Turns out that $\frac{606}{600} = 1.01$. Recall that we can find the speed of a wave propagating through a string in terms of its tension -- notably the tension is under a square root. Consider:
+
+$$
+v = \lambda f
+$$
+
+$$
+\sqrt{\frac{\tau}{\mu}} = \lambda f
+$$
+
+Let us consider a fractional increase to $\tau$. The fractional increase needed for the right hand side is 1.01, but a coefficient of 1.01 for $\tau$ results in multiplying $\sqrt{1.01}$ to each side, which is not what we want. Instead, we need a coefficient of $1.01^{2}$, so that this results in multiplying $\sqrt{1.01^{2}} = 1.01$ to each side. $1.01^{2} = 1.0201$ is the coefficient needed, and thus $0.020$ is the fractional increase necessary. This is our answer: `0.020`.
+
+#### Question 60
+
+This is a problem regarding **the Doppler effect**.
+
+> A stationary motion detector sends sound waves of frequency 0.150 MHz toward a truck approaching at a speed of 45.0 m/s. What is the frequency of the waves reflected back to the detector?
+
+For this, we have to do the Doppler effect twice:
+
+* The truck is going to observe a frequency subject to the Doppler effect
+* The motion detector will observe a frequency subject to the Doppler effect
+
+So, we must go in order. First, the truck acts as the receiver/destination and the motion detector acts as the source.
+
+$$
+f^{'} = 0.150 \frac{343 + 45}{343}
+$$
+
+Recall the **gigachad way** to remember this: the truck as the receiver is a thief, and since it is gaining on the source that's a `+` for them. So the sign is a `+`.
+
+$f^{'}$ comes out to be 0.170 MHz. Now we use this observed frequency to determine the observed frequency of the reflected wave for the motion sensor.
+
+$$
+f^{''} = 0.170 \frac{343}{343 - 45}
+$$
+
+Again, the gigachad way tells us that the truck as the source is a victim, and the fact that the truck is getting closer to the thief is bad. So that's a negative `-`. $f^{''}$ comes out to be 0.195 MHz, our answer.
