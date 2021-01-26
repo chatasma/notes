@@ -1,0 +1,182 @@
+---
+title: "Introduction to Algorithms"
+date: "January 25th, 2021"
+output: pdf_document
+---
+
+_Book Notes_
+
+## Preface
+
+The purpose of this chapter is to familiarize us with the framework we use to think about the **design and analysis of algorithms**.
+
+Consider a sorting problem, which simply takes in a sequence of numbers as input, and as output a list that is non-decreasing (least to greatest). Let us call the numbers we wish to sort the **keys**. We will descibe algorithms in pseudocode instead of a particular language (although the psuedocode will be more similar to that of imperaitve languages like C, C++, and Java) because we are more interested in how the algorithms works and how it performs.
+
+## Insertion Sort
+
+Let us start with an algorithm to the sorting problem known as **insertion sort**. This is a type of sort most of us are familiar with, but let us review what it is. Consider you had a list like this:
+
+`[3, 2, 4, 1]`
+
+Let us consider the first element of the list as its own "sub-list":
+
+`[3]`
+
+An list of size 1 is sorted. Consider the next element in the list as the element to be _inserted_; in this case that element is `2`. Let us append it to the previous sub-list.
+
+`[3, 2]`
+
+Now, let us move the appended element (`2`) to the left until it is in such a place that the list is sorted. Currently, `[3, 2]` is not sorted, so let us slide `2` to the left once.
+
+`[2, 3]`
+
+Now, our sub-list is sorted. From here, we repeat what we have done. So now, let us append the next element in the list to the sub-list we have; this next element would be `4` in our case.
+
+`[2, 3, 4]`
+
+Notice, that the sub-list is sorted already, so let us move on by appending the next element, `1`.
+
+`[2, 3, 4, 1]`
+
+Notice, that the list is not sorted, so let us slide `1` to the left until the list is sorted:
+
+`[1, 2, 3, 4]`
+
+Now, there are no more elements to append, and the list is now sorted. This is insertion sort.
+
+### Pseudocode Implementation of Insertion Sort 
+
+Let us look at the pseudocode implementation of insertion sort. Notice, that this sort is done **in-place**, meaning we are not creating a new list, rather, we are mutating the input list to be sorted.
+
+```
+for j = 2 to A.length
+  key = A[j]
+  // Insert A[j] into the sorted sequence A[1 .. j - 1]
+  i = j - 1
+  while i > 0 and A[i] > key
+    A[i + 1] = A[i]
+    i = i - 1
+  A[i + 1] = key
+```
+
+Notice that each iteration before the while loop, `A[1 .. j - 1]` is always sorted. This is a sort of pre-condition to the iteration of a loop. In fact, this is what a **loop invariant** is -- a condition that is true before and after an iteration of a loop.
+
+Loop invariants can help us understand why an algorithm is correct. It is kind of an abstraction, because it is just a condition we know is true. We must show three things about a loop invariant:
+
+* **Initialization**: Pre-condition is true before the first iteration of the loop.
+* **Maintenance**: Pre-condition is true before each iteration.
+* **Termination**: When the loop terminates, the loop invariant tells us a useful property that helps shows us why the algorithm is correct.
+
+The book goes into detail on how the loop invariant holds these properties for the case of insertion sort (Chap 2.1).
+
+There are certain conventions used in the pseudocode that the book also glosses over, however, if you are familiar with an imperative language like C, C++, or Java, the conventions should be somewhat natural. I am most familiar with Java, and after perusing the conventions it is consistent with the conventions of the pseudocode.
+
+## Analyzing algorithms
+
+**Analyzing an algorithm** means we want measure the computational time that is expended to perform the algorithm. More generally, computational time can be replaced with another resource such as memory or communication bandwidth, but most times we are concerned with computational time. Using this metric, we can analyze candidate algorithms and determine an efficient one.
+
+### Understanding implementation technology
+
+Before analyzing an algorithm, we should understand the implementation technology that is implicitly contextual to the algorithms that will run. In other words, we should understand the assumptions we make when performing the algorithm. Most of the book assumes a generic, one-processor (no concurrency headaches), **random-access machine (RAM)** model of computation. If you are familiar with the von Neumann model, that is the idea -- fetching and executing instructions in order.
+
+It is also important to understand the cost of the instructions the processor can do. Instructions need to be well defined -- in the case of the RAM model, we concern ourselves with instructions found in actual computers:
+
+* adding
+* subtracting
+* multiplying
+* dividing
+* remainder
+* floor
+* ceiling
+* data movement
+* control flow
+* subroutine call and return
+
+Each instruction takes a constant amount of time.
+
+The data types in RAM are integer and floating point, but we don't really care about the precision, though it is useful for some applications. We also should consider that for aggregate data types like lists, an element is constrained to a certain size; otherwise, we could operate on one element theoretically in constant time if the size was not bounded, which is unrealistic.
+
+Modern computers have much more instructions in their ISAs, but such edge cases are not important and we will avoid them. There are also mechanisms like virtual memory, CPU caches, and memory hierarchy that modern computers use, but these are more concerned with the implementation, so we will avoid these type of problems (though there is a handful of problems in the book that specifically look at algorithms involved with memory hierarchy).
+
+
+### Analyzing Insertion Sort
+
+The literal computation time it takes to do insertion sort is very dependent on the input. If the input is kinda sorted, the time is kinda okay. Conversely, if the input is not really sorted, the time is not really okay. And let's not forget size, obviously insertion sort takes longer as the input size increases. In general, this is true -- as input size increases, so does the amount of computational time to perform the algorithm. Thus, it is traditional to describe the running time of a program as a function of the size of the input. Before continuing, we need to define running time and size of input more granuarly.
+
+**Input Size** -- This is best understood as a case analysis; For some algorithms, like sorting, the natural measure for input size is the number of items. Though, for other problems like multiplying two integers, we may be more concerned with the amount of bits needed to represent the input.
+**Running time** -- The number of primitive (atomic?) operations executed. We assume that the execution of the $i$th line will take time $c_{i}$, where $c_{i}$ is a constant.
+
+The book goes over a running time cost analysis of the insertion sort algorithm in detail (line by line of the pseudocode). I would recommend taking a look at it (Chap 2.2). It does go over the fact that a for loop that breaks out normally (breaks out because it fails the test in the loop header) actually does 1 more operation than the body of the header (it has to do the extra test that fails and breaks out). This will be helpful in understanding the example presented.
+
+After showing a line by line cost and amount of times executed, it shows is this final expression, $T(n)$.
+
+$$
+T(n) = c_{1}n + c_{2}(n - 1) + c_{4}(n - 1) + c_{5} \sum_{j = 2}^{n} t_{j} + c_{6} \sum_{j = 2}^{n} ( t_{j} - 1 ) + c_{7} \sum_{j = 2}^{n} ( t_{j} - 1 ) + c_{8} ( n - 1)
+$$
+
+Notes:
+
+* Notice that $c_{3}$ is not present, this is because that line was a comment
+* The runtime components associated with $c_{5} ... c_{7}$ are not well defined. We understand $t_{j}$ as the amount of times the inner while loop executed, but we don't actually know how many times it does execute as it depends how sorted the input already is. Let us **consider the best case** though. The best case is when the while loop does 1 test in its header and fails (i.e. if the appended element is already greater than the tail of the list). With this added context, we can somewhat simplify the expression for the best-case running time:
+
+$$
+T(n) = c_{1}n + c_{2}(n - 1) + c_{4}(n - 1) + c_{5} (n - 1) + c_{8} (n - 1)
+$$
+
+$$
+T(n) = (c_{1} + c_{2} + c_{4} + c_{5} + c_{8})n - (c_{2} + c_{4} + c_{5} + c_{8})
+$$
+
+Notes:
+
+* Notice how the $c_{6} ... c_{7}$ drop out. Mathematically, we can understand this because $t_{j} - 1$ evaluates to 0 so its summation is 0. Intuitively (at least for me), we can understand this because the loop header test never passes.
+* Also notice that $c_{5}$ occurs $n - 1$ times, which makes sense. It does the loop header test that many times.
+
+Through some eye gazing we can see that the simplified form resembles a **linear function**. More precisely, we can represent the running time as $an + b$ for some constants $a$ and $b$ that depend on the statement costs $c_{i}$ for some $i$.
+
+Though, let's now consider the **worst case scenario** -- that the array is in reverse sorted order. Recall that the 'sortedness' for this problem affects those $t_{j}$ values. Thinking about this, we will find out $t_{j} = j$, since it takes $j - 1$ slides to the left for an appended element to get to the start, and then we must add 1 for the failing loop check $j - 1 + 1 = j$.
+
+The book then presents us with the fact that:
+
+$$
+\sigma_{j=2}^{n} j = \frac{n (n + 1)}{2} - 1
+$$
+
+This can be proven, but if you recall from earlier math courses, this is what is known as Gauss' Trick, where you can find the sum of the first $n$ natural numbers using the expression:
+
+$$
+\frac{n}{2} (n + 1)
+$$
+
+Though, in our case we start at two, so we subtract 1.
+
+With that out of the way, we can form our runtime expression:
+
+$$
+T_{n} = c_{1} n + c_{2} (n - 1) + c_{4} (n - 1) + c_{5} (\frac{n (n + 1)}{2} - 1) + c_{6} (\frac{n (n + 1)}{2}) + c_{7} (\frac{n (n + 1)}{2}) + c_{8} (n - 1)
+$$
+
+The book then further simplifies this, and then classifies it as a **quadratic function** of $n$. This is because it has that $n^{2}$ term in the simplification. But more precisely, we can express this as $an^{2} + bn + c$ for constants $a$, $b$, and $c$ for statement costs $c_{i}$ for some $i$.
+
+## Worst-case and average-case analysis
+
+So we looked at the best and worst case for insertion sort. But for the book we wanna usually concentrate on the worst-case running time (or the longest running time) for an input size of $n$. Why?
+
+* Pessimism
+* The worst-case running time gives us an upper bound. More concisely put, we have a line drawn, and theory tells us that computational time cannot pass that line. Anything below that line is possible _in theory_.
+* For some algorithms the worst case actually happens pretty often, i.e. doing a linear scan for something that doesn't exist (you have to traverse the entire input).
+* The average case is often roughly as bad as the worst case. For example, for insertion sort that average case is gonna mean the list is half sorted, so that $t_{j}$ factor is $\frac{j}{2}$ which actually still leads to a quadratic runtime cost
+
+In some cases we are interested in the **average-case** running time. Often we are going to assume that all inputs of a given size are equally likely, though in practice this assumption may be violated. We can sometimes use a **randomized algorithm** to make random choices for us and yield an _expected_ running time.
+
+## Order of Growth
+
+Notice in our analysis of the insertion sort algorithm, we were not extremely precise with the costs. Meaning, we ignored the values of the costs, and furthermore when we moved on to use constants to represent the linear and quadratic functions, we ignored the abstract costs as well. These are abstractions we made, because of what we are interested in. We're interested in the **rate of growth** (or the **order of growth**) of the running time. You may recall from data structures, we still considered $3n$ and $n$ _linear_; this is because we are concerned with the order of growth. Constant coefficients and other constatns are not of interest therefore. So for example, we would write the worst case running time of insertion sort as:
+
+$$
+\Theta (n^{2})
+$$
+
+This is pronounced as "theta of $n$-squared" $\Theta$-notation will be defined precisely in the following chapter.
+
+Usually, we can consider an algorithm to be more efficient than another if its worst case running time has a lower order of growth. In some edge cases this obviously won't hold true, but for most and large enough inputs, a $\Theta (n^{2})$ algorithm is gonna run quicker than $\Theta (n^{3})$ in the worst case.

@@ -190,6 +190,13 @@ Where:
 
 * $I_{0} = 10^{-12}\ W/m^{2}$; $I_{0}$ is a reference intensity level.
 
+Beats arise when two slightly different frequencies, $f_{1}$ and $f_{2}$, are detected together. The beat frequency is given by:
+
+\begin{equation}
+    \label{eq:beats}
+    f_{beat} = f_{1} - f_{2}
+\end{equation}
+
 ## Problems
 
 ### Chapter 16
@@ -378,16 +385,129 @@ This is a problem regarding **intensity and sound level**.
 
 > At a distance of 10km, a `100 Hz` horn, assumed to be an isotropic point source, is barely audible. At what distance would it begin to cause pain?
 
-First, pain threshold is `120 dB`. For an isotropic source, the intensity is given by formula \ref{eq:isotropic_intensity}.
+First, pain threshold is `130 dB`; we can refer to this quantity as $\beta_{p}$. For an isotropic source, the intensity is given by formula \ref{eq:isotropic_intensity}.
 
 So:
 
 $$
-\beta = ( 10\ dB ) log \frac{r^{2}_{O}}{r^{2}}
+\beta = ( 10\ dB ) log \frac{I}{I_{0}}
 $$
 
 $$
-r = \sqrt{\frac{(1000\ m)^{2}}{10^{12}}}
+\beta_{p} - \beta_{a} = ( 10\ dB ) log \frac{I_{p}}{I_{0}} - ( 10\ dB ) log \frac{I_{a}}{I_{0}}
 $$
 
-Answer: $r = 1cm$
+From log properties we can conclude:
+
+$$
+\beta_{p} - \beta_{a} = ( 10\ dB ) log \frac{I_{p}}{I_{a}}
+$$
+
+Notice that $\beta_{p} - \beta_{a} = 130$, since $\beta_{a} = 0$.
+
+$$
+13 = log \frac{I_{p}}{I_{a}}
+$$
+
+Consider the relationship between intensity and radius:
+
+$$
+I = \frac{P_{s}}{4 \pi r^{2}}
+$$
+
+All quantities besides the radius in this expression are constant between $\beta_{a}$ and $\beta_{p}$. This means that $I_{p} \propto \frac{1}{r^{2}_{p}}$ and $I_{a} \propto \frac{1}{r^{2}_{a}}$ ($\propto$ means proportional). Moreover, we can drop-in replace the intensities with their respective proportional expressions
+
+$$
+13 = log \frac{\frac{1}{r^{2}_{p}}}{\frac{1}{r^{2}_{a}}}
+$$
+$$
+13 = log \frac{r^{2}_{a}}{r^{2}_{p}}
+$$
+
+Notice, with another log property, we can simplify this
+
+$$
+13 = log ( ( \frac{r_{a}}{r_{p}} )^{2} )
+$$
+
+$$
+13 = 2 log \frac{r_{a}}{r_{p}}
+$$
+
+From here, we can just solve
+
+$$
+10^{\frac{13}{2}} = \frac{r_{a}}{r_{p}}
+$$
+
+$$
+r_{p} = \frac{r_{a}}{10^{\frac{13}{2}}}
+$$
+
+$$
+r_{p} = \frac{10000}{10^{\frac{13}{2}}}
+$$
+
+Thus, $r_{p}$ is 0.00316, our answer.
+
+#### Question 72
+
+This is a problem regarding **intensity and sound level**.
+
+> A bullet is fired with a speed of 685 m/s. Find the angle made by the shock cone with the line of motion of the bullet.
+
+Notice that this speed is greater than the speed of sound, thus the formation of the shock cone. This question is better to visualize and have a diagram to supplement understanding, but I will try to explain in text. If the bullet is traveling 685 meters per second, let us say after a second ($t=1$) it has traveled 685 meters. At $t=0$ the bullet was fired and the wavefront was emitted. The wavefront travels at 343 meters per second radially. At $t=1$, consider the right triangle formed by the distance traveled by the bullet and the radial distance of the wavefront. This part is best suited with a diagram, here is a rough sketch.
+
+<span>
+![Mach Cone](../../../../img/mach_cone_bullet_problem.png)
+</span>
+
+In the sketch, notice the right triangle formed. The bottommost side is the distance traveled by the bullet ($d_{b}$), which is 685 meters at $t=1$. And, the adjacent side to the bottommost side is the distance traveled by the wavefront ($d_{w}$), which is 343 meters at $t=1$ (speed of sound is roughly 343 m/s). Using basic trigonometry, we can determine the angle ($\theta$).
+
+$$
+sin \theta = \frac{d_{w}}{d_{b}}
+$$
+
+$$
+\theta = sin^{-1} (\frac{d_{w}}{d_{b}})
+$$
+
+Our answer is thus $\theta = 30.05^{\circ}$
+
+#### Question 91
+
+This is a problem regarding **beats**.
+
+> Two identical tuning forks can oscillate at 440 Hz. A person is located somewhere on the line between them. Calculate the beat frequency as measured by this individual if she is standing still and the tuning forks move in the same direction along the line at 3.00 m/s.
+
+First, let us question why a beat frequency would even occur. After all, the frequency is not apparently changing given the context of the question, thus a beat frequency would not occur (a beat frequency requires two slightly different frequencies). However, notice that the problem says the tuning forks move in the same direction along the line at a certain velocity, $v_{s}$. This means the destination (person) will experience the Doppler effect, which means the observed frequency is actually different. Considering that both of the tuning forks are moving, and thus both forks are subject to the Doppler effect in the context of the person, this means there will be a beat frequency. Moreover, we need to determine what the frequencies according to the Doppler effect will be.
+
+$$
+f^{'}_{D} = f_{s} \frac{v \pm v_{D}}{v \pm v_{S}}
+$$
+
+$$
+f^{'}_{D} = f_{s} \frac{v + 0}{v \pm 3}
+$$
+
+Recall, `+` in this context means the distance becomes greater between the source and the destination, so the tuning fork that is getting further away from the person would have a `+` sign for its Doppler effect expression; conversely, the tuning fork that is approaching the person would have a `-` sign. Now, it is simple to calculate the frequencies, but let us first look at the beats frequency expression
+
+$$
+f_{beats} = f_{1} - f_{2}
+$$
+
+Now, we just substitute the appropriate frequencies in the beats expression
+
+$$
+f_{beats} = f_{s} \frac{v}{v - 3} - f_{s} \frac{v}{v + 3}
+$$
+
+$$
+f_{beats} = f_{s} ( \frac{v}{v - 3} - \frac{v}{v + 3} )
+$$
+
+$$
+f_{beats} = 440 ( \frac{343}{340} - \frac{343}{346} )
+$$
+
+Thus, $f_{beats}$ is 7.7 Hz, our answer. 
