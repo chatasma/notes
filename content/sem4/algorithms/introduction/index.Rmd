@@ -10,7 +10,7 @@ _Book Notes_
 
 The purpose of this chapter is to familiarize us with the framework we use to think about the **design and analysis of algorithms**.
 
-Consider a sorting problem, which simply takes in a sequence of numbers as input, and as output a list that is non-decreasing (least to greatest). Let us call the numbers we wish to sort the **keys**. We will descibe algorithms in pseudocode instead of a particular language (although the psuedocode will be more similar to that of imperaitve languages like C, C++, and Java) because we are more interested in how the algorithms works and how it performs.
+Consider a sorting problem, which simply takes in a sequence of numbers as input, and as output a list that is non-decreasing (least to greatest). Let us call the numbers we wish to sort the **keys**. We will describe algorithms in pseudocode instead of a particular language (although the pseudocode will be more similar to that of imperative languages like C, C++, and Java) because we are more interested in how the algorithms works and how it performs.
 
 ## Insertion Sort
 
@@ -67,7 +67,7 @@ Loop invariants can help us understand why an algorithm is correct. It is kind o
 * **Maintenance**: Pre-condition is true before each iteration.
 * **Termination**: When the loop terminates, the loop invariant tells us a useful property that helps shows us why the algorithm is correct.
 
-The book goes into detail on how the loop invariant holds these properties for the case of insertion sort (Chap 2.1).
+The book goes into detail on how the loop invariant holds these properties for the case of insertion sort (Chap 2.1). These three properties are general to loop invariants and not specific for insertion sort. Initialization shows it works the first iteration, maintenance expands on this by showing it works for each iteration in an inductive fashion, and termination shows why the loop invariant is useful.
 
 There are certain conventions used in the pseudocode that the book also glosses over, however, if you are familiar with an imperative language like C, C++, or Java, the conventions should be somewhat natural. I am most familiar with Java, and after perusing the conventions it is consistent with the conventions of the pseudocode.
 
@@ -180,3 +180,93 @@ $$
 This is pronounced as "theta of $n$-squared" $\Theta$-notation will be defined precisely in the following chapter.
 
 Usually, we can consider an algorithm to be more efficient than another if its worst case running time has a lower order of growth. In some edge cases this obviously won't hold true, but for most and large enough inputs, a $\Theta (n^{2})$ algorithm is gonna run quicker than $\Theta (n^{3})$ in the worst case.
+
+## Designing algorithms
+
+For our insertion sort example, it operated in a specific way. It was an _incremental_ approach, because we would append elements into the sub-list and then sort the sub-list until it was sorted.
+
+Another approach is known as "divide-and-conquer", and as we will find out, its worse-case running time will be lower than insertion sort. An advantage of DaC is that their running times are easily determined using certain techniques.
+
+DaC sounds like what it is, divide a problem into subproblems, individually conquer them, and them combine the solutions into a single solution. In fact, at each level of recursion for DaC (Recursive algorithms typically follow DaC), those three steps are involved:
+
+* **Divide** --  Split the problem into subproblems.
+* **Conquer** -- Solve the subproblems recursively, and if small enough, solve the subproblem in a straightforward manner.
+* **Combine** -- Combine the solutions of the subproblems to form a solution for the original problem.
+
+### Merge Sort
+
+We then take a look at **merge sort**, which is an algorithm that falls under the divide and conquer approach. The merge procedure takes $\Theta (n)$ time, which is better than insertion sort. Most of us are familiar with merge sort, however, let us review it.
+
+As merge sort is a DaC, there are subproblems it will conquer. Specifically, the subproblem it will conquer is merging two _sorted_ lists. Consider a single list `[p..r]`. Consider that for some `q` (where $p \leq q < r$), elements `[p..q]` and elements `[q+1..r]` are sorted. Suppose we want to merge these two sorted sublists now into a sorted list.
+
+To accomplish this is pretty straightforward -- compare the first two elements of each list, see which one is smaller, and pop (remove the smaller element from its list) and put the smaller one into a new list. Then, repeat this process until there is either nothing remaining or only one input list remains. In the case of one input list remaining, we can just append that to the end of the formed list. The book gives an intuitive example using cards which probably will make more sense.
+
+The book also covers the pseudocode for the merge sort, and concludes that merging takes $\Theta (n)$ times since it performs at most $n$ atomic steps.
+
+It also covers the loop invariant we see in the pseudocode. I like to think of the loop invariant as an abstraction. For the loop invariant, we can say that prior to any iteration of the latter for loop in the pseudocode, that all elements of the _sublist_ $A[p..k-1]$ contain the $k - p$ sorted smallest elements of L and R respectively. Additionally, the current lookahead for each array is known as the smallest element for each of the arrays respectively.
+
+This loop invariant is very useful because it gives us more context to work with, i.e. if we know the lookahead for each of the arrays are the smallest values, we do not need to care about the latter values in the arrays. Let us show that the loop invariant holds to the three conditions we talked about with insertion sort:
+
+* **Initialization**: Before the first iteration the sub-list `A` is empty, so it is technically sorted and technically contains the $k - p = 0$ smallest elements of L and R
+* **Maintenance**: After each iteration, we know that `A` is sorted, and that the lookaheads for each of the arrays are the smallest of their arrays respectively. So, lets say L has the smaller element between the two arrays -- we append that smaller element to A. We then increment k, which reestablishes the loop invariant for the next iteration.
+* **Termination**: When the loop terminates, we now have $r - p + 1$ smallest elements inside of `A`. Notice that this is the amount of elements of L and R combined (excluding the sentinels, which were used in the pseudocode to avoid empty checks) -- the problem is solved.
+
+So, since that for loop ran $n = r - p + 1$ times, it takes $\Theta (n)$ time. There were also two other for loops for setting up the combined array, but this was also $\Theta (n)$ time. So a complexity of 2n is still considered as n (since we are primarily concerned with the order of growth).
+
+Now that we understand how to conquer the subproblem, we should consider the entire problem now. Consider an array `A`. Now, consider a procedure called `Merge-Sort` which accepts these as parameters: `A`, `p`, and `r`. `A` was the array we specified, and suppose `p` and `r` are indices where the range `p..r` will be sorted by the procedure. Suppose we call this subroutine with some values (so consider an instantiation). Suppose that in the instantiation that $p \geq r$ -- this means that `p..r` has at most one element. A sublist with at most one element is already sorted, so in that case we could just return `p..r`. Though, let us now consider the case that `p < r`, or more importantly where the range to be sorted has a size of 2 or greater. Consider the following, which would be an excerpt from the body of `Merge-Sort` (that is to imply that the calls to `Merge-Sort` in the following excerpt are recursive calls):
+
+```
+if p < r
+  q = floor( (p + r) / 2 )
+  Merge-Sort(A, p, q)
+  Merge-Sort(A, q + 1, r)
+  Merge(A, p, q, r)
+```
+
+_Note: I used `floor` as a function here, but the book has a different notation for this that is not a function call. Recall in the RAM model we designate flooring as an atomic instruction. Also, `Merge` refers to the subproblem subroutine we talked about earlier._
+
+Notice the recursion here, we will keep calling merge sort until we hit a base case. The base case is when we have an array of size 1 or lower, in which case it is already sorted so we return it back. The key here is then, when it is returned to the caller, `Merge` can be called confidently with two sorted sub-arrays.
+
+### Analyzing divide-and-conquer algorithms
+
+Now let's analyze the running time $T(n)$ of merge sort. Since this is a recursive procedure it can get funky. So let's first go over how to analyze recursive procedures. We can often describe the running time of recursive procedures using a **recurrence equation** -- this "describes the running time on a problem in terms of the running time on smaller inputs". For example, consider if we had an array of size $n = 8$. Merge sort will (initially) divide this into $a = 2$ subproblems, each with an array of size 4 (or more important, 1/$b = 2$ of the size of the original array). Each sub problem is going to take 8 * 1/2 = 4 steps to solve, or more generically $\frac{n}{b}$ steps. And since we have $a$ subproblems, it will take $a * \frac{n}{b}$ steps. That is the time to conquer, suppose the time to divide is $D(n)$ and the time to combine is $C(n)$. 
+
+$$
+T(n) = \begin{cases} 
+  \Theta (1) & \text{if } n \leq c \\
+  a T ( \frac{n}{b} ) + D(n) + C(n) & \text{otherwise}
+\end{cases}
+$$
+
+Where $c$ is some constant, so we say it is constant time if $n \leq c$.
+
+### Analyzing Merge Sort
+
+Ok, now we can actually analyze the running time $T(n)$ of merge sort. Dividing is constant time so we say it is $\Theta (1)$ (since really you just have to find the middle of the list, aka division which is an atomic operation). Combining we say is $\Theta (n)$ although. If we then combine the Combining and Dividing phases we say it is $\Theta (n)$ (the constant goes away). Let us recognize that two subproblems each of size $\frac{n}{2}$ will contribute $2T(\frac{n}{2})$ to the running time. So, the running time is this:
+
+$$
+T(n) = \begin{cases} 
+  \Theta (1) & \text{if } n = 1 \\
+  2T(\frac{n}{2}) + \Theta (n) & \text{if } n > 1
+\end{cases}
+$$
+
+This is actually all we need. In Chapter 4 a 'master theorem' is covered which can show this recurrence relation is $\Theta (n log n)$. We can understand this intuitively though using a recursion tree (epic), which is shown in the book.
+
+Simply put, the recursion tree will have a height of $log n + 1$ with each level contributing a cost $cn$. How? This is because we keep on diving our subproblems in halves, until our $n$ is 1. Or more formally put, $\frac{n}{2^{x}} = 1$, where $x$ would be the height. So lets solve for $x$:
+
+$$
+\frac{n}{2^{x}} = 1
+$$
+
+$$
+n = 2^{x}
+$$
+
+$$
+log_{2} (n) = x
+$$
+
+So now we understand that the _amount of divisions_ will be $log_{2} (n)$. In this case, the amount of divisions down any path is the same since we equally distribute load across our subproblems, so we can say that the amount of divisions down any path is the 'longest' path down. The amount of divisions corresponds to the height - 1 because we have to include the top, thus the height is $log n + 1$.
+
+So now that we understand why the height is $log n + 1$, this means that the cost comes out to be $cn (log n + 1)$ or $cn log n + cn$. And we only care about the order growth, so this translates to $\Theta (n log n)$!
