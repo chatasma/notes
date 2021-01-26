@@ -381,7 +381,7 @@ summary {
 <div id="preface" class="section level2">
 <h2>Preface</h2>
 <p>The purpose of this chapter is to familiarize us with the framework we use to think about the <strong>design and analysis of algorithms</strong>.</p>
-<p>Consider a sorting problem, which simply takes in a sequence of numbers as input, and as output a list that is non-decreasing (least to greatest). Let us call the numbers we wish to sort the <strong>keys</strong>. We will descibe algorithms in pseudocode instead of a particular language (although the psuedocode will be more similar to that of imperaitve languages like C, C++, and Java) because we are more interested in how the algorithms works and how it performs.</p>
+<p>Consider a sorting problem, which simply takes in a sequence of numbers as input, and as output a list that is non-decreasing (least to greatest). Let us call the numbers we wish to sort the <strong>keys</strong>. We will describe algorithms in pseudocode instead of a particular language (although the pseudocode will be more similar to that of imperative languages like C, C++, and Java) because we are more interested in how the algorithms works and how it performs.</p>
 </div>
 <div id="insertion-sort" class="section level2">
 <h2>Insertion Sort</h2>
@@ -418,7 +418,7 @@ summary {
 <li><strong>Maintenance</strong>: Pre-condition is true before each iteration.</li>
 <li><strong>Termination</strong>: When the loop terminates, the loop invariant tells us a useful property that helps shows us why the algorithm is correct.</li>
 </ul>
-<p>The book goes into detail on how the loop invariant holds these properties for the case of insertion sort (Chap 2.1).</p>
+<p>The book goes into detail on how the loop invariant holds these properties for the case of insertion sort (Chap 2.1). These three properties are general to loop invariants and not specific for insertion sort. Initialization shows it works the first iteration, maintenance expands on this by showing it works for each iteration in an inductive fashion, and termination shows why the loop invariant is useful.</p>
 <p>There are certain conventions used in the pseudocode that the book also glosses over, however, if you are familiar with an imperative language like C, C++, or Java, the conventions should be somewhat natural. I am most familiar with Java, and after perusing the conventions it is consistent with the conventions of the pseudocode.</p>
 </div>
 </div>
@@ -507,6 +507,74 @@ T_{n} = c_{1} n + c_{2} (n - 1) + c_{4} (n - 1) + c_{5} (\frac{n (n + 1)}{2} - 1
 \]</span></p>
 <p>This is pronounced as “theta of <span class="math inline">\(n\)</span>-squared” <span class="math inline">\(\Theta\)</span>-notation will be defined precisely in the following chapter.</p>
 <p>Usually, we can consider an algorithm to be more efficient than another if its worst case running time has a lower order of growth. In some edge cases this obviously won’t hold true, but for most and large enough inputs, a <span class="math inline">\(\Theta (n^{2})\)</span> algorithm is gonna run quicker than <span class="math inline">\(\Theta (n^{3})\)</span> in the worst case.</p>
+</div>
+<div id="designing-algorithms" class="section level2">
+<h2>Designing algorithms</h2>
+<p>For our insertion sort example, it operated in a specific way. It was an <em>incremental</em> approach, because we would append elements into the sub-list and then sort the sub-list until it was sorted.</p>
+<p>Another approach is known as “divide-and-conquer”, and as we will find out, its worse-case running time will be lower than insertion sort. An advantage of DaC is that their running times are easily determined using certain techniques.</p>
+<p>DaC sounds like what it is, divide a problem into subproblems, individually conquer them, and them combine the solutions into a single solution. In fact, at each level of recursion for DaC (Recursive algorithms typically follow DaC), those three steps are involved:</p>
+<ul>
+<li><strong>Divide</strong> – Split the problem into subproblems.</li>
+<li><strong>Conquer</strong> – Solve the subproblems recursively, and if small enough, solve the subproblem in a straightforward manner.</li>
+<li><strong>Combine</strong> – Combine the solutions of the subproblems to form a solution for the original problem.</li>
+</ul>
+<div id="merge-sort" class="section level3">
+<h3>Merge Sort</h3>
+<p>We then take a look at <strong>merge sort</strong>, which is an algorithm that falls under the divide and conquer approach. The merge procedure takes <span class="math inline">\(\Theta (n)\)</span> time, which is better than insertion sort. Most of us are familiar with merge sort, however, let us review it.</p>
+<p>As merge sort is a DaC, there are subproblems it will conquer. Specifically, the subproblem it will conquer is merging two <em>sorted</em> lists. Consider a single list <code>[p..r]</code>. Consider that for some <code>q</code> (where <span class="math inline">\(p \leq q &lt; r\)</span>), elements <code>[p..q]</code> and elements <code>[q+1..r]</code> are sorted. Suppose we want to merge these two sorted sublists now into a sorted list.</p>
+<p>To accomplish this is pretty straightforward – compare the first two elements of each list, see which one is smaller, and pop (remove the smaller element from its list) and put the smaller one into a new list. Then, repeat this process until there is either nothing remaining or only one input list remains. In the case of one input list remaining, we can just append that to the end of the formed list. The book gives an intuitive example using cards which probably will make more sense.</p>
+<p>The book also covers the pseudocode for the merge sort, and concludes that merging takes <span class="math inline">\(\Theta (n)\)</span> times since it performs at most <span class="math inline">\(n\)</span> atomic steps.</p>
+<p>It also covers the loop invariant we see in the pseudocode. I like to think of the loop invariant as an abstraction. For the loop invariant, we can say that prior to any iteration of the latter for loop in the pseudocode, that all elements of the <em>sublist</em> <span class="math inline">\(A[p..k-1]\)</span> contain the <span class="math inline">\(k - p\)</span> sorted smallest elements of L and R respectively. Additionally, the current lookahead for each array is known as the smallest element for each of the arrays respectively.</p>
+<p>This loop invariant is very useful because it gives us more context to work with, i.e. if we know the lookahead for each of the arrays are the smallest values, we do not need to care about the latter values in the arrays. Let us show that the loop invariant holds to the three conditions we talked about with insertion sort:</p>
+<ul>
+<li><strong>Initialization</strong>: Before the first iteration the sub-list <code>A</code> is empty, so it is technically sorted and technically contains the <span class="math inline">\(k - p = 0\)</span> smallest elements of L and R</li>
+<li><strong>Maintenance</strong>: After each iteration, we know that <code>A</code> is sorted, and that the lookaheads for each of the arrays are the smallest of their arrays respectively. So, lets say L has the smaller element between the two arrays – we append that smaller element to A. We then increment k, which reestablishes the loop invariant for the next iteration.</li>
+<li><strong>Termination</strong>: When the loop terminates, we now have <span class="math inline">\(r - p + 1\)</span> smallest elements inside of <code>A</code>. Notice that this is the amount of elements of L and R combined (excluding the sentinels, which were used in the pseudocode to avoid empty checks) – the problem is solved.</li>
+</ul>
+<p>So, since that for loop ran <span class="math inline">\(n = r - p + 1\)</span> times, it takes <span class="math inline">\(\Theta (n)\)</span> time. There were also two other for loops for setting up the combined array, but this was also <span class="math inline">\(\Theta (n)\)</span> time. So a complexity of 2n is still considered as n (since we are primarily concerned with the order of growth).</p>
+<p>Now that we understand how to conquer the subproblem, we should consider the entire problem now. Consider an array <code>A</code>. Now, consider a procedure called <code>Merge-Sort</code> which accepts these as parameters: <code>A</code>, <code>p</code>, and <code>r</code>. <code>A</code> was the array we specified, and suppose <code>p</code> and <code>r</code> are indices where the range <code>p..r</code> will be sorted by the procedure. Suppose we call this subroutine with some values (so consider an instantiation). Suppose that in the instantiation that <span class="math inline">\(p \geq r\)</span> – this means that <code>p..r</code> has at most one element. A sublist with at most one element is already sorted, so in that case we could just return <code>p..r</code>. Though, let us now consider the case that <code>p &lt; r</code>, or more importantly where the range to be sorted has a size of 2 or greater. Consider the following, which would be an excerpt from the body of <code>Merge-Sort</code> (that is to imply that the calls to <code>Merge-Sort</code> in the following excerpt are recursive calls):</p>
+<pre><code>if p &lt; r
+  q = floor( (p + r) / 2 )
+  Merge-Sort(A, p, q)
+  Merge-Sort(A, q + 1, r)
+  Merge(A, p, q, r)</code></pre>
+<p><em>Note: I used <code>floor</code> as a function here, but the book has a different notation for this that is not a function call. Recall in the RAM model we designate flooring as an atomic instruction. Also, <code>Merge</code> refers to the subproblem subroutine we talked about earlier.</em></p>
+<p>Notice the recursion here, we will keep calling merge sort until we hit a base case. The base case is when we have an array of size 1 or lower, in which case it is already sorted so we return it back. The key here is then, when it is returned to the caller, <code>Merge</code> can be called confidently with two sorted sub-arrays.</p>
+</div>
+<div id="analyzing-divide-and-conquer-algorithms" class="section level3">
+<h3>Analyzing divide-and-conquer algorithms</h3>
+<p>Now let’s analyze the running time <span class="math inline">\(T(n)\)</span> of merge sort. Since this is a recursive procedure it can get funky. So let’s first go over how to analyze recursive procedures. We can often describe the running time of recursive procedures using a <strong>recurrence equation</strong> – this “describes the running time on a problem in terms of the running time on smaller inputs”. For example, consider if we had an array of size <span class="math inline">\(n = 8\)</span>. Merge sort will (initially) divide this into <span class="math inline">\(a = 2\)</span> subproblems, each with an array of size 4 (or more important, 1/<span class="math inline">\(b = 2\)</span> of the size of the original array). Each sub problem is going to take 8 * 1/2 = 4 steps to solve, or more generically <span class="math inline">\(\frac{n}{b}\)</span> steps. And since we have <span class="math inline">\(a\)</span> subproblems, it will take <span class="math inline">\(a * \frac{n}{b}\)</span> steps. That is the time to conquer, suppose the time to divide is <span class="math inline">\(D(n)\)</span> and the time to combine is <span class="math inline">\(C(n)\)</span>.</p>
+<p><span class="math display">\[
+T(n) = \begin{cases} 
+  \Theta (1) &amp; \text{if } n \leq c \\
+  a T ( \frac{n}{b} ) + D(n) + C(n) &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<p>Where <span class="math inline">\(c\)</span> is some constant, so we say it is constant time if <span class="math inline">\(n \leq c\)</span>.</p>
+</div>
+<div id="analyzing-merge-sort" class="section level3">
+<h3>Analyzing Merge Sort</h3>
+<p>Ok, now we can actually analyze the running time <span class="math inline">\(T(n)\)</span> of merge sort. Dividing is constant time so we say it is <span class="math inline">\(\Theta (1)\)</span> (since really you just have to find the middle of the list, aka division which is an atomic operation). Combining we say is <span class="math inline">\(\Theta (n)\)</span> although. If we then combine the Combining and Dividing phases we say it is <span class="math inline">\(\Theta (n)\)</span> (the constant goes away). Let us recognize that two subproblems each of size <span class="math inline">\(\frac{n}{2}\)</span> will contribute <span class="math inline">\(2T(\frac{n}{2})\)</span> to the running time. So, the running time is this:</p>
+<p><span class="math display">\[
+T(n) = \begin{cases} 
+  \Theta (1) &amp; \text{if } n = 1 \\
+  2T(\frac{n}{2}) + \Theta (n) &amp; \text{if } n &gt; 1
+\end{cases}
+\]</span></p>
+<p>This is actually all we need. In Chapter 4 a ‘master theorem’ is covered which can show this recurrence relation is <span class="math inline">\(\Theta (n log n)\)</span>. We can understand this intuitively though using a recursion tree (epic), which is shown in the book.</p>
+<p>Simply put, the recursion tree will have a height of <span class="math inline">\(log n + 1\)</span> with each level contributing a cost <span class="math inline">\(cn\)</span>. How? This is because we keep on diving our subproblems in halves, until our <span class="math inline">\(n\)</span> is 1. Or more formally put, <span class="math inline">\(\frac{n}{2^{x}} = 1\)</span>, where <span class="math inline">\(x\)</span> would be the height. So lets solve for <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\frac{n}{2^{x}} = 1
+\]</span></p>
+<p><span class="math display">\[
+n = 2^{x}
+\]</span></p>
+<p><span class="math display">\[
+log_{2} (n) = x
+\]</span></p>
+<p>So now we understand that the <em>amount of divisions</em> will be <span class="math inline">\(log_{2} (n)\)</span>. In this case, the amount of divisions down any path is the same since we equally distribute load across our subproblems, so we can say that the amount of divisions down any path is the ‘longest’ path down. The amount of divisions corresponds to the height - 1 because we have to include the top, thus the height is <span class="math inline">\(log n + 1\)</span>.</p>
+<p>So now that we understand why the height is <span class="math inline">\(log n + 1\)</span>, this means that the cost comes out to be <span class="math inline">\(cn (log n + 1)\)</span> or <span class="math inline">\(cn log n + cn\)</span>. And we only care about the order growth, so this translates to <span class="math inline">\(\Theta (n log n)\)</span>!</p>
+</div>
 </div>
 
 
