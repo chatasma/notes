@@ -25,7 +25,7 @@ Science of how:
 * 1 K = $\frac{T_{3}}{273.16}$
 * If two bodies are in thermal equilibrium with a third body, they are also in thermal equilibrium with each other
 * Enables use of thermometers -- gives meaning to "temperature"
-  * What do we mean by thermal equlibrium
+  * What do we mean by thermal equilibrium
     * Condition such that all the physical properties have stopped changing with time
 
 **How do we measure temperature?** -- Constant-Volume Gas Thermometer
@@ -94,6 +94,7 @@ $$
 
 * Phase changes (vaporizing, freezing, melting) occur at _constant_ $T$
   * But still involves heat transfer $Q = Lm$
+  * Where does the heat go? It transforms the material to a higher energy phase e.g. ice to water, water to water vapor.
 * Heat of vaporization: $L_{V}$
   * This is the amount of energy per unit mass that must be
     * added to vaporize a liquid (phase change liquid to gas)
@@ -102,6 +103,19 @@ $$
   * This is the amount of energy per unit mass that must be
     * added to melt a solid (phase change solid to liquid)
     * removed to freeze a liquid (phase change liquid to solid)
+
+## Heat & Work
+
+* Thermodynamics was invented to guide development of more efficient heat engines.
+* Consider a process that converts heat to work, i.e. having a gas expand to do work on a piston.
+* If you raise the temperature of the gas, it'll expand (gas does work on the piston), lower the temperature, it'll contract (piston does work on the gas)
+
+_Special Cases_
+
+* Adibiatic: Q = 0 (insulation prevents heat transfer)
+* Constant Volume: W = 0
+* Closed Cycle: Q = W
+* Free Expansion: Q = W = 0
 
 ## Conduction
 
@@ -116,6 +130,17 @@ Convection occurs when there are temperature differences that cause an energy tr
 An environment and an object can also exchange energy by radiation. Meaning, energy as heat can be transferred via electromagnetic waves. This radiation is often called thermal radiation to distinguish it from other waves on the electromagnetic spectrum, say the ones used in nuclear radiation and electromagnetic signals. For example, when you stand in front of a fire, you absorb heat energy from the fire via thermal radiation -- the thermal energy of the fire thus decreases. **No medium** is required to transfer heat via radiation, which is why the Sun can transport thermal radiation through a vacuum. See the Formulas section for the rate at thermal radiation happens.
 
 ## Formulas
+
+**Heat Transfer involved in Phase Changes**
+
+\begin{equation}
+    \label{eq:phase_change_heat_transfer}
+    Q = Lm
+\end{equation}
+
+Where:
+
+* For an object of mass $m$ and latent heat of $L$ (constant that can be found by a table as it depends on material), this formula gives the heat required $Q$ for a specific phase change
 
 **Linear Expansion**
 
@@ -209,3 +234,40 @@ Similarly, there is a formula for the **rate of thermal radiation energy absorpt
 Notes:
 
 * The emissivity is the same as the respective emission equation.
+
+We can then determine the net heat transfer rate: (rate emitted - rate absorbed)?
+
+\begin{equation}
+    \label{eq:net_heat_transfer_rate}
+    P_{net} = \sigma \varepsilon A T^{4} - \sigma \varepsilon A T^{4}_{env}
+\end{equation}
+
+## Problems
+
+### Question 68
+
+This question is regarding **heats of transformation**.
+
+> Icebergs in the North Atlantic present hazards to shipping, causing the lengths of shipping routes to be increased by about 30% during the iceberg season. Attempts to destroy icebergs include planting explosives, bombing, torpedoing, shelling, ramming, and coating with black soot. Suppose that direct melting of the iceberg, by placing heat sources in the ice, is tried. How much energy as heat is required to melt 10% of an iceberg that has a mass of 200,000 metric tons? (Use 1 metric ton = 1000 kg)
+
+We want a phase change to happen by applying heat energy. The formula to use for this is formula \ref{eq:phase_change_heat_transfer}. Calculating for $Q$ we get $666 \times 10^{7}$
+
+### Question 69
+
+_This question has a figure required to answer the question. See the textbook for the question_
+
+This question is regarding **the net change in internal energy due to work done and heat absorption**.
+
+> Figure 18-51 displays a closed cycle for a gas. The change in internal energy along path `ca` is ‒160J. The energy transferred to the gas as heat is 200J along path `ab`, and 40J along path `bc`. How much work is done by the gas along path `abc` and path `ab`?
+
+For this, we notice that -160J `ca` quantity refers to the net change of energy over that path. Though, for `ab` and `bc` its 200J and 40J quantity (respectively) corresponds to heat absorption. So over the path we have these changes:
+
+$$
+\Delta E_{int} = (200) + (40 - 0) + (0 - 160)
+$$
+
+$$
+\Delta E_{int} = 80
+$$
+
+Notice that 80J is our answer for both paths `ab` and `abc`.

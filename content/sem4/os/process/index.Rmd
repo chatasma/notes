@@ -1,0 +1,35 @@
+---
+title: "The Process"
+date: "January 27th, 2021"
+output: pdf_document
+---
+
+* What is a process?
+* Multitasking
+* How does the OS track processes
+* Context switching and Scheduling
+* Process API
+
+## What's a process
+
+A program in execution
+
+## Multitasking
+
+* Modern OSes run dozens to hundreds of processes simultaneously
+* Could exceed the hardware capacity
+
+### CPU Memory Virtualization
+
+* _Time-slicing_ of CPU(s) is done to simulate concurrency
+* Memory is partitioned as well
+* Per-process view is a _uniform address space_
+* _Lazy/On-demand loading_ of processes lowers total burden
+
+Contrast that to batch processing where jobs were done individually and synchronously. Cringe.
+
+### Forms of Multitasking
+
+* _Cooperative_ multitasking: processes voluntarily give control to the OS
+* _Preemptive_ multitasking: OS policies transitions (how?)
+* _Real-time_ systems: hard, fixed time constraints
