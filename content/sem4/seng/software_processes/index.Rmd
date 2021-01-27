@@ -11,13 +11,6 @@ Topics Covered
 * Coping With Change
 * Process improvement
 
-## Software Specification
-
-* The process of establishing what services are required, and what the constraints are on the system's operation and development.
-* Requirements engineering process
-  * What do the system stakeholders require/expect from the system?
-  * Requirements Specification -- defining the requirements in detail
-  * Requirements validation -- checking the validity of the requirements
 
 ## What is a Software Process?
 
@@ -25,7 +18,7 @@ Topics Covered
 * While these software processes are different, they all must include the four fundamental software engineering activities: specification, development, validation, and evolution.
 * Process descriptions may include
   * **Products**, which are the outcomes of a process activity;
-  * **Roles**, which reflect the responsibilities of the people invovled in the process.
+  * **Roles**, which reflect the responsibilities of the people involved in the process.
   * **Pre- and post-conditions**, statements that are true before and after (respectively) a process activity has been enacted or a product produced.
 
 ## Software Process Models
@@ -119,3 +112,26 @@ Stages of a general process model for reuse-based development:
 * _Component adaptation and integration_ -- If there isn't an off-the-shelf-system, then components can be modified and new ones developed. Then they can be _integrated_ to create the new system.
 
 Some pitfalls to this is that it can lead to a system that does not meet the real needs of users, since some components will induce compromise. Control can also be lost since new versions of the components are not under the control of the organization using them.
+
+## Software Specification
+
+* The process of establishing what services are required, and what the constraints are on the system's operation and development.
+* Requirements engineering process
+  * What do the system stakeholders require/expect from the system?
+  * Requirements Specification -- defining the requirements in detail
+  * Requirements validation -- checking the validity of the requirements
+
+### Software Design and Implementation
+
+Four activities that may be part of the design process for information systems:
+
+* _Architectural design_ -- Identifying the structure of the complete system.
+* _Database design_ -- How to represent system data structures in database.
+* _Interface design_ -- Specifications for interface for system components. This helps make the system modular and independent so they can be developed separately.
+* _Component selection and design_ -- Design can include a component description with impl details left to the programmer.
+
+After design naturally follows implementation to be done by the programmers. After developing the components, testing and debugging is done.
+
+### Software Validation
+
+Software validation consists of Verification and Validation (V & V). This includes writing tests to make sure the software operates as intended, at the component and system level. Customer testing can also occur as a beta release, so that devs can fix errors as they come by in real use.
