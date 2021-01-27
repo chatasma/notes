@@ -406,7 +406,7 @@ summary {
 <li>If two bodies are in thermal equilibrium with a third body, they are also in thermal equilibrium with each other</li>
 <li>Enables use of thermometers – gives meaning to “temperature”
 <ul>
-<li>What do we mean by thermal equlibrium
+<li>What do we mean by thermal equilibrium
 <ul>
 <li>Condition such that all the physical properties have stopped changing with time</li>
 </ul></li>
@@ -507,6 +507,7 @@ Q = mc\Delta T
 <li>Phase changes (vaporizing, freezing, melting) occur at <em>constant</em> <span class="math inline">\(T\)</span>
 <ul>
 <li>But still involves heat transfer <span class="math inline">\(Q = Lm\)</span></li>
+<li>Where does the heat go? It transforms the material to a higher energy phase e.g. ice to water, water to water vapor.</li>
 </ul></li>
 <li>Heat of vaporization: <span class="math inline">\(L_{V}\)</span>
 <ul>
@@ -526,6 +527,21 @@ Q = mc\Delta T
 </ul></li>
 </ul>
 </div>
+<div id="heat-work" class="section level2">
+<h2>Heat &amp; Work</h2>
+<ul>
+<li>Thermodynamics was invented to guide development of more efficient heat engines.</li>
+<li>Consider a process that converts heat to work, i.e. having a gas expand to do work on a piston.</li>
+<li>If you raise the temperature of the gas, it’ll expand (gas does work on the piston), lower the temperature, it’ll contract (piston does work on the gas)</li>
+</ul>
+<p><em>Special Cases</em></p>
+<ul>
+<li>Adibiatic: Q = 0 (insulation prevents heat transfer)</li>
+<li>Constant Volume: W = 0</li>
+<li>Closed Cycle: Q = W</li>
+<li>Free Expansion: Q = W = 0</li>
+</ul>
+</div>
 <div id="conduction" class="section level2">
 <h2>Conduction</h2>
 <p>Energy is transferred between an environment and an object via a conducting material.</p>
@@ -540,6 +556,15 @@ Q = mc\Delta T
 </div>
 <div id="formulas" class="section level2">
 <h2>Formulas</h2>
+<p><strong>Heat Transfer involved in Phase Changes</strong></p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:phase_change_heat_transfer}
+    Q = Lm
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li>For an object of mass <span class="math inline">\(m\)</span> and latent heat of <span class="math inline">\(L\)</span> (constant that can be found by a table as it depends on material), this formula gives the heat required <span class="math inline">\(Q\)</span> for a specific phase change</li>
+</ul>
 <p><strong>Linear Expansion</strong></p>
 <p><span class="math display">\[\begin{equation}
     \label{eq:linear_expansion}
@@ -626,6 +651,38 @@ Q = mc\Delta T
 <ul>
 <li>The emissivity is the same as the respective emission equation.</li>
 </ul>
+<p>We can then determine the net heat transfer rate: (rate emitted - rate absorbed)?</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:net_heat_transfer_rate}
+    P_{net} = \sigma \varepsilon A T^{4} - \sigma \varepsilon A T^{4}_{env}
+\end{equation}\]</span></p>
+</div>
+<div id="problems" class="section level2">
+<h2>Problems</h2>
+<div id="question-68" class="section level3">
+<h3>Question 68</h3>
+<p>This question is regarding <strong>heats of transformation</strong>.</p>
+<blockquote>
+<p>Icebergs in the North Atlantic present hazards to shipping, causing the lengths of shipping routes to be increased by about 30% during the iceberg season. Attempts to destroy icebergs include planting explosives, bombing, torpedoing, shelling, ramming, and coating with black soot. Suppose that direct melting of the iceberg, by placing heat sources in the ice, is tried. How much energy as heat is required to melt 10% of an iceberg that has a mass of 200,000 metric tons? (Use 1 metric ton = 1000 kg)</p>
+</blockquote>
+<p>We want a phase change to happen by applying heat energy. The formula to use for this is formula . Calculating for <span class="math inline">\(Q\)</span> we get <span class="math inline">\(666 \times 10^{7}\)</span></p>
+</div>
+<div id="question-69" class="section level3">
+<h3>Question 69</h3>
+<p><em>This question has a figure required to answer the question. See the textbook for the question</em></p>
+<p>This question is regarding <strong>the net change in internal energy due to work done and heat absorption</strong>.</p>
+<blockquote>
+<p>Figure 18-51 displays a closed cycle for a gas. The change in internal energy along path <code>ca</code> is ‒160J. The energy transferred to the gas as heat is 200J along path <code>ab</code>, and 40J along path <code>bc</code>. How much work is done by the gas along path <code>abc</code> and path <code>ab</code>?</p>
+</blockquote>
+<p>For this, we notice that -160J <code>ca</code> quantity refers to the net change of energy over that path. Though, for <code>ab</code> and <code>bc</code> its 200J and 40J quantity (respectively) corresponds to heat absorption. So over the path we have these changes:</p>
+<p><span class="math display">\[
+\Delta E_{int} = (200) + (40 - 0) + (0 - 160)
+\]</span></p>
+<p><span class="math display">\[
+\Delta E_{int} = 80
+\]</span></p>
+<p>Notice that 80J is our answer for both paths <code>ab</code> and <code>abc</code>.</p>
+</div>
 </div>
 
 
