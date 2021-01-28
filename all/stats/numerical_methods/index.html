@@ -548,6 +548,50 @@ s = \sqrt{7}
 </ul></li>
 <li><span class="math inline">\(A^{&#39;} \cap C\)</span> would be where the first die can be whatever, but the second die has to be odd. <span class="math inline">\(A^{&#39;}\)</span> would actually be a proper subset of C, so this just evaluates to <span class="math inline">\(A^{&#39;}\)</span></li>
 </ul>
+<p>01/28/2021</p>
+</div>
+<div id="probability-of-an-event" class="section level2">
+<h2>Probability of an Event</h2>
+<p><code>S = {a, b, c, d}</code></p>
+<p>Axioms: E is an event of a sample space S.</p>
+<ul>
+<li><span class="math inline">\(O \leq P(E) \leq 1\)</span></li>
+<li><span class="math inline">\(P(S) = 1\)</span></li>
+<li>A is a sequence of <strong>mutually exclusive</strong> events: <span class="math inline">\(E_{1}\)</span>, <span class="math inline">\(E_{2}\)</span>, …, <span class="math inline">\(E_{n}\)</span>
+<ul>
+<li><span class="math inline">\(E_{i} \cap E_{j} = \varnothing\)</span> when <span class="math inline">\(i \neq j\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Partition</strong>: A collection of events {<span class="math inline">\(E_{1}\)</span>, <span class="math inline">\(E_{1}\)</span>, …, <span class="math inline">\(E_{1}\)</span>} of a sample space S.</p>
+<p>If <span class="math inline">\(E_{1}\)</span>, <span class="math inline">\(E_{2}\)</span>, …, <span class="math inline">\(E_{n}\)</span> are mutually exclusive and the union of all the events is equal to S… then:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} P(E_{i}) = 1
+\]</span></p>
+</div>
+<div id="counting-principles" class="section level2">
+<h2>Counting Principles</h2>
+<p><strong>The Multiplication Rule</strong></p>
+<p>Rule: An experiment consists of <span class="math inline">\(k\)</span> steps, where:</p>
+<ul>
+<li>The first step has <span class="math inline">\(n_{1}\)</span> possible outcomes</li>
+<li>The second step has <span class="math inline">\(n_{2}\)</span> possible outcomes</li>
+</ul>
+<p>…</p>
+<ul>
+<li>The <span class="math inline">\(k\)</span>th step has <span class="math inline">\(n_{k}\)</span> possible outcomes</li>
+</ul>
+<p>So, the total number of experimental outcomes is given by <span class="math inline">\(n_{1} * n_{2} * ... * n_{k}\)</span></p>
+<p>Example: Tossing a pair of dice</p>
+<ul>
+<li>Find the number of sample points in the sample space
+<ul>
+<li><span class="math inline">\(6 * 6 = 36\)</span></li>
+</ul></li>
+<li>Find the probability that the sum of the two dice is 8
+<ul>
+<li><code>8 = {(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)}</code>, so <span class="math inline">\(P(E) = \frac{5}{36}\)</span></li>
+</ul></li>
+</ul>
 </div>
 
 
