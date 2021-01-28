@@ -151,3 +151,47 @@ Then:
   * All possibilities where the first die is even and second die is odd. ($A^{'}$)
   * Succintly put, (the number on the second die is odd) or (the sum is even).
 * $A^{'} \cap C$ would be where the first die can be whatever, but the second die has to be odd. $A^{'}$ would actually be a proper subset of C, so this just evaluates to $A^{'}$
+
+
+01/28/2021
+
+## Probability of an Event
+
+`S = {a, b, c, d}`
+
+Axioms: E is an event of a sample space S.
+
+* $O \leq P(E) \leq 1$
+* $P(S) = 1$
+* A is a sequence of **mutually exclusive** events: $E_{1}$, $E_{2}$, ..., $E_{n}$
+  * $E_{i} \cap E_{j} = \varnothing$ when $i \neq j$
+
+**Partition**: A collection of events {$E_{1}$, $E_{1}$, ..., $E_{1}$} of a sample space S.
+
+If $E_{1}$, $E_{2}$, ..., $E_{n}$ are mutually exclusive and the union of all the events is equal to S... then:
+
+$$
+\sum_{i=1}^{n} P(E_{i}) = 1
+$$
+
+## Counting Principles
+
+**The Multiplication Rule**
+
+Rule: An experiment consists of $k$ steps, where:
+
+* The first step has $n_{1}$ possible outcomes
+* The second step has $n_{2}$ possible outcomes
+
+...
+
+* The $k$th step has $n_{k}$ possible outcomes
+
+So, the total number of experimental outcomes is given by $n_{1} * n_{2} * ... * n_{k}$
+
+Example: Tossing a pair of dice
+
+* Find the number of sample points in the sample space
+  * $6 * 6 = 36$
+* Find the probability that the sum of the two dice is 8
+  * `8 = {(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)}`, so $P(E) = \frac{5}{36}$
