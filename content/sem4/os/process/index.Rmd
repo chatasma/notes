@@ -33,3 +33,25 @@ Contrast that to batch processing where jobs were done individually and synchron
 * _Cooperative_ multitasking: processes voluntarily give control to the OS
 * _Preemptive_ multitasking: OS policies transitions (how?)
 * _Real-time_ systems: hard, fixed time constraints
+
+
+01/29/2021
+
+### Scheduler
+
+* Composed of policies (high level) and mechanisms (low level) **to select** which process is allocated resources.
+
+
+### Unix Process API
+
+* Manage processes
+* Create processes
+* Synchronization
+* Communication
+
+The Unix process API consists of flexible and _orthogonal_ (meaning they are disparate so they are composable) system calls.
+
+* Creation: `fork`
+* Program execution: `exec`
+* Synchronization: `wait`
+* Termination: `exit`

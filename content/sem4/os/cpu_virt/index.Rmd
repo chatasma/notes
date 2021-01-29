@@ -1,0 +1,76 @@
+---
+title: "CPU Virtualization"
+date: "January 29th, 2021"
+output: pdf_document
+---
+
+Done by "Limited Direct Execution"
+
+## Direct Execution
+
+OS loads program data and args and then gives control to the process
+
+Problems:
+
+* No concurrency
+* Process is unchecked
+
+## Limited Direct Execution
+
+Must prevent user:
+
+* Accessing arbitrary memory addresses (province of Virtual Memory [VM])
+* Executing "dangerous" instructions (focus on this first)
+  * e.g. accessing I/O and system registers
+
+### Kernel vs. user mode
+
+* Privileged instructions can only be executed in kernel mode
+  * What happens when a user attempts to run?
+
+### System Calls
+
+When user needs to perform I/O, invoke kernel mode OS via system calls
+
+i.e. the C standard library has a function called `printf` that internally does a `write` system call.
+
+How does a system call work?
+
+- Moves arguments into specific registers
+- Moves system call (4 for write) number into `%eax`
+- Does trap instruction (int 0x80)
+- Hardware will offset at 0x80 of an interrupt vector which has an address to an OS function
+- A mode switch is done (i.e. CPL 0 -> 3)
+- 0x80 of the interrupt vector could map to a central syscall handler function in the OS
+- OS can determine the system call wanted by reading the register `%eax`, the value is an offset of a table of syscalls (so index 4).
+- The routine based on the offset can then be called.
+
+x86-64 although adds the `syscall` instruction which avoids the trap mechanism.
+
+- This avoids the interrupt table and jumps straight to the syscall handler whilst performing a mode switch.
+
+## From Syscall back to process
+
+**Saving Process State**
+
+- Hardware saves current context during trap
+
+**Restoring Process State**
+
+* "return from trap" `iret` pops and restores the `trap frame` and returns to process in user mode.
+  * `iret` will also change the privilege mode
+
+## Context Switch
+
+* Trap to kernel -- save trap frame on kernel stack
+* Save outgoing process context on kernel stack
+* Switch to different kernel stack
+* Restore incoming process context from kernel stack
+* `iret` (restore trap frame from kernel stack)
+
+
+Cooperative multitasking is done then, because we have made it so processes can trap to the OS and the OS can do its thing.
+
+Preemptive Multiasking isn't too hard then, we just need hardware assistance to schedule a **periodic clock interrupt** at fixed time intervals (e.g. 1ms).
+
+The decision is a policy, the switch is a mechanism (carried out by a low level dispatcher). Talking about which policies to schedule and related algorithms is up next.
