@@ -441,7 +441,7 @@ T_{C} = T - 273.15^{\circ}
 \]</span> <span class="math display">\[
 T_{F} = \frac{9}{5} T_{C} + 32^{\circ}
 \]</span></p>
-<p>Note that <span class="math inline">\(T\)</span> is implictly Kelvin.</p>
+<p>Note that <span class="math inline">\(T\)</span> is implicitly Kelvin.</p>
 </div>
 <div id="thermal-expansion" class="section level2">
 <h2>Thermal Expansion</h2>
@@ -536,7 +536,7 @@ Q = mc\Delta T
 </ul>
 <p><em>Special Cases</em></p>
 <ul>
-<li>Adibiatic: Q = 0 (insulation prevents heat transfer)</li>
+<li>Adiabatic: Q = 0 (insulation prevents heat transfer)</li>
 <li>Constant Volume: W = 0</li>
 <li>Closed Cycle: Q = W</li>
 <li>Free Expansion: Q = W = 0</li>
@@ -556,6 +556,16 @@ Q = mc\Delta T
 </div>
 <div id="formulas" class="section level2">
 <h2>Formulas</h2>
+<p><strong>Pressure and Temperature</strong></p>
+<p>Considering other conditions are constant (i.e. volume), we say temperature is proportional to pressure</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:temp_pressure_rel}
+    T = Cp
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(C\)</span> is some constant</li>
+</ul>
 <p><strong>Heat Transfer involved in Phase Changes</strong></p>
 <p><span class="math display">\[\begin{equation}
     \label{eq:phase_change_heat_transfer}
@@ -682,6 +692,163 @@ Q = mc\Delta T
 \Delta E_{int} = 80
 \]</span></p>
 <p>Notice that 80J is our answer for both paths <code>ab</code> and <code>abc</code>.</p>
+</div>
+<div id="question-3" class="section level3">
+<h3>Question 3</h3>
+<p>This question is regarding <strong>temperature</strong>. (The figure in this problem is not necessary to solve it)</p>
+<blockquote>
+<p>A gas thermometer is constructed of two gas-containing bulbs, each in a water bath, as shown in Fig. 18-30. The pressure difference between the two bulbs is measured by a mercury manometer as shown. Appropriate reservoirs, not shown in the diagram, maintain constant gas volume in the two bulbs. There is no difference in pressure when both baths are at the triple point of water. The pressure difference is 120 torr when one bath is at the triple point and the other is at the boiling point of water. It is 90.0 torr when one bath is at the triple point and the other is at an unknown temperature to be measured. What is the unknown temperature?</p>
+</blockquote>
+<p>The question tells us that reservoirs maintain constant gas volume in the two bulbs. This means we can make the assumption that pressure will be proportional to the temperature, or <span class="math inline">\(T = Cp\)</span> for some constant <span class="math inline">\(C\)</span>.</p>
+<p>It tells us the pressure difference is 120 torr when one bulb is at the triple point of water (273.16 K) and the other is at the boiling point of water (373.1 K). We can represent the difference in temperature of the bulbs like so:</p>
+<p><span class="math display">\[
+T_{1} - T_{2} = Cp_{1} - Cp_{2} = C (p_{1} - p_{2})
+\]</span></p>
+<p>We can find the constant <span class="math inline">\(C\)</span> by substituting values for the aforementioned scenario:</p>
+<p><span class="math display">\[
+373.1 - 273.16 = C (120)
+\]</span></p>
+<p><span class="math display">\[
+C = \frac{99.94}{120}
+\]</span></p>
+<p>Now, it asks us to find an unknown temperature knowing that the pressure difference is 90.0 torr when the other bulb is at the triple point of water. We can express this like so:</p>
+<p><span class="math display">\[
+T_{1} - 273.16K = C (90)
+\]</span></p>
+<p>We know the value of <span class="math inline">\(C\)</span>, so we can substitute it in</p>
+<p><span class="math display">\[
+T_{1} - 273.16K = \frac{99.94}{120} (90)
+\]</span></p>
+<p><span class="math display">\[
+T_{1} = \frac{99.94}{120} (90) + 273.16K
+\]</span></p>
+<p><span class="math display">\[
+T_{1} = 348.12 K
+\]</span></p>
+<p>This is our answer, <code>348.12 K</code>.</p>
+</div>
+<div id="question-7" class="section level3">
+<h3>Question 7</h3>
+<p>This question is regarding <strong>temperature scales</strong>.</p>
+<blockquote>
+<p>Suppose that on a linear temperature scale X, water boils at <span class="math inline">\(-53.5^{\circ}X\)</span> and freezes at <span class="math inline">\(-170^{\circ} X\)</span>. What is a temperature of 340 K on the X scale? (Approximate water’s boiling point as 373 K.)</p>
+</blockquote>
+<p>Since the X temperature scale is linear, we can represent the temperature as <span class="math inline">\(xa + b\)</span> for some constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Given two reference temperatures (boiling and freezing point of water) we can find these constants using a system:</p>
+<p><span class="math display">\[
+273.16a + b = -170
+\]</span> <span class="math display">\[
+373a + b = -53.5
+\]</span></p>
+<p>Solving the system for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> will produce the following conversion formula from Kelvin to X.</p>
+<p><span class="math display">\[
+X(k) = 1.167k - 488.741
+\]</span></p>
+<p>Question asks us for 340 K in X so we just pass it through the conversion formula we derived. Answer is <span class="math inline">\(-92.1 X^{\circ}\)</span>.</p>
+</div>
+<div id="question-7-1" class="section level3">
+<h3>Question 7</h3>
+<p>This question is regarding <strong>thermal expansion</strong>.</p>
+<blockquote>
+<p>At <span class="math inline">\(20^{\circ} C\)</span>, a brass cube has edge length 30 cm. What is the increase in the surface area when it is heated from <span class="math inline">\(20^{\circ}C\)</span> to <span class="math inline">\(75^{\circ}C\)</span>?</p>
+</blockquote>
+<p>First, the appropriate formula to use here is formula . The coefficient of linear expansion for brass is <span class="math inline">\(19 \times 10^{-6}\)</span>. The change in temperature is <span class="math inline">\(75 - 20 = 55\)</span>. So:</p>
+<p><span class="math display">\[
+\Delta L = L \alpha \Delta T
+\]</span></p>
+<p><span class="math display">\[
+\Delta L = (30 / 100) (19 \times 10^{-6}) (55)
+\]</span></p>
+<p>After calculating <span class="math inline">\(\Delta L\)</span>, we can find the surface area. Then, we can take the difference. The difference comes out to be <span class="math inline">\(11\text{ cm}^{2}\)</span>, our answer.</p>
+</div>
+<div id="question-22" class="section level3">
+<h3>Question 22</h3>
+<p>This question is regarding <strong>absorption of heat</strong>.</p>
+<blockquote>
+<p>One way to keep the contents of a garage from becoming too cold on a night when a severe subfreezing temperature is forecast is to put a tub of water in the garage. If the mass of the water is 125 kg and its initial temperature is <span class="math inline">\(20^{\circ}C\)</span></p>
+<ul>
+<li>how much energy must the water transfer to its surroundings in order to freeze completely</li>
+<li>what is the lowest possible temperature of the water and its surroundings until that happens?</li>
+</ul>
+</blockquote>
+<p>First, the water must get to freezing temperature before the phase change can happen. Moreover, it has to transfer heat to its surroundings to reach that temperature. Consider the following:</p>
+<p><span class="math display">\[
+Q = mc\Delta T
+\]</span></p>
+<p><span class="math display">\[
+Q = (125 kg) (4187) (0 - 20)
+\]</span></p>
+<p>This is the heat required to reach the temperature, to actually change phase will depend on the heat of fusion of water (<span class="math inline">\(3.33 \times 10^{5}\)</span>)</p>
+<p><span class="math display">\[
+Q = Lm
+\]</span></p>
+<p><span class="math display">\[
+Q = - (3.33 \times 10^{5}) (125 kg)
+\]</span></p>
+<p>Note: I added a negative sign here because for the freezing to happen energy has to be released from the system</p>
+<p>Now, we can combine the two for the net heat needed for the water to come to the freezing point temperature and freeze:</p>
+<p><span class="math display">\[
+Q = (125 kg) (4187) (0 - 20) + - (3.33 \times 10^{5}) (125 kg)
+\]</span></p>
+<p><span class="math display">\[
+Q = -5.2 \times 10^{7}
+\]</span></p>
+<p>Our answer is <span class="math inline">\(5.2 \times 10^{7}\text{ J}\)</span>. It is positive since we are only interested in the amount of energy, aka the magnitude.</p>
+<p>Part B asks us for the lowest possible temperature of the water and its surroundings until the freeze can happen. This is just <span class="math inline">\(0^{\circ}\text{ C}\)</span> because the phase change cannot happen until the temperature is below the freezing point.</p>
+</div>
+<div id="question-33" class="section level3">
+<h3>Question 33</h3>
+<p>This question is regarding <strong>absorption of heat</strong>.</p>
+<blockquote>
+<p>How long does a <span class="math inline">\(2.0 \times 10^{5}\text{ Btu/h}\)</span> water heater take to raise the temperature of 40 gal of water from <span class="math inline">\(70^{\circ}F\)</span> to <span class="math inline">\(100^{\circ}F\)</span>?</p>
+</blockquote>
+<p>First, let’s convert all of these quantities into their SI equivalents.</p>
+<ul>
+<li>40 gallons is 151.416 Liters</li>
+<li><span class="math inline">\(2.0 \times 10^{5}\text{ Btu/h}\)</span> is <span class="math inline">\(211012000\text{ J/h}\)</span></li>
+<li><span class="math inline">\(70^{\circ}\text{ F}\)</span> is <span class="math inline">\(6.9^{\circ}\text{ C}\)</span> and <span class="math inline">\(100^{\circ}\text{ F}\)</span> is <span class="math inline">\(23.6^{\circ}\text{ C}\)</span></li>
+</ul>
+<p>First, we should understand that for this temperature difference to happen heat needs to be added to the system. The question of how much heat is needed to be added is answered by the following formula, which takes as input a heat capacity (dependent on specific heat and mass) and the temperature difference.</p>
+<p><span class="math display">\[
+Q = mc \Delta T
+\]</span></p>
+<p><span class="math display">\[
+Q = 151.416 * 4187 * (23.6 - 6.9)
+\]</span></p>
+<p>We know the specific heat of water is 4187. Now, we have calculated the heat energy required to make the temperature difference. Knowing this, and the rate at which energy is transferred (energy per unit time, or power), we can determine how long it would take to transfer this heat energy from the water heater.</p>
+<p><span class="math display">\[
+t_{minutes} = \frac{151.416 * 4187 * (23.6 - 6.9)}{211012000} * 60
+\]</span></p>
+<p><span class="math display">\[
+t_{minutes} = 3.0
+\]</span></p>
+<p>Answer is then 3 minutes.</p>
+</div>
+<div id="question-43" class="section level3">
+<h3>Question 43</h3>
+<p><em>This problem requires a necessary figure to solve the problem. See the textbook for the figure.</em> This question is regarding <strong>the first law of thermodynamics</strong>.</p>
+<blockquote>
+<p>In Fig. 18-37, a gas sample expands from <span class="math inline">\(V_{0}\)</span> to <span class="math inline">\(4.0V_{0}\)</span> while its pressure decreases from <span class="math inline">\(p_{0}\)</span> to <span class="math inline">\(p_{0}\)</span>/4.0. If <span class="math inline">\(V_{0}\)</span> = <span class="math inline">\(1.0\text{ }m^{3}\)</span> and <span class="math inline">\(p_{0}\)</span> = 40 Pa, how much work is done by the gas if its pressure changes with volume via</p>
+<ul>
+<li>path A</li>
+<li>path B</li>
+<li>path C</li>
+</ul>
+</blockquote>
+<p>This question is fairly straightforward. We know that <span class="math inline">\(w = pv\)</span>. So we find the area under the curve for each scenario.</p>
+<p>Answers:</p>
+<ul>
+<li>Path A: 120 J</li>
+<li>Path B: 75 J</li>
+<li>Path C: 30 J</li>
+</ul>
+</div>
+<div id="question-48" class="section level3">
+<h3>Question 48</h3>
+<p><em>This problem contains a figure that aids in answering the question, but not necessary to be able to solve it</em></p>
+<blockquote>
+<p>As a gas is held within a closed chamber, it passes through the cycle shown in Fig. 18-41. Determine the energy transferred by the system as heat during constant-pressure process CA if the energy added as heat <span class="math inline">\(Q_{AB}\)</span> during constant-volume process AB is 20.0 J, no energy is transferred as heat during adiabatic process BC, and the net work done during the cycle is 15.0 J.</p>
+</blockquote>
+<p>Since this is a cyclical process, we know that <span class="math inline">\(\Delta E_{int} = 0\)</span>, or that <span class="math inline">\(Q = W\)</span>. This means the work being done (W) is equal to the heat that is exchanged (Q). Well, it tells us that the net work of the cycle is 15.0 J. This means that the heat exchanged must be 15.0 J. We know that during process BC no energy is transferred, therefore, Q and W are 0 for that process. It tells us that for process AB <span class="math inline">\(Q = 20.0J\)</span>. Therefore, <span class="math inline">\(Q = -5\)</span> for process CA.</p>
 </div>
 </div>
 
