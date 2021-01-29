@@ -666,6 +666,21 @@ Q = mc\Delta T
     \label{eq:net_heat_transfer_rate}
     P_{net} = \sigma \varepsilon A T^{4} - \sigma \varepsilon A T^{4}_{env}
 \end{equation}\]</span></p>
+<p>R insulation formula</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:r_insulation_formula}
+    R = \frac{L}{k}
+\end{equation}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(L\)</span> refers to the thickness of the material</li>
+<li><span class="math inline">\(k\)</span> is the thermal conductivity of the material</li>
+</ul>
+<p>Rate of conduction through multiple materials</p>
+<p><span class="math display">\[\begin{equation}
+    \label{eq:multiple_material_conduction}
+    \frac{A (T_{H} - T_{C})}{\sum \frac{L}{k}}
+\end{equation}\]</span></p>
 </div>
 <div id="problems" class="section level2">
 <h2>Problems</h2>
@@ -849,6 +864,90 @@ t_{minutes} = 3.0
 <p>As a gas is held within a closed chamber, it passes through the cycle shown in Fig. 18-41. Determine the energy transferred by the system as heat during constant-pressure process CA if the energy added as heat <span class="math inline">\(Q_{AB}\)</span> during constant-volume process AB is 20.0 J, no energy is transferred as heat during adiabatic process BC, and the net work done during the cycle is 15.0 J.</p>
 </blockquote>
 <p>Since this is a cyclical process, we know that <span class="math inline">\(\Delta E_{int} = 0\)</span>, or that <span class="math inline">\(Q = W\)</span>. This means the work being done (W) is equal to the heat that is exchanged (Q). Well, it tells us that the net work of the cycle is 15.0 J. This means that the heat exchanged must be 15.0 J. We know that during process BC no energy is transferred, therefore, Q and W are 0 for that process. It tells us that for process AB <span class="math inline">\(Q = 20.0J\)</span>. Therefore, <span class="math inline">\(Q = -5\)</span> for process CA.</p>
+</div>
+<div id="question-51" class="section level3">
+<h3>Question 51</h3>
+<p>This question is regarding <strong>heat transfer mechanisms</strong>.</p>
+<blockquote>
+<p>A sphere of radius 0.500m, temperature <span class="math inline">\(27.0^{\circ}\text{ C}\)</span>, and emissivity 0.850 is located in an environment of temperature <span class="math inline">\(77.0^{\circ}\text{ C}\)</span>. At what rate does the sphere</p>
+<ul>
+<li>emit</li>
+<li>absorb thermal radiation?</li>
+<li>What is the sphere’s net rate of energy exchange?</li>
+</ul>
+</blockquote>
+<p>Using the radiation formulas we can determine the quantities the question asks for.</p>
+<p>First, let’s determine the surface area of the sphere:</p>
+<p><span class="math display">\[
+A = 4 \pi 0.5^{2}
+\]</span></p>
+<p>Now, let’s determine the emission rate:</p>
+<p><span class="math display">\[
+P_{rad} = ( 5.6704 \times 10^{-8} ) * 0.5 * (4 \pi 0.5^{2}) * ((27 + 273.16)^{4})
+\]</span></p>
+<p>This comes out to be <code>1.23 kW</code>.</p>
+<p>Same thing for the absorption rate, just a different temperature to use:</p>
+<p><span class="math display">\[
+P_{rad} = ( 5.6704 \times 10^{-8} ) * 0.5 * (4 \pi 0.5^{2}) * ((77 + 273.16)^{4})
+\]</span></p>
+<p>This comes out to be <code>2.28 kW</code>.</p>
+<p>The net rate is just <code>emission - absorption</code>, which comes out to be <code>-1.05 kW</code>.</p>
+</div>
+<div id="question-52" class="section level3">
+<h3>Question 52</h3>
+<p>This question is regarding <strong>heat transfer mechanisms</strong>.</p>
+<blockquote>
+<p>The ceiling of a single-family dwelling in a cold climate should have an R-value of 30. To give such insulation, how thick would a layer of</p>
+<ul>
+<li>polyurethane foam</li>
+<li>silver</li>
+</ul>
+<p>have to be?</p>
+</blockquote>
+<p>The R value is derived from the thermal conductivity of the material. Specifically, it is inversely related because the material should be a bad thermal conductor if the insulation is to be good (which is what R is a measure of). Here is the formula for R:</p>
+<p><span class="math display">\[
+R = \frac{L}{k}
+\]</span></p>
+<p>Solve for L</p>
+<p><span class="math display">\[
+L = Rk
+\]</span></p>
+<p>The units for <span class="math inline">\(R\)</span> are very cringe because of the units it uses. The conversion factor from <span class="math inline">\(R\)</span> to RSI (standard) is <span class="math inline">\(\frac{1}{5.678}\)</span>.</p>
+<p>Now, we need the <span class="math inline">\(k\)</span> values for our materials:</p>
+<ul>
+<li>polyurethane foam = 0.024</li>
+<li>silver = 428</li>
+</ul>
+<p>Simply solve for <span class="math inline">\(L\)</span> then for each material, answers are:</p>
+<ul>
+<li>polyurethane foam = <code>0.12672m</code></li>
+<li>silver = <code>2259.84m</code></li>
+</ul>
+</div>
+<div id="question-57" class="section level3">
+<h3>Question 57</h3>
+<p>This question is regarding <strong>heat transfer mechanisms</strong>.</p>
+<blockquote>
+<ul>
+<li>What is the rate of energy loss in watts per square meter through a glass window 3.0 mm thick if the outside temperature is <span class="math inline">\(-20^{\circ}\text{ F}\)</span> and the inside temperature is <span class="math inline">\(+72^{\circ}\text{ F}\)</span>?</li>
+<li>A storm window having the same thickness of glass is installed parallel to the first window, with an air gap of 7.5 cm between the two windows. What now is the rate of energy loss if conduction is the only important energy-loss mechanism?</li>
+</ul>
+</blockquote>
+<p>First, temperatures should be converted to Celsius or Kelvin.</p>
+<p>Then, we can use formula  to find the rate at which heat is being conducted through the glass:</p>
+<p><span class="math display">\[
+P_{cond} = \frac{Q}{t} = kA \frac{T_{H} - T_{C}}{L}
+\]</span></p>
+<p>Notice that the question asks for the rate of energy loss in watts <strong>per square meter</strong>, so:</p>
+<p><span class="math display">\[
+\frac{Q}{At} = k \frac{T_{H} - T_{C}}{L}
+\]</span></p>
+<p>Now, the first part of the problem can be solved by plugging the appropriate values for <span class="math inline">\(k\)</span>, <span class="math inline">\(T_{H}\)</span>, <span class="math inline">\(T_{C}\)</span> and <span class="math inline">\(L\)</span>. Answer comes out to be <span class="math inline">\(1.7 \times 10^{4}\ W/m^{2}\)</span></p>
+<p>For the next part, another window is added in parallel. This now means there are multiple materials in the total conduction process. Moreover, we should use formula  to solve this, including the air gap mentioned (k value for air is 0.026, for glass it’s 1).</p>
+<p><span class="math display">\[
+\frac{T_{H} - T_{C}}{\frac{0.003}{1} + \frac{0.075}{0.026} + \frac{0.003}{1}}
+\]</span></p>
+<p>We have all the values necessary to compute the answer, which is <span class="math inline">\(17.68\ W/m^{2}\)</span>.</p>
 </div>
 </div>
 
