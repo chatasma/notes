@@ -54,7 +54,7 @@ $$
 T_{F} = \frac{9}{5} T_{C} + 32^{\circ}
 $$
 
-Note that $T$ is implictly Kelvin.
+Note that $T$ is implicitly Kelvin.
 
 ## Thermal Expansion
 
@@ -112,7 +112,7 @@ $$
 
 _Special Cases_
 
-* Adibiatic: Q = 0 (insulation prevents heat transfer)
+* Adiabatic: Q = 0 (insulation prevents heat transfer)
 * Constant Volume: W = 0
 * Closed Cycle: Q = W
 * Free Expansion: Q = W = 0
@@ -130,6 +130,19 @@ Convection occurs when there are temperature differences that cause an energy tr
 An environment and an object can also exchange energy by radiation. Meaning, energy as heat can be transferred via electromagnetic waves. This radiation is often called thermal radiation to distinguish it from other waves on the electromagnetic spectrum, say the ones used in nuclear radiation and electromagnetic signals. For example, when you stand in front of a fire, you absorb heat energy from the fire via thermal radiation -- the thermal energy of the fire thus decreases. **No medium** is required to transfer heat via radiation, which is why the Sun can transport thermal radiation through a vacuum. See the Formulas section for the rate at thermal radiation happens.
 
 ## Formulas
+
+**Pressure and Temperature**
+
+Considering other conditions are constant (i.e. volume), we say temperature is proportional to pressure
+
+\begin{equation}
+    \label{eq:temp_pressure_rel}
+    T = Cp
+\end{equation}
+
+Where:
+
+* $C$ is some constant
 
 **Heat Transfer involved in Phase Changes**
 
@@ -271,3 +284,196 @@ $$
 $$
 
 Notice that 80J is our answer for both paths `ab` and `abc`.
+
+### Question 3
+
+This question is regarding **temperature**. (The figure in this problem is not necessary to solve it)
+
+> A gas thermometer is constructed of two gas-containing bulbs, each in a water bath, as shown in Fig. 18-30. The pressure difference between the two bulbs is measured by a mercury manometer as shown. Appropriate reservoirs, not shown in the diagram, maintain constant gas volume in the two bulbs. There is no difference in pressure when both baths are at the triple point of water. The pressure difference is 120 torr when one bath is at the triple point and the other is at the boiling point of water. It is 90.0 torr when one bath is at the triple point and the other is at an unknown temperature to be measured. What is the unknown temperature?
+
+The question tells us that reservoirs maintain constant gas volume in the two bulbs. This means we can make the assumption that pressure will be proportional to the temperature, or $T = Cp$ for some constant $C$.
+
+It tells us the pressure difference is 120 torr when one bulb is at the triple point of water (273.16 K) and the other is at the boiling point of water (373.1 K). We can represent the difference in temperature of the bulbs like so:
+
+$$
+T_{1} - T_{2} = Cp_{1} - Cp_{2} = C (p_{1} - p_{2})
+$$
+
+We can find the constant $C$ by substituting values for the aforementioned scenario:
+
+$$
+373.1 - 273.16 = C (120)
+$$
+
+$$
+C = \frac{99.94}{120}
+$$
+
+Now, it asks us to find an unknown temperature knowing that the pressure difference is 90.0 torr when the other bulb is at the triple point of water. We can express this like so:
+
+$$
+T_{1} - 273.16K = C (90)
+$$
+
+We know the value of $C$, so we can substitute it in
+
+$$
+T_{1} - 273.16K = \frac{99.94}{120} (90)
+$$
+
+$$
+T_{1} = \frac{99.94}{120} (90) + 273.16K
+$$
+
+$$
+T_{1} = 348.12 K
+$$
+
+This is our answer, `348.12 K`.
+
+### Question 7
+
+This question is regarding **temperature scales**.
+
+> Suppose that on a linear temperature scale X, water boils at $-53.5^{\circ}X$ and freezes at $-170^{\circ} X$. What is a temperature of 340 K on the X scale? (Approximate water's boiling point as 373 K.)
+
+Since the X temperature scale is linear, we can represent the temperature as $xa + b$  for some constants $a$ and $b$. Given two reference temperatures (boiling and freezing point of water) we can find these constants using a system:
+
+$$
+273.16a + b = -170
+$$
+$$
+373a + b = -53.5
+$$
+
+Solving the system for $a$ and $b$ will produce the following conversion formula from Kelvin to X.
+
+$$
+X(k) = 1.167k - 488.741
+$$
+
+Question asks us for 340 K in X so we just pass it through the conversion formula we derived. Answer is $-92.1 X^{\circ}$.
+
+### Question 7
+
+This question is regarding **thermal expansion**.
+
+> At $20^{\circ} C$, a brass cube has edge length 30 cm. What is the increase in the surface area when it is heated from $20^{\circ}C$ to $75^{\circ}C$?
+
+First, the appropriate formula to use here is formula \ref{eq:linear_expansion}. The coefficient of linear expansion for brass is $19 \times 10^{-6}$. The change in temperature is $75 - 20 = 55$. So:
+
+$$
+\Delta L = L \alpha \Delta T
+$$
+
+$$
+\Delta L = (30 / 100) (19 \times 10^{-6}) (55)
+$$
+
+After calculating $\Delta L$, we can find the surface area. Then, we can take the difference. The difference comes out to be $11\text{ cm}^{2}$, our answer.
+
+### Question 22
+
+This question is regarding **absorption of heat**.
+
+> One way to keep the contents of a garage from becoming too cold on a night when a severe subfreezing temperature is forecast is to put a tub of water in the garage. If the mass of the water is 125 kg and its initial temperature is $20^{\circ}C$
+> 
+> * how much energy must the water transfer to its surroundings in order to freeze completely
+> * what is the lowest possible temperature of the water and its surroundings until that happens?
+
+First, the water must get to freezing temperature before the phase change can happen. Moreover, it has to transfer heat to its surroundings to reach that temperature. Consider the following:
+
+$$
+Q = mc\Delta T
+$$
+
+$$
+Q = (125 kg) (4187) (0 - 20)
+$$
+
+This is the heat required to reach the temperature, to actually change phase will depend on the heat of fusion of water ($3.33 \times 10^{5}$)
+
+$$
+Q = Lm
+$$
+
+$$
+Q = - (3.33 \times 10^{5}) (125 kg)
+$$
+
+Note: I added a negative sign here because for the freezing to happen energy has to be released from the system
+
+Now, we can combine the two for the net heat needed for the water to come to the freezing point temperature and freeze:
+
+$$
+Q = (125 kg) (4187) (0 - 20) + - (3.33 \times 10^{5}) (125 kg)
+$$
+
+$$
+Q = -5.2 \times 10^{7}
+$$
+
+Our answer is $5.2 \times 10^{7}\text{ J}$. It is positive since we are only interested in the amount of energy, aka the magnitude.
+
+Part B asks us for the lowest possible temperature of the water and its surroundings until the freeze can happen. This is just $0^{\circ}\text{ C}$ because the phase change cannot happen until the temperature is below the freezing point.
+
+### Question 33
+
+This question is regarding **absorption of heat**.
+
+> How long does a $2.0 \times 10^{5}\text{ Btu/h}$ water heater take to raise the temperature of 40 gal of water from $70^{\circ}F$ to $100^{\circ}F$?
+
+First, let's convert all of these quantities into their SI equivalents.
+
+* 40 gallons is 151.416 Liters
+* $2.0 \times 10^{5}\text{ Btu/h}$ is $211012000\text{ J/h}$
+* $70^{\circ}\text{ F}$ is $6.9^{\circ}\text{ C}$ and $100^{\circ}\text{ F}$ is $23.6^{\circ}\text{ C}$
+
+First, we should understand that for this temperature difference to happen heat needs to be added to the system. The question of how much heat is needed to be added is answered by the following formula, which takes as input a heat capacity (dependent on specific heat and mass) and the temperature difference.
+
+$$
+Q = mc \Delta T
+$$
+
+$$
+Q = 151.416 * 4187 * (23.6 - 6.9)
+$$
+
+We know the specific heat of water is 4187. Now, we have calculated the heat energy required to make the temperature difference. Knowing this, and the rate at which energy is transferred (energy per unit time, or power), we can determine how long it would take to transfer this heat energy from the water heater.
+
+$$
+t_{minutes} = \frac{151.416 * 4187 * (23.6 - 6.9)}{211012000} * 60
+$$
+
+$$
+t_{minutes} = 3.0
+$$
+
+Answer is then 3 minutes.
+
+### Question 43
+
+_This problem requires a necessary figure to solve the problem. See the textbook for the figure._
+This question is regarding **the first law of thermodynamics**.
+
+> In Fig. 18-37, a gas sample expands from $V_{0}$ to $4.0V_{0}$ while its pressure decreases from $p_{0}$ to $p_{0}$/4.0. If $V_{0}$ = $1.0\text{ }m^{3}$ and $p_{0}$ = 40 Pa, how much work is done by the gas if its pressure changes with volume via
+> 
+> * path A
+> * path B
+> * path C
+
+This question is fairly straightforward. We know that $w = pv$. So we find the area under the curve for each scenario.
+
+Answers:
+
+* Path A: 120 J
+* Path B: 75 J
+* Path C: 30 J
+
+### Question 48
+
+_This problem contains a figure that aids in answering the question, but not necessary to be able to solve it_
+
+> As a gas is held within a closed chamber, it passes through the cycle shown in Fig. 18-41. Determine the energy transferred by the system as heat during constant-pressure process CA if the energy added as heat $Q_{AB}$ during constant-volume process AB is 20.0 J, no energy is transferred as heat during adiabatic process BC, and the net work done during the cycle is 15.0 J.
+
+Since this is a cyclical process, we know that $\Delta E_{int} = 0$, or that $Q = W$. This means the work being done (W) is equal to the heat that is exchanged (Q). Well, it tells us that the net work of the cycle is 15.0 J. This means that the heat exchanged must be 15.0 J. We know that during process BC no energy is transferred, therefore, Q and W are 0 for that process. It tells us that for process AB $Q = 20.0J$. Therefore, $Q = -5$ for process CA.
