@@ -255,6 +255,26 @@ We can then determine the net heat transfer rate: (rate emitted - rate absorbed)
     P_{net} = \sigma \varepsilon A T^{4} - \sigma \varepsilon A T^{4}_{env}
 \end{equation}
 
+R insulation formula
+
+\begin{equation}
+    \label{eq:r_insulation_formula}
+    R = \frac{L}{k}
+\end{equation}
+
+Where:
+
+* $L$ refers to the thickness of the material
+* $k$ is the thermal conductivity of the material
+
+Rate of conduction through multiple materials
+
+\begin{equation}
+    \label{eq:multiple_material_conduction}
+    \frac{A (T_{H} - T_{C})}{\sum \frac{L}{k}}
+\end{equation}
+
+
 ## Problems
 
 ### Question 68
@@ -477,3 +497,105 @@ _This problem contains a figure that aids in answering the question, but not nec
 > As a gas is held within a closed chamber, it passes through the cycle shown in Fig. 18-41. Determine the energy transferred by the system as heat during constant-pressure process CA if the energy added as heat $Q_{AB}$ during constant-volume process AB is 20.0 J, no energy is transferred as heat during adiabatic process BC, and the net work done during the cycle is 15.0 J.
 
 Since this is a cyclical process, we know that $\Delta E_{int} = 0$, or that $Q = W$. This means the work being done (W) is equal to the heat that is exchanged (Q). Well, it tells us that the net work of the cycle is 15.0 J. This means that the heat exchanged must be 15.0 J. We know that during process BC no energy is transferred, therefore, Q and W are 0 for that process. It tells us that for process AB $Q = 20.0J$. Therefore, $Q = -5$ for process CA.
+
+### Question 51
+
+This question is regarding **heat transfer mechanisms**.
+
+> A sphere of radius 0.500m, temperature $27.0^{\circ}\text{ C}$, and emissivity 0.850 is located in an environment of temperature $77.0^{\circ}\text{ C}$. At what rate does the sphere
+> 
+> * emit
+> * absorb thermal radiation?
+> * What is the sphere's net rate of energy exchange?
+
+Using the radiation formulas we can determine the quantities the question asks for.
+
+First, let's determine the surface area of the sphere:
+
+$$
+A = 4 \pi 0.5^{2}
+$$
+
+Now, let's determine the emission rate:
+
+$$
+P_{rad} = ( 5.6704 \times 10^{-8} ) * 0.5 * (4 \pi 0.5^{2}) * ((27 + 273.16)^{4})
+$$
+
+This comes out to be `1.23 kW`.
+
+Same thing for the absorption rate, just a different temperature to use:
+
+$$
+P_{rad} = ( 5.6704 \times 10^{-8} ) * 0.5 * (4 \pi 0.5^{2}) * ((77 + 273.16)^{4})
+$$
+
+This comes out to be `2.28 kW`.
+
+The net rate is just `emission - absorption`, which comes out to be `-1.05 kW`.
+
+### Question 52
+
+This question is regarding **heat transfer mechanisms**.
+
+> The ceiling of a single-family dwelling in a cold climate should have an R-value of 30. To give such insulation, how thick would a layer of
+>
+> * polyurethane foam
+> * silver
+>
+> have to be?
+
+The R value is derived from the thermal conductivity of the material. Specifically, it is inversely related because the material should be a bad thermal conductor if the insulation is to be good (which is what R is a measure of). Here is the formula for R:
+
+$$
+R = \frac{L}{k}
+$$
+
+Solve for L
+
+$$
+L = Rk
+$$
+
+The units for $R$ are very cringe because of the units it uses. The conversion factor from $R$ to RSI (standard) is $\frac{1}{5.678}$.
+
+Now, we need the $k$ values for our materials:
+
+* polyurethane foam = 0.024
+* silver = 428
+
+Simply solve for $L$ then for each material, answers are:
+
+* polyurethane foam = `0.12672m`
+* silver = `2259.84m`
+
+### Question 57
+
+This question is regarding **heat transfer mechanisms**.
+
+> * What is the rate of energy loss in watts per square meter through a glass window 3.0 mm thick if the outside temperature is $-20^{\circ}\text{ F}$ and the inside temperature is $+72^{\circ}\text{ F}$?
+> * A storm window having the same thickness of glass is installed parallel to the first window, with an air gap of 7.5 cm between the two windows. What now is the rate of energy loss if conduction is the only important energy-loss mechanism?
+
+First, temperatures should be converted to Celsius or Kelvin.
+
+Then, we can use formula \ref{eq:thermal_conduction} to find the rate at which heat is being conducted through the glass:
+
+$$
+P_{cond} = \frac{Q}{t} = kA \frac{T_{H} - T_{C}}{L}
+$$
+
+Notice that the question asks for the rate of energy loss in watts **per square meter**, so:
+
+$$
+\frac{Q}{At} = k \frac{T_{H} - T_{C}}{L}
+$$
+
+Now, the first part of the problem can be solved by plugging the appropriate values for $k$, $T_{H}$, $T_{C}$ and $L$. Answer comes out to be $1.7 \times 10^{4}\ W/m^{2}$
+
+For the next part, another window is added in parallel. This now means there are multiple materials in the total conduction process. Moreover, we should use formula \ref{eq:multiple_material_conduction} to solve this, including the air gap mentioned (k value for air is 0.026, for glass it's 1).
+
+$$
+\frac{T_{H} - T_{C}}{\frac{0.003}{1} + \frac{0.075}{0.026} + \frac{0.003}{1}}
+$$
+
+We have all the values necessary to compute the answer, which is $17.68\ W/m^{2}$.
