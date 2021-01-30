@@ -1,0 +1,44 @@
+---
+title: "Growth of Functions"
+date: "January 30th, 2021"
+output: pdf_document
+---
+
+## Asymptotic Notation
+
+As discussed previously, the order of growth of an algorithm is what we are interested in. This is because as the input size gets large enough, the order of growth will only matter. The precision in which we determined the multiplicative constants and lower-order terms is not necessary as the input size will have a larger effect in terms of its order of growth when it gets large enough.
+
+When we look at the order of growth, we are studying the **asymptotic** efficiency of an algorithm, meaning that a function $n^{2} + 3n$ would be asymptotically equivalent to $n^{2}$ as $n \rightarrow \infty$.
+
+
+Different asymptotic notations:
+
+**Theta notation** -- Tight bound ($\Theta ( g(n) )$ is a set of $f(n)$ such that $f(n)$ is between two expressions (both of which are greater than or equal to 0), namely, $c_{1} g(n)$ and $c_{2} g(n)$ (where $c_{1}$ and $c_{2}$ are positive constants) for all values n that are greater than some positive constant $n_{0}$. We say that $g(n)$ in that case is an **asymptotically tight bound** since it sandwiches the function. So this means $\Theta ( n^{3} )$ would have a function $3n^{3}$ in its set since we can bound $3n^{3}$ to between, lets say, $2n^{3}$ and $4n^{3}$ for an $n_{0} = 0$ (meaning for any $n \geq 0$ the previous condition holds). It's also important to note that the expressions are greater than or equal to 0, so they are **asymptotically nonnegative**, which holds for the other notations described below as well.
+
+**Big O notation** -- This is like Theta notation, except there is just one upper bound instead of an upper and lower bound.
+
+**Omega notation** -- This is like Big O notation except instead of an upper bound it's a lower bound.
+
+Book has a graphic example which makes more sense. (Chap 3.1)
+
+The book then shows with a proof by contradiction why a higher order term like $n^{3}$ is not part of the set $\Theta (n^{2})$. Intuitively, we can get rid of the lower order terms.
+
+o-notation and $\omega$-notation are notations for Big O and Big Omega notations respectively. They are notations that show an upper bound that is not asymptotically tight. This just means it cannot be sandwiched if we chose different constants -- in fact the notations say for **any** constant $c$ that a function $f(n)$ in the set $o(g(n))$ will be lower than $c g(n)$. This is not guaranteed by Big O or Big Omega.
+
+Some properties of asymptotic comparisons:
+
+**Transitivity** -- If f(n) is a member of the set Big Theta of g(n) and g(n) is a member of the set Big Theta of h(n), then f(n) is a member of the set Big Theta of h(n). Also applies for Big O, Big Omega, o, and $\omega$.
+
+**Reflexivity** -- f(n) is a member of the set Big Theta of f(n). Also applies for Big O and Big Omega.
+
+**Symmetry** -- f(n) is a member of the set Big Theta of g(n) if and only if (bidirectional) g(n) is a member of the set Big Theta of f(n).
+
+**Transpose Symmetry** -- f(n) is a member of the set Big O of g(n) if and only if g(n) is a member of the set Big Omega of f(n). This makes sense because if g(n) is greater than f(n) for some positive constant, then f(n) is lower than g(n) for some positive constant. This also applies if you replace Big O with little o and Big Omega with little omega (their non-asymptotic-tight-bound variants).
+
+A property that **does not** carry over to asymptotic notation:
+
+**Trichotomy** -- For two real numbers $a$ and $b$, one of the following holds: $a < b$, $a = b$, or $a > b$. This is simply because asymptotic notations require that the condition to be held for any $n$ that is greater than or equal to the $n_{0}$. If you had a function that oscillated through the bound, it is neither Big O or Big Omega.
+
+## Standard Notations and Common Conventions
+
+The book goes over standard notations and common conventions used for the remainder of the book here. These are mostly familiar, but there are a few notations such as monotoncity, functional iteration, and the iterated logarithms that are worth going over.
