@@ -1,0 +1,217 @@
+---
+title: "Kinetic Theory of Gases"
+date: "January 29th, 2021"
+output: pdf_document
+---
+
+## Formulas
+
+Molar mass
+
+\begin{equation}
+    \label{eq:molar_mass}
+    M = m N_{A}
+\end{equation}
+
+Moles per mass sample
+
+\begin{equation}
+    \label{eq:moles_per_mass_sample}
+    n = \frac{N}{N_{A}} = \frac{M_{sam}}{M} = \frac{M_{sam}}{m N_{A}}
+\end{equation}
+
+Ideal Gas formula
+
+\begin{equation}
+    \label{eq:ideal_gas_law}
+    pV = nRT
+\end{equation}
+
+Where:
+
+* $p$ is the pressure of the gas
+* $V$ is the volume of the gas
+* $n$ is the number of moles of the gas
+* $R$ is known as the gas constant ($8.31$ J/mol * k)
+* $T$ is the temperature of the gas
+
+The ideal gas law can also be represented with Boltzmann's constant $k$ if we replace the number of moles with the number of elementary units, $N$.
+
+\begin{equation}
+    \label{eq:ideal_gas_law_molecules}
+    pV = NkT
+\end{equation}
+
+Where:
+
+* $N$ is the number of elementary units
+* $k$ is the Boltzmann constant ($1.38 \times 10^{-23}$ J/K)
+
+The work done when volume of an ideal gas changes (and temperature stays constant [isothermal])
+
+\begin{equation}
+    \label{eq:isothermal_process_work}
+    W = nRT ln ( \frac{V_{f}}{V_{i}} )
+\end{equation}
+
+Pressure exerted by $n$ moles of an ideal gas
+
+\begin{equation}
+    \label{eq:ideal_gas_pressure}
+    p = \frac{n M v^{2}_{rms}}{3V}
+\end{equation}
+
+Where:
+
+* $v_{rms} = \sqrt{(v^{2})_{avg}}$, this is the root-mean-squared speed of the gas molecules
+* $M$ is the molar mass of the gas
+* $V$ is the volume of the gas
+* $n$ is the number of moles
+
+RMS (root-mean-squared) speed expressed in terms of temperature and molar mass:
+
+\begin{equation}
+    \label{eq:rms_terms_temperature}
+    v_{rms} = \sqrt{\frac{3RT}{M}}
+\end{equation}
+
+Where:
+
+* $T$ is the temperature of the gas
+* $R$ is known as the gas constant ($8.31$ J/mol * k)
+* $M$ is the molar mass of the gas
+
+Average translational kinetic energy per molecule in an ideal gas:
+
+\begin{equation}
+    \label{eq:translational_kinetic_energy}
+    K_{avg} = \frac{1}{2} m v^{2}_{rms}
+\end{equation}
+
+Average translational kinetic energy per molecule in an ideal gas _in terms of temperature_:
+
+\begin{equation}
+    \label{eq:translational_kinetic_energy_temperature}
+    K_{avg} = \frac{3}{2} k T
+\end{equation}
+
+Where:
+
+* $k$ is the Boltzmann constant ($1.38 \times 10^{-23}$ J/K)
+
+Mean free path of a molecule (average distance traveled between collisions of a molecule):
+
+\begin{equation}
+    \label{eq:mean_free_path}
+    \lambda = \frac{1}{\sqrt{2} \pi d^{2} N/V}
+\end{equation}
+
+Where:
+
+* $d$ is the diameter of the molecule
+* $N/V$ is the number of molecules per unit volume
+
+Sometimes we are interested in the distribution of molecular speeds. The Maxwell speed distribution allows us to do this. It is a function $P(v)$ such that $P(v) dv$ is a fraction of molecules with speeds in the interval $dv$.
+
+\begin{equation}
+    \label{eq:maxwell_speed_distribution}
+    P(v) = 4 \pi ( \frac{M}{2 \pi RT} )^{\frac{3}{2}} v^{2} e^{\frac{-M v^{2}}{2RT}}
+\end{equation}
+
+Based on this distribution, we can find a few speeds of interest relative to the distribution:
+
+The average speed of the distribution is given by
+
+\begin{equation}
+    \label{eq:avg_speed_maxwell_dist}
+    v_{avg} = \frac{8RT}{\pi M}
+\end{equation}
+
+The most probable speed of the distribution is given by
+
+\begin{equation}
+    \label{eq:probable_speed_maxwell_dist}
+    v_{p} = \frac{2RT}{M}
+\end{equation}
+
+The RMS speed of the distribution is given by
+
+\begin{equation}
+    \label{eq:rms_speed_maxwell_dist}
+    v_{rms} = \frac{3RT}{M}
+\end{equation}
+
+Where:
+
+* $R$ is known as the gas constant ($8.31$ J/mol * k)
+* $M$ is the molar mass
+
+The molar specific heat $C_{v}$ of a gas at constant volume:
+
+\begin{equation}
+    \label{eq:molar_specific_heat}
+    C_{v} = \frac{Q}{n \Delta T} = \frac{\Delta E_{int}}{n \Delta T}
+\end{equation}
+
+For an ideal monatomic gas:
+
+$$
+C_{v} = \frac{3}{2} R = 12.5\text{J/mol * k}
+$$
+
+Molar specific heat from constant volume to constant pressure
+
+$$
+C_{p} = C_{v} + R
+$$
+
+Change in internal energy due to temp change of an ideal gas:
+
+\begin{equation}
+    \label{eq:work_ideal_gas_deltatemp}
+    \Delta E_{int} = n C_{v} \Delta T
+\end{equation}
+
+Where:
+
+* $Q$ is the energy transferred as heat to or from a sample of $n$ moles.
+* $\Delta T$ is the resulting temperature change from the energy transfer
+
+Molar specific heat based on degrees of freedom:
+
+\begin{equation}
+    \label{eq:molar_specific_heat_dof}
+    C_{v} = ( \frac{f}{2} ) R
+\end{equation}
+
+Notes:
+
+* For monatomic gases, degrees of freedom is 3 and for diatomic gases it is 5.
+
+If an ideal gas goes through a slow adiabatic volume change (such that $Q = 0$), $p V^{\gamma}$ is a constant. Note: $\gamma = \frac{C_{p}}{C_{v}}$ -- this is the ratio of molar specific heats for the gas.
+
+For free expansion, $pV$ is a constant.
+
+## Avogadro's Number
+
+The kinetic theory of gases relates the macroscopic properties of a gas, like its pressure/temperature, to properties of the molecules that make it up.
+
+We say that a **mole** of a substance contains $N_{A}$ elementary units (atoms/molecules). $N_{A}$ experimentally is $6.02 \times 10^{23}\ mol^{-1}$. A molar mass $M$ of a substance is the mass of 1 mole of the substance.
+
+Molar mass is represented by formula \ref{eq:molar_mass}
+
+## Ideal Gases
+
+The pressure, volume, and temperature of a gas are related by formula \ref{eq:ideal_gas_law} if the gas is an ideal gas.
+
+The work done by a gas when its volume changes (and its temperature is constant) is given by formula \ref{eq:isothermal_process_work}.
+
+## Pressure, Temperature, and RMS speed
+
+The pressure an ideal gas exerts is given by \ref{eq:ideal_gas_pressure}
+
+The RMS speed in terms of temperature and molar mass is given by \ref{eq:rms_terms_temperature}
+
+## Translational Kinetic Energy
+
+Molecules move around, so they have kinetic energy. The average translational kinetic energy per molecule in an ideal gas is given by \ref{eq:translational_kinetic_energy}.
