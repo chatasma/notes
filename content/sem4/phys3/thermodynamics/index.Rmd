@@ -293,17 +293,7 @@ This question is regarding **the net change in internal energy due to work done 
 
 > Figure 18-51 displays a closed cycle for a gas. The change in internal energy along path `ca` is ‒160J. The energy transferred to the gas as heat is 200J along path `ab`, and 40J along path `bc`. How much work is done by the gas along path `abc` and path `ab`?
 
-For this, we notice that -160J `ca` quantity refers to the net change of energy over that path. Though, for `ab` and `bc` its 200J and 40J quantity (respectively) corresponds to heat absorption. So over the path we have these changes:
-
-$$
-\Delta E_{int} = (200) + (40 - 0) + (0 - 160)
-$$
-
-$$
-\Delta E_{int} = 80
-$$
-
-Notice that 80J is our answer for both paths `ab` and `abc`.
+For this question, we notice that path `abca` is a closed path. Meaning, `abc` + `ca` = 0 (referring to the change in internal energy of each path). We know the change in internal energy for `ca`, as that is given to us. We also know that `bc` has a change of internal energy of 40J, since work cannot be done as the volume is constant (refer to the first law of thermodyanmics). Meaning, the change in internal energy of `ab` must be 120J. This means the work done by `ab` is 80J since 200 - 120 = 80 (first law of thermodynamics).
 
 ### Question 3
 

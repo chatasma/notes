@@ -124,21 +124,21 @@ The average speed of the distribution is given by
 
 \begin{equation}
     \label{eq:avg_speed_maxwell_dist}
-    v_{avg} = \frac{8RT}{\pi M}
+    v_{avg} = \sqrt{\frac{8RT}{\pi M}}
 \end{equation}
 
 The most probable speed of the distribution is given by
 
 \begin{equation}
     \label{eq:probable_speed_maxwell_dist}
-    v_{p} = \frac{2RT}{M}
+    v_{p} = \sqrt{\frac{2RT}{M}}
 \end{equation}
 
 The RMS speed of the distribution is given by
 
 \begin{equation}
     \label{eq:rms_speed_maxwell_dist}
-    v_{rms} = \frac{3RT}{M}
+    v_{rms} = \sqrt{\frac{3RT}{M}}
 \end{equation}
 
 Where:
@@ -215,3 +215,211 @@ The RMS speed in terms of temperature and molar mass is given by \ref{eq:rms_ter
 ## Translational Kinetic Energy
 
 Molecules move around, so they have kinetic energy. The average translational kinetic energy per molecule in an ideal gas is given by \ref{eq:translational_kinetic_energy}.
+
+## Problems
+
+## Lecture Problem 1
+
+At 273 K and $1.00 \times 10^{-2}$ atm, the density of a gas is $1.24 \times 10^{-5}$ g/$\text{cm}^{3}$.
+
+* Find $v_{rms}$ for the gas molecules
+* Find the molar mass of the gas
+* Identify the gas
+
+$$
+\rho = \frac{m_{sam}}{V}
+$$
+
+or
+
+$$
+V = \frac{m_{sam}}{\rho}
+$$
+
+$$
+pV = p \frac{m_{sam}}{\rho} = nRT
+$$
+
+$$
+\frac{m_{sam}}{n} = M = \frac{\rho R T}{p}
+$$
+
+So:
+
+$$
+v_{rms} = \sqrt{\frac{3RT}{M}} = \sqrt{\frac{3p}{\rho}} = 494
+$$
+
+494m/s
+
+Find molar mass:
+
+$$
+M = \frac{\rho RT}{p} = 27.9
+$$
+
+27.9 g/mol
+
+Gas must be $N_{2}$
+
+## Problem 2
+
+This question is regarding **Avogadro's number**.
+
+> Gold has a molar mass of 197 g/mol.
+> 
+> * How many moles of hold are in a 2.50 g sample of pure gold?
+> * How many atoms are in the sample
+
+The molar mass tell us how many grams are in a mole of a specific substance. If there are 197 grams per mole of pure gold, we can use this ratio to convert the 2.50g sample into moles using dimensional analysis.
+
+$$
+\frac{2.50\text{ g}}{} * \frac{1\text{ mol}}{197\text{ g}} = 0.013\text{ mol}
+$$
+
+Our answer is 0.013 moles.
+
+The next part of the question then asks us to determine the number of atoms in the sample. This is simple, as we know Avogadro's number tels us the amount of elementary units (atoms/molecules) for a mole of a substance. Avogadro's number is $6.02 \times 10^{23}$, so we can use this value in a dimensional analysis to figure out the amount of atoms in the substance:
+
+$$
+\frac{0.013\text{ mol}}{} * \frac{6.02 \times 10^{23}\text{ atoms}}{1\text{ mol}} = 7.64 \times 10^{21}\text{ atoms}
+$$
+
+Our answer is $7.64 \times 10^{21}$ atoms.
+
+## Problem 3
+
+This question is regarding **ideal gases**.
+
+> Oxygen gas having a volume of 1000 $\text{cm}^{3}$ at $40.0^{\circ}\text{ C}$ and $1.01 \times 10^{5}$ Pa expands until its volume is 1500 $\text{cm}^{3}$ and its pressure is $1.06 \times 10^{5}$ Pa. Find:
+>
+> * the number of moles of oxygen present and 
+> * the final temperature of the sample.
+
+For this question, we just need to apply the ideal gas law:
+
+$$
+pV = nRT
+$$
+
+Converting the temperature to Kelvin and the volume from $\text{cm}^{3}$ to $\text{m}^{3}$, we can find $n$, which is the number of moles. This comes out to be 0.039 moles.
+
+Similarly, we can find the temperature after the gas expands. This comes out to be $493\text{ K}$, or $220^{\circ}\text{ C}$.
+
+## Problem 21
+
+This question is regarding **RMS speed**.
+
+> The lowest possible temperature in outer space is 2.7 K. What is the **rms speed** of hydrogen molecules at this temperature? (The molar mass is given in Table 19-1.)
+
+For this question, we simply need to apply formula \ref{eq:rms_speed_maxwell_dist}. We already know $T$. And, the molar mass of hydrogen molecules is 2.02 g/mol (according to the table). We convert this to kg/mol, and then apply the formula:
+
+$$
+v_{rms} = \sqrt{\frac{3 (8.31) 2.7}{2.02 / 1000}} = 182\text{ m/s}
+$$
+
+Thus, our answer is 182 m/s.
+
+## Problem 23
+
+This problem is regarding **pressure, temperature, and RMS speed**.
+
+> A beam of hydrogen molecules ($\text{H}_{2}$) is directed toward a wall, at an angle of $55^{\circ}$ with the normal to the wall. Each molecule in the beam has a speed of 1.0 km/s and a mass of $3.3 \times 10^{-24}$ g. The beam strikes the wall over an area of 2.0 $\text{cm}^{2}$, at the rate of $10^{23}$ molecules per second. What is the beam's pressure on the wall?
+
+$$
+F = \Delta p
+$$
+
+We know how force is related to pressure:
+
+$$
+P = \frac{F}{A}
+$$
+
+For our problem we will need $\Delta p$ to find the force:
+
+$$
+\Delta p = \frac{p}{t}
+$$
+
+Solve for $p$:
+
+$$
+p = mv
+$$
+
+In this case
+
+$$
+p_{p} p = 2 mv cos(55)
+$$
+
+This is for a single particle (hence $\Delta p_{p}$). There are $10^{23}$ particles in a second.
+
+$$
+p = 10^{23} 2 (3.3 \times 10^{-27}) (1000) cos(55)
+$$
+
+We know $\Delta t = 1$, so $F = \Delta p = \frac{p}{\Delta t} = p$
+
+We also know the value of $A$.
+
+Coming back to this formula:
+
+$$
+P = \frac{F}{A}
+$$
+
+$$
+P = \frac{10^{23} 2 (3.3 \times 10^{-27}) (1000) cos(55)}{2.0 \times 10^{-4}}
+$$
+
+This comes out to be `1.9 kPa`.
+
+Alternatively, we can notice
+
+## Problem 27
+
+This question is regarding **translational kinetic energy**.
+
+> Water standing in the open at $32.0^{\circ}\text{ C}$ evaporates because of the escape of some of the surface molecules. The heat of vaporization (539 cal/g) is approximately equal to $\varepsilon n$, where $\varepsilon$ is the average energy of the escaping molecules and n is the number of molecules per gram.
+> 
+> * Find $\varepsilon$
+> * What is the ratio of $\varepsilon$ to the average kinetic energy of $\text{H}_{2}\text{O}$ molecules, assuming the latter is related to temperature in the same way as it is for gases?
+
+For this question, let us first convert the heat of vaporization into a unit that uses Joules, the SI unit. Note that the molar mass of water is 18 g/mol. We know Avogadro's number, which is $6.02 \times 10^{23}$ molecules/mol. Through dimensional analysis, we notice that diving Avogadro's number by the molar mass gives us the number of molecules in 1 gram of water, which is exactly what we want to start this question. This quantity is $n$ in the expression $\varepsilon n$, and the expression is equal to the heat of vaporization we converted to J/g earlier. So we just divide the heat of vaporization by $n$, and we get our answer: $6.75 \times 10^{-20}$
+
+## Problem 31
+
+This question is regarding **mean free path**.
+
+> In a certain particle accelerator, protons travel around a circular path of diameter 23.0 m in an evacuated chamber, whose residual gas is at 295 K and $1.00 \times 10^{-6}$ torr pressure.
+> 
+> * Calculate the number of gas molecules per cubic centimeter at this pressure. 
+> * What is the mean free path of the gas molecules if the molecular diameter is $2.00 \times 10^{-8}$ cm?
+
+First, let us convert the pressure from torrs into Pascals. After this, we can use the ideal gas law to find the value of $\frac{N}{V}$. First, we need to convert $n$ in the gas law to the number of molecules, $N$. This can be done simply, by multiplying $n$, the number of moles, by Avogadro's number:
+
+$$
+pV = nRT
+$$
+
+$$
+pV = (n * N_{A}) RT
+$$
+
+We want to solve for $N / V$. $(n * N_{A})$ is $N$ in this expression.
+
+$$
+\frac{N}{V} = \frac{p}{RT} 
+$$
+
+This comes out to be $3.27 \times 10^{10}\text{ 1/m}^{3}$.
+
+Now, we can tackle the second part of the question, which is actually pretty straight forward. For this part of the question, we simply use the mean free path $\lambda$ part of the formula to do the calculation:
+
+$$
+\lambda = \frac{1}{\sqrt{2} \pi d^{2} \frac{N}{V}}
+$$
+
+We have the diameter given to us, and we know the value of $\frac{N}{V}$. We can simply do the calculation from here. This comes out to be 172m.
