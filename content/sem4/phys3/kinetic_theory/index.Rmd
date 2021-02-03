@@ -216,7 +216,26 @@ The RMS speed in terms of temperature and molar mass is given by \ref{eq:rms_ter
 
 Molecules move around, so they have kinetic energy. The average translational kinetic energy per molecule in an ideal gas is given by \ref{eq:translational_kinetic_energy}.
 
+## Maxwell Equipartition Theorem
+
+Each degree of freedom contributes $\frac{1}{2} kT$ of internal energy per atom. For monatomic gases this is easy, 3 dimensions, 3 degrees of freedom. For multi-atom molecules you have to consider axis of rotations although so diatomic molecules have 5 degrees of freedom, and polyatomic molecules have 6.
+
 ## Problems
+
+## Question 66
+
+> An ideal gas consists of 1.50 mol of diatomic molecules that rotate but do not oscillate. The molecular diameter is 250 pm. The gas is expanded at a constant pressure of $1.50 \times 10^{5}$ Pa, with a transfer of 200 J as heat. What is the change in the mean free path of the molecules?
+
+Won't solve this entirely, but here are the steps:
+
+- Find N, which is easy
+- Identify mean free path formula
+- Notice we do not have V
+- Express V in terms of ideal gas law
+- Derivate mean free path formula
+- Represent $n \Delta T$ as $\frac{Q}{C_{p}}$
+- Notice that $C_{p} = \frac{7}{2} R$ since gas is composed of diatomic molecules that rotate but do not oscillate.
+- Find change in mean free path
 
 ## Lecture Problem 1
 
