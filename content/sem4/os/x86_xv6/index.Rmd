@@ -1,0 +1,268 @@
+---
+title: "x86 & xv6 Overview"
+date: "February 3rd, 2021"
+output: pdf_document
+---
+
+## What are we doing
+
+* Why are we talking about this
+* x86 ISA (Instruction set Architecture)
+* PC Architeture (what even is a PC)
+* UNIX
+* xv6 (our operating system case of interest)
+
+## Why
+
+* OS relies on hardware-level mechanisms
+* So we need to know the ISA of the processor (x86) and the PC hardware
+  * Hardware can dictate what is/isn't possible and influence how we represent and manage system-level structures
+* We are focusing on the x86 architecture
+  * xv6 written for x86
+    * Also ported to ARM tho
+
+## x86
+
+Documentation is available (Intel IA-32 Software Developer's Manuals). Serves as a complete reference.
+
+### Timeline
+
+* Intel released the 8086 (16 bit) in 1978
+* Then, in 1982, the 80186 and 80286 came about (still 16 bit)
+* In 1985, 80386 was the first 32 bit CPU [i386/IA-32]
+* In 2000, AMD created x86-64, a 64-bit ISA compatible with x86
+* Intel released IA-64 "Itanium" ISA, which was incompatible with x86
+  * Was a failure Tbh
+
+### ISA
+
+* xv6 uses IA-32 ISA
+  * But x86-64 is backwards compatible so it'll work on that as well
+* x86 is CISC (Big brain architecture)
+  * Memory operands for non-load/store instructions
+  * Complex addressing modes
+  * Relatively large number of instructions
+
+### Syntax / Formatting
+
+* Two common forms: Intel and AT&T syntax
+* Intel (common in Windows):
+  * `mov DWORD PTR [ebp-4], 10`
+* AT&T (common in UNIX, default GCC output):
+  * `mov $10, -4(%ebp)`
+  * We will use this
+
+### Registers
+
+* There are 8 general-purpose ones
+  * eax, ebx, ecx, edx, esi, edi, ebp, esp
+* 6 segment registers for addressing
+  * cs, ds, ss, es, fs, gs
+* Status and control register
+  * EFLAGS
+* Program Counter
+  * eip
+* 'e' stands for extended (before these were 16 bit registers, in this we consider 32 bit registers)
+* Many others, like control registers, exist.
+
+About the 8 general purpose registers:
+
+* They can be directly messed with
+* Most can be access in full (32 bits), or as 16/8 bit subvalues.
+  * i.e. `ah` refers to the second halfs first 8 bits
+  * There are diagrams that show this better
+* A register can be volatile or non-volatile (whether a function will mess with or guarantee it won't mess with a register, respectively).
+* Convention:
+  * `eax` return value
+  * `ebx` --
+  * `ecx` Counter
+  * `edx` --
+  * `ebp` Frame/Base Pounter
+  * `esi` Source index (for arrays)
+  * `edi` Destination index (for arrays)
+  * `esp` Stack pointer
+  * `eax`, `ecx`, `edx` are volatile
+
+## Instruction Operands
+
+What types of stuff can we use in instructuins?
+
+* Immediate -- This is a literal value.
+  * `$0x42`, the literal hexadecimal value 42
+* Register -- Value in a register.
+  * `%eax`, the value in eax
+* Rest of the operands are memory related
+  * Direct -- A literal address
+    * `0x4001000`, get the value at that memory address
+  * Indirect -- Get a memory address from a register, and then the value in that memory address
+    * `(%esp)` -- Get the memory address at that register, and the value at the memory address
+  * Base-Displacement -- Kinda combines the indirect, but there's a number in front. It acts as an offset
+    * `8(%esp)`, Add 8 to address found in `esp`, then get that value
+  * Scaled Index -- This one kinda complicated. Takes the form `D(B,I,S)`, where we take the value at address $D+B+I*S$.
+    * `8(%esp, %esi, 4)` -- 4 * some int value in esi, add that to esp, and then add the displacement.
+    * `S` must be 1, 2, 4, or 8.
+
+## Instructions
+
+* Instructions have 0-3 operands
+* For most 2 operands, one is read, another is written
+  * `addl $1, %eax`
+* The suffix of an instruction indicates the size it is working with:
+  * l is 32 bits
+  * w is 16 bits
+  * b is 8 bits
+  * Suffix can be omitted if possible to infer, i.e. if a register is given as an operand we know its width.
+* Arithmetic operations will populate `EFLAGS` register, which is a bit field. Contains `ZF` (zero result), `SF` (signed/neg result), `CF` (carry-out of MSB occurred), and `OF` (overflow occurred), among many others.
+
+### Arithmetic Instructions
+
+* `{add, sub, imul} src dest`
+* `neg dest` -- negate
+* `{inc, dec} dst`
+* `{sal, sar, shr} src, dst` -- Arithmetic and logical shifts (`<<`, `>>`, `>>>` respectively to the order shown).
+* `{and, or, xor} src, dst`
+* `not dst` -- bitwise NOT
+
+
+### Conditions and Branches
+
+* `cmp src, dst` -- Does `dst - src`. Does not store the result, but sets flags
+* `test src, dst` -- Does `dst & src`. Does not store the result, but sets flags
+* `jmp target` -- Unconditionally jump to target (Changes `%eip`)
+
+Conditional jumps (these will make use of the `EFLAGS` flags):
+
+* `{je, jne} target` -- Jump to target if equal
+* `{jl, jle} target` -- Jump less than (or equal)
+* `{jg, jge} target` -- Jump greater than (or equal)
+* `{ja, jb} target` -- Jump to target if above/below (respectively)
+
+_What are the sources in these?_ These instructions make use of the `EFLAGS` register, which stores stuff from previous arithmetic instructions.
+
+`target` is usually an address encoded as an immediate operand, but can also be stored in a register/memory. In that case however, indirect addressing is required, i.e. `*%eax` and `*0x4001000` (We get the address at the location, and the `*` tells us to treat is as a memory address, this is **indirect addressing**).
+
+### Basic control structures
+
+Consider an if statement
+
+```
+if (cond) {
+  // if-clause
+} else {
+  // else-clause
+}
+```
+
+```
+testl %eax, %eax
+je ELSE
+# if-clause
+jmp ENDIF
+ELSE:
+  # else-clause
+ENDIF:
+  # ...
+```
+
+Consinder a while control structure
+
+```
+while (cond) {
+  // loop-body
+}
+```
+
+```
+testl %eax, %eax
+je ENDLOOP
+LOOP:
+  # loop-body
+  testl %eax, %eax
+  jne LOOP
+ENDLOOP:
+  # ....
+```
+
+### Data Movement
+
+* `mov src, dest`
+* `movzbl src dest` Copy 8 bit value to 32 bit target using zero fill
+* `movsbl src dest` Copy 8 bit value to 32 bit target using sign extension
+* `{cmove/ne} src, dst` Move data from src to dst if ZF = 0
+
+Address computation
+
+* `lea address, dst` -- Load effective address? Moves the ADDRESS (not the value) into the `dst`.
+
+
+### Functions and Call stack
+
+Implicitly modify `%esp$`
+
+* `push src` -- Push `src` onto stack
+* `pop dst` -- Pop the top of the stack into `dst`
+* `call target` -- Pushes the current `%eip` onto the stack and then jump to the target
+* `leave` -- Restores the frame pointer `%ebp` and clears the stack frame
+* `ret` -- Pop the stack into `%eip`
+
+`target` can use indirect addressing.
+
+### Function calls
+
+Functions make extensive use of the call-stack, and it has alot of convention.
+
+Before calling:
+
+* Save old frame pointer, establish new one
+* Save non-volatile register values that may be changed in the function
+* Load parameters onto the stack
+* Allocate stack space for any local data
+
+Right before returning:
+
+* Place return value in `%eax`
+* Deallocate any space used for local data
+* Restore/Pop any changed non-volatile register values
+* Restore/Pop old frame pointer
+* Return
+
+### Function calls (Optimization)
+
+* The steps of a function call can be optimized, since there is overhead in all that stack management
+  * Prefer registers to stack-based args.
+  * `%esp` does not always reflect the top of the stack
+  * `lea` can be used in surprising ways (addressing modes as arithmetic)
+
+### Call Stack
+
+* Maintains dynamic state and context of an executing program
+* Saved frame pointers (previous values of `%ebp`) creates a chain of stack frames
+  * Useful to navigate for debugging and tracing
+
+### Processor modes
+
+When an x86 system boots up, it runs in **16-bit real mode** (compatible with 8086) -- all address reference "real" memory locations [no virtual memory business]
+
+* Goal is to first move to **16/32-bit protected mode**. This adds privilege levels, virtual memory, and other mechanisms useful to the OS (i.e. for multitasking).
+* Then, (for x86-64), we move to **64-bit long mode**. It removes some instructions and adds 64-bit registers and addressing.
+
+### Real mode addressing
+
+* Only 16 bit registers, however, there is support for 20-bit registers
+  * How? Makes use of segment registers talked about earlier
+  * Shifts segment number by 4 (ie. x16), to obtain the _base address_, and then add an offset to compute the 20-bit physical address
+  * Example: `IP=0x4000`, `CS=0x1100`, `CS:IP` (segmented address) refers to `0x1100x16 + 0x4000 = 0x15000`.
+
+### Protected Mode
+
+* Privileged instructions only available in supervisor mode
+  * `CPL` flag is found in the CS register, we will cover the mechanism for updating `CPL` later
+  * Segment registers hold _selectors_
+    * _Selectors_ are used to load _segment descriptors_ from a descriptor table
+
+### Segmentation
+
+* Kernel is responsible for maintaining descriptor tables
+  * System wide (Global)
+  * Task-specific (Local)
+* Must be setup before transitioning to protected mode
