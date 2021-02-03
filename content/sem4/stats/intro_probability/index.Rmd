@@ -1,5 +1,5 @@
 ---
-title: "Into to Probability"
+title: "Intro to Probability"
 date: "January 21st, 2021"
 output: pdf_document
 ---

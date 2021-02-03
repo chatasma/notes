@@ -1,0 +1,21 @@
+---
+title: "Cool Problems"
+date: "February 3rd, 2021"
+output: pdf_document
+---
+
+Euclidean Minimum Spanning Tree (MST):
+
+"Algorithm":
+
+```
+Repeatedly // (n - 1) times
+  pick the shortest edge connecting the visited point to an unvisited
+  mark unvisited as unvisited // O(n^2)
+```
+
+This is a O(n^3) running time algorithm.
+
+This is algorithm is correct, why?  Graph Theory. We can prove this later
+
+More cleverly, we can solve this problem in O(n^2)
