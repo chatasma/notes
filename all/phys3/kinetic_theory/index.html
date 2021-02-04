@@ -499,6 +499,10 @@ summary {
 <p><span class="math display">\[
 C_{v} = \frac{3}{2} R = 12.5\text{J/mol * k}
 \]</span></p>
+<p>For a gas that is diatomic and molecules that rotate and do not oscillate:</p>
+<p><span class="math display">\[
+C_{v} = \frac{7}{2} R
+\]</span></p>
 <p>Molar specific heat from constant volume to constant pressure</p>
 <p><span class="math display">\[
 C_{p} = C_{v} + R
@@ -732,6 +736,116 @@ pV = (n * N_{A}) RT
 \lambda = \frac{1}{\sqrt{2} \pi d^{2} \frac{N}{V}}
 \]</span></p>
 <p>We have the diameter given to us, and we know the value of <span class="math inline">\(\frac{N}{V}\)</span>. We can simply do the calculation from here. This comes out to be 172m.</p>
+</div>
+<div id="problem-34" class="section level2">
+<h2>Problem 34</h2>
+<p>This question is regarding <strong>the distribution of molecular speeds</strong>.</p>
+<blockquote>
+<p>The speeds of 22 particles are as follows [in textbook] (<span class="math inline">\(N_{i}\)</span> represents the number of particles that have speed <span class="math inline">\(v_{i}\)</span>)</p>
+<ul>
+<li>What is <span class="math inline">\(v_{avg}\)</span>?</li>
+<li>What is <span class="math inline">\(v_{rms}\)</span>?</li>
+<li>What is <span class="math inline">\(v_{p}\)</span>?</li>
+</ul>
+</blockquote>
+<p>To find the average is fairly simple – sum the speeds and divide by 22:</p>
+<p><span class="math display">\[
+(2 * 1 + 4 * 2 + 6 * 3 + 8 * 4 + 2 * 5) / 22 = 3.18
+\]</span></p>
+<p>Thus, our <span class="math inline">\(v_{avg} = 3.18\text{ m/s}\)</span>.</p>
+<p>Root mean squared is just the square root of the average of the elements squared:</p>
+<p><span class="math display">\[
+\sqrt{\frac{((2 * 1^{2}) + (4 * 2^{2}) + (6 * 3^{2}) + (8 * 4^{2}) + (2 * 5^{2}))}{22}} = 3.37
+\]</span></p>
+<p>Thus, our <span class="math inline">\(v_{rms} = 3.37\text{ m/s}\)</span>.</p>
+<p>The most probable speed (<span class="math inline">\(v_{p}\)</span>) is 4.0 m/s, the table shows the particles grouped by speed, and the 4.0 group is the biggest.</p>
+</div>
+<div id="problem-41" class="section level2">
+<h2>Problem 41</h2>
+<p>This question is regarding <strong>the distribution of molecular speeds</strong>.</p>
+<blockquote>
+<p>A hydrogen molecule (diameter <span class="math inline">\(1.0 \times 10^{-8}\)</span> cm), traveling at the rms speed, escapes from a 4000 K furnace into a chamber containing <em>cold</em> argon atoms (diameter <span class="math inline">\(3.0 \times 10^{-8}\)</span> cm) at a density of <span class="math inline">\(4.0 \times 10^{19}\)</span> <span class="math inline">\(\text{atoms/cm}^{3}\)</span>.</p>
+<p>What is the speed of the hydrogen molecule? If it collides with an argon atom, what is the closest their centers can be, considering each as spherical? What is the initial number of collisions per second experienced by the hydrogen molecule? (Hint: Assume that the argon atoms are stationary. Then the mean free path of the hydrogen molecule is given by Eq. 19-26 and not Eq. 19-25.)</p>
+</blockquote>
+<p>To find the speed of the hydrogen molecule, we just find the rms speed:</p>
+<p><span class="math display">\[
+\sqrt{\frac{3 * 8.31 * 4000}{2.02 / 1000}}
+\]</span></p>
+<p>This comes out to be 7026 m/s.</p>
+<p>The next part of the question asks us the distance of separation when the atoms are closest together upon collision. This would just be the radius of the argon atom and the radius of the hydrogen molecule added together:</p>
+<p><span class="math display">\[
+\frac{1.0 \times 10^{-8}}{2} + \frac{3.0 \times 10^{-8}}{2}
+\]</span></p>
+<p>This comes out to be <span class="math inline">\(2.0 \times 10^{-8}\text{ cm}\)</span></p>
+<p>Finally, we are asked for the initial number of collisions per second experienced by the hydrogen molecule. To determine this, we can use the mean free path. After finding the mean free path, we can divide the speed by the mean free path to determine how many collisions there will be, as the mean free path tells us the path length <em>between</em> collisions.</p>
+<p>The book hints to use formula 19-26:</p>
+<p><span class="math display">\[
+\frac{1}{\pi (2.0 \times 10^{-8}\text{ cm})^{2} * (4.0 \times 10^{19})}
+\]</span></p>
+<p>After finding this, we can then divide the speed by it for our answer:</p>
+<p><span class="math display">\[
+\frac{7026 * 100}{1.98 \times 10^{-5}}
+\]</span></p>
+<p>This comes out to be <span class="math inline">\(3.5 \times 10^{10}\)</span> collisions.</p>
+</div>
+<div id="problem-49" class="section level2">
+<h2>Problem 49</h2>
+<p>This question is regarding <strong>the molar specific heats of ideal gases</strong>.</p>
+<blockquote>
+<p>A container holds a mixture of three nonreacting gases: 2.40 mol of gas 1 with <span class="math inline">\(C_{V1}\)</span> = 12.0 J/mol * K, 1.50 mol of gas 2 with <span class="math inline">\(C_{V2}\)</span> = 12.8 J/mol * K, and 3.20 mol of gas 3 with <span class="math inline">\(C_{V3}\)</span> = 20.0 J/mol * K. What is <span class="math inline">\(C_{V}\)</span> of the mixture?</p>
+</blockquote>
+<p>For this question, let us first find the heat capacity for each of the gases given their molar specific heats and their mole amounts. We will sum them up after finding them:</p>
+<p><span class="math display">\[
+(2.40 * 12) + (1.50 * 12.8) + (3.20 * 20.0) = 112
+\]</span></p>
+<p>The heat capacity of the mixture is 112 J/K. From here, we can just divide by the number of moles in the mixture (which is just the sum of those), and we will have the molar specific heat of the mixture.</p>
+<p><span class="math display">\[
+\frac{112}{2.4 + 1.5 + 3.2} = 15.8
+\]</span></p>
+<p>Thus, our answer is <span class="math inline">\(C_{v} = 15.8\text{ J / mol * K}\)</span></p>
+</div>
+<div id="problem-53" class="section level2">
+<h2>Problem 53</h2>
+<p>This question is regarding <strong>degrees of freedom and molar specific heats</strong>.</p>
+<blockquote>
+<p>Suppose 4.00 mol of an ideal diatomic gas, with molecular rotation but not oscillation, experienced a temperature increase of 60.0 K under constant-pressure conditions. What are:</p>
+<p>the energy transferred as heat Q the change <span class="math inline">\(\Delta E_{int}\)</span> in internal energy of the gas the work W done by the gas the change <span class="math inline">\(\Delta K\)</span> in the total translational kinetic energy of the gas?</p>
+</blockquote>
+<p>To find <span class="math inline">\(Q\)</span>, we can use <span class="math inline">\(Q = n C_{p} \Delta T\)</span>:</p>
+<p>Since the gas is diatomic, and the molecules rotate but don’t oscillate, the molar specific heat is given by <span class="math inline">\(C_{p} = \frac{7}{2} R\)</span>.</p>
+<p><span class="math display">\[
+Q = \frac{7}{2} R n \Delta T
+\]</span></p>
+<p><span class="math display">\[
+Q = \frac{7}{2} * 8.31 * 4.00 * 60 = 6980 J
+\]</span></p>
+<p>Thus, our answer for part a is 6980 J.</p>
+<p>Part B asks us for the internal energy of the gas. Well, we already have <span class="math inline">\(Q\)</span>, and from the first law of thermodynamics we can determine we just need to find <span class="math inline">\(-W\)</span> to find the change in internal energy. We can use the ideal gas law here, since we know <span class="math inline">\(W = nR \Delta T\)</span>. Thus:</p>
+<p><span class="math display">\[
+\Delta E_{int} = Q - W
+\]</span></p>
+<p><span class="math display">\[
+\Delta E_{int} = (\frac{7}{2} n R \Delta T) - (n R \Delta T) = \frac{5}{2} n R \Delta T = 4986 J
+\]</span></p>
+<p>Thus, our answer for part b is 4986 J.</p>
+<p>Part C asks us for the work done by the gas. We just calculated this for part B: <span class="math inline">\(n R \Delta T = 1994 J\)</span>.</p>
+<p>Thus, our answer is 1994 J.</p>
+<p>Part D asks us for the total change in <strong>translational</strong> kinetic energy of the gas. We can determine the molar specific heat for constant pressure conditions:</p>
+<p><span class="math display">\[
+C_{p} = \frac{5}{2} * R
+\]</span></p>
+<p>This is because we are under constant pressure conditions, and only considering the translational motion, so we have 5 degrees of freedom.</p>
+<p>We know that <span class="math inline">\(\Delta K = \Delta E_{int}\)</span>:</p>
+<p><span class="math display">\[
+\Delta K = Q - W
+\]</span></p>
+<p><span class="math display">\[
+\Delta K = (C_{p} * n * R * \Delta T) - (n * R * \Delta T) = (C_{p} - 1) * n R T
+\]</span></p>
+<p><span class="math display">\[
+(C_{p} - 1) * n R T = (\frac{5}{2} - \frac{2}{2}) * 4 * 8.31 * 60 = 2991 J
+\]</span></p>
+<p>Thus, our answer is 2991 J.</p>
 </div>
 
 
