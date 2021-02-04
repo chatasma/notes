@@ -4,6 +4,9 @@ date: "January 21st, 2021"
 output: pdf_document
 ---
 
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+
 * Sample space and events
   * **Set**: Collection of distinct objects
     * Examples:
@@ -199,8 +202,139 @@ $$
 
 ## Combinations
 
-Combinations are like permutations, but the ordre does not matter. The formula below then makes sense, because it divides out the repeats:
+Combinations are like permutations, but the order does not matter. The formula below then makes sense, because it divides out the repeats:
 
 $$
 \frac{n!}{(n-r)! r!}
+$$
+
+## Counting Principles Overview
+
+* Multiplication rule works with replacement, permutations and combinations work without replacement.
+
+## Example
+
+The U.S. Senate consists of 100 senators, 2 from each of the 50 states. A committee consisting of 5 senators is to be formed:
+
+* How many different committees are possible?
+* How many are possible if no state can have more than 1 senator on the committee?
+
+For the first part of the question, we do $\Comb{100}{5} = 75287520$.
+
+For the second part of the question, let us say we are choosing 5 states out of 50 states. Then, for any state, we can have two senators. This is $2^{5}$ added possibilities, so we do $\Comb{50}{5} * 2^{5} = 67800320$.
+
+
+## Example
+
+A company orders supplies from 5 distributors and wishes to place 10 orders in a manner that allows every distributor **an equal chance** of obtaining any one order and there is no restriction on the number of orders that can be placed with a distributor. Find the probability that a particular distributor gets exactly 3 orders. 
+
+First, we should find the sample size:
+
+$5^{10}$ is our sample size. We can find this from the multiplication rule -- we repeatedly choose a distributor for each order _with replacement_. To elaborate, we choose a distributor, put them back, and then choose again until we have chosen 10 distributors for the 10 orders.
+
+Now, we perform a series of steps:
+
+Step 1: A particular distributor gets exactly 3 orders.
+
+If there are 10 orders, we can choose 3 out of the 10 orders: $\Comb{10}{3} = 120$.
+
+Step 2: Distribute the remaining 7 orders to the 4 remaining distributors
+
+An order can go to any of the 4 distributors. We choose a distributor for the first order, but then put them back (with replacement), so we use multiplication rule to tackle this: $4^{7} = 16384$.
+
+Finally, by the multiplication rule we can multiply these two steps to get the number of sample points that satisfy the condition:
+
+$$
+120 * 16384 = 1966080
+$$
+
+And, we can find the probability since we know the sample size:
+
+$$
+P(a) = \frac{n}{N} = \frac{120}{1966080} = 0.201
+$$
+
+## Example
+
+Suppose you have six different types of flowers and three planters. In how many ways can you put three flowers in the first planter, two flowers in the second planter, and one flower in the final planter?
+
+Well, first we choose 3 out of 6, then 2 out of 3, and then 1 out of 1:
+
+$$
+\Comb{6}{3} * \Comb{3}{2} * \Comb{1}{1} = 60
+$$
+
+## Example
+
+Consider there are 3 yellow, 2 green, 4 red, 1 purple, and 5 orange skittles.
+
+How many distinguishable arrangements are there?
+
+For this question, we use the multinomial theorem:
+
+$$
+\frac{15!}{3!2!4!1!5!} = 37837800
+$$
+
+What is the probability that an arrangement starts and ends with a red skittle?
+
+Well, suppose we already have a red skittle at the front and the back. Really, what is left is this:
+
+$$
+\frac{15!}{3!2!2!1!5!} = 2162160
+$$
+
+This is because the 4 red skittles that we used previously in the first part is now 2 red skittles. We can divide this by the sample size to get the probability:
+
+$$
+\frac{2162160}{37837800} = 0.057
+$$
+
+## Example
+
+An ordinary deck of 52 cards is shuffled and dealt. Take 5 cards at random:
+
+* Let $A$ be the event that all 5 cards are different with respect to their value (no other restrictions), what is $P(A)$?
+* Let $B$ be the event of a pair and at most a pair. What is $P(B)$?
+
+
+For the first part, suppose we choose 5 different _values_ -- this corresponds to:
+
+$$
+\Comb{13}{5}
+$$
+
+This is because there are 13 values. Now, any of those values can be from any of the 4 suits. So for each value, we multiply by 4 -- or just multiply by $4^{5}$
+
+$$
+\Comb{13}{5} * 4^{5} = 1317888
+$$
+
+Probability is $\frac{n}{N} = \frac{1317888}{\Comb{52}{5}} = 0.507$
+
+For the second part, we are asked to find the probability of exactly one pair:
+
+This expression gives us the number of sample points of which a pair occurs:
+
+$$
+\Comb{13}{1} * \frac{4}{2}
+$$
+
+
+Now, for the remaining, we have to make sure that another pair is not chosen. We choose 3 values out of the remaining 12, and for each of the 3 values they can be any of the 4 suits:
+
+$$
+\Comb{12}{3} * 4^{3}
+$$
+
+With multiplication rule, we just multiply these occurrences together:
+
+$$
+\Comb{13}{1} * \frac{4}{2} * \Comb{12}{3} * 4^{3} = 1098240
+$$
+
+Probability of this happening
+
+$$
+P(B) = \frac{n}{N} = \frac{1098240}{\Comb{52}{5}} 0.4226
 $$
