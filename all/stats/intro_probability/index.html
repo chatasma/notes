@@ -377,6 +377,10 @@ summary {
 </div>
 
 
+
+%
+
+<p>%</p>
 <ul>
 <li>Sample space and events
 <ul>
@@ -599,9 +603,104 @@ summary {
 </div>
 <div id="combinations" class="section level2">
 <h2>Combinations</h2>
-<p>Combinations are like permutations, but the ordre does not matter. The formula below then makes sense, because it divides out the repeats:</p>
+<p>Combinations are like permutations, but the order does not matter. The formula below then makes sense, because it divides out the repeats:</p>
 <p><span class="math display">\[
 \frac{n!}{(n-r)! r!}
+\]</span></p>
+</div>
+<div id="counting-principles-overview" class="section level2">
+<h2>Counting Principles Overview</h2>
+<ul>
+<li>Multiplication rule works with replacement, permutations and combinations work without replacement.</li>
+</ul>
+</div>
+<div id="example-1" class="section level2">
+<h2>Example</h2>
+<p>The U.S. Senate consists of 100 senators, 2 from each of the 50 states. A committee consisting of 5 senators is to be formed:</p>
+<ul>
+<li>How many different committees are possible?</li>
+<li>How many are possible if no state can have more than 1 senator on the committee?</li>
+</ul>
+<p>For the first part of the question, we do <span class="math inline">\({}^{100}C_{5} = 75287520\)</span>.</p>
+<p>For the second part of the question, let us say we are choosing 5 states out of 50 states. Then, for any state, we can have two senators. This is <span class="math inline">\(2^{5}\)</span> added possibilities, so we do <span class="math inline">\({}^{50}C_{5} * 2^{5} = 67800320\)</span>.</p>
+</div>
+<div id="example-2" class="section level2">
+<h2>Example</h2>
+<p>A company orders supplies from 5 distributors and wishes to place 10 orders in a manner that allows every distributor <strong>an equal chance</strong> of obtaining any one order and there is no restriction on the number of orders that can be placed with a distributor. Find the probability that a particular distributor gets exactly 3 orders.</p>
+<p>First, we should find the sample size:</p>
+<p><span class="math inline">\(5^{10}\)</span> is our sample size. We can find this from the multiplication rule – we repeatedly choose a distributor for each order <em>with replacement</em>. To elaborate, we choose a distributor, put them back, and then choose again until we have chosen 10 distributors for the 10 orders.</p>
+<p>Now, we perform a series of steps:</p>
+<p>Step 1: A particular distributor gets exactly 3 orders.</p>
+<p>If there are 10 orders, we can choose 3 out of the 10 orders: <span class="math inline">\({}^{10}C_{3} = 120\)</span>.</p>
+<p>Step 2: Distribute the remaining 7 orders to the 4 remaining distributors</p>
+<p>An order can go to any of the 4 distributors. We choose a distributor for the first order, but then put them back (with replacement), so we use multiplication rule to tackle this: <span class="math inline">\(4^{7} = 16384\)</span>.</p>
+<p>Finally, by the multiplication rule we can multiply these two steps to get the number of sample points that satisfy the condition:</p>
+<p><span class="math display">\[
+120 * 16384 = 1966080
+\]</span></p>
+<p>And, we can find the probability since we know the sample size:</p>
+<p><span class="math display">\[
+P(a) = \frac{n}{N} = \frac{120}{1966080} = 0.201
+\]</span></p>
+</div>
+<div id="example-3" class="section level2">
+<h2>Example</h2>
+<p>Suppose you have six different types of flowers and three planters. In how many ways can you put three flowers in the first planter, two flowers in the second planter, and one flower in the final planter?</p>
+<p>Well, first we choose 3 out of 6, then 2 out of 3, and then 1 out of 1:</p>
+<p><span class="math display">\[
+{}^{6}C_{3} * {}^{3}C_{2} * {}^{1}C_{1} = 60
+\]</span></p>
+</div>
+<div id="example-4" class="section level2">
+<h2>Example</h2>
+<p>Consider there are 3 yellow, 2 green, 4 red, 1 purple, and 5 orange skittles.</p>
+<p>How many distinguishable arrangements are there?</p>
+<p>For this question, we use the multinomial theorem:</p>
+<p><span class="math display">\[
+\frac{15!}{3!2!4!1!5!} = 37837800
+\]</span></p>
+<p>What is the probability that an arrangement starts and ends with a red skittle?</p>
+<p>Well, suppose we already have a red skittle at the front and the back. Really, what is left is this:</p>
+<p><span class="math display">\[
+\frac{15!}{3!2!2!1!5!} = 2162160
+\]</span></p>
+<p>This is because the 4 red skittles that we used previously in the first part is now 2 red skittles. We can divide this by the sample size to get the probability:</p>
+<p><span class="math display">\[
+\frac{2162160}{37837800} = 0.057
+\]</span></p>
+</div>
+<div id="example-5" class="section level2">
+<h2>Example</h2>
+<p>An ordinary deck of 52 cards is shuffled and dealt. Take 5 cards at random:</p>
+<ul>
+<li>Let <span class="math inline">\(A\)</span> be the event that all 5 cards are different with respect to their value (no other restrictions), what is <span class="math inline">\(P(A)\)</span>?</li>
+<li>Let <span class="math inline">\(B\)</span> be the event of a pair and at most a pair. What is <span class="math inline">\(P(B)\)</span>?</li>
+</ul>
+<p>For the first part, suppose we choose 5 different <em>values</em> – this corresponds to:</p>
+<p><span class="math display">\[
+{}^{13}C_{5}
+\]</span></p>
+<p>This is because there are 13 values. Now, any of those values can be from any of the 4 suits. So for each value, we multiply by 4 – or just multiply by <span class="math inline">\(4^{5}\)</span></p>
+<p><span class="math display">\[
+{}^{13}C_{5} * 4^{5} = 1317888
+\]</span></p>
+<p>Probability is <span class="math inline">\(\frac{n}{N} = \frac{1317888}{{}^{52}C_{5}} = 0.507\)</span></p>
+<p>For the second part, we are asked to find the probability of exactly one pair:</p>
+<p>This expression gives us the number of sample points of which a pair occurs:</p>
+<p><span class="math display">\[
+{}^{13}C_{1} * \frac{4}{2}
+\]</span></p>
+<p>Now, for the remaining, we have to make sure that another pair is not chosen. We choose 3 values out of the remaining 12, and for each of the 3 values they can be any of the 4 suits:</p>
+<p><span class="math display">\[
+{}^{12}C_{3} * 4^{3}
+\]</span></p>
+<p>With multiplication rule, we just multiply these occurrences together:</p>
+<p><span class="math display">\[
+{}^{13}C_{1} * \frac{4}{2} * {}^{12}C_{3} * 4^{3} = 1098240
+\]</span></p>
+<p>Probability of this happening</p>
+<p><span class="math display">\[
+P(B) = \frac{n}{N} = \frac{1098240}{{}^{52}C_{5}} 0.4226
 \]</span></p>
 </div>
 
