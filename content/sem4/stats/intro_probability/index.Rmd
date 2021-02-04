@@ -4,8 +4,8 @@ date: "January 21st, 2021"
 output: pdf_document
 ---
 
-\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
-\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
 
 * Sample space and events
   * **Set**: Collection of distinct objects
