@@ -159,6 +159,13 @@ $$
 C_{v} = \frac{3}{2} R = 12.5\text{J/mol * k}
 $$
 
+For a gas that is diatomic and molecules that rotate and do not oscillate:
+
+$$
+C_{v} = \frac{7}{2} R
+$$
+
+
 Molar specific heat from constant volume to constant pressure
 
 $$
@@ -442,3 +449,158 @@ $$
 $$
 
 We have the diameter given to us, and we know the value of $\frac{N}{V}$. We can simply do the calculation from here. This comes out to be 172m.
+
+## Problem 34
+
+This question is regarding **the distribution of molecular speeds**.
+
+> The speeds of 22 particles are as follows [in textbook] ($N_{i}$ represents the number of particles that have speed $v_{i}$)
+>
+> * What is $v_{avg}$?
+> * What is $v_{rms}$?
+> * What is $v_{p}$?
+
+To find the average is fairly simple -- sum the speeds and divide by 22:
+
+$$
+(2 * 1 + 4 * 2 + 6 * 3 + 8 * 4 + 2 * 5) / 22 = 3.18
+$$
+
+Thus, our $v_{avg} = 3.18\text{ m/s}$.
+
+Root mean squared is just the square root of the average of the elements squared:
+
+$$
+\sqrt{\frac{((2 * 1^{2}) + (4 * 2^{2}) + (6 * 3^{2}) + (8 * 4^{2}) + (2 * 5^{2}))}{22}} = 3.37
+$$
+
+Thus, our $v_{rms} = 3.37\text{ m/s}$.
+
+The most probable speed ($v_{p}$) is 4.0 m/s, the table shows the particles grouped by speed, and the 4.0 group is the biggest.
+
+## Problem 41
+
+This question is regarding **the distribution of molecular speeds**.
+
+> A hydrogen molecule (diameter $1.0 \times 10^{-8}$ cm), traveling at the rms speed, escapes from a 4000 K furnace into a chamber containing _cold_ argon atoms (diameter $3.0 \times 10^{-8}$ cm) at a density of $4.0 \times 10^{19}$ $\text{atoms/cm}^{3}$.
+> 
+> What is the speed of the hydrogen molecule?
+> If it collides with an argon atom, what is the closest their centers can be, considering each as spherical?
+> What is the initial number of collisions per second experienced by the hydrogen molecule? (Hint: Assume that the argon atoms are stationary. Then the mean free path of the hydrogen molecule is given by Eq. 19-26 and not Eq. 19-25.)
+
+To find the speed of the hydrogen molecule, we just find the rms speed:
+
+$$
+\sqrt{\frac{3 * 8.31 * 4000}{2.02 / 1000}}
+$$
+
+This comes out to be 7026 m/s.
+
+The next part of the question asks us the distance of separation when the atoms are closest together upon collision. This would just be the radius of the argon atom and the radius of the hydrogen molecule added together:
+
+$$
+\frac{1.0 \times 10^{-8}}{2} + \frac{3.0 \times 10^{-8}}{2}
+$$
+
+This comes out to be $2.0 \times 10^{-8}\text{ cm}$
+
+Finally, we are asked for the initial number of collisions per second experienced by the hydrogen molecule. To determine this, we can use the mean free path. After finding the mean free path, we can divide the speed by the mean free path to determine how many collisions there will be, as the mean free path tells us the path length _between_ collisions.
+
+The book hints to use formula 19-26:
+
+$$
+\frac{1}{\pi (2.0 \times 10^{-8}\text{ cm})^{2} * (4.0 \times 10^{19})}
+$$
+
+After finding this, we can then divide the speed by it for our answer:
+
+$$
+\frac{7026 * 100}{1.98 \times 10^{-5}}
+$$
+
+This comes out to be $3.5 \times 10^{10}$ collisions.
+
+## Problem 49
+
+This question is regarding **the molar specific heats of ideal gases**.
+
+> A container holds a mixture of three nonreacting gases: 2.40 mol of gas 1 with $C_{V1}$ = 12.0 J/mol * K, 1.50 mol of gas 2 with $C_{V2}$ = 12.8 J/mol * K, and 3.20 mol of gas 3 with $C_{V3}$ = 20.0 J/mol * K. What is $C_{V}$ of the mixture?
+
+For this question, let us first find the heat capacity for each of the gases given their molar specific heats and their mole amounts. We will sum them up after finding them:
+
+$$
+(2.40 * 12) + (1.50 * 12.8) + (3.20 * 20.0) = 112
+$$
+
+The heat capacity of the mixture is 112 J/K. From here, we can just divide by the number of moles in the mixture (which is just the sum of those), and we will have the molar specific heat of the mixture.
+
+$$
+\frac{112}{2.4 + 1.5 + 3.2} = 15.8
+$$
+
+Thus, our answer is $C_{v} = 15.8\text{ J / mol * K}$
+
+## Problem 53
+
+This question is regarding **degrees of freedom and molar specific heats**.
+
+> Suppose 4.00 mol of an ideal diatomic gas, with molecular rotation but not oscillation, experienced a temperature increase of 60.0 K under constant-pressure conditions. What are:
+> 
+> the energy transferred as heat Q
+> the change $\Delta E_{int}$ in internal energy of the gas
+> the work W done by the gas
+> the change $\Delta K$ in the total translational kinetic energy of the gas?
+
+To find $Q$, we can use $Q = n C_{p} \Delta T$:
+
+Since the gas is diatomic, and the molecules rotate but don't oscillate, the molar specific heat is given by $C_{p} = \frac{7}{2} R$.
+
+$$
+Q = \frac{7}{2} R n \Delta T
+$$
+
+$$
+Q = \frac{7}{2} * 8.31 * 4.00 * 60 = 6980 J
+$$
+
+Thus, our answer for part a is 6980 J.
+
+Part B asks us for the internal energy of the gas. Well, we already have $Q$, and from the first law of thermodynamics we can determine we just need to find $-W$ to find the change in internal energy. We can use the ideal gas law here, since we know $W = nR \Delta T$. Thus:
+
+$$
+\Delta E_{int} = Q - W
+$$
+
+$$
+\Delta E_{int} = (\frac{7}{2} n R \Delta T) - (n R \Delta T) = \frac{5}{2} n R \Delta T = 4986 J
+$$
+
+Thus, our answer for part b is 4986 J.
+
+Part C asks us for the work done by the gas. We just calculated this for part B: $n R \Delta T = 1994 J$.
+
+Thus, our answer is 1994 J.
+
+Part D asks us for the total change in **translational** kinetic energy of the gas. We can determine the molar specific heat for constant pressure conditions:
+
+$$
+C_{p} = \frac{5}{2} * R
+$$
+
+This is because we are under constant pressure conditions, and only considering the translational motion, so we have 5 degrees of freedom.
+
+We know that $\Delta K = \Delta E_{int}$:
+
+$$
+\Delta K = Q - W
+$$
+
+$$
+\Delta K = (C_{p} * n * R * \Delta T) - (n * R * \Delta T) = (C_{p} - 1) * n R T
+$$
+
+$$
+(C_{p} - 1) * n R T = (\frac{5}{2} - \frac{2}{2}) * 4 * 8.31 * 60 = 2991 J
+$$
+
+Thus, our answer is 2991 J.
