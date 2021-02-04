@@ -317,7 +317,7 @@ For the second part, we are asked to find the probability of exactly one pair:
 This expression gives us the number of sample points of which a pair occurs:
 
 $$
-\Comb{13}{1} * \frac{4}{2}
+\Comb{13}{1} * \Comb{4}{2}
 $$
 
 
@@ -336,5 +336,5 @@ $$
 Probability of this happening
 
 $$
-P(B) = \frac{n}{N} = \frac{1098240}{\Comb{52}{5}} 0.4226
+P(B) = \frac{n}{N} = \frac{1098240}{\Comb{52}{5}} = 0.4226
 $$
