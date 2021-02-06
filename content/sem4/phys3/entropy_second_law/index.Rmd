@@ -1,0 +1,109 @@
+---
+title: "Entropy and the Second Law of Thermodynamics"
+date: "February 5th, 2021"
+output: pdf_document
+---
+
+## Formulas
+
+Entropy change $\Delta S$ for a reversible process that takes a system between the initial to final (or vice versa) state:
+
+$$
+\Delta S = S_{f} - S_{i} = \int_{i}^{f} \frac{dQ}{T}
+$$
+
+Where:
+
+* $Q$ is the energy transferred as heat to or from the system during the process
+* $T$ is the temperature of the system in kelvins during the process
+
+For a reversible isothermal process:
+
+$$
+\Delta S = S_{f} - S_{i} = \frac{Q}{T}
+$$
+
+When the temperature change $\Delta T$ of a system is small relative to the temperature (in Kelvins) before and after the process, the entropy change can be approximated as:
+
+$$
+\Delta S = S_{f} - S_{i} \approx \frac{Q}{T_{avg}}
+$$
+
+Where:
+
+* $T_{avg}$ is the system's average temperature during the process.
+
+When an ideal gas (reversibly) changes from an initial state, with changes to temp and volume, the change in entropy of the gas is:
+
+$$
+\Delta S = S_{f} - S_{i} = nR ln \frac{V_{f}}{V_{i}} = n C_{v} ln \frac{T_{f}}{T_{i}}
+$$
+
+The second law of thermo is an extension of the entropy postulate: it states that if a process occurs in a closed system, the entropy of the system **increases for irreversible processes** and **remains constant for reversible processes**. Entropy of the system will **never decrease**. Meaning:
+
+$$
+\Delta S \geq 0
+$$
+
+Efficiency $\varepsilon$ of an engine:
+
+$$
+\varepsilon = \frac{\text{energy we get}}{\text{energy we pay for}} = \frac{\lvert W \rvert}{\lvert Q_{H} \rvert}
+$$
+
+Carnot engine efficiency
+
+$$
+\varepsilon_{C} = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert} = 1 = \frac{T_{L}}{T_{H}}
+$$
+
+Where:
+
+* $T_{H}$ is the temperature of the high-temperature reservoir
+* $T_{L}$ is the temperature of the low-temperature reservoir
+
+Notes:
+
+* Real Carnot engines always have an efficient lower than that of a Carnot engines. Even ideal engines that are not Carnot engines also have efficiencies that are lower than a Carnot engine
+* A perfect engine is where we extract heat from a hot reservoir and convert it straight into work. Though, an engine like this would violate the second law of thermodynamics.
+
+Coefficient of performance $K$ for a refrigerator:
+
+$$
+K = \frac{\text{what we want}}{\text{what we pay for}} = \frac{\lvert Q_{L} \rvert}{\lvert W \rvert}
+$$
+
+A Carnot refrigerator is a Carnot engine in reverse:
+
+$$
+K_{C} = \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert - \lvert Q_{L} \rvert} = \frac{T_{L}}{T_{H} - T_{L}}
+$$
+
+The perfect refrigerator is when the energy extracted (as heat) from the low-temp reservoir is converted completely to heat _discharged_ to the high-temperature reservoir without the need to do any work. This would violate the second law of thermodynamics though.
+
+For a system of $N$ molecules, that may be distributed between two halves of a box, the multiplicity is given by:
+
+$$
+W = \frac{N!}{n_{1}! n_{2}!}
+$$
+
+Where:
+
+* $n_{1}$ is the number of molecules in one half of the box
+* $n_{2}$ is the number of molecules in the other half
+
+Multiplicity $W$ of a configuration fo a system and the entropy $S$ of the system in that configuration are related by Boltzmann's entropy equation:
+
+$$
+S = k ln W
+$$
+
+Where:
+
+* $k = 1.38 \times 10^{-23}\text{ J/K}$ -- this is the Boltzmann constant
+
+When $N$ is very large (the usual case), we can approximate $ln N!$ with Stirling's approximation:
+
+$$
+ln N! \approx N(ln N) - N
+$$
