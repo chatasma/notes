@@ -54,7 +54,7 @@ $$
 Carnot engine efficiency
 
 $$
-\varepsilon_{C} = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert} = 1 = \frac{T_{L}}{T_{H}}
+\varepsilon_{C} = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert} = 1 - \frac{T_{L}}{T_{H}}
 $$
 
 Where:
@@ -107,3 +107,242 @@ When $N$ is very large (the usual case), we can approximate $ln N!$ with Stirlin
 $$
 ln N! \approx N(ln N) - N
 $$
+
+## Problems
+
+## Problem 3
+
+This question is regarding **entropy**.
+
+> A 2.50 mol sample of an ideal gas expands reversibly and isothermally at 360 K until its volume is doubled. What is the increase in entropy of the gas?
+
+For this question we can use the following formula:
+
+$$
+\Delta S = n R ln \frac{V_{f}}{V_{i}}
+$$
+
+This formula applies because the change is reversible.
+
+$$
+\Delta S = 2.50 * 8.31 * ln 2 
+$$
+
+Thus, the answer is $14.4\text{ J/K}$
+
+## Problem 7
+
+This question is regarding **entropy**.
+
+> A 50.0 g block of copper whose temperature is 400 K is placed in an insulating box with a 100 g block of lead whose temperature is 200 K.
+> 
+> * What is the equilibrium temperature of the two block system? 
+> * What is the change in the internal energy of the system between the initial state and the equilibrium state?
+> * What is the change in the entropy of the system? (See Table 18-3)
+
+The equilibrium temperature can be found, since the energy transfer is net 0.
+
+$$
+m_{c} C_{c} (T_{F} - T_{1}) + m_{l} C_{l} (T_{F} - T_{2}) = 0
+$$
+
+Solving this for $T_{f}$, we find it to be `320 K`, our answer.
+
+Given that this happens in an insulating box, the change in the internal energy of the _system_ is **zero**.
+
+We can find the change in entropy using the following formula:
+
+$$
+m c ln (\frac{T_{f}}{T_{i}})
+$$
+
+Add the entropy changes for both components:
+
+$$
+m_{1} c_{1} ln (\frac{T_{f}}{T_{i1}}) + m_{2} c_{2} ln (\frac{T_{f}}{T_{i2}})
+$$
+
+$$
+(50.0) (386) ln (\frac{320}{400}) + (100) (128) ln (\frac{320}{200})
+$$
+
+This comes out to be +1.72 J/K.
+
+## Problem 23
+
+This question is regarding **engines**.
+
+> A Carnot engine whose low-temperature reservoir is at $17^{\circ}\text{ C}$ has an efficiency of 40%. By how much should the temperature of the high-temperature reservoir be increased to increase the efficiency to 50%?
+
+First, we need to convert the temperature into Kelvin, $17 + 273.16 = 290.16\text{K}$. Next, we should determine what the temperature of the high-temperature reservoir is when the efficiency is 40%:
+
+$$
+\varepsilon = 1 - \frac{T_{C}}{T_{H}}
+$$
+
+$$
+0.4 = 1 - \frac{290.16K}{T_{H}}
+$$
+
+$$
+T_{H} = 483.6\text{K}
+$$
+
+We repeat this for when the efficiency is at 50%:
+
+$$
+0.5 = 1 - \frac{290.16K}{T_{H}}
+$$
+
+$$
+T_{H} = 580.32\text{K}
+$$
+
+Then, we just subtract to find the difference to see the necessary increase:
+
+$$
+\Delta T = 580.32 - 483.6
+$$
+
+This comes out to be `97K`, our answer.
+
+## Question 24
+
+This question is regarding **engines**.
+
+> A Carnot engine absorbs 52 kJ as heat and exhausts 36 kJ as heat in each cycle. Calculate:
+> 
+> * the engine’s efficiency
+> * the work done per cycle in kilojoules.
+
+To calculate the engine's efficiency, we can use the following:
+
+$$
+\varepsilon = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert}
+$$
+
+$$
+\varepsilon = 1 - \frac{36\text{ kJ}}{52\text{ kJ}}
+$$
+
+Thus, our answer is $\varepsilon = 0.31$.
+
+The work done per cycle of course is the change in energy, so we can just do:
+
+$$
+W = \lvert Q_{H} \rvert - \lvert Q_{L} \rvert
+$$
+
+This comes out to be `16 kJ`, our answer.
+
+## Question 28
+
+This question is regarding **engines**.
+
+> In the first stage of a two-stage Carnot engine, energy is absorbed as heat $Q_{1}$ at temperature $T_{1}$, work $W_{1}$ is done, and energy is expelled as heat $Q_{2}$ at a lower temperature $T_{2}$. The second stage absorbs that energy as heat $Q_{2}$, does work $W_{2}$, and expels energy as heat $Q_{3}$ at a still lower temperature $T_{3}$. Prove that the efficiency of the engine is $(T_{1} - T_{3})/T_{1}$.
+
+First:
+
+$$
+\varepsilon = \frac{\lvert W \rvert}{\lvert Q_{H} \rvert}
+$$
+
+We can express this as (for this problem):
+
+$$
+\varepsilon = \frac{(Q_{1} - Q_{2}) + (Q_{2} - Q_{3})}{Q_{1}}
+$$
+
+This simplifies to:
+
+$$
+\varepsilon = 1 - \frac{Q_{3}}{Q_{1}}
+$$
+
+Since we know the change in entropy is the same, we can determine:
+
+$$
+\varepsilon = 1 - \frac{T_{3}}{T_{1}}
+$$
+
+$$
+\varepsilon = \frac{T_{1}}{T_{1}} - \frac{T_{3}}{T_{1}}
+$$
+
+Therefore:
+
+$$
+\varepsilon = \frac{T_{1} - T_{3}}{T_{1}}
+$$
+
+## Question 29
+
+This question is regarding **engines**.
+
+> See book for question and necessary figure
+
+To solve for the work done, we need to determine the area under the curve:
+
+$$
+(2V_{0} - V_{0}) * (2 \rho_{0} - \rho_{0})
+$$
+
+$$
+(V_{0}) * (\rho_{0}) 
+$$
+
+This comes out to be `2272.5 J`.
+
+To compute the energy added as heat for stroke `abc`, we can just find $n C_{V} (T_{b} - T_{a}) + n C_{p} (T_{c} - T_{b})$. We know for a monatomic gas that $C_{v} = \frac{3}{2} R$ (constant volume), and $C_{p} = \frac{5}{2} R$ (constant pressure).
+
+$T_{b} - T_{a} = T_{a}$ and $T_{c} - T_{b} = T_{b}$ because we know c is double of b is double of a via the ideal gas law. Here's where we are at:
+
+$$
+n (\frac{3}{2} R) T_{a} + n (\frac{5}{2} R) T_{b}
+$$
+
+We can rearrange this like so:
+
+$$
+\frac{3}{2} n RT_{a} + \frac{5}{2} nR T_{b}
+$$
+
+We also know $T_{b} = 2 T_{a}$, sp:
+
+$$
+\frac{3}{2} n R T_{a} + 5 nR T_{a}
+$$
+
+$$
+\frac{13}{2} n R T_{a}
+$$
+
+Notice the $n R T_{a}$. This is just $p_{0} V_{0}$
+
+$$
+\frac{13}{2} p_{0} V_{0}
+$$
+
+This comes out to be 14771.25 J.
+
+For part C, we simply divide the "energy we get" (the work calculated in A), by the "energy we pay for" (the energy added as heat in B):
+
+$$
+\frac{2272.5}{14771.25} = 0.154
+$$
+
+Thus, the efficiency of the cycle is 15.4%.
+
+For part d, we know $T_{c} = 4 T_{a}$, as both pressure and volume go up by a factor of 2. Thus, the efficiency can be calculated:
+
+$$
+\varepsilon = 1 - \frac{T_{a}}{T_{c}}
+$$
+
+$$
+\varepsilon = 1 - \frac{1}{4}
+$$
+
+Thus, our answer is $\varepsilon = 0.75$.
+
+(Part E) This is greater than the efficiency in part C.
