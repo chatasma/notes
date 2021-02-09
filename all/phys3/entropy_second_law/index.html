@@ -414,7 +414,7 @@ summary {
 \]</span></p>
 <p>Carnot engine efficiency</p>
 <p><span class="math display">\[
-\varepsilon_{C} = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert} = 1 = \frac{T_{L}}{T_{H}}
+\varepsilon_{C} = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert} = 1 - \frac{T_{L}}{T_{H}}
 \]</span></p>
 <p>Where:</p>
 <ul>
@@ -456,6 +456,188 @@ S = k ln W
 <p><span class="math display">\[
 ln N! \approx N(ln N) - N
 \]</span></p>
+</div>
+<div id="problems" class="section level2">
+<h2>Problems</h2>
+</div>
+<div id="problem-3" class="section level2">
+<h2>Problem 3</h2>
+<p>This question is regarding <strong>entropy</strong>.</p>
+<blockquote>
+<p>A 2.50 mol sample of an ideal gas expands reversibly and isothermally at 360 K until its volume is doubled. What is the increase in entropy of the gas?</p>
+</blockquote>
+<p>For this question we can use the following formula:</p>
+<p><span class="math display">\[
+\Delta S = n R ln \frac{V_{f}}{V_{i}}
+\]</span></p>
+<p>This formula applies because the change is reversible.</p>
+<p><span class="math display">\[
+\Delta S = 2.50 * 8.31 * ln 2 
+\]</span></p>
+<p>Thus, the answer is <span class="math inline">\(14.4\text{ J/K}\)</span></p>
+</div>
+<div id="problem-7" class="section level2">
+<h2>Problem 7</h2>
+<p>This question is regarding <strong>entropy</strong>.</p>
+<blockquote>
+<p>A 50.0 g block of copper whose temperature is 400 K is placed in an insulating box with a 100 g block of lead whose temperature is 200 K.</p>
+<ul>
+<li>What is the equilibrium temperature of the two block system?</li>
+<li>What is the change in the internal energy of the system between the initial state and the equilibrium state?</li>
+<li>What is the change in the entropy of the system? (See Table 18-3)</li>
+</ul>
+</blockquote>
+<p>The equilibrium temperature can be found, since the energy transfer is net 0.</p>
+<p><span class="math display">\[
+m_{c} C_{c} (T_{F} - T_{1}) + m_{l} C_{l} (T_{F} - T_{2}) = 0
+\]</span></p>
+<p>Solving this for <span class="math inline">\(T_{f}\)</span>, we find it to be <code>320 K</code>, our answer.</p>
+<p>Given that this happens in an insulating box, the change in the internal energy of the <em>system</em> is <strong>zero</strong>.</p>
+<p>We can find the change in entropy using the following formula:</p>
+<p><span class="math display">\[
+m c ln (\frac{T_{f}}{T_{i}})
+\]</span></p>
+<p>Add the entropy changes for both components:</p>
+<p><span class="math display">\[
+m_{1} c_{1} ln (\frac{T_{f}}{T_{i1}}) + m_{2} c_{2} ln (\frac{T_{f}}{T_{i2}})
+\]</span></p>
+<p><span class="math display">\[
+(50.0) (386) ln (\frac{320}{400}) + (100) (128) ln (\frac{320}{200})
+\]</span></p>
+<p>This comes out to be +1.72 J/K.</p>
+</div>
+<div id="problem-23" class="section level2">
+<h2>Problem 23</h2>
+<p>This question is regarding <strong>engines</strong>.</p>
+<blockquote>
+<p>A Carnot engine whose low-temperature reservoir is at <span class="math inline">\(17^{\circ}\text{ C}\)</span> has an efficiency of 40%. By how much should the temperature of the high-temperature reservoir be increased to increase the efficiency to 50%?</p>
+</blockquote>
+<p>First, we need to convert the temperature into Kelvin, <span class="math inline">\(17 + 273.16 = 290.16\text{K}\)</span>. Next, we should determine what the temperature of the high-temperature reservoir is when the efficiency is 40%:</p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{T_{C}}{T_{H}}
+\]</span></p>
+<p><span class="math display">\[
+0.4 = 1 - \frac{290.16K}{T_{H}}
+\]</span></p>
+<p><span class="math display">\[
+T_{H} = 483.6\text{K}
+\]</span></p>
+<p>We repeat this for when the efficiency is at 50%:</p>
+<p><span class="math display">\[
+0.5 = 1 - \frac{290.16K}{T_{H}}
+\]</span></p>
+<p><span class="math display">\[
+T_{H} = 580.32\text{K}
+\]</span></p>
+<p>Then, we just subtract to find the difference to see the necessary increase:</p>
+<p><span class="math display">\[
+\Delta T = 580.32 - 483.6
+\]</span></p>
+<p>This comes out to be <code>97K</code>, our answer.</p>
+</div>
+<div id="question-24" class="section level2">
+<h2>Question 24</h2>
+<p>This question is regarding <strong>engines</strong>.</p>
+<blockquote>
+<p>A Carnot engine absorbs 52 kJ as heat and exhausts 36 kJ as heat in each cycle. Calculate:</p>
+<ul>
+<li>the engine’s efficiency</li>
+<li>the work done per cycle in kilojoules.</li>
+</ul>
+</blockquote>
+<p>To calculate the engine’s efficiency, we can use the following:</p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{\lvert Q_{L} \rvert}{\lvert Q_{H} \rvert}
+\]</span></p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{36\text{ kJ}}{52\text{ kJ}}
+\]</span></p>
+<p>Thus, our answer is <span class="math inline">\(\varepsilon = 0.31\)</span>.</p>
+<p>The work done per cycle of course is the change in energy, so we can just do:</p>
+<p><span class="math display">\[
+W = \lvert Q_{H} \rvert - \lvert Q_{L} \rvert
+\]</span></p>
+<p>This comes out to be <code>16 kJ</code>, our answer.</p>
+</div>
+<div id="question-28" class="section level2">
+<h2>Question 28</h2>
+<p>This question is regarding <strong>engines</strong>.</p>
+<blockquote>
+<p>In the first stage of a two-stage Carnot engine, energy is absorbed as heat <span class="math inline">\(Q_{1}\)</span> at temperature <span class="math inline">\(T_{1}\)</span>, work <span class="math inline">\(W_{1}\)</span> is done, and energy is expelled as heat <span class="math inline">\(Q_{2}\)</span> at a lower temperature <span class="math inline">\(T_{2}\)</span>. The second stage absorbs that energy as heat <span class="math inline">\(Q_{2}\)</span>, does work <span class="math inline">\(W_{2}\)</span>, and expels energy as heat <span class="math inline">\(Q_{3}\)</span> at a still lower temperature <span class="math inline">\(T_{3}\)</span>. Prove that the efficiency of the engine is <span class="math inline">\((T_{1} - T_{3})/T_{1}\)</span>.</p>
+</blockquote>
+<p>First:</p>
+<p><span class="math display">\[
+\varepsilon = \frac{\lvert W \rvert}{\lvert Q_{H} \rvert}
+\]</span></p>
+<p>We can express this as (for this problem):</p>
+<p><span class="math display">\[
+\varepsilon = \frac{(Q_{1} - Q_{2}) + (Q_{2} - Q_{3})}{Q_{1}}
+\]</span></p>
+<p>This simplifies to:</p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{Q_{3}}{Q_{1}}
+\]</span></p>
+<p>Since we know the change in entropy is the same, we can determine:</p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{T_{3}}{T_{1}}
+\]</span></p>
+<p><span class="math display">\[
+\varepsilon = \frac{T_{1}}{T_{1}} - \frac{T_{3}}{T_{1}}
+\]</span></p>
+<p>Therefore:</p>
+<p><span class="math display">\[
+\varepsilon = \frac{T_{1} - T_{3}}{T_{1}}
+\]</span></p>
+</div>
+<div id="question-29" class="section level2">
+<h2>Question 29</h2>
+<p>This question is regarding <strong>engines</strong>.</p>
+<blockquote>
+<p>See book for question and necessary figure</p>
+</blockquote>
+<p>To solve for the work done, we need to determine the area under the curve:</p>
+<p><span class="math display">\[
+(2V_{0} - V_{0}) * (2 \rho_{0} - \rho_{0})
+\]</span></p>
+<p><span class="math display">\[
+(V_{0}) * (\rho_{0}) 
+\]</span></p>
+<p>This comes out to be <code>2272.5 J</code>.</p>
+<p>To compute the energy added as heat for stroke <code>abc</code>, we can just find <span class="math inline">\(n C_{V} (T_{b} - T_{a}) + n C_{p} (T_{c} - T_{b})\)</span>. We know for a monatomic gas that <span class="math inline">\(C_{v} = \frac{3}{2} R\)</span> (constant volume), and <span class="math inline">\(C_{p} = \frac{5}{2} R\)</span> (constant pressure).</p>
+<p><span class="math inline">\(T_{b} - T_{a} = T_{a}\)</span> and <span class="math inline">\(T_{c} - T_{b} = T_{b}\)</span> because we know c is double of b is double of a via the ideal gas law. Here’s where we are at:</p>
+<p><span class="math display">\[
+n (\frac{3}{2} R) T_{a} + n (\frac{5}{2} R) T_{b}
+\]</span></p>
+<p>We can rearrange this like so:</p>
+<p><span class="math display">\[
+\frac{3}{2} n RT_{a} + \frac{5}{2} nR T_{b}
+\]</span></p>
+<p>We also know <span class="math inline">\(T_{b} = 2 T_{a}\)</span>, sp:</p>
+<p><span class="math display">\[
+\frac{3}{2} n R T_{a} + 5 nR T_{a}
+\]</span></p>
+<p><span class="math display">\[
+\frac{13}{2} n R T_{a}
+\]</span></p>
+<p>Notice the <span class="math inline">\(n R T_{a}\)</span>. This is just <span class="math inline">\(p_{0} V_{0}\)</span></p>
+<p><span class="math display">\[
+\frac{13}{2} p_{0} V_{0}
+\]</span></p>
+<p>This comes out to be 14771.25 J.</p>
+<p>For part C, we simply divide the “energy we get” (the work calculated in A), by the “energy we pay for” (the energy added as heat in B):</p>
+<p><span class="math display">\[
+\frac{2272.5}{14771.25} = 0.154
+\]</span></p>
+<p>Thus, the efficiency of the cycle is 15.4%.</p>
+<p>For part d, we know <span class="math inline">\(T_{c} = 4 T_{a}\)</span>, as both pressure and volume go up by a factor of 2. Thus, the efficiency can be calculated:</p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{T_{a}}{T_{c}}
+\]</span></p>
+<p><span class="math display">\[
+\varepsilon = 1 - \frac{1}{4}
+\]</span></p>
+<p>Thus, our answer is <span class="math inline">\(\varepsilon = 0.75\)</span>.</p>
+<p>(Part E) This is greater than the efficiency in part C.</p>
 </div>
 
 
