@@ -346,3 +346,178 @@ $$
 Thus, our answer is $\varepsilon = 0.75$.
 
 (Part E) This is greater than the efficiency in part C.
+
+## Question 39
+
+This question is regarding **refrigerators and real engines**.
+
+> A Carnot air conditioner takes energy from the thermal energy of a room at $70^{\circ}\text{ F}$ and transfers it as heat to the outdoors, which is at $96^{\circ}\text{ F}$. For each joule of electric energy required to operate the air conditioner, how many joules are removed from the room?
+
+This is a Carnot refrigerator. We can find its coefficient of performance which is the ratio of the "what we want" over the "what we pay for", which is what we are interested in. The efficiency for a Carnot refrigerator is:
+
+$$
+K_{C} = \frac{T_{L}}{T_{H} - T_{L}}
+$$
+
+Converting the Fahrenheits to Kelvin, and plugging it in:
+
+$$
+K_{C} = \frac{294.27}{308.72 - 294.27}
+$$
+
+This comes out to be $K_{C} = 20.4$, or to put into words, 20.4 Joules are removed from the room for every 1 joule of electric energy required to operate the air conditioner.
+
+## Question 41
+
+This question is regarding **refrigerators and real engines**.
+
+> An air conditioner operating between $93^{\circ}\text{ F}$ and $70^{\circ}\text{ F}$ is rated at 4000 Btu/h cooling capacity. Its coefficient of performance is 27% of that of a Carnot refrigerator operating between the same two temperatures. What horsepower is required of the air conditioner motor.
+
+Let us determine some steps we can take to find the solution:
+
+* Find the coefficient of performance of a Carnot refrigerator for these conditions
+* Determine the coefficient of performance of the air conditioner presented in the question from the coefficient of performance of the Carnot refrigerator
+* $P = \frac{W}{t}$. We can rearrange this into $\frac{Q_{L}}{t} * \frac{1}{K}$, as we know $K = \frac{\lvert Q_{L} \rvert}{W}$
+
+Before doing the question, convert the Fahrenheits to Kelvin and the British thermal units per hour to horsepower.
+
+$$
+K_{C} = \frac{T_{L}}{T_{H} - T_{L}}
+$$
+
+$$
+K_{C} = \frac{294.27}{307.05 - 294.27}
+$$
+
+Multiply this by $0.27$ for the coefficient of performance for the air conditioner: 
+
+$$
+K = 0.27 * \frac{294.27}{307.05 - 294.27}
+$$
+
+$K = 6.22$. Now, we can determine the power:
+
+$$
+P = \frac{\frac{\lvert Q_{L} \rvert}{K}}{t}
+$$
+
+$$
+P = \frac{Q_{L}}{t} * \frac{1}{K}
+$$
+
+$$
+P = \frac{1.56}{6.22}
+$$
+
+Our answer comes out to be $P = 0.25\text{ hp}$.
+
+## Question 43
+
+This question is regarding **refrigerators and real engines**. It requires a figure to solve the question.
+
+> Figure 20-32 represents a Carnot engine that works between temperatures $T_{1} = 400 K$ and $T_{2} = 150 K$ and drives a Carnot refrigerator that works between temperatures $T_{3} = 325 K$ and $T_{4} = 225 K$. What is the ratio $Q_{3}$/$Q_{1}$?
+
+First, we know the efficiency of the Carnot engine (or the ratio of the energy we get over what we pay for):
+
+$$
+\varepsilon = \frac{T_{1} - T_{2}}{T_{1}}
+$$
+
+We also know the coefficient of performance for the Carnot refrigerator:
+
+$$
+K = \frac{Q_{4}}{W} = \frac{T_{4}}{T_{3} - T_{4}}
+$$
+
+We know the work done is the change in energy, so $Q_{4} + W = Q_{3}$. To put this in terms of $Q_{4}$, $Q_{4} = Q_{3} - W$. This is useful because we know:
+
+$$
+K = \frac{T_{4}}{T_{3} - T_{4}} = \frac{Q_{4}}{W}
+$$
+
+(The energy we want is $Q_{4}$ [heat energy from cold reservoir to hot reservoir], and the work done is denoted by $W$).
+
+Therefore,
+
+$$
+K = \frac{Q_{4}}{W} = \frac{Q_{3} - W}{W} = \frac{Q_{3}}{W} - 1
+$$
+
+We know the work done on the refrigerator is driven by the Carnot engine. So we know the work from the efficiency calculation for the Carnot engine is the same as the work for the coefficient of performance for the Carnot refrigerator:
+
+Recall: 
+
+$$
+W = Q_{1} * \frac{T_{1} - T_{2}}{T_{1}}
+$$
+
+We know that $K = \frac{T_{4}}{T_{3} - T_{4}}$. Thus:
+
+$$
+K = \frac{Q_{3} * T_{1}}{Q_{1} * (T_{1} - T_{2})} - 1 = \frac{T_{4}}{T_{3} - T_{4}}
+$$
+
+Now, we can solve for $\frac{Q_{3}}{Q_{1}}$:
+
+$$
+\frac{Q_{3}}{Q_{1}} = \frac{1 - \frac{T_{2}}{T_{1}}}{1 - \frac{T_{4}}{T_{3}}}
+$$
+
+This comes out to be `2.03`.
+
+## Question 46
+
+This question is regarding **microstates**.
+
+> A box contains N identical gas molecules equally divided between its two halves. For N = 50, what are
+>
+> * the multiplicity W of the central configuration
+> * the total number of microstates
+> * the percentage of the time the system spends in the central configuration?
+> 
+> For N = 100, what are
+> 
+> * W of the central configuration
+> * the total number of microstates
+> * the percentage of the time the system spends in the central configuration?
+>
+> For N = 200, what are
+>
+> * W of the central configuration
+> * the total number of microstates
+> * the percentage of the time the system spends in the central configuration?
+> * Does the time spent in the central configuration increase or decrease with an increase in N?
+
+For $N = 50$, we can determine the multiplicity of the configuration:
+
+$$
+\frac{50!}{25! 25!}
+$$
+
+This comes out to be $1.264 \times 10^{14}$.
+
+The number of microstates is $2^{50}$, or $1.126 \times 10^{15}$.
+
+The percentage of time spent in the central configuration is given by:
+
+$$
+\frac{W}{\text{\# of microstates}} = \frac{1.264 \times 10^{14}}{1.126 \times 10^{15}}
+$$
+
+This comes out to be 11.2%
+
+Repeat this for N = 100, and N = 200
+
+N = 100:
+
+* $W = 1 \times 10^{29}$
+* $\text{microstates} = 1.268 \times 10^{30}$
+* $\text{central configuration time percent} = 7.886%$
+
+N = 200:
+
+* $W = 9.3 \times 10^{58}$
+* $\text{microstates} = 1.607 \times 10^{60}$
+* $\text{central configuration time percent} = 5.787%$
+
+The time spent in the central configuration is going to decrease as $N$ increases.

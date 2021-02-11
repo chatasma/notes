@@ -1,0 +1,34 @@
+---
+title: "Scheduling"
+date: "February 10th, 2021"
+output: pdf_document
+---
+
+## Topics
+
+* Overview (Not just one schedule)
+* Scheduling metrics and policies (MLQ, MLFQ, SJF, ...)
+
+## What is a scheduler?
+
+* Scheduling consists of policies and mechanisms to allocate limited resources to a set of entities
+* Our case: resources are the CPU and entities are processes (or jobs)
+  * Other possibilities include resources = memory, I/O bus/devices and entities = threads, users, groups
+  * Schedulers for these resources and entities can exist an in an operating system
+
+## Types of Scheduling
+
+* Long-term -- Job queue (like waiting in line)
+* Medium-term -- Swapping (usually from disk to memory)
+* Short-term -- in memory switch from ready to running (what we are most interested in)
+
+* Preemptive scheduling -- we can tell a process to return to the ready state after running it (uses the clock interrupt)
+* Nonpreemptive scheduling -- once we tell a process to run, we cannot preempt it (does not use the clock interrupt [cooperative scheduling])
+
+## Scheduling Metrics
+
+* **Turnaround time** -- $T_{\text{completion}} - T_{\text{creation}}$. Total time to complete a process.
+* **Wait time** -- Time spent in the _ready_ state
+* **Response time** -- $T_{\text{firstrun}} - T_{\text{arrival}}$
+* **Throughput** --  # of CPU bursts per unit time
+* **Utilization** -- Percentage of time CPU is busy running jobs
