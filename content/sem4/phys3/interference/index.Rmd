@@ -1,0 +1,93 @@
+---
+title: "Interference"
+date: "February 11th, 2021"
+output: pdf_document
+---
+
+## Formulas
+
+_Light as a wave_
+
+Index of refraction of a medium can be found by:
+
+$$
+n = \frac{c}{v}
+$$
+
+Where:
+
+* $n$ is the index of refraction
+* $c$ is the speed of light in vacuum
+* $v$ is the speed of light in the medium
+
+The wavelength of light in a medium depends on the index of refraction $n$ of the medium:
+
+$$
+\lambda_{n} = \frac{\lambda}{n}
+$$
+
+Where:
+
+* $\lambda$ is the wavelength in vacuum
+
+Since wavelength depends on index of refraction, phase difference can change due to medium.
+
+_Young's Interference Experiment_
+
+To find the maximum intensity of an interference for Young's experiment:
+
+$$
+d = sin \theta = m \lambda
+$$
+
+Minimum intensity:
+
+$$
+d = sin \theta = (m + \frac{1}{2}) \lambda
+$$
+
+Where:
+
+* $m$ is 0, 1, 2...
+* $d$ is the slit separation
+* $\lambda$ is the wavelength$
+
+In Young's interference experiment, two waves of intensity $I_{0}$ will yield a resulting wave of intensity $I$ at the viewing screen:
+
+$$
+I = 4 I_{0} cos^{2} \frac{1}{2} \phi
+$$
+
+Where:
+
+* $\phi = \frac{2 \pi d}{\lambda} sin \theta$
+
+Maxima for light incident on a thin transparent film (bright film in air):
+
+$$
+2L = (m + \frac{1}{2} ) \frac{\lambda}{n_{2}}
+$$
+
+Minima (dark film in air):
+
+$$
+2L = m \frac{\lambda}{n_{2}}
+$$
+
+Where:
+
+* $n_{2}$ is the index of refreaction of the film
+* $L$ is the thickness of the film
+* $\lambda$ is the wavelength of the light in air
+
+Phase difference of recombining beams (Michelson's Interferometer):
+
+$$
+\text{phase difference} = \frac{2L}{\lambda} (n - 1)
+$$
+
+Where:
+
+* $n$ is the index of refraction of the transparent material
+* $L$ is the thickness of one path
+* $\lambda$ is the wavelength of light
