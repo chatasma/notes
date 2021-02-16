@@ -1,0 +1,105 @@
+---
+title: "Conditional Probability"
+date: "February 16th, 2021"
+output: pdf_document
+---
+
+## Terms
+
+**Conditional probability** -- Probability of one event _given_ another has occurred.
+
+The conditional probability of A given B is denoted by $P(A | B)$
+
+How do we find the conditional probabilty, $P(A | B)$
+
+$$
+P(A | B) = \frac{P(A \cap B)}{P(B)}
+$$
+
+In general, $P(A | B) \neq P(B | A)$.
+
+## Example
+
+Consider the probability of a flight departing on time $P(D)$ is 0.83, and the probability of a flight arriving on time $P(A)$ is 0.82. The probability that a flight departs and arrives on time $P(D \cap A)$ is 0.78.
+
+Find the probability
+
+* the flight arrives on time given it departed on time
+* the flight departed on time given it arrived on time
+
+The first question asks for $P(A | D)$, which we can find using $\frac{P(A \cap D)}{P(D)} = \frac{0.78}{0.83} = 0.94$.
+
+The second question asks us it in reverse: $P(D | A) = \frac{0.78}{0.82} = 0.95$.
+
+Notice the two are not necessarily the same.
+
+## Example
+
+There are 20 balls in a box, either red or green, either rubber or plastic. If we know that 12 balls are red and 9 balls are rubber and 4 balls are green and rubber:
+
+* Find the number of red plastic balls
+* If one ball is red, what is the probability that this ball is plastic?
+* If one ball is green, what is the probability that this ball is plastic?
+
+First question:
+
+\# of plastic balls = 20 - 9 = 11
+
+\# of plastic and green balls = (20 - 12) - 4 = 4
+
+\# of plastic and red balls = 11 - 4 = 7
+
+Second question:
+
+$P(P | R) = \frac{P(P \cap R)}{P(R)}$
+
+$\frac{7}{12}$
+
+Third question:
+
+$P(P | G) = \frac{P(P \cap G)}{P(G)}$
+
+$\frac{4}{20 - 12}$
+
+$\frac{1}{2}$
+
+## Independent Events
+
+When two events A and B are independent:
+
+$P(A \cap B) = P(A) * P(B)$
+
+Also complements like A' and B' are independent of each other:
+
+* A' and B are independent
+* A and B' are independent
+* A' and B' are independent
+
+## Example
+
+Insurance companies assume that there is a difference between gender and your likelihood of getting into an accident which is why women generally have lower insurance rates than men. We did a study to see the number of accidents that have occurred according to gender. We found:
+
+* 60% of the population was male.
+* 86% of the population was either male OR got into an accident.
+* 35% of the population are accident free.
+
+Does this study indicate that the likelihood of one to get into an accident depends on gender?
+
+Suppose we have two events, A and B:
+
+* A is the event a person gets into an accident
+* B is the event a person is male
+
+The question is, are these two events indepdendent?
+
+$P(A) = 1 - 0.35 = 0.65$
+$P(B) = 0.6$
+$P(A \cap B) = 0.39$. This can be determined by $P(A) + P(B) - P(A \cup B)$.
+
+Notice that $P(A \cap B) = P(A) * P(B)$. This means that events A and B are independent. In other words, the event a person gets into an accident does not depend on the gender of the person. 
+
+## Product Rule
+
+$P(A \cap B) = P(A) * P(B|A)$
+
+* This is just $P(A) * P(B)$ when A and B are independent

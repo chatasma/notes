@@ -91,3 +91,141 @@ Where:
 * $n$ is the index of refraction of the transparent material
 * $L$ is the thickness of one path
 * $\lambda$ is the wavelength of light
+
+## Lecture Notes
+
+$$
+\lambda_{n_{i}} = \frac{\lambda}{n_{i}}
+$$
+
+$$
+N_{2} - N_{1}
+$$
+
+The result of this number, if an integer, means there is no phase difference, as $N_{1}$ and $N_{2}$ are the number of wavelengths.
+
+Diffraction is the flaring out of waves through slits, Young did an experiment to prove light is a wave.
+
+Young had a single slit which light passed through -- the wave produced wavelets through the slits, and then he had two slits, so two sources of wavelets What was produced was maxima and minima (fringes) of light. This is because the two wavelets interfered.
+
+The fact that light in interferes that lights are waves.
+
+In phase are maximia, out of phase are minima.
+
+$$
+\lambda \approx \frac{yd}{D}
+$$
+
+Where:
+
+* $d$ is the distance between the slits
+* $D$ is the distance between the slits and the surface
+
+## Problems
+
+## Problem 1
+
+This question is regarding **light as a wave**.
+
+> In fig. 35-31, a light wave along ray $r_{1}$ reflects once from a mirror and a light wave along ray $r_{2}$ reflects twice from that same mirror and once from a tiny mirror at a distance $L$ from the bigger mirror. (Neglect the slight tilt of the rays.) The waves have wavelength 620 nm and are initially in phase.
+>
+> * What is the smallest value of $L$ that puts the final light waves exactly out of phase?
+> * With the tiny mirror initially at that value of $L$, how far must it be moved away from the biggest mirror to again put the final waves of phase?
+
+The waves are exactly out of phase when they are half a wavelength out of phase (completely destructive). So, this is going to be when L is $\frac{\lambda}{4}$. This is because the waves reflects off the small mirror, and then reflects off of the big mirror. This adds up to a phase diff of $\frac{\lambda}{2}$ (since it traveled $2L$), which will put it it exactly out of phase.
+
+$$
+L = \frac{620}{4}
+$$
+
+Thus, our answer is $155$ nm.
+
+Now, for the second question, it is kind of weirdly worded. It says that it is initially at the value of $L$, but referring to the value we used in part a. This is important to note, because in a we at a quarter of a wavelength. The next value of $L$ that would put it out of phase is $\frac{3 \lambda}{4}$ since this would result in a phase difference of $\frac{3}{2}$ wavelengths, which is completely out of phase.
+
+The question asks us how far it has to be moved away from the $L$ value of part a. Thus our answer is $\frac{3 \lambda}{4} - \frac{\lambda}{4} = \frac{\lambda}{2}$. Our answer is $310$ nm.
+
+## Problem 6
+
+This question is regarding **light as a wave**.
+
+> The wavelength of yellow sodium light in air is 589 nm.
+>
+> * What is its frequency?
+> * What is the wavelength in glass whose index of refraction is 1.52?
+> * From the results of (a) and (b), find its speed in this glass.
+
+Frequency we can find using $f = \frac{c}{\lambda} = \frac{3 \times 10^{8}}{589 \times 10^{-9}}$. This comes out to be $5.09 \times 10^{14}$ Hz, our answer.
+
+We can find the wavelength in glass using $\lambda_{n} = \frac{\lambda}{n} = \frac{589\text{ nm}}{1.52}$. This comes out to be $387.5$ nm, our answer.
+
+Finally, we need to find its speed in the glass. We know that $v = \lambda f$. We have both the frequency of the wave and its wavelength in the glass medium, so our answer is $5.09 \times 10^{14} * 387.5 \times 10^{-9}$, which comes out to be $1.97 \times 10^{8}$ m/s.
+
+## Problem 19
+
+This question is regarding **Young's interference experiment**.
+
+> Suppose that Young's experiment is performed with blue-green light of wavelength 500 nm. The slits are 1.20 mm apart, and the viewing screen is 5.40 m from the slits. How far apart are the bright fringes near the center of the interference pattern?
+
+We can find the sine of the angle made by the slit separation and the line perpendicular to the parallel rays. This is because the path length difference can be represented as $m \lambda$, and thus we can determine the ratio between the path length difference and slit separation:
+
+$$
+sin \theta = \frac{\lambda}{d}
+$$
+
+Now, through the small angle approximation, we know that $sin \theta \approx \theta$ and $tan \theta \approx \theta$, thus $sin \theta \approx tan \theta$. The reason this is important is because we can utilize the tangent to find the distance between two maxima fringes:
+
+$$
+D sin \theta \approx D tan \theta
+$$
+
+$y = D tan \theta$ because of trigonometry:
+
+$$
+D (\frac{\lambda}{d})
+$$
+
+This comes out to be 2.25 mm, our answer.
+
+## Question 23
+
+This question is regarding **Young's interference experiment**.
+
+> In Fig. 35-38, sources A and B emit long-range radio waves of wavelength 400 m, with the phase of the emission from A ahead of that from source B by $90^{\circ}$. The distance $r_{A}$ from $A$ to detector $D$ is greater than the corresponding distance $r_{B}$ by 100m. What is the phase difference of the waves at $D$?
+
+For this question we need to find the net phase difference. First, we know that A is leading by 90 degrees, or a fourth of the wavelength. However, we know that it has to travel an extra 100 meters, which is a fourth of the 400 meter wavelength. This amounts to a **net phase difference of 0**, our answer.
+
+$$
+\frac{\lambda}{4} - \frac{\lambda}{4} = 0
+$$
+
+## Problem 29
+
+This question is regarding **interference and double-slit intensity**.
+
+> Two waves of the same frequency have amplitudes 1.00 and 2.00. They interfere at a point where their phase difference is $60.0^{\circ}$. What is the resultant amplitude?
+
+For this question, we can use phasors to solve it. We represent the waves with magnitudes representing their amplitudes. We know the angle between the two waves/phasors is going to be 60 degrees. We can choose an arbitrary point to lay the first phasor, which I would do at the x axis. So, we can find the sum of the vectors by finding the x and y components and then using Pythagorean theorem:
+
+X component:
+
+$$
+1 * cos(0) + 2 * cos(60)
+$$
+
+Y component:
+
+$$
+1 * sin(0) + 2 * sin(60)
+$$
+
+Then, we can find the hypotenuse using Pythagorean theorem:
+
+$$
+\sqrt{(1 * cos(0) + 2 * cos(60)) + (1 * sin(0) + 2 * sin(60))}
+$$
+
+$$
+\sqrt{(1 + 2 * cos(60)) + (0 + 2 * sin(60))}
+$$
+
+This comes out to be `2.65`, our answer.
