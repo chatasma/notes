@@ -229,3 +229,107 @@ $$
 $$
 
 This comes out to be `2.65`, our answer.
+
+## Problem 37
+
+This problem is regarding **interference from thin films**.
+
+> The rhinestones in costume jewelry are glass with index of refraction 1.50. To make them more reflective, they are often coated with a layer of silicon monoxide of index of refraction 2.00. What is the minimum coating thickness needed to ensure that light of wavelength 560 nm and of perpendicular incidence will be reflected from the two surfaces of the coating with fully constructive interference?
+
+We want to find the maxima for light incident on a transparent film:
+
+$$
+2L = (m + \frac{1}{2}) \frac{\lambda}{n_{2}}
+$$
+
+We use $m = 0$ to minimize the thickness
+
+$$
+(\frac{1}{2}) * \frac{560}{2}
+$$
+
+$$
+\frac{560}{4}
+$$
+
+Thus, our answer is 70nm.
+
+## Problem 40
+
+This problem is regarding **interference from thin films**.
+
+> A thin film of acetone (n = 1.25) coats a thick glass plate (n = 1.50). White light is incident normal to the film. In the reflections, fully destructive interference occurs at 600nm and fully constructive interference at 700 nm. Calculate the thickness of the acetone film.
+
+Interchange maxima/minima equations since the acetone film has a lower index of refraction than the next layer which is the glass plate.
+
+So, for the minima:
+
+$$
+2L = ( m + \frac{1}{2} ) \frac{\lambda}{n_{2}}
+$$
+
+$$
+2L = ( m + \frac{1}{2} ) \frac{600}{1.25}
+$$
+
+For values of $m$ 0, 1, 2, 3, L is: 120, 360, 600, 840
+
+Now, for the maxima:
+
+$$
+2L = ( m ) \frac{\lambda}{n_{2}}
+$$
+
+$$
+2L = ( m ) \frac{700}{1.25}
+$$
+
+For values of $m$ 1, 2, 3, 4, L is: 280, 560, 840, and 1120
+
+Both sets of values for $m$ have 840, which is the lowest common value between the sets. Thus, 840 nm is our answer
+
+## Problem 79
+
+This problem is regarding **Michelson's Interferometer**.
+
+> If mirror $M_{2}$ in a Michelson interferometer (Fig. 35-21) is moved through 0.233 mm, a shift of 792 bright fringes occurs. What is the wavelength of the light producing the fringe pattern?
+
+For this question, we can find $\lambda$, the wavelength of the light, using:
+
+$$
+N_{a} = \frac{2L}{\lambda}
+$$
+
+$$
+\lambda = \frac{2L}{N_{a}}
+$$
+
+$$
+\lambda = \frac{2 (0.233)}{792}
+$$
+
+This comes out to be 588 nm.
+
+## Problem 81
+
+This problem is regarding **Michelson's Interferometer**.
+
+> In Fig. 35-48, an airtight chamber of length $d = 5.0\text{ cm}$ is placed in one of the arms of a Michelson interferometer. (The glass window on each end of the chamber has negligible thickness.) Light of wavelength $\lambda = 500$ nm is used. Evacuating the air from the chamber causes a shift of 60 bright fringes. From these data and to six significant figures, find the index of refraction of air at atmospheric pressure.
+
+For this question, we can find the index of refraction by using the phase difference formula, namely:
+
+$$
+\text{phase difference} = \frac{2L}{\lambda} (n - 1)
+$$
+
+We rearrange this for $n$:
+
+$$
+n = \frac{\text{phase difference} * \lambda}{2L} + 1
+$$
+
+$$
+n = \frac{60 * (500 \times 10^{-9})}{2 * .05} + 1
+$$
+
+This comes out to be 1.0003, our answer.
