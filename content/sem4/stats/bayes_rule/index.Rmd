@@ -1,0 +1,19 @@
+---
+title: "Bayes' Rule"
+date: "February 18th, 2021"
+output: pdf_document
+---
+
+## Bayes' Rule
+
+$$
+P(A | B) = \frac{P(B | A) * P(A)}{P(B)}
+$$
+
+In other words:
+
+It states that if we have partitions ($B_{1}$ ... $B_{k}$) of a sample space (which have non-zero probabilities), then for any event A (event also has non-zero probability) in the sample space:
+
+$$
+P(B_{i} | A) = \frac{P(B_{i} \cap A)}{\sum_{j = 1}^{k} P(B_{j} \cap A)} = \frac{P(A | B_{i}) * P(B_{i})}{\sum_{j = 1}^{k} P(A | B_{j}) P(B_{j})}
+$$

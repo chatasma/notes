@@ -1,0 +1,70 @@
+---
+title: "Basic Queueing Theory"
+date: "February 19th, 2021"
+output: pdf_document
+---
+
+* What is it?
+* Basic Probability
+* Queueing Theory
+  * Basic Model
+  * Little's Law
+  * M/M/1 queueing system
+
+## What is queueing theory?
+
+* Mathematical study of _wait queues_
+
+
+## Geometric Distribution
+
+$$
+P(X = n) = (1 - p)^{n}
+$$
+
+Expected number of failures before success
+
+$$
+E(X) = \frac{1-p}{p}
+$$
+
+$$
+\sigma^{2} (X) = \frac{1 - p}{p^{2}}
+$$
+
+## Poisson Distribution
+
+$$
+P(X = n) = \frac{\lambda^{n}}{n!} e^{- \lambda}
+$$
+
+Expected value is just going to be the rate, which is $\lambda$
+
+$$
+E(X) = \sigma^{2} (X) = \lambda
+$$
+
+## Exponential Distribution
+
+$$
+f(t; \mu ) = \mu e^{- \mu t}
+$$
+
+Where:
+
+* $t$ is time
+* $\mu$ is a rate
+
+Probability of time $t$ elapsing between successive independent events
+
+$$
+E(X) = \frac{1}{\lambda}
+$$
+
+$$
+\sigma^{2} (X) = \frac{1}{\lambda^{2}}
+$$
+
+$$
+C_{x} = \text{coefficient of variance} = 1
+$$
