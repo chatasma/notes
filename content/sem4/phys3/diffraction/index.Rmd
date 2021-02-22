@@ -1,0 +1,274 @@
+---
+title: "Diffraction"
+date: "February 21st, 2021"
+output: pdf_document
+---
+
+## Formulas
+
+Minima for diffraction of single slit:
+
+$$
+a sin \theta = m \lambda
+$$
+
+Where:
+
+* $m$ = 1, 2, 3...
+* $\lambda$ is wavelength
+* $\theta$ is the separation angle
+* $a$ is the slit width
+
+Intensity of the diffraction pattern for single slit diffraction for an angle $\theta$ is:
+
+$$
+I( \theta ) = I_{m} ( \frac{ sin \alpha }{ \alpha } )^{2}
+$$
+
+Where:
+
+* $I_{m}$ is the intensity at the center of the pattern
+* $$
+\alpha = \frac{\pi a}{\lambda} sin \theta
+$$
+
+Rayleigh's criterion:
+
+$$
+\theta_{R} = 1.22 \frac{ \lambda }{d}
+$$
+
+Where:
+
+* $d$ is the diameter of the aperture through which the light passes.
+
+Notes:
+
+* Suggests two objects are on the verge of resolvability if the central diffraction maximum of one is at the first minimum of the other
+
+
+For identical slits (double slits in this case) with width $a$ and center-to-center separation $d$, the intensity in the pattern varies with the angle $\theta$ from the central axis as:
+
+$$
+I( \theta ) = I_{m} ( cos^{2} \beta ) (\frac{sin \alpha}{ \alpha })^{2}
+$$
+
+Where:
+
+* $I_{m}$ is the intensity at the center of the pattern
+* $$
+  \beta = ( \frac{\pi d}{\lambda} ) sin \theta
+$$
+* $$
+  \alpha = ( \frac{\pi a}{\lambda} ) sin \theta
+$$
+
+Diffraction by multiple slits ($N$) results in maxima (lines) at angles $\theta$ such that
+
+$$
+d sin \theta = m \lambda
+$$
+
+Where:
+
+* $m$ = 0, 1, 2, ...
+
+A line's half-width is the angle from its center to the point where it disappears into the darkness and is given by:
+
+$$
+\Delta \theta_{hw} = \frac{ \lambda }{ N d cos \theta }
+$$
+
+Dispersion $D$ of a diffraction grating:
+
+$$
+D = \frac{\Delta \theta}{\Delta \lambda} = \frac{m}{d cos \theta}
+$$
+
+Notes:
+
+* Dispersion of a diffraction grating is the measure of the angular separation $\Delta \theta$ of the lines it produces for two wavelengths differing by $\lambda$.
+* $m$ is the order number
+* $\theta$ is the angle
+
+Resolving power $R$ of a diffraction grating is a measure of its ability to make the emission lines of two close wavelengths distinguishable. For two wavelengths differing by $\Delta \lambda$ and with an average value of $\lambda_{avg}$, the resolving power is given by:
+
+$$
+R = \frac{\lambda_{avg}}{\Delta \lambda} = N m
+$$
+
+For x rays of wavelength $\lambda$ scattering from crystal planes with separation $d$, the angles $\theta$ at which the scattered intensity is maximum are given by:
+
+$$
+2 d sin \theta = m \lambda
+$$
+
+## Problems
+
+## Problem 5
+
+This problem is regarding **single-slit diffraction**.
+
+> A single slit is illuminated by light of wavelengths $\lambda_{a}$ and $\lambda_{b}$, chosen so that the first diffraction minimum of the $\lambda_{a}$ component coincides with the second minimum of the $\lambda_{b}$ component.
+> 
+> * If $\lambda_{b}$ = 350 nm, what is $\lambda_{a}$?
+> * For what order number $m_{b}$ (if any) does a minimum of the $\lambda_{b}$ component coincide with the minimum of the $\lambda_{a}$ component in the order number:
+>   * $m_{a}$ = 2
+>   * $m_{a}$ = 3
+
+We know that
+
+$$
+a sin \theta = m \lambda
+$$
+
+Since the first order diffraction minimum $m = 1$ of $\lambda_{a}$ coincides with the second order diffraction minimum $m = 2$ of $\lambda_{b}$, we can simply set them equal to each other:
+
+$$
+2 * \lambda_{b} = 1 * \lambda_{a}
+$$
+
+$$
+\lambda_{a} = 2 * \lambda_{b}
+$$
+
+$$
+\lambda_{a} = 2 * 350
+$$
+
+Thus, our answer for part a is $700$ nm.
+
+For b and c, we can simply multiply constants to this:
+
+$$
+\lambda_{a} = 2 * \lambda_{b}
+$$
+
+$$
+2 * \lambda_{a} = 2 * 2 * \lambda_{b}
+$$
+
+Thus, our answer is $4$ for part b.
+
+$$
+3 * \lambda_{a} = 3 * 2 * \lambda_{b}
+$$
+
+Thus, our answer is $6$ for part c.
+
+## Problem 15
+
+This problem is regarding **intensity in single-slit diffraction**.
+
+> See book for question
+
+Part A:
+
+$$
+I( \theta ) = I_{m} * ( \frac{ sin \alpha }{ \alpha } )^{2}
+$$
+
+$$
+\frac{1}{2} = ( \frac{ sin \alpha }{ \alpha } )^{2}
+$$
+
+$$
+\frac{1}{2} = ( \frac{ sin^{2} \alpha }{ \alpha^{2} } )
+$$
+
+$$
+\frac{\alpha^{2}}{2} = sin^{2} \alpha
+$$
+
+Part B:
+
+$$
+\frac{1.39^{2}}{2} = sin^{2} ( 1.39 )
+$$
+
+This indeed holds true so 1.39 radians is a solution
+
+Part C:
+
+$$
+\alpha = \frac{\pi a}{\lambda} sin \theta
+$$
+
+$$
+\theta = sin^{-1} \frac{\lambda \alpha}{\pi a}
+$$
+
+$$
+\theta = sin^{-1} \frac{0.442 \lambda}{a}
+$$
+
+Note:
+
+$$
+\Delta \theta = 2 \theta
+$$
+
+So:
+
+$$
+\Delta \theta = 2 sin^{-1} \frac{0.442 \lambda}{a}
+$$
+
+Part D:
+
+$$
+2 sin^{-1} \frac{0.442}{1}
+$$
+
+Thus, our answer is $52.5^{\circ}$
+
+Part E:
+
+$$
+2 sin^{-1} \frac{0.442}{5}
+$$
+
+Thus, our answer is $10.1^{\circ}$
+
+Part F:
+
+$$
+2 sin^{-1} \frac{0.442}{10}
+$$
+
+Thus, our answer is $5.06^{\circ}$
+
+## Problem 23
+
+This problem is regarding **diffraction by a circular aperture**.
+
+> The two headlights of an approaching automobile are 1.4 m apart. At what 
+> 
+> * angular separation and maximum distance will the eye resolve them?
+> 
+> Assume that the pupil diameter is 5.0 mm, and use a wavelength of 550 nm for the light. Also assume that diffraction effects alone limit the resolution so that Rayleigh's criterion can be applied.
+
+Apply Rayleigh's criterion:
+
+$$
+\theta_{R} = 1.22 \frac{\lambda}{d}
+$$
+
+$$
+\theta_{R} = 1.22 \frac{550 \times 10^{-9}}{5.0 \times 10^{-3}}
+$$
+
+Thus, $\theta_{R} = 1.3 \times 10^{-4}\text{ radians}$, our answer
+
+$sin$ is the ratio of separation to the maximum distance, so we can use this to solve for the distance:
+
+$$
+\frac{d_{h}}{L} = 1.22 \frac{\lambda}{d}
+$$
+
+$$
+L = \frac{d_{h}}{1.22 \frac{\lambda}{d}}
+$$
+
+
+We know $d_{h}$ and we just calculated the angle, so we can solve for $L$. $L$ comes out to be 10432.19m, our answer.
