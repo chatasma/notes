@@ -1,0 +1,36 @@
+---
+title: "Random Variables"
+date: "February 23rd, 2021"
+output: pdf_document
+---
+
+Random variable -- numerical description of the outcome of an experiment
+
+* X, Y, Z to denote random variables
+* x, y, z, to denote respective values
+
+For example:
+
+* X is the number of heads after tossing a fair coin 10 times
+
+Two types of random variables:
+
+* Discrete random variables -- takes finite or countable values
+* Continuous random variables -- takes values or an interval
+  * I.e. Height, Weight, and Time (0 to 2 meters)
+
+
+## Discrete Random Variables
+
+For example, tossing a fair coin 4 times. X can be a discrete random variable representing the number of heads
+
+X can be 0, 1, 2, 3, and 4, with probabilities 1/16, 1/4, 3/8, 1/4, and 1/16 respectively.
+
+For a probability mass function of a discrete random variable, f(x):
+
+* f(x) >= 0
+* only finite or countable x's
+* sum of x's is 1
+* P(X = x) = f(x)
+
+Cumulative Distribution Function (CDF) is like PMF, except instead of P(X = x), it is P(X <= x). So you just add the probabilities up, hence it is cumulative.
