@@ -37,13 +37,13 @@ _Young's Interference Experiment_
 To find the maximum intensity of an interference for Young's experiment:
 
 $$
-d = sin \theta = m \lambda
+d sin \theta = m \lambda
 $$
 
 Minimum intensity:
 
 $$
-d = sin \theta = (m + \frac{1}{2}) \lambda
+d sin \theta = (m + \frac{1}{2}) \lambda
 $$
 
 Where:

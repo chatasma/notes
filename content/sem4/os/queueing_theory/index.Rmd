@@ -68,3 +68,7 @@ $$
 $$
 C_{x} = \text{coefficient of variance} = 1
 $$
+
+## Stochastic Processes
+
+Collection of random variables
