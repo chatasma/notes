@@ -564,6 +564,118 @@ L = \frac{d_{h}}{1.22 \frac{\lambda}{d}}
 \]</span></p>
 <p>We know <span class="math inline">\(d_{h}\)</span> and we just calculated the angle, so we can solve for <span class="math inline">\(L\)</span>. <span class="math inline">\(L\)</span> comes out to be 10432.19m, our answer.</p>
 </div>
+<div id="problem-35" class="section level2">
+<h2>Problem 35</h2>
+<p>This problem is regarding <strong>diffraction by a double slit</strong>.</p>
+<blockquote>
+<p>Suppose that the central diffraction envelope of a double-slit diffraction pattern contains 11 bright fringes and the first diffraction minima eliminate (are coincident with) bright fringes. How many bright fringes lie between the first and second minima of the diffraction envelope?</p>
+</blockquote>
+<p>For this question, we first use <span class="math inline">\(m = \frac{d}{a}\)</span>:</p>
+<p><span class="math display">\[
+d sin \theta = 11 \lambda
+\]</span></p>
+<p>For the second diffraction minimum:</p>
+<p><span class="math display">\[
+a sin \theta = 2 \lambda
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+\frac{d}{a} = \frac{11}{2}
+\]</span></p>
+<p>This represents the lower bound, so m has to be greater than 5.</p>
+<p><span class="math inline">\(\frac{d}{a} = \frac{2 * 11}{2}\)</span> represents the upper bound, so m has to be less than 11. This leaves 6 - 10, which is 5 bright fringes, our answer.</p>
+</div>
+<div id="problem-45" class="section level2">
+<h2>Problem 45</h2>
+<p>This problem is regarding <strong>diffraction gratings</strong>.</p>
+<blockquote>
+<p>A diffraction grating 20.0 mm wide has 6000 rulings. Light of wavelength 589 nm is incident perpendicularly on the grating. What are the</p>
+<ul>
+<li>largest</li>
+<li>second largest</li>
+<li>third largest values of <span class="math inline">\(\theta\)</span> at which maxima appear on a distant viewing screen?</li>
+</ul>
+</blockquote>
+<p>First, find <span class="math inline">\(d\)</span> by divding the grating length over the number of slits: <span class="math inline">\(\frac{20 \times 10^{-3}}{6000}\)</span>.</p>
+<p>Now, we know the the maximum value of <span class="math inline">\(sin \theta\)</span> is 1, so we can say that:</p>
+<p><span class="math display">\[
+\frac{m \lambda}{d} &lt; 1
+\]</span></p>
+<p>The max value of <span class="math inline">\(m\)</span> is thus 5, since we have <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(d\)</span>.</p>
+<p>The largest value of <span class="math inline">\(\theta\)</span> is then:</p>
+<p><span class="math display">\[
+sin \theta = \frac{(5 * (589 * 10^{-9}))}{3.33 \times 10^{-6}}
+\]</span></p>
+<p><span class="math inline">\(\theta\)</span> comes out to be <span class="math inline">\(62.1^{\circ}\)</span></p>
+<p>Repeat this for <span class="math inline">\(m\)</span> values 4 and 3 for part b and c respectively:</p>
+<p>The second largest value of <span class="math inline">\(\theta\)</span> is then <span class="math inline">\(45.0^{\circ}\)</span></p>
+<p>The third largest value of <span class="math inline">\(\theta\)</span> is then <span class="math inline">\(32.0^{\circ}\)</span></p>
+</div>
+<div id="problem-55" class="section level2">
+<h2>Problem 55</h2>
+<p>This problem is regarding <strong>dispersion and resolving power</strong>.</p>
+<blockquote>
+<p>A source containing a mixture of hydrogen and deuterium atoms emits red light at two wavelengths whose mean is 656.3 nm and whose separation is 0.180 nm. Find the minimum number of lines needed in a diffraction grating that can resolve these lines in the first order.</p>
+</blockquote>
+<p>For this question, we can use:</p>
+<p><span class="math display">\[
+R = \frac{\lambda_{avg}}{\Delta \lambda} = N m
+\]</span></p>
+<p>Solve for <span class="math inline">\(N\)</span>:</p>
+<p><span class="math display">\[
+N = \frac{\lambda_{avg}}{m \Delta \lambda}
+\]</span></p>
+<p>We know:</p>
+<ul>
+<li><span class="math inline">\(m = 1\)</span></li>
+<li><span class="math inline">\(\lambda_{avg} = 656.3\text{ nm}\)</span></li>
+<li><span class="math inline">\(\Delta \lambda = 0.180\text{ nm}\)</span></li>
+</ul>
+<p>So:</p>
+<p><span class="math display">\[
+N = \frac{656.4}{1 * 0.180}
+\]</span></p>
+<p>This comes out to be 3646 lines, our answer.</p>
+</div>
+<div id="problem-63" class="section level2">
+<h2>Problem 63</h2>
+<p>This problem is regarding <strong>dispersion and resolving power</strong>.</p>
+<blockquote>
+<p>Assume that the limits of the visible spectrum are arbitrarily chosen as 430 and 680 nm. Calculate the number of rulings per millimeter of a grating that will spread the first-order spectrum through an angle of <span class="math inline">\(20.0^{\circ}\)</span>.</p>
+</blockquote>
+<p>We know:</p>
+<p><span class="math display">\[
+\lambda_{l} = d sin \theta
+\]</span></p>
+<p><span class="math display">\[
+\lambda_{h} = d sin ( \theta + \Delta \theta )
+\]</span></p>
+<p>Now, we need to solve for <span class="math inline">\(d\)</span>, the distance between the slits.</p>
+<p>Consider what <span class="math inline">\(sin ( \theta + \Delta \theta )\)</span> can expand to using an identity:</p>
+<p><span class="math display">\[
+sin ( \theta + \Delta \theta ) = sin \theta cos ( \Delta \theta ) + cos \theta sin ( \Delta \theta )
+\]</span></p>
+<p>Goal is to get rid of the <span class="math inline">\(\theta\)</span> so we remain with <span class="math inline">\(\Delta \theta\)</span></p>
+<p>We can substitute occurrences of <span class="math inline">\(sin \theta\)</span> with <span class="math inline">\(\frac{\lambda_{l}}{d}\)</span></p>
+<p><span class="math display">\[
+\frac{\lambda_{l}}{d} cos ( \Delta \theta ) + cos ( \theta ) sin ( \Delta \theta )
+\]</span></p>
+<p>We still have a <span class="math inline">\(cos \theta\)</span>, but we can also substitute this with <span class="math inline">\(\sqrt{1 - sin^{2} \theta}\)</span>. We can now express <span class="math inline">\(\lambda_{h}\)</span> as:</p>
+<p><span class="math display">\[
+\lambda_{h} = d ( \frac{\lambda_{l}}{d} cos ( \Delta \theta ) + \sqrt{1 - \frac{\lambda_{l}^{2}}{d^{2}}} sin ( \Delta \theta ) )
+\]</span></p>
+<p>We can multiply the <span class="math inline">\(d\)</span> to each term:</p>
+<p><span class="math display">\[
+\lambda_{h} = \lambda_{l} cos ( \Delta \theta ) + \sqrt{d^{2} - \lambda_{l}^{2}} sin ( \Delta \theta ) )
+\]</span></p>
+<p>Now, there are no occurrences of <span class="math inline">\(\theta\)</span>, we can solve for <span class="math inline">\(d\)</span>:</p>
+<p><span class="math display">\[
+d = \sqrt{( \frac{\lambda_{h} - \lambda_{l} * cos ( \Delta \theta )}{sin ( \Delta \theta )} )^{2} + \lambda_{l}^{2}}
+\]</span></p>
+<p>We have all parameters in this expression, so we can solve for <span class="math inline">\(d\)</span>, which comes out to be 914 nm.</p>
+<p>We can find the number of rulings per millimeter, by doing <span class="math inline">\(\frac{1}{914 \times 10^{-6}}\)</span>, since we can assume the slit width is extremely small.</p>
+<p>This comes out to be 1094 rulings/mm, our answer.</p>
+</div>
 
 
 
