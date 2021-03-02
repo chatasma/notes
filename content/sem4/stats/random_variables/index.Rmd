@@ -4,6 +4,9 @@ date: "February 23rd, 2021"
 output: pdf_document
 ---
 
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
+
 Random variable -- numerical description of the outcome of an experiment
 
 * X, Y, Z to denote random variables
@@ -34,3 +37,73 @@ For a probability mass function of a discrete random variable, f(x):
 * P(X = x) = f(x)
 
 Cumulative Distribution Function (CDF) is like PMF, except instead of P(X = x), it is P(X <= x). So you just add the probabilities up, hence it is cumulative.
+
+Expected value
+
+$$
+\mu = E(X) = \sum_{x} x f(x)
+$$
+
+Where:
+
+* $f(x)$ is the PMF function
+
+## Variance
+
+$$
+\sigma^{2} = \text{var}(x) = E[ ( x - \mu )^{2} ] = E(x^{2}) - (E(x))^{2} = E(x^{2}) - \mu^{2}
+$$
+
+Where $a$ is a constant:
+
+$$
+\sigma^{2}(ax) = a^{2} \sigma^{2}(x)
+$$
+
+If $x_{1}, x_{2}, ... , x_{n}$ are independent discrete random variables:
+
+$$
+var(x_{1} + x_{2} + ... + x_{n}) = \sum_{i = 1}^{n} var(xi)
+$$
+
+Standard Deviation
+
+$$
+\sigma = std(x) = \sqrt{var(x)}
+$$
+
+## Special Discrete Random Variables
+
+* Bernoulli Trial: A random experiment with outcomes that are either success or failure, the chance of a success being $p$
+* Benoulli Random Variable: A discrete random variable that takes on 1 as success or 0 as failure
+
+Where $X$ is a Bernoulli random variable:
+
+$$
+E(X) = p
+$$
+
+$$
+\sigma^{2}(X) = p (1-p)
+$$
+
+* Binomial Trial: Repeat Bernoulli trials independently $n$ times, where the probability of each success is $p$.
+* Binomial RV: Number of successes of a binomial trial
+
+PMF, where $n$ is number of trials, and $x$ is the number of successes:
+
+$$
+\Comb{n}{x} p^{x} (1 - p)^{n - x}
+$$
+
+* x is 0..n
+
+If $X$ is a Binomial RV:
+
+$$
+E(X) = np
+$$
+
+$$
+\sigma^{2} (X) = np (1 - p)
+$$
