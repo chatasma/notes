@@ -353,6 +353,7 @@ pre code {
 </div>
 
 
+
 <p>Random variable – numerical description of the outcome of an experiment</p>
 <ul>
 <li>X, Y, Z to denote random variables</li>
@@ -382,6 +383,64 @@ pre code {
 <li>P(X = x) = f(x)</li>
 </ul>
 <p>Cumulative Distribution Function (CDF) is like PMF, except instead of P(X = x), it is P(X &lt;= x). So you just add the probabilities up, hence it is cumulative.</p>
+<p>Expected value</p>
+<p><span class="math display">\[
+\mu = E(X) = \sum_{x} x f(x)
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(f(x)\)</span> is the PMF function</li>
+</ul>
+</div>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<p><span class="math display">\[
+\sigma^{2} = \text{var}(x) = E[ ( x - \mu )^{2} ] = E(x^{2}) - (E(x))^{2} = E(x^{2}) - \mu^{2}
+\]</span></p>
+<p>Where <span class="math inline">\(a\)</span> is a constant:</p>
+<p><span class="math display">\[
+\sigma^{2}(ax) = a^{2} \sigma^{2}(x)
+\]</span></p>
+<p>If <span class="math inline">\(x_{1}, x_{2}, ... , x_{n}\)</span> are independent discrete random variables:</p>
+<p><span class="math display">\[
+var(x_{1} + x_{2} + ... + x_{n}) = \sum_{i = 1}^{n} var(xi)
+\]</span></p>
+<p>Standard Deviation</p>
+<p><span class="math display">\[
+\sigma = std(x) = \sqrt{var(x)}
+\]</span></p>
+</div>
+<div id="special-discrete-random-variables" class="section level2">
+<h2>Special Discrete Random Variables</h2>
+<ul>
+<li>Bernoulli Trial: A random experiment with outcomes that are either success or failure, the chance of a success being <span class="math inline">\(p\)</span></li>
+<li>Benoulli Random Variable: A discrete random variable that takes on 1 as success or 0 as failure</li>
+</ul>
+<p>Where <span class="math inline">\(X\)</span> is a Bernoulli random variable:</p>
+<p><span class="math display">\[
+E(X) = p
+\]</span></p>
+<p><span class="math display">\[
+\sigma^{2}(X) = p (1-p)
+\]</span></p>
+<ul>
+<li>Binomial Trial: Repeat Bernoulli trials independently <span class="math inline">\(n\)</span> times, where the probability of each success is <span class="math inline">\(p\)</span>.</li>
+<li>Binomial RV: Number of successes of a binomial trial</li>
+</ul>
+<p>PMF, where <span class="math inline">\(n\)</span> is number of trials, and <span class="math inline">\(x\)</span> is the number of successes:</p>
+<p><span class="math display">\[
+{}^{n}C_{x} p^{x} (1 - p)^{n - x}
+\]</span></p>
+<ul>
+<li>x is 0..n</li>
+</ul>
+<p>If <span class="math inline">\(X\)</span> is a Binomial RV:</p>
+<p><span class="math display">\[
+E(X) = np
+\]</span></p>
+<p><span class="math display">\[
+\sigma^{2} (X) = np (1 - p)
+\]</span></p>
 </div>
 
 
