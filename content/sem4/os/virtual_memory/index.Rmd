@@ -1,0 +1,64 @@
+---
+title: "Virtual Memory"
+date: "March 3rd, 2021"
+output: pdf_document
+---
+
+## Agenda
+
+* Address Spaces
+* Segmentation
+* Paging
+* Swapping
+* User space memory management
+* Case Study: Linux + x86 VM
+
+## Address Spaces
+
+Binaries have addresses hardcoded into them
+
+When a program is executed:
+
+* Text & Data Sections are initialized with contents of binary
+* BSS section zero initialized
+* Starting addresses for initially empty stack & heap are also established
+
+If different binaries have conflicting addresses, how is this possible? They should not be able to simultaneously access the same physical memory...
+
+* Not all text sections can begin at 0x400000
+* Not all data sections can begin at 0x600000
+* Not all heaps can begin at 0x18f0000
+* Not all stacks can begin at 0x7fff00000000
+
+Uniform process address spaces are an illusion created by the kernel
+
+* To simplify program loading and execution (among other reasons)
+
+## Hardware Address Translation
+
+* All process memory requests on CPU are for **virtual** addresses
+* Hardware translates these to **physical** addresses
+* Kernel sets up mapping for virtual -> physical
+* Translation hardware is the memory management unit (MMU)
+
+## Primary goals
+
+* "Transparency" (not really)
+  * Processes aren't involved in (or aware of) the translation process
+* Efficiency
+  * Time and Space
+* Protection
+  * Process can't access data out of their address space
+  * Isolated from each other and the kernel
+
+## A simple implementation: Relocation
+
+Kernel maintains the address of each process in PCB
+
+Load base address into into MMU on each context switch
+Relocation = register access + addition
+
+What about protection?
+
+* Incorporate a limit register to enforce memory protection
+* Assert address is valid

@@ -1,0 +1,145 @@
+---
+title: "Relativity"
+date: "March 2nd, 2021"
+output: pdf_document
+---
+
+## Formulas
+
+### Time Dilation
+
+$$
+\Delta t = \frac{\Delta t_{0}}{\sqrt{1 - (\frac{v}{c})^{2}}} = \frac{\Delta t_{0}}{\sqrt{1 - \beta^{2}}} = \gamma \Delta t_{0}
+$$
+
+Where:
+
+* $\Delta t$ is observed time interval
+* $\Delta t_{0}$ is actual time interval
+* $v$ is the relative speed between the two frames
+* $c$ speed of light
+* $\beta = \frac{v}{c}$, called the speed parameter
+* $\gamma = \frac{1}{\sqrt{1 - \beta^{2}}}$. called the Lorentz factor
+
+### Length Contraction
+
+$$
+L = L_{0} \sqrt{1 - \beta^{2}} = \frac{L_{0}}{\gamma}
+$$
+
+### Lorentz Transformation Equations
+
+These relate the spacetime coordinates of a single event as seen by two observers in two inertial frames, $S$ and $S'$. $S'$ is moving relative to $S$ with velocity $v$ in the positive $x$ and $x'$ direction. The four coordinates are related by:
+
+$$
+x' = \gamma (x - vt)
+$$
+
+$$
+y' = y
+$$
+
+$$
+z' = z
+$$
+
+$$
+t' = \gamma (t - \frac{vx}{c^{2}})
+$$
+
+### Doppler Effect for Light
+
+$$
+\lambda = \lambda_{0} \sqrt{\frac{1 + \beta}{1 - \beta}}
+$$
+
+Where:
+
+* **The separation is increasing** between the detector and source
+  * **If the separation is decreasing**, flip the signs in both the numerator and denominator
+* $\beta = \frac{v}{c}$, where $v$ is the relative radial speed (along a line through the source and detector)
+
+For speeds that are much lower than $c$ ($v \ll c$), the magnitude of the wavelength shift from the Doppler effect is approximately related to $v$ by:
+
+$$
+v = \frac{\lvert \Delta \lambda \rvert}{\lambda_{0}} c
+$$
+
+If the relative motion of the light source is **perpendicular** to a line through the source and detector, the frequency $f$ is related to the proper frequency $f_{0}$ by:
+
+$$
+f = f_{0} \sqrt{1 - \beta^{2}}
+$$
+
+### Momentum and Energy
+
+Definitions of linear momentum, energy, and kinetic energy of a particle of mass $m$:
+
+Momentum:
+
+$$
+\vec{p} = \gamma m \vec{v}
+$$
+
+Energy:
+
+$$
+E = m c^{2} + K = \gamma m c ^{2}
+$$
+
+Kinetic Energy:
+
+$$
+K = mc^{2} ( \gamma - 1 )
+$$
+
+Where:
+
+* $\gamma$ is the Lorentz factor
+* $mc^{2}$ is the mass energy or rest energy associated with the mass of the particle
+
+From these equations:
+
+$$
+( p c )^{2} = K^{2} + 2 K m c^{2}
+$$
+
+$$
+E^{2} = ( p c )^{2} + ( m c^{2} )^{2}
+$$
+
+When a system undergoes a chemical or nuclear reaction, the $Q$ of the reaction is the negative of the change in the system's total mass energy:
+
+$$
+Q = M_{i} c^{2} + M_{f} c^{2} = - \Delta M c^{2}
+$$
+
+Where:
+
+* $M_{i}$ is the system's total mass before the reaction
+* $M_{f}$ is the system's total mass after the reaction
+
+## Special Theory of Relativity
+
+Two Postulates:
+
+* The laws of physics are the same for observers in all inertial reference frames.
+* The speed of light in vacuum has the same value $c$ in all directions and in all inertial reference frames.
+
+If two observers are in relative motion, they generally will **not agree** as to whether two events are simultaneous.
+
+Time Dilation: When two successive events occur at the same place in an inertial reference frame, observers moving relative to the frame will observe the time interval between the events (actual measured by a single clock: $\Delta t_{0}$) (the proper time between them) as a larger value than it actually is (observed: $\Delta t$)
+
+## Relativity of Length
+
+The length $L_{0}$ of an object (at rest) measured by an observer in an inertial reference frame is known as the proper length.
+
+Length Contraction: Observers in frames moving relative to that frame and **parallel** to the length will always measure a **shorter length**.
+
+## Relativity of Velocities
+
+When a particle is moving with speed $u'$ in the positive $x'$ direction in an inertial reference frame $S'$ that itself is moving with speed $v$ parallel to the $x$ direction of a second inertial reference frame $S$, the speed $u$ of the particle **as measured in $S$** is:
+
+$$
+u = \frac{u' + v}{1 + \frac{u' v}{c^{2}}}
+$$
