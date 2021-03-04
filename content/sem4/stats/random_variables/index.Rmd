@@ -107,3 +107,33 @@ $$
 $$
 \sigma^{2} (X) = np (1 - p)
 $$
+
+## Geometric Distribution
+
+Geometric RV: The number of trials until a success is observed with Bernoulli trials
+
+X ~ G(p)
+
+PMF
+
+$$
+g(x;p) =  p^{1} (1 - p)^{x - 1}
+$$
+
+Expected value 
+
+$$
+E(x) = \frac{1}{p}
+$$
+
+Memoryless Property:
+
+$$
+P( Y > a + b | Y > a ) = P (Y > b)
+$$
+
+Tail Probability Rule:
+
+$$
+P(Y > a) = (1-p)^{a}
+$$
