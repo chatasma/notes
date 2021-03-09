@@ -454,6 +454,10 @@ g(x;p) =  p^{1} (1 - p)^{x - 1}
 <p><span class="math display">\[
 E(x) = \frac{1}{p}
 \]</span></p>
+<p>Variance</p>
+<p><span class="math display">\[
+\sigma^{2} = \frac{1-p}{p^{2}}
+\]</span></p>
 <p>Memoryless Property:</p>
 <p><span class="math display">\[
 P( Y &gt; a + b | Y &gt; a ) = P (Y &gt; b)
@@ -462,6 +466,139 @@ P( Y &gt; a + b | Y &gt; a ) = P (Y &gt; b)
 <p><span class="math display">\[
 P(Y &gt; a) = (1-p)^{a}
 \]</span></p>
+</div>
+<div id="negative-binomial-distribution" class="section level2">
+<h2>Negative Binomial Distribution</h2>
+<p>The number of trials until we observe <span class="math inline">\(k\)</span> successes</p>
+<p>X ~ NB(p, k)</p>
+<p><span class="math display">\[
+b*(x; p, k) = {}^{x - 1}C_{k - 1} p^{k} (1 - p)^{x - k}
+\]</span></p>
+<p>Expected value:</p>
+<p><span class="math display">\[
+E(x) = \frac{k}{p} 
+\]</span></p>
+<p>Variance:</p>
+<p><span class="math display">\[
+\sigma^{2} = \frac{k (1-p)}{p^{2}}
+\]</span></p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<blockquote>
+<p>Bob is a high school basketball player. He’s a 70% free throw shooter, meaning his probability of making a free throw is 0.70. During the season, what is the probability that Bob makes his third free throw on his fifth shot?</p>
+</blockquote>
+<p>For this question, we can use a <strong>negative binomial distribution</strong>:</p>
+<ul>
+<li>x = 5</li>
+<li>p = 0.7</li>
+<li>k = 3</li>
+</ul>
+<p>This is because we want to observe <span class="math inline">\(k= 3\)</span> successes given <span class="math inline">\(x = 5\)</span> trials.</p>
+<p><span class="math display">\[
+b*(5; 0.7, 3) = {}^{5 - 1}C_{3 - 1} 0.7^{3} (1 - 0.7)^{5 - 3}
+\]</span></p>
+<p><span class="math display">\[
+b*(5; 0.7, 3) = 0.1852
+\]</span></p>
+</div>
+<div id="hypergeometric-distribution" class="section level2">
+<h2>Hypergeometric Distribution</h2>
+<p>Hypergeometric Distribution:</p>
+<ul>
+<li>Given a population with <span class="math inline">\(N\)</span> members</li>
+<li>An outcome can be classified as a success or a failure</li>
+<li>Let the probability of success in the population be <span class="math inline">\(p\)</span></li>
+<li>Sample from this population w/o replacement of size <span class="math inline">\(n\)</span></li>
+</ul>
+<p>Given these conditions, we then say that:</p>
+<ul>
+<li>H(N, n, k) is the number of successes in the <strong>population</strong>.</li>
+<li>X ~ H(N, n, k) is the number of successes in the <strong>sample</strong>.</li>
+</ul>
+<p>PMF for Hypergeometric Distribution:</p>
+<p><span class="math display">\[
+H(x; N, n, k) = \frac{{}^{k}C_{x} * {}^{N - k}C_{n - x}}{{}^{N}C_{n}}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> is the number of successes</li>
+<li><span class="math inline">\(N\)</span> is the population size</li>
+<li><span class="math inline">\(n\)</span> is the sample size</li>
+<li><span class="math inline">\(k\)</span> is the number of successes in the population</li>
+</ul>
+<p>Expected value:</p>
+<p><span class="math display">\[
+E(X) = \frac{nk}{N}
+\]</span></p>
+<p>Variance:</p>
+<p><span class="math display">\[
+\sigma^{2} = \frac{N - n}{N - 1} * n * \frac{k}{N} * \frac{N - k}{N}
+\]</span></p>
+</div>
+<div id="example-1" class="section level2">
+<h2>Example</h2>
+<blockquote>
+<p>Bag has 3 red balls and 7 white balls. Select 2 balls:</p>
+<ul>
+<li>Sample without replacement (equivalent to taking two balls simultaneously)</li>
+</ul>
+<p>Assume choosing a red ball is a success, what is the probability that the 2 selected balls are both red?</p>
+</blockquote>
+<p>For this, we can use the <strong>hypergeometric distribution</strong>, where:</p>
+<ul>
+<li><span class="math inline">\(x = 2\)</span> – We want to find 2 red balls</li>
+<li><span class="math inline">\(N = 10\)</span> – There are 10 balls in the population</li>
+<li><span class="math inline">\(n = 2\)</span> – This is the sample size, we are selecting two balls</li>
+<li><span class="math inline">\(k = 3\)</span> – The number of total successes in the population is 3, there are 3 red balls out of the 10 total</li>
+</ul>
+<p><span class="math display">\[
+H(x; N, n, k) = \frac{{}^{k}C_{x} * {}^{N - k}C_{n - x}}{{}^{N}C_{n}}
+\]</span></p>
+<p><span class="math display">\[
+H(2; 10, 2, 3) = \frac{{}^{3}C_{2} * {}^{10 - 3}C_{2 - 2}}{{}^{10}C_{2}}
+\]</span></p>
+<p><span class="math display">\[
+H(2; 10, 2, 3) = 0.0667
+\]</span></p>
+</div>
+<div id="example-2" class="section level2">
+<h2>Example</h2>
+<blockquote>
+<p>An industrial product is shipped in lots of 20. Testing to determine whether an item is defective is costly, and hence the manufacturer samples his production rather than using a 100% inspection plan. A sampling plan, constructed to minimize the number of defectives shipped to customers, calls for sampling five items from each lot and rejecting the lot if more than one defective is observed. (If the lot is rejected, each item in it is later tested.) If a lot contains four defectives, what is the probability that it will be rejected? What is the expected number of defectives in the sample of size 5?</p>
+</blockquote>
+<p>For this question, we can use a <strong>hypergeometric distribution</strong>, where:</p>
+<ul>
+<li><span class="math inline">\(x &gt; 1\)</span> – We want to see when there is more than 1 defective in the sample, cause that is when the lot is rejected.</li>
+<li><span class="math inline">\(N = 20\)</span> – This is how many products are in the lot</li>
+<li><span class="math inline">\(n = 5\)</span> – This is our sample size</li>
+<li><span class="math inline">\(k = 4\)</span> – This is how many defectives are in the lot</li>
+</ul>
+<p>Notice, that <span class="math inline">\(x\)</span> can only be 0..k, or 0..4, since we only have 4 defectives in the population. Thus, we can determine P(X &gt; 1) = 1 - (P(X = 0) + P(X = 1)).</p>
+<p>When X = 0</p>
+<p><span class="math display">\[
+H(0; 20, 5, 4) = \frac{{}^{4}C_{0} * {}^{20 - 4}C_{5 - 0}}{{}^{20}C_{5}}
+\]</span></p>
+<p>When X = 1</p>
+<p><span class="math display">\[
+H(1; 20, 5, 4) = \frac{{}^{4}C_{1} * {}^{20 - 4}C_{5 - 1}}{{}^{20}C_{5}}
+\]</span></p>
+<p>Thus, the probability for P(X &gt; 1) is:</p>
+<p><span class="math display">\[
+1 - ((\frac{{}^{4}C_{0} * {}^{20 - 4}C_{5 - 0}}{{}^{20}C_{5}}) + (\frac{{}^{4}C_{1} * {}^{20 - 4}C_{5 - 1}}{{}^{20}C_{5}}))
+\]</span></p>
+<p>Which is 0.2487, our answer.</p>
+<p>We can find the expected number of defectives using:</p>
+<p><span class="math display">\[
+E(X) = \frac{nk}{N}
+\]</span></p>
+<p><span class="math display">\[
+E(X) = \frac{5 * 4}{20}
+\]</span></p>
+<p><span class="math display">\[
+E(X) = 1
+\]</span></p>
+<p>So we expect there to be 1 defective for a sample size of 5.</p>
 </div>
 
 
