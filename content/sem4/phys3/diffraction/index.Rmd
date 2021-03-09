@@ -300,7 +300,7 @@ $$
 This represents the lower bound, so m has to be greater than 5.
 
 
-$\frac{d}{a} = \frac{2 * 11}{2}$ represents the upper bound, so m has to be less than 11. This leaves 6 - 10, which is 5 bright fringes, our answer.
+$\frac{d}{a} = \frac{2 * 11}{2}$ represents the upper bound, so m has to be less than 11. This leaves 6 to 10, which is 5 bright fringes, our answer.
 
 ## Problem 45
 
@@ -423,3 +423,35 @@ We have all parameters in this expression, so we can solve for $d$, which comes 
 We can find the number of rulings per millimeter, by doing $\frac{1}{914 \times 10^{-6}}$, since we can assume the slit width is extremely small.
 
 This comes out to be 1094 rulings/mm, our answer.
+
+## Problem 69
+
+This problem is retarding **X-Ray diffraction**.
+
+> X rays of wavelength 0.12 nm are found to undergo second-order reflection at a Bragg angle of $28^{\circ}$ from a lithium fluoride crystal. What is the interplanar spacing of the reflecting planes in the crystal?
+
+For this question, we use:
+
+$$
+2 d sin ( \theta ) = m \lambda
+$$
+
+Solve for $d$:
+
+$$
+d = \frac{m \lambda}{2 * sin ( \theta )}
+$$
+
+$d$ comes out to be 0.26 nm.
+
+## Problem 95
+
+> If you double the width of a single slit, the intensity of the central maximum of the diffraction pattern increases by a factor of 4, even though the energy passing through the slit only doubles. Explain this quantitatively.
+
+If we split the original slit into N slits, we can form N phasors. From the intensity equation:
+
+$$
+I ( \theta ) = I_{m} ( \frac{ sin \alpha }{ \alpha } )^{2}
+$$
+
+Where $\alpha = \frac{ \pi a }{\lambda} sin ( \theta )$, we can see that the intensity is going to be proportional to the number of phasors squared. If we were to double the number of phasors, we see that the new intensity is proportional to $4N^{2}$, $N^{2} = (2N)^{2} = 4N^{2}$. So the intensity goes up by a factor of 4. Energy on the other hand doesn't depend on the width of the slit -- doubling the slit width just allows for double the energy to reach the viewing screen.
