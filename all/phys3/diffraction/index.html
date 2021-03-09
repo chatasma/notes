@@ -583,7 +583,7 @@ a sin \theta = 2 \lambda
 \frac{d}{a} = \frac{11}{2}
 \]</span></p>
 <p>This represents the lower bound, so m has to be greater than 5.</p>
-<p><span class="math inline">\(\frac{d}{a} = \frac{2 * 11}{2}\)</span> represents the upper bound, so m has to be less than 11. This leaves 6 - 10, which is 5 bright fringes, our answer.</p>
+<p><span class="math inline">\(\frac{d}{a} = \frac{2 * 11}{2}\)</span> represents the upper bound, so m has to be less than 11. This leaves 6 to 10, which is 5 bright fringes, our answer.</p>
 </div>
 <div id="problem-45" class="section level2">
 <h2>Problem 45</h2>
@@ -675,6 +675,33 @@ d = \sqrt{( \frac{\lambda_{h} - \lambda_{l} * cos ( \Delta \theta )}{sin ( \Delt
 <p>We have all parameters in this expression, so we can solve for <span class="math inline">\(d\)</span>, which comes out to be 914 nm.</p>
 <p>We can find the number of rulings per millimeter, by doing <span class="math inline">\(\frac{1}{914 \times 10^{-6}}\)</span>, since we can assume the slit width is extremely small.</p>
 <p>This comes out to be 1094 rulings/mm, our answer.</p>
+</div>
+<div id="problem-69" class="section level2">
+<h2>Problem 69</h2>
+<p>This problem is retarding <strong>X-Ray diffraction</strong>.</p>
+<blockquote>
+<p>X rays of wavelength 0.12 nm are found to undergo second-order reflection at a Bragg angle of <span class="math inline">\(28^{\circ}\)</span> from a lithium fluoride crystal. What is the interplanar spacing of the reflecting planes in the crystal?</p>
+</blockquote>
+<p>For this question, we use:</p>
+<p><span class="math display">\[
+2 d sin ( \theta ) = m \lambda
+\]</span></p>
+<p>Solve for <span class="math inline">\(d\)</span>:</p>
+<p><span class="math display">\[
+d = \frac{m \lambda}{2 * sin ( \theta )}
+\]</span></p>
+<p><span class="math inline">\(d\)</span> comes out to be 0.26 nm.</p>
+</div>
+<div id="problem-95" class="section level2">
+<h2>Problem 95</h2>
+<blockquote>
+<p>If you double the width of a single slit, the intensity of the central maximum of the diffraction pattern increases by a factor of 4, even though the energy passing through the slit only doubles. Explain this quantitatively.</p>
+</blockquote>
+<p>If we split the original slit into N slits, we can form N phasors. From the intensity equation:</p>
+<p><span class="math display">\[
+I ( \theta ) = I_{m} ( \frac{ sin \alpha }{ \alpha } )^{2}
+\]</span></p>
+<p>Where <span class="math inline">\(\alpha = \frac{ \pi a }{\lambda} sin ( \theta )\)</span>, we can see that the intensity is going to be proportional to the number of phasors squared. If we were to double the number of phasors, we see that the new intensity is proportional to <span class="math inline">\(4N^{2}\)</span>, <span class="math inline">\(N^{2} = (2N)^{2} = 4N^{2}\)</span>. So the intensity goes up by a factor of 4. Energy on the other hand doesn’t depend on the width of the slit – doubling the slit width just allows for double the energy to reach the viewing screen.</p>
 </div>
 
 
