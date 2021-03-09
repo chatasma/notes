@@ -126,6 +126,12 @@ $$
 E(x) = \frac{1}{p}
 $$
 
+Variance
+
+$$
+\sigma^{2} = \frac{1-p}{p^{2}}
+$$
+
 Memoryless Property:
 
 $$
@@ -137,3 +143,160 @@ Tail Probability Rule:
 $$
 P(Y > a) = (1-p)^{a}
 $$
+
+## Negative Binomial Distribution
+
+The number of trials until we observe $k$ successes
+
+X ~ NB(p, k)
+
+$$
+b*(x; p, k) = \Comb{x - 1}{k - 1} p^{k} (1 - p)^{x - k}
+$$
+
+Expected value:
+
+$$
+E(x) = \frac{k}{p} 
+$$
+
+Variance:
+
+$$
+\sigma^{2} = \frac{k (1-p)}{p^{2}}
+$$
+
+## Example
+
+> Bob is a high school basketball player. He's a 70% free throw shooter, meaning his probability of making a free throw is 0.70. During the season, what is the probability that Bob makes his third free throw on his fifth shot?
+
+For this question, we can use a **negative binomial distribution**:
+
+* x = 5
+* p = 0.7
+* k = 3
+
+This is because we want to observe $k= 3$ successes given $x = 5$ trials.
+
+$$
+b*(5; 0.7, 3) = \Comb{5 - 1}{3 - 1} 0.7^{3} (1 - 0.7)^{5 - 3}
+$$
+
+$$
+b*(5; 0.7, 3) = 0.1852
+$$
+
+## Hypergeometric Distribution
+
+Hypergeometric Distribution:
+
+* Given a population with $N$ members
+* An outcome can be classified as a success or a failure
+* Let the probability of success in the population be $p$
+* Sample from this population w/o replacement of size $n$
+
+Given these conditions, we then say that:
+
+* H(N, n, k) is the number of successes in the **population**.
+* X ~ H(N, n, k) is the number of successes in the **sample**.
+
+PMF for Hypergeometric Distribution:
+
+$$
+H(x; N, n, k) = \frac{\Comb{k}{x} * \Comb{N - k}{n - x}}{\Comb{N}{n}}
+$$
+
+Where:
+
+* $x$ is the number of successes
+* $N$ is the population size
+* $n$ is the sample size
+* $k$ is the number of successes in the population
+
+Expected value:
+
+$$
+E(X) = \frac{nk}{N}
+$$
+
+Variance:
+
+$$
+\sigma^{2} = \frac{N - n}{N - 1} * n * \frac{k}{N} * \frac{N - k}{N}
+$$
+
+## Example
+
+> Bag has 3 red balls and 7 white balls. Select 2 balls:
+> 
+> * Sample without replacement (equivalent to taking two balls simultaneously)
+> 
+> Assume choosing a red ball is a success, what is the probability that the 2 selected balls are both red?
+
+For this, we can use the **hypergeometric distribution**, where:
+
+* $x = 2$ -- We want to find 2 red balls
+* $N = 10$ -- There are 10 balls in the population
+* $n = 2$ -- This is the sample size, we are selecting two balls
+* $k = 3$ -- The number of total successes in the population is 3, there are 3 red balls out of the 10 total
+
+$$
+H(x; N, n, k) = \frac{\Comb{k}{x} * \Comb{N - k}{n - x}}{\Comb{N}{n}}
+$$
+
+$$
+H(2; 10, 2, 3) = \frac{\Comb{3}{2} * \Comb{10 - 3}{2 - 2}}{\Comb{10}{2}}
+$$
+
+$$
+H(2; 10, 2, 3) = 0.0667
+$$
+
+## Example
+
+> An industrial product is shipped in lots of 20. Testing to determine whether an item is defective is costly, and hence the manufacturer samples his production rather than using a 100% inspection plan. A sampling plan, constructed to minimize the number of defectives shipped to customers, calls for sampling five items from each lot and rejecting the lot if more than one defective is observed. (If the lot is rejected, each item in it is later tested.) If a lot contains four defectives, what is the probability that it will be rejected? What is the expected number of defectives in the sample of size 5?
+
+For this question, we can use a **hypergeometric distribution**, where:
+
+* $x > 1$ -- We want to see when there is more than 1 defective in the sample, cause that is when the lot is rejected.
+* $N = 20$ -- This is how many products are in the lot
+* $n = 5$ -- This is our sample size
+* $k = 4$ -- This is how many defectives are in the lot
+
+Notice, that $x$ can only be 0..k, or 0..4, since we only have 4 defectives in the population. Thus, we can determine P(X > 1) = 1 - (P(X = 0) + P(X = 1)).
+
+When X = 0
+
+$$
+H(0; 20, 5, 4) = \frac{\Comb{4}{0} * \Comb{20 - 4}{5 - 0}}{\Comb{20}{5}}
+$$
+
+When X = 1
+
+$$
+H(1; 20, 5, 4) = \frac{\Comb{4}{1} * \Comb{20 - 4}{5 - 1}}{\Comb{20}{5}}
+$$
+
+Thus, the probability for P(X > 1) is:
+
+$$
+1 - ((\frac{\Comb{4}{0} * \Comb{20 - 4}{5 - 0}}{\Comb{20}{5}}) + (\frac{\Comb{4}{1} * \Comb{20 - 4}{5 - 1}}{\Comb{20}{5}}))
+$$
+
+Which is 0.2487, our answer.
+
+We can find the expected number of defectives using:
+
+$$
+E(X) = \frac{nk}{N}
+$$
+
+$$
+E(X) = \frac{5 * 4}{20}
+$$
+
+$$
+E(X) = 1
+$$
+
+So we expect there to be 1 defective for a sample size of 5.
