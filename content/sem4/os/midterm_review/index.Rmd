@@ -61,6 +61,10 @@ $$
 E(L) = \frac{ \lambda }{\mu ( 1 - \rho )} = \frac{\rho}{( 1 - \rho )}
 $$
 
+$$
+E(T_{q}) \mu^{2} - E(L_{q}) \mu - \lambda = 0
+$$
+
 
 Relationship between expected value of time to service customer to service rate
 
