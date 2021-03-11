@@ -300,3 +300,60 @@ E(X) = 1
 $$
 
 So we expect there to be 1 defective for a sample size of 5.
+
+## Relation between Binomial distribution and Hypergeometric
+
+Let us consider the Hypergeometric distriubtion:
+
+* We know that $k$ represents our number of succeses in the population
+* We know that $N$ represents our population size
+
+Thus, we can consider $p = \frac{k}{N}$ to be the probability of success in the population
+
+So let us then take a look at the expected value of the hypergeometric distribution again:
+
+$$
+E(x) = n \frac{k}{N} = np
+$$
+
+Notice that it is $np$, just like the binomial distribution. Now let us look at the variance for the hypergeometric distribution:
+
+$$
+\sigma^{2}(x) = \frac{N - n}{N - 1} n * \frac{k}{N} * \frac{N - k}{N} = \frac{N - n}{N - 1} * n p (1 - p)
+$$
+
+Besides the $\frac{N - n}{N - 1}$ term, this looks just like the expression for the variance of a binomial distribution: $np (1 - p)$. Consider the case where $\lim_{N\to\infty} \frac{N - n}{N - 1}$:
+
+$$
+\lim_{N\to\infty} \frac{N - n}{N - 1} = \frac{N}{N} = 1
+$$
+
+So, what this says is that the hypergeometric distribution is just like the binomial distribution for large population sizes.
+
+## Poisson Distribution
+
+Consider a Poisson random variable: $X \sim \text{Poisson}( \lambda )$
+
+PMF for Poisson:
+
+$$
+p(x; \lambda ) =  \frac{e^{- \lambda} \lambda^{x}}{x!}
+$$
+
+Where:
+
+* $\lambda > 0$
+
+Expected value and variance:
+
+$$
+E(x) = \sigma^{2}(x) = \lambda
+$$
+
+A property of the Poisson distribution: If we are given that $x_{1} \sim \text{Poisson}(\lambda_{1})$ and $x_{2} \sim \text{Poisson}(\lambda_{2})$, and that they are independent, then:
+
+$$
+x_{1} + x_{2} \sim \text{Poisson}(\lambda_{1} + \lambda_{2})
+$$
+
+For p < 0.01 and n > 100 we say Poisson will approximate Binomial distribution

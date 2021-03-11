@@ -1,0 +1,75 @@
+---
+title: "Midterm Review"
+date: "March 10th, 2021"
+output: pdf_document
+---
+
+## CS 450: Midterm 1
+
+Topics:
+
+* Processes
+* CPU Virtualization
+  * Limited Direction Execution
+  * System Calls
+  * Traps and Interrupts
+  * Context Switching
+  * Preemptive Multitasking
+* x86
+  * Addressing
+  * Registers
+  * Function Calls
+  * Real mode addressing
+  * Protected mode
+* Scheduling
+  * Metrics
+  * Policies
+* Queueing Theory
+
+## Queueing Theory
+
+### Formulas
+
+Little's Law:
+
+$$
+E(L) = \lambda E(T)
+$$
+
+Utilization:
+
+$$
+\rho = \frac{\lambda}{\mu}
+$$
+
+
+Number of total customers $L$. This is only dependent on $\rho$.
+
+$$
+P(L = n) = p_{n} = ( 1 - \rho ) \rho^{n}
+$$
+
+Expected value of $T$
+
+$$
+E(T) = \frac{1}{\mu ( 1 - \frac{\lambda}{\mu} )} = \frac{1}{\mu ( 1 - \rho )} = \frac{1}{ \mu - \lambda }
+$$
+
+Expected value of $L$
+
+$$
+E(L) = \frac{ \lambda }{\mu ( 1 - \rho )} = \frac{\rho}{( 1 - \rho )}
+$$
+
+
+Relationship between expected value of time to service customer to service rate
+
+$$
+E(T_{s}) = \frac{1}{\mu}
+$$
+
+Relationship between expected value of time to service customer to service rate
+
+$$
+E(T_{q}) = E(T) - E(T_{s}) = \frac{ \rho }{ \mu (1 - \rho )}
+$$
