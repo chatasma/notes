@@ -1,0 +1,150 @@
+---
+title: "Photons"
+date: "March 13th, 2021"
+output: pdf_document
+---
+
+## Formulas
+
+For light of frequency $f$ and wavelength $\lambda$, the photon energy is:
+
+$$
+E = hf
+$$
+
+Where:
+
+* $h$ is Planck's constant
+
+### The Photoelectric Effect
+
+When light of high enough frequency illuminates a metal surface, the electrons of the metal surface can gain energy to escape the metal by absorbing the photons of the light. That's called the photoelectric effect.
+
+The conservation of energy of such an absorption and escape is written as:
+
+$$
+hf = K_{max} + \Phi
+$$
+
+Where:
+
+* $hf$ represents the energy of the absorbed photon
+* $K_{max}$ is the maximum kinetic energy of the electrons of the metal that are escaping
+* $\Phi$ is the least amount of energy needed to escape the electric forces that keep the electrons in the metal
+  * If $hf = \Phi$, then the electrons can barely escape (minimum threshold is met)
+  * If $hf < \Phi$, then the electrons cannot escape
+
+## Photons and Momentum
+
+Momentum of a photon
+
+$$
+p = \frac{hf}{c} = \frac{h}{\lambda}
+$$
+
+Wavelength increase due to Compton shift (where split x-rays lose energy to electrons of a target they hit)
+
+$$
+\Delta lambda = \frac{h}{mc} ( 1 - cos \phi )
+$$
+
+Where:
+
+* $m$ is the mass of the target electron
+* $\phi$ is the angle at which the photon is scattered from its initial travel direction
+
+## Quantum Physics
+
+Spectral radiancy
+
+$$
+S( \lambda ) = \frac{\text{intensity}}{\text{(unit wavelength)}}
+$$
+
+Planck radiation law:
+
+$$
+S( \lambda ) = \frac{2 \pi c^{2} h}{\lambda^{5}} \frac{1}{e^{\frac{hc}{\lambda k T}} - 1}
+$$
+
+Where:
+
+* $h$ is the Planck constant
+* $k$ is the Boltzmann constant
+* $T$ is the temeprature of the radiating surface (Kelvin)
+
+Wien's law. Relates the temperature $T$ of a blackbody radiator and the wavelength $\lambda_{max}$ at which the spectral radiancy is maximum.
+
+$$
+\lambda_{max} T = 2898 \mu m * K
+$$
+
+## Electrons and Matter Waves
+
+A moving particle such as an electron can be described as a matter wave. The wavelength associated with the matter wave is the particle's de Broglie wavelength:
+
+$$
+\lambda = \frac{h}{p}
+$$
+
+Where:
+
+* $p$ is the particle's momentum
+
+## Schrodinger's Equation
+
+$$
+\frac{d^{2} \psi}{dx^{2}} + k^{2} \psi = 0
+$$
+
+Where:
+
+* $k$ is the angular wave number
+
+$k$ is related to $\lambda$, which is the de Broglie wavelength, and the momentum $p$, and the kinetic energy $E - U$ by:
+
+$$
+k = \frac{2 \pi}{\lambda} = \frac{2 \pi p}{h} = \frac{2 \pi \sqrt{2m (E - U)}}{h}
+$$
+
+A particle does not have a specific location until its location is actually measured
+
+The probability of detecting a particle in a small volume cented on a given point is proportional to the probability density $\lvert \psi \rvert^{2}$ of the matter wave at that point.
+
+## Heisenberg's Uncertainty principle
+
+$$
+\Delta x * \Delta p_{x} \geq h
+$$
+
+$$
+\Delta y * \Delta p_{y} \geq h
+$$
+
+$$
+\Delta z * \Delta p_{z} \geq h
+$$
+
+## Reflection from a Potential Step
+
+$R$ is the average fraction of a beam with alot of particles that will undergo reflection
+
+Transmission coefficient
+
+$$
+T = 1 - R
+$$
+
+## Tunneling through a Potential Barrier
+
+Transmission coefficient:
+
+$$
+T \approx e^{-e b L}
+$$
+
+Where $b$ is:
+
+$$
+b = \sqrt{\frac{8 \pi^{2} m ( U_{b} - E )}{h^{2}}}
+$$
