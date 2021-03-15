@@ -4,6 +4,10 @@ date: "March 13th, 2021"
 output: pdf_document
 ---
 
+## Cool Values
+
+$ch = 1240 \text{eV nm}$
+
 ## Formulas
 
 For light of frequency $f$ and wavelength $\lambda$, the photon energy is:
@@ -148,3 +152,178 @@ Where $b$ is:
 $$
 b = \sqrt{\frac{8 \pi^{2} m ( U_{b} - E )}{h^{2}}}
 $$
+
+## Problems
+
+## Problem 3
+
+This question is regarding **the photon**.
+
+> At what rate does the Sun emit photons? For simplicity, assume that the Sun's entire emission at the rate of $3.9 \times 10^{26}$ W is at the single wavelength of 550 nm.
+
+We know:
+
+$$
+P = R E
+$$
+
+We have the power, and we need to find R (photons / s).
+
+$$
+R = \frac{P}{E}
+$$
+
+$$
+R = \frac{P}{\frac{hc}{\lambda}}
+$$
+
+$$
+R = \frac{P}{\frac{hc}{\lambda}}
+$$
+
+I choose to stick to electron volts for this as I know $hc = 1240$ eV nm and we are using nanometers.
+
+$$
+R = \frac{3.9 \times 10^{26}}{\frac{1240}{550}} * 6.24 \times 10^{18}
+$$
+
+Our answer comes out to be $1.0 \times 10^{45}$ photons/s, our answer.
+
+## Problem 7
+
+This question is regarding **the photon**.
+
+> A light detector (your eye) has an area of $2.00 \times 10^{-6}$ $m^{2}$ and absorbs 80% of the incident light, which is at wavelength 500 nm. The detector faces an isotropic source, 3.00 m from the source. If the detector absorbs photons at the rate of exactly 4.000 $s^{-1}$, at what power does the emitter emit light?
+
+First, find the rate at which photons are being emitted from the light source:
+
+$$
+R_{detector} = (0.80) * \frac{A_{eye}}{4 \pi r^{2}} R_{source}
+$$
+
+Find $R_{source}$
+
+$$
+R_{source} = \frac{4 \pi (3.00)^{2}}{(0.80) * 2 \times 10^{-6}} * 4
+$$
+
+$R_{source}$ comes out to be $2.83 \times 10^{8}$.
+
+Next, find the energy of each photon. Once we do this, we know how much energy is contained per photon (energy/photon) and we have the rate at which photons are emitted (photons/s) so we can find the power (energy/s):
+
+$$
+E = \frac{hc}{\lambda} = \frac{1240}{540}
+$$
+
+This comes out to be 2.48
+
+Finally:
+
+$$
+P = RE = (2.83 \times 10^{8}) * (2.48)
+$$
+
+This comes out to be $1.1 \times 10^{-10}$ W, our answer.
+
+## Problem 18
+
+This question is regarding **the photoelectric effect**.
+
+> You wish to pick an element for a photocell that will operate via the photoelectric effect with visible light. Which of the following are suitable (work functions are in parentheses): tantalum (4.2 eV), tungsten (4.5 eV), aluminum (4.2 eV), barium (2.5 eV), lithium (2.3 eV)?
+
+First, find the maximum energy that visible light can provide us with:
+
+$$
+E = \frac{hc}{\lambda}
+$$
+
+$$
+E = \frac{6.626 \times 10^{-34} * (3 \times 10^{8})}{400}
+$$
+
+We choose 400 here (lower bound of the range for visible light) to maximize the energy, so we have a better opportunity to satisfy the work function. We get $3.1$ eV as the energy of the absorbed photon.
+
+Thus, we would choose **barium and lithium** as our materials, since the maximum energy exceeds these work functions.
+
+## Problem 31
+
+> What percentage increase in wavelength leads to a 75% loss of photon energy in a photon-free electron collision?
+
+We know:
+
+$$
+E - E' = E - 0.25 E
+$$
+
+$$
+E - 0.25 E = \frac{hc}{\lambda} - \frac{hc}{\lambda^{'}}
+$$
+
+$$
+0.75 E = \frac{hc}{\lambda} - \frac{hc}{\lambda^{'}}
+$$
+
+$$
+\frac{0.75 E}{h} = \frac{c}{\lambda} - \frac{c}{\lambda^{'}}
+$$
+
+We know $E = \frac{hc}{\lambda}$
+
+$$
+\frac{0.75c}{\lambda} = \frac{c}{\lambda} - \frac{c}{\lambda^{'}}
+$$
+
+$$
+0.75 = 1 - \frac{\lambda}{\lambda^{'}}
+$$
+
+$$
+0.25 = \frac{\lambda}{\lambda^{'}}
+$$
+
+$$
+\lambda^{'} = 4 \lambda
+$$
+
+So:
+
+$$
+\lambda^{'} - \lambda = 4 \lambda - \lambda = 3 \lambda
+$$
+
+Thus, a **300%** increase leads to a 75% loss of photon energy in a photon-free electron collision.
+
+## Problem 43
+
+> Just after detonation, the fireball in a nuclear blast is approximately an ideal blackbody radiator with a surface temperature of about $1.0 \times 10^{7}$ K.
+> 
+> * Find the wavelength at which the thermal radiation is maximum
+> * Identify the type of electromagnetic wave corresponding to that wavelength. (See Fig. 33-1.)
+> * This radiation is almost immediately absorbed by the surrounding air molecules, which produces another ideal blackbody radiator with a surface temperature of about $1.0 \times 10^{5}$ K. Find the wavelength at which the thermal radiation is maximum.
+> * Identify the type of electromagnetic wave corresponding to that wavelength.
+
+For this question, we use Wien's Law:
+
+$$
+\lambda_{max} T = 2898 \mu m
+$$
+
+Solve for $\lambda_{max}$ for part a:
+
+$$
+\lambda_{max} = \frac{2898}{1 \times 10^{7}}
+$$
+
+This comes out to be $2.9 \times 10^{-10}$ m, our answer.
+
+From the electromagnetic wave spectrum we see that **x-rays** correspond to this wavelength.
+
+For part c and d, we repeat the procedure using a different value for the temperature:
+
+$$
+\lambda_{max} = \frac{2898}{1 \times 10^{5}}
+$$
+
+This comes out to be $2.9 \times 10^{-8}$ m, our answer.
+
+From the electromagnetic wave spectrum we see that **ultraviolet waves** correspond to this wavelength.
