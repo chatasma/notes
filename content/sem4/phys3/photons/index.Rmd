@@ -20,6 +20,12 @@ Where:
 
 * $h$ is Planck's constant
 
+de Broglie wavelength:
+
+$$
+\lambda = \frac{h}{p}
+$$
+
 ### The Photoelectric Effect
 
 When light of high enough frequency illuminates a metal surface, the electrons of the metal surface can gain energy to escape the metal by absorbing the photons of the light. That's called the photoelectric effect.
@@ -118,15 +124,15 @@ The probability of detecting a particle in a small volume cented on a given poin
 ## Heisenberg's Uncertainty principle
 
 $$
-\Delta x * \Delta p_{x} \geq h
+\Delta x * \Delta p_{x} \geq \hbar
 $$
 
 $$
-\Delta y * \Delta p_{y} \geq h
+\Delta y * \Delta p_{y} \geq \hbar
 $$
 
 $$
-\Delta z * \Delta p_{z} \geq h
+\Delta z * \Delta p_{z} \geq \hbar
 $$
 
 ## Reflection from a Potential Step
@@ -144,7 +150,7 @@ $$
 Transmission coefficient:
 
 $$
-T \approx e^{-e b L}
+T \approx e^{-2 b L}
 $$
 
 Where $b$ is:
@@ -327,3 +333,372 @@ $$
 This comes out to be $2.9 \times 10^{-8}$ m, our answer.
 
 From the electromagnetic wave spectrum we see that **ultraviolet waves** correspond to this wavelength.
+
+## Problem 51
+
+This problem is regarding **quantum physics**.
+
+> The wavelength of the yellow spectral emission line of sodium is 590 nm. At what kinetic energy would an electron have that wavelength as its de Broglie wavelength?
+
+$$
+E = \frac{1}{2} m v^{2}
+$$
+
+$$
+E = \frac{1}{2} \frac{p^{2}}{m} = \frac{p^{2}}{2m}
+$$
+
+Solve for momentum:
+
+$$
+p = \sqrt{2mE}
+$$
+
+de Broglie wavelength:
+
+$$
+\lambda = \frac{h}{p} = \frac{h}{\sqrt{2mE}}
+$$
+
+Now, solve for $E$:
+
+$$
+\lambda^{2} =  \frac{h^{2}}{2mE}
+$$
+
+$$
+E =  \frac{h^{2}}{2m\lambda^{2}}
+$$
+
+$$
+E =  \frac{(6.626 \times 10^{-34})^{2}}{2 * 9.11 \times 10^{-31} * (590 \times 10^{-9})^{2}}
+$$
+
+$$
+E = 6.92 \times 10^{-25} J
+$$
+
+Convert $J$ to eV via conversion factor:
+
+$$
+\frac{6.92 \times 10^{-25}}{1.602 \times 10^{-19}}
+$$
+
+Thus, we get our answer of $4.3 \mu$ eV.
+
+## Problem 61
+
+> The function $\psi (x)$ displayed in Eq. 38-27 can describe a free particle, for which the potential energy is U(x) = 0 in Schrodinger’s equation (Eq. 38-19). Assume now that $U(x) = U_{0}$ = a constant in that equation. Show that Eq. 38-27 is a solution of Schrodinger's equation, with:
+> 
+> $$
+> k = \frac{2 \pi}{h} \sqrt{2m ( E - U_{0} )}
+> $$
+> 
+> giving the angular wave k of the particle.
+
+$E - U_{0}$ represents the kinetic energy. So, we know the kinetic energy can be expressed as:
+
+$$
+K = \frac{p^{2}}{2m}
+$$
+
+Momentum in terms of the kinetic energy is then:
+
+$$
+p = \sqrt{2m K}
+$$
+
+Momentum in terms of the de Broglie wavelength:
+
+$$
+p = \frac{h}{\lambda}
+$$
+
+Now we can represent $k$ in terms of the momentum:
+
+$$
+k = \frac{2 \pi}{\lambda} = \frac{p 2 \pi}{h}
+$$
+
+Substitute $p$ with its representation in terms of the kinetic energy now:
+
+$$
+k = \frac{2 \pi \sqrt{2mK}}{h}
+$$
+
+Thus, Eq. 38-27 is a solution to Schrodinger's Equation.
+
+## Problem 67
+
+This question is regarding **Heisenburg's uncertainty principle**.
+
+> The uncertainty in the position of an electron along an x axis is given as 50 pm, which is about equal to the radius of a hydrogen atom. What is the least uncertainty in any simultaneous measurement of the momentum component $p_{x}$ of this electron?
+
+We use Heisenburg's uncertainty principle:
+
+$$
+\Delta p_{x} = \frac{\hbar}{\Delta x}
+$$
+
+$$
+\Delta p_{x} = \frac{\frac{6.626 \times 10^{-34}}{2 \pi}}{50 \times 10^{-12}}
+$$
+
+$$
+\Delta p_{x} = 2.1 \times 10^{-24}
+$$
+
+Thus, $\Delta p_{x} = 2.1 \times 10^{-24}$ kg m/s is our answer.
+
+## Problem 71
+
+This question is regarding **reflection through a potential step**.
+
+> For the arrangement of Figs. 38-14 and 38-15, electrons in the incident beam in region 1 have energy E = 800 eV and the potential step has a height of $U_{1}$ = 600 eV. What is the angular wave number in
+> 
+> * region 1
+> * region 2
+> 
+> Also,
+> 
+> * What is the reflection coefficient?
+> * If the incident beam sends $5.00 \times 10^{5}$ electrons against the potential step, approximately how many will be reflected?
+
+Region 1 (use 800 eV since U = 0):
+
+$$
+k = \frac{2 \pi \sqrt{2 m E}}{h}
+$$
+
+$$
+k = \frac{2 \pi \sqrt{2 (9.11 \times 10^{-31}) (800 * (1.602 \times 10^{-19}))}}{6.626 \times 10^{-34}}
+$$
+
+Thus, we get $1.45 \times 10^{11} m^{-1}$ as our answer.
+
+Now, for Region 2, there is U = 600, so use 200eV:
+
+$$
+k = \frac{2 \pi \sqrt{2 m (E - U_{1})}}{h}
+$$
+
+$$
+k = \frac{2 \pi \sqrt{2 (9.11 \times 10^{-31}) ((800 - 600) * (1.602 \times 10^{-19}))}}{6.626 \times 10^{-34}}
+$$
+
+Thus, we get $7.25 \times 10^{10} m^{-1}$ as our answer.
+
+We know the reflection coefficient can be expressed as:
+
+$$
+R = \frac{\lvert B \rvert^{2}}{\lvert A \rvert^{2}}
+$$
+
+We know from Equations 38-34 and 38-35:
+
+$$
+A + B = C
+$$
+
+$$
+A * k - B * k = C * k_{b}
+$$
+
+Considering we know that $k_{b} = \frac{k}{2}$ (this is because 800 was bigger by a factor of 4 to 200, and it was in the square root), let us perform a substitution into the latter equation.
+
+$$
+A * k - B * k = C * \frac{k}{2}
+$$
+
+$$
+A - B = \frac{C}{2}
+$$
+
+$$
+A - B = \frac{C}{2}
+$$
+
+Let us add $2B$ to each side:
+
+$$
+A + B = \frac{C}{2} + 2B
+$$
+
+Now we can equate the two equations via transitivity:
+
+$$
+\frac{C}{2} + 2B = C
+$$
+
+$$
+\frac{C}{2} + 2B = C
+$$
+
+$$
+2B - \frac{C}{2} = 0
+$$
+
+$$
+2B = \frac{C}{2}
+$$
+
+$$
+4 = \frac{C}{B}
+$$
+
+Now let us represent $B$ in terms of $A$:
+
+$$
+4 = \frac{C}{C - A}
+$$
+
+$$
+4C - 4A = C
+$$
+
+$$
+3C - 4A = 0
+$$
+
+$$
+3C = 4A
+$$
+
+$$
+\frac{3}{4} = \frac{A}{C}
+$$
+
+Considering we have found $\frac{C}{B}$ and $\frac{A}{C}$, we multiply to find $\frac{A}{B}$:
+
+$$
+4 * \frac{3}{4} = 3
+$$
+
+Inverse this to find $\frac{B}{A}$:
+
+$$
+3^{-1} = \frac{1}{3}
+$$
+
+Square it to find $\frac{\lvert B \rvert^{2}}{\lvert A \rvert^{2}}$, which is $R$:
+
+$$
+( \frac{1}{3} )^{2} = \frac{1}{9}
+$$
+
+Thus, $\frac{1}{9}$ is our answer.
+
+Now, to find how many electrons will be reflected from an incident beam that sends $5 \times 10^{5}$ electrons, we multiply by the reflection coefficient for our answer:
+
+$$
+5 \times 10^{5} * \frac{1}{9}
+$$
+
+Thus, our answer is $5.56 \times 10^{4}$ electrons.
+
+## Problem 74
+
+This question is regarding **tunneling through a potential barrier**.
+
+> Consider a potential energy barrier like that of Fig. 38‑17 but whose height $U_{b}$ is 6.0 eV and whose thickness L is 0.70 nm. What is the energy of an incident electron whose transmission coefficient is 0.0010?
+
+We know:
+
+$$
+T \approx e^{-2 b L}
+$$
+
+and $b$ is:
+
+$$
+b = \sqrt{\frac{8 \pi^{2} m ( U_{b} - E )}{h^{2}}}
+$$
+
+So, solve for $E$:
+
+
+$$
+ln T = -2 b L
+$$
+
+$$
+\frac{(ln T)}{-2L} = b
+$$
+
+$$
+\frac{(ln T)}{-2L} = \sqrt{\frac{8 \pi^{2} m ( U_{b} - E )}{h^{2}}}
+$$
+
+$$
+(\frac{(ln T)}{-2L})^{2} = \frac{8 \pi^{2} m ( U_{b} - E )}{h^{2}}
+$$
+
+$$
+(\frac{(h ln T)}{\pi -2 L})^{2} = 8 m ( U_{b} - E )
+$$
+
+$$
+E = U - \frac{((\frac{(h ln T)}{\pi -2 L})^{2})}{8m}
+$$
+
+$$
+E = (6.0 \times 1.602 \times 10^{-19}) - \frac{((\frac{((6.626 \times 10^{-34}) * ln 0.0010)}{\pi -2 * (0.70 \times 10^{-9})})^{2})}{8 * (9.11 \times 10^{-31})}
+$$
+
+Substituting values, we get $E = 5.1$ eV, our answer.
+
+## Problem 77
+
+This question is regarding **tunneling through a potential barrier**.
+
+> An electron with total energy E = 5.1 eV approaches a barrier of height U b = 6.8 eV and thickness L = 750 pm. What percentage change in the transmission coefficient T occurs for a 1.0% change in
+> 
+> * the barrier height
+> * the barrier thickness
+> * the kinetic energy of the incident electron?
+
+
+-17%
+
+
+First let us calculate $T$ without any variations:
+
+$$
+e^{-2 * (750 \times 10^{-12}) * \sqrt{\frac{8 * \pi^{2} * (9.11 \times 10^{-31}) * ((6.8 - 5.1) * 1.602 \times 10^{-19})}{(6.626 \times 10^{-34})^{2}}}}
+$$
+
+We can then use this as a reference value (i.e. I stored this value into my calculator's memory var $A$) to solve for the percent change when parameters are varied by 1.0%.
+
+When the barrier height is changed by 1%, new value of transmission coefficient (say it is $B$) is:
+
+$$
+e^{-2 * (750 \times 10^{-12}) * \sqrt{\frac{8 * \pi^{2} * (9.11 \times 10^{-31}) * (((1.01 * 6.8) - 5.1) * 1.602 \times 10^{-19})}{(6.626 \times 10^{-34})^{2}}}}
+$$
+
+Calculate $\frac{100 * (B - A)}{A}$ for percent change:
+
+Thus our answer is **-18%**.
+
+---
+
+When the barrier thickness is changed by 1%, new value of transmission coefficient (say it is $B$) is:
+
+$$
+e^{-2 * (1.01 * 750 \times 10^{-12}) * \sqrt{\frac{8 * \pi^{2} * (9.11 \times 10^{-31}) * ((6.8 - 5.1) * 1.602 \times 10^{-19})}{(6.626 \times 10^{-34})^{2}}}}
+$$
+
+Calculate $\frac{100 * (B - A)}{A}$ for percent change:
+
+Thus our answer is **-9.5%**.
+
+---
+
+When the kinetic energy of the incident electron is changed by 1%, new value of transmission coefficient (say it is $B$) is:
+
+$$
+e^{-2 * (750 \times 10^{-12}) * \sqrt{\frac{8 * \pi^{2} * (9.11 \times 10^{-31}) * ((6.8 - (1.01 * 5.1)) * 1.602 \times 10^{-19})}{(6.626 \times 10^{-34})^{2}}}}
+$$
+
+Calculate $\frac{100 * (B - A)}{A}$ for percent change:
+
+Thus our answer is **16%**.

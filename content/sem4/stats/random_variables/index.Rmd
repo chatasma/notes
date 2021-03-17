@@ -357,3 +357,13 @@ x_{1} + x_{2} \sim \text{Poisson}(\lambda_{1} + \lambda_{2})
 $$
 
 For p < 0.01 and n > 100 we say Poisson will approximate Binomial distribution
+
+## Continuous Random Variables
+
+PMF of one point for continous random variables will be 0.
+
+Note for continuous RVs:
+
+$$
+P( a \leq x \leq b ) = P( a < x < b )
+$$
