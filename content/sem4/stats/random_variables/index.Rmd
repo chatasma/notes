@@ -367,3 +367,238 @@ Note for continuous RVs:
 $$
 P( a \leq x \leq b ) = P( a < x < b )
 $$
+
+Expected value of a Continuous RV:
+
+$$
+\mu = E(X) = \int_{- \infty}^{- \infty} x f(x) dx
+$$
+
+Note:
+
+$$
+E(c) = c
+$$
+
+$$
+E[ c g(x) ] = c E[g(x)]
+$$
+
+where $c$ is a constant.
+
+$$
+E[ g_{1}(x) + g_{2}(x) + ... + g_{k}(x) ] = E[g_{1}(x)] + E[g_{2}(x)] + ... + E[g_{k}(x)]
+$$
+
+Variance of a continuous RV:
+
+$$
+E[x^{2}] - \mu^{2} = \int_{-\infty}^{\infty} x^{2} f(x) dx - \mu^{2}
+$$
+
+Recall:
+
+$$
+\sigma^{2} (ax) = a^{2} \sigma^{2} (x)
+$$
+
+If $X_{1}$ and $X_{2}$ are independent:
+
+$$
+var(aX_{1} + bX_{2}) = var(aX_{1}) + var(bX_{2}) = a^{2} var(X_{1}) + b^{2} var(X_{2})
+$$
+
+More generally speaking, if we have independent variables $X_{1}, X_{2}, ..., X_{n}$, then:
+
+$$
+\sigma^{2} (X_{1} + X_{2} + ... + X_{k}) = \sum_{i = 1}^{n} \sigma^{2} (X_{i})
+$$
+
+_Example_:
+
+Let $X$ be a continuous RV with pdf
+
+$$
+f(x) = \begin{cases} 
+  \frac{1}{8} x & 0\leq x\leq 4 \\
+  0 & \text{otherwise} \\
+\end{cases}
+$$
+
+Find the variance of X:
+
+$$
+\sigma^{2} (X) = E[X^{2}] - \mu^{2}
+$$
+
+Let us first find $\mu$:
+
+$$
+\mu = E(x) = \int_{-\infty}^{\infty} x f(x) dx
+$$
+
+$$
+\int_{0}^{4} x \frac{1}{8} x dx
+$$
+
+$$
+\frac{1}{8} \int_{0}^{4} x^{2} dx
+$$
+
+$$
+\frac{x^{3}}{24} \bigg|_{0}^{4}
+$$
+
+$$
+\frac{64}{24} = \frac{8}{3} $$
+
+Now solve $E[X^{2}]$:
+
+$$
+E[X^{2}] = \int_{-\infty}^{\infty} x^{2} f(x) dx
+$$
+
+$$
+E[X^{2}] = \int_{0}^{4} x^{2} \frac{1}{8} x dx
+$$
+
+$$
+E[X^{2}] = \frac{1}{8} \int_{0}^{4} x^{3} dx
+$$
+
+$$
+E[X^{2}] = \frac{x^{4}}{32} \bigg|_{0}^{4}
+$$
+
+$$
+E[X^{2}] = \frac{4^{4}}{32} = 8
+$$
+
+Now, subtract:
+
+$$
+E[X^{2}] - \mu^{2} = 8 - (\frac{8}{3})^{2} = \frac{72}{9} - \frac{64}{9} = \frac{8}{9}
+$$
+
+_Example 2_:
+
+> The length of time to failure (in hundreds of hours) for a transistor is a random variable $Y$ with distribution given by:
+> 
+> $$
+> F(y) = \begin{cases} 
+  > 0 & y < 0 \\
+  > 1 - e^{-y^{2}} & y \geq 0 \\
+> \end{cases}
+> $$
+> 
+> * Show that $F(y)$ has the properties of a cumulative distribution function. 
+> * Find the 0.3 quantile of $Y$. (The 0.3 quantile of $Y$ is the value $y$ such that $P(Y \leq y) = 0.3$).
+> * Find PDF $f(y)$.
+> * Find the probability that the transistor operates for at least 200 hours.
+> * Find $P(Y > 1 | Y \leq 2)$.
+
+Cumulative distribution function always increases until it hits 1. Knowing that the only nonzero part of the claimed CDF is $1 - e^{-y^{2}}$ for $y \geq 0$, we can take a limit (namely $\lim_{y\to\infty} 1 - e^{-y^{2}}$). As $y$ approaches infinity in this expression, the exponential tends to $-\infty$, so $e^{-\infty} = \frac{1}{e^{\infty}} = \frac{1}{\infty} = 0$. Thus, $\lim_{y\to\infty} 1 - e^{-y^{2}} = 1 - 0 = 1$. So, we know $F(y)$ has properties of a cumulative distribution function.
+
+---
+
+Now, we will find the 0.3 quantile. Since we already have the CDF, we know for some $y$ that $F(y) = P(Y \leq y) = 0.3$. We can set $1 - e^{-y^{2}} = 0.3$:
+
+$$
+1 - e^{-y^{2}} = 0.3
+$$
+
+$$
+e^{-y^{2}} = 0.7
+$$
+
+$$
+-y^{2} = \ln 0.7
+$$
+
+$$
+y = \sqrt{- \ln 0.7}
+$$
+
+$$
+y = 0.5972
+$$
+
+---
+
+Now it asks us to find the PDF $f(y)$. First, we know that when $y < 0$, that $f(y)$ is also 0, since nothing is accumulated in the CDF. Now, we just need to find the derivative of $1 - e^{-y^{2}}$.
+
+$$
+\frac{d}{dy} - e^{-y^{2}} + 1
+$$
+
+$$
+\frac{d}{dy} (- e^{-y^{2}}) * (-2y)
+$$
+
+$$
+\frac{d}{dy} (2y e^{-y^{2}})
+$$
+
+---
+
+Now we need to find the probability that the transistor operates for at least 200 hours. Notice that the units is in hundreds of hours, so this is represented as:
+
+$$
+P(Y \geq 2)
+$$
+
+This is the same as
+
+$$
+1 - P(Y < 2) = 1 - F(2)
+$$
+
+So:
+
+$$
+1 - e^{-2^{2}} = 0.982
+$$
+
+---
+
+Now, it asks us to find $P(Y > 1 | Y \leq 2)$.
+
+We know by definition:
+
+$$
+P(Y > 1 | Y \leq 2) = \frac{P(Y > 1 \cap Y \leq 2)}{P(Y \leq 2)}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = \frac{P(1 < Y \leq 2)}{P(Y \leq 2)}
+$$
+
+We can express it like this so we can use CDF to make this easy:
+
+$$
+P(Y > 1 | Y \leq 2) = \frac{P(Y \leq 2) - P(Y < 1)}{P(Y \leq 2)}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = \frac{F(2) - F(1)}{F(2)}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = 1 - \frac{F(1)}{F(2)}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = 1 - \frac{1 - e^{-1^{2}}}{1 - e^{-2^{2}}}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = 1 - \frac{1 - e^{-1}}{1 - e^{-4}}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = 1 - \frac{e^{-1} - 1}{e^{-4} - 1}
+$$
+
+$$
+P(Y > 1 | Y \leq 2) = 1 - \frac{e - 1}{e - e^{-3}}
+$$
