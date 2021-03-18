@@ -650,6 +650,174 @@ x_{1} + x_{2} \sim \text{Poisson}(\lambda_{1} + \lambda_{2})
 <p><span class="math display">\[
 P( a \leq x \leq b ) = P( a &lt; x &lt; b )
 \]</span></p>
+<p>Expected value of a Continuous RV:</p>
+<p><span class="math display">\[
+\mu = E(X) = \int_{- \infty}^{- \infty} x f(x) dx
+\]</span></p>
+<p>Note:</p>
+<p><span class="math display">\[
+E(c) = c
+\]</span></p>
+<p><span class="math display">\[
+E[ c g(x) ] = c E[g(x)]
+\]</span></p>
+<p>where <span class="math inline">\(c\)</span> is a constant.</p>
+<p><span class="math display">\[
+E[ g_{1}(x) + g_{2}(x) + ... + g_{k}(x) ] = E[g_{1}(x)] + E[g_{2}(x)] + ... + E[g_{k}(x)]
+\]</span></p>
+<p>Variance of a continuous RV:</p>
+<p><span class="math display">\[
+E[x^{2}] - \mu^{2} = \int_{-\infty}^{\infty} x^{2} f(x) dx - \mu^{2}
+\]</span></p>
+<p>Recall:</p>
+<p><span class="math display">\[
+\sigma^{2} (ax) = a^{2} \sigma^{2} (x)
+\]</span></p>
+<p>If <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> are independent:</p>
+<p><span class="math display">\[
+var(aX_{1} + bX_{2}) = var(aX_{1}) + var(bX_{2}) = a^{2} var(X_{1}) + b^{2} var(X_{2})
+\]</span></p>
+<p>More generally speaking, if we have independent variables <span class="math inline">\(X_{1}, X_{2}, ..., X_{n}\)</span>, then:</p>
+<p><span class="math display">\[
+\sigma^{2} (X_{1} + X_{2} + ... + X_{k}) = \sum_{i = 1}^{n} \sigma^{2} (X_{i})
+\]</span></p>
+<p><em>Example</em>:</p>
+<p>Let <span class="math inline">\(X\)</span> be a continuous RV with pdf</p>
+<p><span class="math display">\[
+f(x) = \begin{cases} 
+  \frac{1}{8} x &amp; 0\leq x\leq 4 \\
+  0 &amp; \text{otherwise} \\
+\end{cases}
+\]</span></p>
+<p>Find the variance of X:</p>
+<p><span class="math display">\[
+\sigma^{2} (X) = E[X^{2}] - \mu^{2}
+\]</span></p>
+<p>Let us first find <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[
+\mu = E(x) = \int_{-\infty}^{\infty} x f(x) dx
+\]</span></p>
+<p><span class="math display">\[
+\int_{0}^{4} x \frac{1}{8} x dx
+\]</span></p>
+<p><span class="math display">\[
+\frac{1}{8} \int_{0}^{4} x^{2} dx
+\]</span></p>
+<p><span class="math display">\[
+\frac{x^{3}}{24} \bigg|_{0}^{4}
+\]</span></p>
+<p><span class="math display">\[
+\frac{64}{24} = \frac{8}{3} \]</span></p>
+<p>Now solve <span class="math inline">\(E[X^{2}]\)</span>:</p>
+<p><span class="math display">\[
+E[X^{2}] = \int_{-\infty}^{\infty} x^{2} f(x) dx
+\]</span></p>
+<p><span class="math display">\[
+E[X^{2}] = \int_{0}^{4} x^{2} \frac{1}{8} x dx
+\]</span></p>
+<p><span class="math display">\[
+E[X^{2}] = \frac{1}{8} \int_{0}^{4} x^{3} dx
+\]</span></p>
+<p><span class="math display">\[
+E[X^{2}] = \frac{x^{4}}{32} \bigg|_{0}^{4}
+\]</span></p>
+<p><span class="math display">\[
+E[X^{2}] = \frac{4^{4}}{32} = 8
+\]</span></p>
+<p>Now, subtract:</p>
+<p><span class="math display">\[
+E[X^{2}] - \mu^{2} = 8 - (\frac{8}{3})^{2} = \frac{72}{9} - \frac{64}{9} = \frac{8}{9}
+\]</span></p>
+<p><em>Example 2</em>:</p>
+<blockquote>
+<p>The length of time to failure (in hundreds of hours) for a transistor is a random variable <span class="math inline">\(Y\)</span> with distribution given by:</p>
+<p><span class="math display">\[
+F(y) = \begin{cases} 
+0 &amp; y &lt; 0 \\
+1 - e^{-y^{2}} &amp; y \geq 0 \\
+\end{cases}
+\]</span></p>
+<ul>
+<li>Show that <span class="math inline">\(F(y)\)</span> has the properties of a cumulative distribution function.</li>
+<li>Find the 0.3 quantile of <span class="math inline">\(Y\)</span>. (The 0.3 quantile of <span class="math inline">\(Y\)</span> is the value <span class="math inline">\(y\)</span> such that <span class="math inline">\(P(Y \leq y) = 0.3\)</span>).</li>
+<li>Find PDF <span class="math inline">\(f(y)\)</span>.</li>
+<li>Find the probability that the transistor operates for at least 200 hours.</li>
+<li>Find <span class="math inline">\(P(Y &gt; 1 | Y \leq 2)\)</span>.</li>
+</ul>
+</blockquote>
+<p>Cumulative distribution function always increases until it hits 1. Knowing that the only nonzero part of the claimed CDF is <span class="math inline">\(1 - e^{-y^{2}}\)</span> for <span class="math inline">\(y \geq 0\)</span>, we can take a limit (namely <span class="math inline">\(\lim_{y\to\infty} 1 - e^{-y^{2}}\)</span>). As <span class="math inline">\(y\)</span> approaches infinity in this expression, the exponential tends to <span class="math inline">\(-\infty\)</span>, so <span class="math inline">\(e^{-\infty} = \frac{1}{e^{\infty}} = \frac{1}{\infty} = 0\)</span>. Thus, <span class="math inline">\(\lim_{y\to\infty} 1 - e^{-y^{2}} = 1 - 0 = 1\)</span>. So, we know <span class="math inline">\(F(y)\)</span> has properties of a cumulative distribution function.</p>
+<hr />
+<p>Now, we will find the 0.3 quantile. Since we already have the CDF, we know for some <span class="math inline">\(y\)</span> that <span class="math inline">\(F(y) = P(Y \leq y) = 0.3\)</span>. We can set <span class="math inline">\(1 - e^{-y^{2}} = 0.3\)</span>:</p>
+<p><span class="math display">\[
+1 - e^{-y^{2}} = 0.3
+\]</span></p>
+<p><span class="math display">\[
+e^{-y^{2}} = 0.7
+\]</span></p>
+<p><span class="math display">\[
+-y^{2} = \ln 0.7
+\]</span></p>
+<p><span class="math display">\[
+y = \sqrt{- \ln 0.7}
+\]</span></p>
+<p><span class="math display">\[
+y = 0.5972
+\]</span></p>
+<hr />
+<p>Now it asks us to find the PDF <span class="math inline">\(f(y)\)</span>. First, we know that when <span class="math inline">\(y &lt; 0\)</span>, that <span class="math inline">\(f(y)\)</span> is also 0, since nothing is accumulated in the CDF. Now, we just need to find the derivative of <span class="math inline">\(1 - e^{-y^{2}}\)</span>.</p>
+<p><span class="math display">\[
+\frac{d}{dy} - e^{-y^{2}} + 1
+\]</span></p>
+<p><span class="math display">\[
+\frac{d}{dy} (- e^{-y^{2}}) * (-2y)
+\]</span></p>
+<p><span class="math display">\[
+\frac{d}{dy} (2y e^{-y^{2}})
+\]</span></p>
+<hr />
+<p>Now we need to find the probability that the transistor operates for at least 200 hours. Notice that the units is in hundreds of hours, so this is represented as:</p>
+<p><span class="math display">\[
+P(Y \geq 2)
+\]</span></p>
+<p>This is the same as</p>
+<p><span class="math display">\[
+1 - P(Y &lt; 2) = 1 - F(2)
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+1 - e^{-2^{2}} = 0.982
+\]</span></p>
+<hr />
+<p>Now, it asks us to find <span class="math inline">\(P(Y &gt; 1 | Y \leq 2)\)</span>.</p>
+<p>We know by definition:</p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = \frac{P(Y &gt; 1 \cap Y \leq 2)}{P(Y \leq 2)}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = \frac{P(1 &lt; Y \leq 2)}{P(Y \leq 2)}
+\]</span></p>
+<p>We can express it like this so we can use CDF to make this easy:</p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = \frac{P(Y \leq 2) - P(Y &lt; 1)}{P(Y \leq 2)}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = \frac{F(2) - F(1)}{F(2)}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = 1 - \frac{F(1)}{F(2)}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = 1 - \frac{1 - e^{-1^{2}}}{1 - e^{-2^{2}}}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = 1 - \frac{1 - e^{-1}}{1 - e^{-4}}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = 1 - \frac{e^{-1} - 1}{e^{-4} - 1}
+\]</span></p>
+<p><span class="math display">\[
+P(Y &gt; 1 | Y \leq 2) = 1 - \frac{e - 1}{e - e^{-3}}
+\]</span></p>
 </div>
 
 
