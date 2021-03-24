@@ -1,0 +1,690 @@
+---
+title: "Matter Waves"
+date: "March 21st, 2021"
+output: pdf_document
+---
+
+## Cool values
+
+Bohr radius = 
+
+## Formulas
+
+### Energies of a Trapped Electron
+
+Energy of a matter wave (electron) can only exist in discrete states. The energy associated with the quantum states of the matter wave are given by:
+
+$$
+E_{n} = ( \frac{h^{2}}{8 m L^{2}} ) n^{2}
+$$
+
+Where:
+
+* $m$ is the electron mass
+* $L$ is the length of the well (see one-dimensional electron trap)
+* $h$ is Planck's constant
+* $n$ is the relevant quantum number
+
+An electron can jump from a quantum state to another only if its energy change is
+
+$$
+\Delta E = E_{high} - E_{low}
+$$
+
+Where:
+
+* $E_{high}$ is the higher energy
+* $E_{low}$ is the lower energy
+
+If the specified energy change is done by an absorbed/emitted photon, then we know this energy must be equal to $\Delta E$:
+
+$$
+hf = \frac{hc}{\lambda} = \Delta E = E_{high} - E_{low}
+$$
+
+Where:
+
+* $c$ is the speed of light
+* $f$ is the frequency associated with the photon
+* $\lambda$ is the wavelength associated with the photon
+
+### Wave functions of a trapped electron
+
+Wave function for an electron in an infinite, one-dimensional particle well with length $L$ along an $x$ axis are given by:
+
+$$
+\psi_{n} (x) = \sqrt{\frac{2}{L}} sin ( \frac{n \pi}{L} x )
+$$
+
+Where:
+
+* $n$ is the quantum number
+
+The product $\psi_{n}^{2} (x) dx$ is the probability that the electron will be detected in the interval between coordinates $x$ and $x + dx$.
+
+If the probability density of an electron is integrated over the entire $x$ axis, the total probability must be 1:
+
+$$
+\int_{-\infty}^{\infty} \psi_{n}^{2} (x) dx = 1
+$$
+
+### Two dimensional and Three dimensional infinite potential wells
+
+Quantized energy of a two-dimensional infinite potential well is given by the two independent quantizations of the axes:
+
+$$
+E_{nx,ny} = \frac{h^{2}}{8m} ( \frac{n_{x}^{2}}{L_{x}^{2}} + \frac{n_{y}^{2}}{L_{y}^{2}} )
+$$
+
+The wave function for an electron in a two-dimensional well are given by:
+
+$$
+\psi_{nx,ny} = \sqrt{\frac{2}{L_{x}}} sin ( \frac{n_{x} \pi}{L_{x}} x ) \sqrt{\frac{2}{L_{y}}} sin ( \frac{n_{y} \pi}{L_{y}} y )
+$$
+
+### The Hydrogen Atom
+
+Bohr model assumption regarding angular momentum $L$ is quantized, and given by:
+
+$$
+L = n \hbar
+$$
+
+Where:
+
+* $n$ is a quantum number
+* $L = 0$ is disallowed (though, incorrectly)
+* $\hbar$ is reduced Planck's constant ($\frac{h}{2 \pi}$)
+
+Applying Schrodinger's equation gives us the correct values of $L$ and the quantized energies:
+
+$$
+E_{n} = - \frac{m e^{4}}{8 \varepsilon_{0}^{2} h^{2}} \frac{1}{n^{2}} = - \frac{13.61\text{ eV}}{n^{2}}
+$$
+
+Where:
+
+* $n$ is a quantum number (positive integer)
+
+If an electron changes energy levels by absorbing/emitting a photon, then the wavelength of light can be represented as:
+
+$$
+\frac{1}{\lambda} = R ( \frac{1}{n^{2}_{low}} - \frac{1}{n^{2}_{high}} )
+$$
+
+Where:
+
+* $R$ is the Rydberg constant:
+
+  $$
+  R = \frac{m e^{4}}{8 \varepsilon_{0}^{2} h^{3} c} = 1.097373 \times 10^{7} \text{m}^{-1}
+  $$
+
+The radial probability density $P(r)$ for a state of the hydrogen atom is defined so that $P(r) dr$ is the probability that the electron will be detected in the space between two spherical shells of radii $r$ and $r + dr$ that are centered on the nucleus.
+
+Normalization requires that:
+
+$$
+\int_{0}^{\infty} P(r) dr = 1
+$$
+
+The probability that the electron will be detected between any two given radii $r_{1}$ and $r_{2}$ is:
+
+$$
+\int_{r_{1}}^{r_{2}} P(r) dr
+$$
+
+## Problems
+
+## Problem 2
+
+This question is regarding **energies of a trapped electron**.
+
+> What is the ground-state energy of
+> 
+> * an electron
+> * a proton if each is trapped in a one-dimensional infinite potential well that is 200 pm wide?
+
+For this question, we use this:
+
+$$
+E_{n} = ( \frac{h^{2}}{8 m L^{2}} ) n^{2}
+$$
+
+The ground state corresponds to the quantum number 1.
+
+Using the mass of an electron...
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (200 \times 10^{-12})^{2}} ) 1^{2}
+$$
+
+Thus, we get $E_{n}$ to be $1.5 \times 10^{-18}$ J as our answer for the ground-state energy of an electron.
+
+Now, we use the mass of a proton:
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (1.67 \times 10^{-27}) * (200 \times 10^{-12})^{2}} ) 1^{2}
+$$
+
+Thus, we get $E_{n}$ to be $8.2 \times 10^{-22}$ J as our answer for the ground-state energy of an proton.
+
+## Problem 4
+
+This question is regarding **energies of a trapped electron**.
+
+> An electron, trapped in a one-dimensional infinite potential well 250 pm wide, is in its ground state. How much energy must it absorb if it is to jump up to the state with $n = 4$?
+
+First, let us calculate the ground-state energy $n = 1$ of an electron for a one-dimensional infinite potential well of 250 pm...:
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (250 \times 10^{-12})^{2}} ) 1^{2}
+$$
+
+We find $E_{n}$ at the ground state to be $9.6 \times 10^{-19}$ J.
+
+Then, we calculate the energy for the $n = 4$ energy level:
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (250 \times 10^{-12})^{2}} ) 4^{2}
+$$
+
+We find $E_{n}$ at the third excitation level ($n = 4$) to be $1.5 \times 10^{-17}$ J.
+
+Then, we take the difference to find the amount of energy needed to be absorbed for the quantum jump:
+
+$$
+\Delta E = E_{high} - E_{low} = 1.5 \times 10^{-17} - 9.6 \times 10^{-19} = 1.4 \times 10^{-17}
+$$
+
+Thus, our answer is $1.4 \times 10^{-17}$ J.
+
+## Problem 7
+
+This question is regarding **energies of a trapped electron**.
+
+> Consider an atomic nucleus to be equivalent to a one-dimensional infinite potential well with $L = 1.4 \times 10^{-14}$ m, a typical nuclear diameter. What would be the ground-state energy of an electron if it were trapped in such a potential well? (_Note_: Nuclei do not contain electrons.)
+
+Find energy of electron trapped in one-dimensional infinite potential well of $1.4 \times 10^{-14}$ m...:
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (1.4 \times 10^{-14})^{2}} ) 1^{2}
+$$
+
+Thus, our answer is $3.1 \times 10^{-10}$ J, or $1.9 \times 10^{9}$ eV.
+
+## Problem 12
+
+This question is regarding **energies of a trapped electron**.
+
+> An electron is trapped in a one-dimensional infinite well of width 250 pm and is in its ground state. What are the
+> 
+> * longest
+> * second longest
+> * third longest
+> 
+> wavelengths of light that can excite the electron from the ground state via a single photon absorption?
+
+We know that the energy of a photon is given by:
+
+$$
+E = hf = \frac{hc}{\lambda}
+$$
+
+Thus, the wavelength that we can use to excite the electron to the first excitation level is going to be the longest possible, as the energy is quantized.
+
+So, let us first find the energy needed to excite the electron from the ground state to the first excitation level.
+
+The ground state energy is given by:
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (250 \times 10^{-12})^{2}} ) 1^{2}
+$$
+
+This comes out to be $9.6 \times 10^{-19}$ J.
+
+Now, let us find the energy for the first excitation level ($n = 2$):
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (250 \times 10^{-12})^{2}} ) 2^{2}
+$$
+
+This comes out to be $3.9 \times 10^{-18}$ J.
+
+The energy needed to excite the electron from the ground state to the first excitation level is then $3.9 \times 10^{-18} - 9.6 \times 10^{-19} = 2.9 \times 10^{-18}$ J. Now, if we were to assume this energy is from an absorbed photon, the energy can be represented as:
+
+$$
+2.9 \times 10^{-18} = \frac{hc}{\lambda}
+$$
+
+$$
+2.9 \times 10^{-18} = \frac{(6.626 \times 10^{-34}) (3.0 \times 10^{8})}{\lambda}
+$$
+
+Solve for $\lambda$:
+
+$$
+\lambda = \frac{(6.626 \times 10^{-34}) (3.0 \times 10^{8})}{2.9 \times 10^{-18}}
+$$
+
+Thus, our answer for the first part is $\lambda = 6.9 \times 10^{-8}$ m.
+
+Now, we repeat this for the second and third excitation levels respectively to the next two parts:
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (250 \times 10^{-12})^{2}} ) 3^{2}
+$$
+
+We find $E_{n}$ to be $8.7 \times 10^{-18}$ J.
+
+Then we find the difference between the second excitation level and the ground state to be $7.7 \times 10^{-18}$ J (this is the energy needed to excite the electron to energy level of quantum number $n = 3$).
+
+Finally, we can solve for $\lambda$:
+
+$$
+\lambda = \frac{(6.626 \times 10^{-34}) (3.0 \times 10^{8})}{7.7 \times 10^{-18}}
+$$
+
+Thus, our answer for the second part is $\lambda = 2.6 \times 10^{-8}$ m.
+
+$$
+E_{n} = ( \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31}) * (250 \times 10^{-12})^{2}} ) 4^{2}
+$$
+
+We find $E_{n}$ to be $1.5 \times 10^{-17}$ J.
+
+Then we find the difference between the third excitation level and the ground state to be $1.4 \times 10^{-18}$ J (this is the energy needed to excite the electron to energy level of quantum number $n = 4$).
+
+Finally, we can solve for $\lambda$:
+
+$$
+\lambda = \frac{(6.626 \times 10^{-34}) (3.0 \times 10^{8})}{1.4 \times 10^{-17}}
+$$
+
+Thus, our answer for the second part is $\lambda = 1.4 \times 10^{-8}$ m.
+
+## Problem 13
+
+This question is regarding **wave functions of a trapped electron**.
+
+> A one-dimensional infinite well of length 200 pm contains an electron in its third excited state. We position an electron-detector probe of width 2.00 pm so that it is centered on a point of maximum probability density.
+> 
+> * What is the probability of detection by the probe?
+> * If we insert the probe as described 1000 times, how many times should we expect the electron to materialize on the end of the probe (and thus be detected)?
+
+The probability the electron will be detected is given by:
+
+$$
+\psi^{2}_{n} (x) dx = ( \sqrt{\frac{2}{L}} sin ( \frac{n \pi}{L} x ) )^{2} dx
+$$
+
+We know $dx = 2 \times 10^{-12}$ m, and that the $sin(\frac{n \pi}{L} x)$ expression must evaluate to 1 since the probe is centered on a point of maximum probability density:
+
+$$
+\psi^{2}_{n} (x) dx = ( \sqrt{\frac{2}{L}} * 1 ) * 2 \times 10^{-12}
+$$
+
+$$
+\psi^{2}_{n} (x) dx = \frac{2}{L} * 2 \times 10^{-12}
+$$
+
+$L$ is $200 \times 10^{-12}$ m:
+
+$$
+\psi^{2}_{n} (x) dx = \frac{2}{200 \times 10^{-12}} * 2 \times 10^{-12}
+$$
+
+This comes out to be a probability of 0.020, our answer to the first part.
+
+If the probe is inserted 1000 times, then we should expect the electron to be detected 20 of the times ($1000 * 0.020 = 20$), which is our answer to the second part.
+
+## Problem 16
+
+This question is regarding **wave functions of a trapped electron**.
+
+> A particle is confined to the one-dimensional infinite potential well of Fig. 39-2. If the particle is in its ground state, what is its probability of detection between
+> 
+> * x = 0 and x = 0.25L
+> * x = 0.75L and x = L, and 
+> * x = 0.25L and x = 0.75L?
+
+We need to integrate over the probability density function to approach this question.
+
+$$
+\int_{0}^{0.25L} \psi_{n}^{2} (x) dx = \int_{0}^{0.25L} \frac{2}{L} sin^{2} ( \frac{n \pi}{L} x ) dx
+$$
+
+Let us do the indefinite integral first. Take out the constant factors. We also know that the particle is in the ground state, so $n = 1$.
+
+$$
+\frac{2}{L} \int sin^{2} ( \frac{\pi}{L} x ) dx
+$$
+
+Now, integrate.
+
+Use double angle sine squared identity ($sin^{2} x = \frac{1}{2} (1 - cos 2x)$)
+
+$$
+\frac{2}{L} \int \frac{1}{2} (1 - cos(2 \frac{\pi}{L} x)) dx
+$$
+
+$$
+\frac{2}{L} \frac{1}{2} ( \int 1 dx - \int cos(2 \frac{\pi}{L} x) dx )
+$$
+
+$$
+\frac{1}{L} ( x - \int cos(2 \frac{\pi}{L} x) dx)
+$$
+
+Say $u = 2 \frac{\pi}{L} x$, then:
+
+$$
+\frac{du}{dx} = 2 \frac{\pi}{L}
+$$
+
+$$
+dx = \frac{du}{2 \frac{\pi}{L}} = \frac{L}{2 \pi} du
+$$
+
+We can now solve
+
+$$
+\int cos(2 \frac{\pi}{L} x) dx
+$$
+
+as:
+
+$$
+\frac{L}{2 \pi} \int cos(u) du
+$$
+
+Which is:
+
+$$
+\frac{L}{2 \pi} sin u = \frac{L}{2 \pi} sin ( 2 \frac{\pi}{L} x )
+$$
+
+Now, we can substitute that into the main expression:
+
+$$
+F(x) = \frac{1}{L} ( x - \frac{L}{2 \pi} sin ( 2 \frac{\pi}{L} x ))
+$$
+
+Considering the problem gives us inputs in terms of $L$, let us solve this generically. To be specific, assume the lower and upper bounds can be represented respectively as $aL$ and $bL$, where $a$ and $b$ are constants that are between 0 and 1 inclusive. The fundamental theorem of calculus states our answer to the definite integral:
+
+$$
+\int_{aL}^{bL} \psi_{n}^{2} (x) dx = F(bL) - F(aL)
+$$
+
+Let us first evaluate $F(bL)$:
+
+$$
+F(bL) = \frac{1}{L} ( bL - \frac{L}{2 \pi} sin ( 2 \frac{\pi}{L} bL ))
+$$
+
+$$
+F(bL) = (b - \frac{1}{2 \pi} sin ( 2 b \pi))
+$$
+
+Obviously, $F(aL)$ will then be:
+
+$$
+F(aL) = (a - \frac{1}{2 \pi} sin ( 2 a \pi))
+$$
+
+So, $F(bL) - F(aL)$ is:
+
+$$
+F(bL) - F(aL) = (b - \frac{1}{2 \pi} sin ( 2 b \pi)) - (a - \frac{1}{2 \pi} sin ( 2 a \pi)) = b - a - \frac{1}{2 \pi} sin ( 2 b \pi) + \frac{1}{2 \pi} sin ( 2 a \pi)
+$$
+
+For the first part we can solve using $a = 0$ and $b = 0.25$:
+
+$$
+0.25 - \frac{1}{2 \pi} sin (\frac{\pi}{2}) + \frac{1}{2 \pi} sin (0)
+$$
+
+$$
+0.25 - \frac{1}{2 \pi} + 0
+$$
+
+Thus, 0.09 is **our answer** for the first part.
+
+For the second part we can solve using $a = 0.75$ and $b = 1$:
+
+$$
+0.25 - \frac{1}{2 \pi} sin ( 2 \pi) + \frac{1}{2 \pi} sin ( \frac{3}{2} \pi)
+$$
+
+Note, $sin(\frac{3}{2} \pi) = sin(\frac{1}{2} \pi) = 1$
+
+$$
+0.25 + \frac{1}{2 \pi}
+$$
+
+Thus, 0.09 is **our answer** for the second part as well.
+
+For the third part, notice that the range given is complementary to the sum of the two ranges from the previous two parts. Since $\psi^{2}$ is the probability density function, we know:
+
+$$
+\int_{-\infty}^{\infty} \psi_{n}^{2} (x) dx = 1
+$$
+
+So, $1 - 0.09 - 0.09 = 0.82$. $0.82$ is **our answer** for the third part.
+
+## Problem 17
+
+This question is regarding **electrons in finite well traps**.
+
+> An electron in the n = 2 state in the finite potential well of Fig. 39-7 absorbs 400 eV of energy from an external source. Using the energy-level diagram of Fig. 39-9, determine the electron's kinetic energy after this absorption, assuming that the electron moves to a position for which x > L.
+
+The energy at $n = 2$ is 106 eV. So if the electron absorbs 400 eV of energy, it goes into the nonquantized region of the figure, since the well depth is $450$ eV. Since the well depth tells us the minimum energy needed for the confined electron to become free, the kinetic energy is thus $(106 + 400) - 450 = 56$, so 56 eV is our answer.
+
+## Problem 19
+
+This question is regarding **electrons in finite well traps**.
+
+> Figure 39-28a shows the energy-level diagram for a finite, one-dimensional energy well that contains an electron. The non-quantized region begins at $E_{4}$ = 450.0 eV. Figure 39-28b gives the absorption spectrum of the electron when it is in the ground state it can absorb at the indicated wavelengths: $\lambda_{a}$ = 14.588 nm and $\lambda_{b}$ = 4.8437 nm and for any wavelength less than $\lambda_{c}$ = 2.9108 nm. What is the energy of the first excited state?
+
+First, we can determine that if a photon of wavelength $\lambda_{c}$ is absorbed, this will excite the electron from the ground state to $E_{4}$. This is because it is the shortest wavelength, so it has the highest energy value (question also states that the wavelength can be less than $\lambda_{c}$ because of the nonquantized region). Thus, we can find the energy of a photon that has wavelength $\lambda_{c}$:
+
+$$
+E = \frac{hc}{\lambda} = \frac{1240}{2.9108} = 426\text{ eV}
+$$
+
+This energy represents the energy needed to excite the electron from $E_{1}$ to $E_{4}$ ($E_{4} - E_{1}$). Since we want the energy of the first excited state this corresponds to $E_{2}$. We can represent $E_{2}$ as:
+
+$$
+(E_{4} - (E_{4} - E_{1})) + (E_{2} - E_{1})
+$$
+
+Notice that $(E_{4} - (E_{4} - E_{1}))$ is just a convenient way of writing $E_{1}$ in terms of $E_{4}$ and $E_{4} - E_{1}$, since this is the information we have.
+
+We already have $(E_{4} - E_{1})$ and $E_{4}$, so let us find $(E_{2} - E_{1})$. The relevant wavelength here is $\lambda_{a} = 14.588\text{ nm}$ because we choose the longest wavelength since we are doing a singular quantum jump:
+
+$$
+E = \frac{hc}{\lambda} = \frac{1240}{14.588} = 85\text{ eV}
+$$
+
+So, this represents $E_{2} - E_{1}$, now we can just evaluate the previous expression:
+
+$$
+(E_{4} - (E_{4} - E_{1})) + (E_{2} - E_{1})
+$$
+
+$$
+(450 - 426) + (85)
+$$
+
+This comes out to be $109.0$ eV, our answer.
+
+## Problem 21
+
+This question is regarding **electrons in finite well traps**.
+
+> * Show that for the region x > L in the finite potential well of Fig. 39-7, $\psi (x) = D e^{2kx}$ is a solution of Schrodinger's equation in its one-dimensional form, where D is a constant and k is positive.
+> * On what basis do we find this mathematically acceptable solution to be physically unacceptable?
+
+First, let's take a look at Schrodinger's equation:
+
+$$
+\frac{d^{2} \psi}{dx^{2}} + \frac{8 \pi^{2} m}{h^{2}} ( E - U_{0} ) \psi = 0
+$$
+
+Let us find the second derivative of the wave function, $\frac{d^{2} \psi}{dx^{2}}$. This is going to be $2k * 2k * D e^{2kx} = 4k^{2} D e^{2kx}$. Then, we can substitute:
+
+$$
+4k^{2} \psi + \frac{8 \pi^{2} m}{h^{2}} ( E - U_{0} ) \psi = 0
+$$
+
+$$
+4k^{2} + \frac{8 \pi^{2} m}{h^{2}} ( E - U_{0} ) = 0
+$$
+
+Solve for $k$:
+
+$$
+k^{2} = \frac{-8 \pi^{2} m}{-4 h^{2}} ( E - U_{0} )
+$$
+
+$$
+k = \sqrt{\frac{2 \pi^{2} m}{h^{2}} ( E - U_{0} )}
+$$
+
+So $\psi (x) = D e^{2kx}$ **is a solution to Schrodinger's one-dimensional equation.**
+
+We know that this **is mathematically acceptable** because $\frac{2 \pi^{2} m}{h^{2}}$ is a positive value, and $U_{0} - E$ is positive since the well height ($U_{0}$) is greater than the energy of the particle $E$ when $x > L$. This means that the term inside of the square root is positive, so we do not have any imaginary solutions.
+
+This is **not physically acceptable** though because $\int_{-\infty}^{\infty} \psi_{n}^{2} (x) dx \neq 1$. Given that $k$ is positive, the area under the curve is going to keep growing when approaching to infinity, so this integral will not evaluate to 1.
+
+## Problem 23
+
+This question is regarding **two and three dimensional electron traps**.
+
+> An electron is contained in the rectangular box of Fig. 39-14, with widths $L_{x}$ = 800 pm, $L_{y}$ = 1600 pm, and $L_{z}$ = 390 pm. What is the electron's ground-state energy?
+
+We can find the ground-state energy using:
+
+$$
+E_{nx,ny,nz} = \frac{h^{2}}{8m} ( \frac{n_{x}^{2}}{L_{x}^{2}} + \frac{n_{y}^{2}}{L_{y}^{2}} + \frac{n_{z}^{2}}{L_{z}^{2}})
+$$
+
+$$
+E_{nx,ny,nz} = \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31})} ( \frac{1}{(800 \times 10^{-12})^{2}} + \frac{1}{(1600 \times 10^{-12})^{2}} + \frac{1}{(390 \times 10^{-12})^{2}})
+$$
+
+This comes out to be $5.14 \times 10^{-19}$ J, or $3.21$ eV.
+
+## Problem 24
+
+This question is regarding **two and three dimensional electron traps**.
+
+> Figure 39-30 shows a two-dimensional, infinite-potential well lying in an $xy$ plane that contains an electron. We probe for the electron along a line that bisects $L_{x}$ and find three points at which the detection probability is maximum. Those points are separated by 2.00 nm. Then we probe along a line that bisects $L_{y}$ and find five points at which the detection probability is maximum. Those points are separated by 3.00 nm. What is the energy of the electron?
+
+Since we observe 3 probability maximums for the x axis and 5 probability maximums for the y axis, the quantum numbers $n_{x}$ and $n_{y}$ are $3$ and $5$ respectively. We can also find $L_{x}$ and $L_{y}$, which are $3 * (2 \times 10^{-9})$ m and $5 * (3 \times 10^{-9})$
+
+We can then find the energy using:
+
+$$
+E_{nx,ny} = \frac{h^{2}}{8m} ( \frac{n_{x}^{2}}{L_{x}^{2}} + \frac{n_{y}^{2}}{L_{y}^{2}} )
+$$
+
+$$
+E_{nx,ny} = \frac{(6.626 \times 10^{-34})^{2}}{8 * (9.11 \times 10^{-31})} ( \frac{(3)^{2}}{(3 * (2 \times 10^{-9}))^{2}} + \frac{(5)^{2}}{(5 * (3 \times 10^{-9}))^{2}} )
+$$
+
+Thus, our answer is $E_{nx,ny} = 2.18 \times 10^{-20}$ J, or $0.136$ eV.
+
+## Problem 31
+
+This question is regarding **the hydrogen atom**.
+
+> What is the ratio of the shortest wavelength of the Balmer series to the shortest wavelength of the Lyman series?
+
+First, some definitions:
+
+* Balmer series are jumps up from $n = 2$ or down to $n = 2$.
+* Lyman series are jumps up from $n = 1$ or down to $n = 1$.
+
+The quantized energy of the hydrogen atom is inversely proportional to $n^{2}$, so for $n = 2$ the energy is $\frac{1}{4}$ of the energy for $n = 1$. Energy can be expressed as:
+
+$$
+E = \frac{hc}{\lambda}
+$$
+
+We can see that wavelength for first excited state $n = 2$ is going to be four times greater than the wavelength for the ground state $n = 1$, since $\lambda$ is inversely proportional to the energy.
+
+Therefore, the ratio is going to be 4, our answer.
+
+## Problem 33
+
+This question is regarding **the hydrogen atom**.
+
+> What are the
+> 
+> * energy
+> * magnitude of the momentum
+> * wavelength
+> 
+> of the photon emitted when a hydrogen atom undergoes a transition from a state with $n = 3$ to a state with $n = 1$?
+
+Energy is given by:
+
+$$
+\frac{-13.61}{3^{2}} - \frac{-13.61}{1^{2}}
+$$
+
+This comes out to be 12.1 eV, our answer.
+
+Momentum is given by:
+
+$$
+p = \frac{E}{c} = \frac{12.1\text{ eV} * 1.602 \times 10^{-19}}{3 \times 10^{8}}
+$$
+
+This comes out to be $6.45 \times 10^{-27}$ kg m/s, our answer.
+
+Wavelength of the emitted photon is given by:
+
+$$
+\lambda = \frac{hc}{E} = \frac{1240}{12.1}
+$$
+
+This comes out to be $102$ nm, our answer.
+
+## Problem 43
+
+This question is regarding **the hydrogen atom**.
+
+> In the ground state of the hydrogen atom, the electron has a total energy of -13.6 eV. What are
+> 
+> * its kinetic energy
+> * its potential energy
+> 
+> if the electron is one Bohr radius from the central nucleus?
+
+First, we know the potential energy is given by:
+
+$$
+U(r) = \frac{-e^{2}}{4 \pi \varepsilon_{0} r}
+$$
+
+In this case, $r = a$, so:
+
+$$
+U(r) = \frac{-(1.602 \times 10^{-19})^{2}}{4 \pi \varepsilon_{0} * (5.292 \times 10^{-11})}
+$$
+
+This comes out to be $-4.36 \times 10^{-18}$ J, or $-27.2$ eV, our answer for the second part.
+
+Now we know the total energy is composed of the kinetic and potential energy, so we can find the kinetic energy:
+
+$$
+E = U + K
+$$
+
+$$
+K = E - U = -13.6 - (-27.2) = 13.6
+$$
+
+Thus, $13.6$ eV is our answer for the first part.
