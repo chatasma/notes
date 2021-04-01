@@ -819,6 +819,70 @@ P(Y &gt; 1 | Y \leq 2) = 1 - \frac{e^{-1} - 1}{e^{-4} - 1}
 P(Y &gt; 1 | Y \leq 2) = 1 - \frac{e - 1}{e - e^{-3}}
 \]</span></p>
 </div>
+<div id="special-continuous-random-variables" class="section level2">
+<h2>Special Continuous Random Variables</h2>
+</div>
+<div id="uniform-random-variable" class="section level2">
+<h2>Uniform Random Variable</h2>
+<p>A uniform random variable means every outcome in an interval is equally likely.</p>
+<p>Consider <span class="math inline">\(X ~ U[a,b]\)</span>. pdf (probabily density function) is given by:</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{b - a}
+\]</span></p>
+<p>CDF (cumulative density function) is given by:</p>
+<p><span class="math display">\[
+\frac{x - a}{b - a}
+\]</span></p>
+<p>Expectation (can prove using definition)</p>
+<p><span class="math display">\[
+\frac{a + b}{2}
+\]</span></p>
+<p>Variance (can prove using definition)</p>
+<p><span class="math display">\[
+\sigma^{2} = \frac{(b - a)^{2}}{12}
+\]</span></p>
+<div id="uniform-rv-example" class="section level3">
+<h3>Uniform RV example</h3>
+<blockquote>
+<p>Suppose you are going out for the evening with friends and they ask you to arrive by 9:00pm. Denote <span class="math inline">\(T\)</span> as the length past 9:00pm when your friends arrive, and assume <span class="math inline">\(T\)</span> is uniformly distributed between 0 and 30 mins.</p>
+<ul>
+<li>State the distribution and parameters of <span class="math inline">\(T\)</span></li>
+<li>What is the probability that you’ll have to wait more than 20 minutes for your friends</li>
+<li>If at 9:20 pm your friends have not yet arrived, what is the probability that you have to wait at least 5 more minutes?</li>
+<li>What is the probability that your friends will arrive exactly at 9:25pm?</li>
+<li>Use the formulas from lecture to find the mean and variance for the amount of time that you will wait.</li>
+</ul>
+</blockquote>
+<p>First, <span class="math inline">\(T ~ U[0, 30]\)</span>.</p>
+<p>Then:</p>
+<p><span class="math display">\[
+P(T &gt; 20) = \int_{20}^{30} \frac{1}{30} dt = \frac{t}{30} \bigg|_{20}^{30} = \frac{1}{3}
+\]</span></p>
+<p>The next question is a conditional probability question:</p>
+<p><span class="math display">\[
+P( T \geq 25 | T &gt; 20 ) = \frac{P(T \geq 25 \cap T &gt; 20 )}{P( T &gt; 20 )} = \frac{P(T \geq 25)}{P(T &gt; 20)} = \frac{1}{2}
+\]</span></p>
+<p>Probability of an exact point (i.e. 9:25pm) is 0.</p>
+<p>Expectation is <span class="math inline">\(\frac{a + b}{2} = \frac{30}{2} = 15\)</span> and variance is <span class="math inline">\(\sigma^{2} = \frac{(b - a)^{2}}{12} = \frac{30^{2}}{12} = 75\text{ mins}^{2}\)</span>.</p>
+</div>
+</div>
+<div id="normal-gaussian-distribution" class="section level2">
+<h2>Normal (Gaussian) Distribution</h2>
+<p>Consider <span class="math inline">\(X ~ N(\mu, \sigma^{2})\)</span>, where <span class="math inline">\(\mu\)</span> is the mean and <span class="math inline">\(\sigma^{2}\)</span> is the variance.</p>
+<p>The pdf is given by</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x - \mu)^{2}}{2 \sigma^{2}}}
+\]</span></p>
+<p>for <span class="math inline">\(- \infty &lt; x &lt; \infty\)</span>.</p>
+<p><span class="math inline">\(\mu\)</span> determines center, <span class="math inline">\(\sigma\)</span> determines “spread”.</p>
+<p>CDF requires like advanced calculus so we have some epic tables instead.</p>
+<p>The tables work for <span class="math inline">\(\sigma = 1\)</span> and <span class="math inline">\(\mu = 0\)</span>, the standard normal distribution. They tell you the probability of <span class="math inline">\(P(X \leq z)\)</span>, which is like our CDF.</p>
+<p>Since these tables are for the standard normal distribution, we should find a way to address the general case. We can do this by using:</p>
+<p><span class="math display">\[
+z = \frac{x - \mu}{\sigma}
+\]</span></p>
+<p>Basically, this gives you the <span class="math inline">\(z\)</span> value which applies to the standard normal distribution as a function of the <span class="math inline">\(x\)</span> value from the general one and its respective <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> values.</p>
+</div>
 
 
 
