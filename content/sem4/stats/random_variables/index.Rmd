@@ -686,3 +686,24 @@ z = \frac{x - \mu}{\sigma}
 $$
 
 Basically, this gives you the $z$ value which applies to the standard normal distribution as a function of the $x$ value from the general one and its respective $\mu$ and $\sigma$ values.
+
+Critical Value: $z_{\alpha}$ of a standard normal distriution is the value on the measurement axis for which $\alpha$ of the area under the normal curve lies to the right of $z_{\alpha}$
+
+### Normal Approximation to the Binomial
+
+Suppose $X ~ B(n, p)$ (binomial dist). We know:
+
+* $\mu = np$
+* $\sigma^{2} = np (1 - p)$
+
+We say that when $n \to \infty$, then:
+
+$$
+z = \frac{x - \mu}{\sigma} = \frac{x - np}{\sqrt{np (1 - p)}} ~ N(0, 1)
+$$
+
+In other words, for large values of $n$, we can approximate binomial as standard normal.
+
+$$
+P(X \leq x) = \sum_{k = 0}^{x} b(k;n,p) = P(z \leq \frac{x + 0.5 - np}{\sqrt{np (1 - p)}})
+$$
