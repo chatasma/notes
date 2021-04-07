@@ -273,3 +273,122 @@ $$
 $$
 
 Thus, our answer for the de Broglie wavelength is $0.40\text{ nm}$.
+
+## Problem 31
+
+This problem is regarding **semiconductors and doping**.
+
+> What maximum light wavelength will excite an electron in the valence band of diamond to the conduction band? The energy gap is 5.50 eV. In what part of the electromagnetic spectrum does this wavelength lie?
+
+For this question we can use:
+
+$$
+E = \frac{hc}{\lambda}
+$$
+
+Solve for $\lambda$
+
+$$
+\lambda = \frac{hc}{E} = \frac{1240}{5.50}
+$$
+
+This comes out to be 225nm, our answer, which falls in the **ultraviolet** range in the electromagnetic spectrum.
+
+## Problem 33
+
+This problem is regarding **semiconductors and doping**.
+
+> The occupancy probability function (Eq. 41-6) can be applied to semiconductors as well as to metals. In semiconductors the Fermi energy is close to the midpoint of the gap between the valence band and the conduction band. For germanium, the gap width is 0.67 eV. What is the probability that:
+> 
+> * a state at the bottom of the conduction band is occupied
+> * a state at the top of the valence band is not occupied?
+> 
+> Assume that $T = 290 K$. (Note: In a pure semiconductor, the Fermi energy lies symmetrically between the population of conduction electrons and the population of holes and thus is at the center of the gap. There need not be an available state at the location of the Fermi energy.)
+
+First, recognize that the difference $\Delta E = E - E_{F}$ is going to be $\Delta E = 0.67 / 2 = 0.335\text{ eV}$ when we are considering states at the bottom of the conduction band. Knowing, this, we can calculate the occupancy probability:
+
+
+$$
+P(E) = \frac{1}{e^{\frac{0.335}{(8.617 \times 10^{-5}) * 290}} + 1}
+$$
+
+This turns out to be $1.5 \times 10^{-6}$, our answer for the first part.
+
+We can similarly calculate the second part, knowing that $\Delta E = E - E_{F}$ will be $\Delta E = -1 * (0.67 / 2) = -0.335\text{ eV}$. Since we want to find the complement of this, we will do $1 - P'(E)$ to find the value, where $P'(E)$ represents the probability that a state of the top of the valence band is occupied.
+
+$$
+P(E) = 1 - \frac{1}{e^{\frac{-0.335}{(8.617 \times 10^{-5}) * 290}} + 1}
+$$
+
+This turns out to be $1.5 \times 10^{-6}$, our answer for the second part.
+
+## Problem 38
+
+This problem is regarding **semiconductors and doping**.
+
+> Pure silicon at room temperature has an electron number density in the conduction band of about $5 \times 10^{15}\text{ m}^{-3}$ and an equal density of holes in the valence band. Suppose that one of every $10^{7}$ silicon atoms is replaced by a phosphorus atom.
+> 
+> * Which type will the doped semiconductor be, n or p?
+> * What charge carrier number density will the phosphorus add?
+> * What is the ratio of the charge carrier number density (electrons in the conduction band and holes in the valence band) in the doped silicon to that in pure silicon?
+
+The doped semiconductor will be **n-type** because Phosphorus has one more valence electron than Silicon.
+
+The added charge carrier density is going to be the number of silicon atoms that are doped. To find this amount, we first can find the number density of silicon in a sample volume:
+
+$$
+n = \frac{\text{density of silicon} * N_{A}}{\text{molar mass of silicon}} = \frac{(2.33 \times 10^{6}) * (6.02 \times 10^{23})}{28.1}
+$$
+
+Now, we can find the number of doped atoms by multiplying by $10^{-7}$. This comes out to be $5.0 \times 10^{21}\text{ m}^{-3}$, our answer for the second part.
+
+
+To find the ratio between the charge carrier number density in the doped and pure silicon, we do:
+
+$$
+\frac{5.0 \times 10^{21}\text{ m}^{-3}}{2 * (5.0 \times 10^{15}\text{ m}^{-3})}
+$$
+
+We multiply by two because holes from the valence and electrons in the conduction band both count to the charge carrier density. This comes out to be $5.0 \times 10^{5}$, our answer.
+
+
+## Problem 40
+
+This problem is regarding **the p-n junction and the transistor**.
+
+> For an ideal p-n junction rectifier with a sharp boundary between its two semiconducting sides, the current I is related to the potential difference V across the rectifier by
+> 
+> $$
+> I = I_{0} (e^{eV/kT} - 1)
+> $$
+> 
+> where $I_{0}$, which depends on the materials but not on I or V, is called the reverse saturation current. The potential difference V is positive if the rectifier is forward-biased and negative if it is back-biased.
+> 
+> * Verify that this expression predicts the behavior of a junction rectifier by graphing I versus V from -0.12 V to +0.12 V. Take $T = 300 K$ and $I_{0} = 5.0$ nA.
+> * For the same temperature, calculate the ratio of the current for a 0.50 V forward bias to the current for a 0.50 V back bias.
+
+Here is my graph:
+
+<span>![Graph](../../../../img/rectifier_current.png)</span>
+
+To calculate the ratio, we can do:
+
+$$
+\frac{I_{0} (e^{eV/kT} - 1)}{I_{0} (e^{eV/kT} - 1)} = \frac{e^{0.50/((8.62 \times 10^{-5}) * 300)} - 1}{e^{-0.50/((8.62 \times 10^{-5}) * 300)} - 1}
+$$
+
+This comes out to be $2.50 \times 10^{8}$, our answer. Recall, the back-bias corresponds to a negative voltage, which is why we use $-0.50$ as $V$ in the denominator.
+
+## Problem 41
+
+This problem is regarding **the p-n junction and the transistor**.
+
+> In a particular crystal, the highest occupied band is full. The crystal is transparent to light of wavelengths longer than 295 nm but opaque at shorter wavelengths. Calculate, in electron-volts, the gap between the highest occupied band and the next higher (empty) band for this material.
+
+For this question, we can solve this using:
+
+$$
+E = \frac{hc}{\lambda} = \frac{1240}{295}
+$$
+
+This comes out to be $4.20$ eV, our answer.
