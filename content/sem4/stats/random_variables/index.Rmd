@@ -707,3 +707,115 @@ In other words, for large values of $n$, we can approximate binomial as standard
 $$
 P(X \leq x) = \sum_{k = 0}^{x} b(k;n,p) = P(z \leq \frac{x + 0.5 - np}{\sqrt{np (1 - p)}})
 $$
+
+## Gamma Distribution
+
+A Gamma RV is nonnegative, the pdf skews to the right.
+
+e.g. time until the next customer arrives at a grocery store
+
+Notation: $X ~ \text{Gamma}(\alpha , \beta )$, $\alpha$ is the shape parameter, and $\beta$ is the scale parameter.
+
+PDF:
+
+$$
+f(x) \int \frac{x^{\alpha - 1} e^{-\frac{x}{\beta}}}{\beta^{2} T( \alpha )}
+$$
+
+For $0 \leq x < \infty$.
+
+Where:
+
+$$
+T( \alpha ) = \int_{0}^{\infty} x^{\alpha - 1} e^{-x} dx
+$$
+
+If $n$ is an integer, $T(n) = (n - 1)!$.
+
+No closed form for the CDF.
+
+Expectation:
+
+$$
+\mu = E(x) = \alpha \beta
+$$
+
+Variance:
+
+$$
+\sigma^{2} = \text{Var}(x) = \alpha * \beta^{2}
+$$
+
+Note:
+
+$$
+T( \alpha + 1 ) = \alpha T ( \alpha )
+$$
+
+## Chi Square Distribution
+
+$Y$ is a Gamma random variable with $\beta = 2$ and $2 \alpha$ is a positive integer.
+
+$Y$ is a chi-square RV with **degrees of freedom** $V = s \alpha$.
+
+$Y ~ X^{2}(V)$
+
+$V$ is the degree of freedom.
+
+PDF
+
+$$
+f(y) = \int \frac{y^{\frac{V}{2} - 1} e^{- \frac{y}{2}}}{2^{\frac{V}{2}} T(\frac{V}{2})}
+$$
+
+For $0 \leq y < \infty$, 0 elsewhere.
+
+Expectation
+
+$$
+\mu = E(Y) = V
+$$
+
+$$
+\sigma^{2} = \text{Var}(Y) = 2V
+$$
+
+## Exponential Distribution
+
+* Model the length of time
+* $Y$ is a Gamma RV with $\alpha = 1$
+* $Y$ is an exponential RV, $Y ~ \text{Exp}( \beta )$, $\beta > 0$.
+
+PDF
+
+$$
+f(y) = \begin{cases} 
+  \frac{1}{\beta} e^{- \frac{y}{\beta}} & y \geq 0 \\
+  0 & \text{elsewhere} \\
+\end{cases}
+$$
+
+We can find a closed form of the CDF.
+
+$$
+F(y) = P(Y \leq y) = 1 - e^{- \frac{y}{\beta}}, y \geq 0
+$$
+
+Expectation:
+
+$$
+\mu = E(Y) = \beta
+$$
+
+Variance:
+
+$$
+\sigma^{2} = \text{Var}(Y) = \beta^{2}
+$$
+
+May also see it written in terms of $\theta$, where $\theta = \frac{1}{\beta}$.
+
+Exponential dist also has the memoryless property: the future is independent of the past. The time you have waited doesn't hold any weight or bearing as to your waiting time afterwards.
+
+* $P(Y > s + t | Y > s) = P (Y > t)$
+* $P(Y < s + t | Y > s) = P (Y < t)$

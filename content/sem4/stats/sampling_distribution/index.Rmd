@@ -1,0 +1,22 @@
+---
+title: "Sampling Distribution"
+date: "April 14th, 2021"
+output: pdf_document
+---
+
+* Population: The entire group we want information about
+* Sample: A part of the population
+
+Where $X_{1}, X_{2}, \dots , X_{n}$ represent $n$ random random variables:
+
+Sample mean
+
+$$
+\bar{x} = \frac{1}{n} \sum_{i = 1}^{n} X_{i}
+$$
+
+Sample variance:
+
+$$
+s^{2} = \frac{1}{n - 1} \sum_{i = 1}^{n} ( X_{i} - \bar{x} )^{2}
+$$
