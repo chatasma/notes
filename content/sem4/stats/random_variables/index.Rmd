@@ -609,7 +609,7 @@ $$
 
 A uniform random variable means every outcome in an interval is equally likely.
 
-Consider $X ~ U[a,b]$. pdf (probabily density function) is given by:
+Consider $X \sim U[a,b]$. pdf (probabily density function) is given by:
 
 $$
 f(x) = \frac{1}{b - a}
@@ -643,7 +643,7 @@ $$
 > * What is the probability that your friends will arrive exactly at 9:25pm?
 > * Use the formulas from lecture to find the mean and variance for the amount of time that you will wait.
 
-First, $T ~ U[0, 30]$.
+First, $T \sim U[0, 30]$.
 
 Then:
 
@@ -663,7 +663,7 @@ Expectation is $\frac{a + b}{2} = \frac{30}{2} = 15$ and variance is $\sigma^{2}
 
 ## Normal (Gaussian) Distribution
 
-Consider $X ~ N(\mu, \sigma^{2})$, where $\mu$ is the mean and $\sigma^{2}$ is the variance.
+Consider $X \sim N(\mu, \sigma^{2})$, where $\mu$ is the mean and $\sigma^{2}$ is the variance.
 
 The pdf is given by
 
@@ -691,7 +691,7 @@ Critical Value: $z_{\alpha}$ of a standard normal distriution is the value on th
 
 ### Normal Approximation to the Binomial
 
-Suppose $X ~ B(n, p)$ (binomial dist). We know:
+Suppose $X \sim B(n, p)$ (binomial dist). We know:
 
 * $\mu = np$
 * $\sigma^{2} = np (1 - p)$
@@ -699,7 +699,7 @@ Suppose $X ~ B(n, p)$ (binomial dist). We know:
 We say that when $n \to \infty$, then:
 
 $$
-z = \frac{x - \mu}{\sigma} = \frac{x - np}{\sqrt{np (1 - p)}} ~ N(0, 1)
+z = \frac{x - \mu}{\sigma} = \frac{x - np}{\sqrt{np (1 - p)}} \sim N(0, 1)
 $$
 
 In other words, for large values of $n$, we can approximate binomial as standard normal.
@@ -714,12 +714,12 @@ A Gamma RV is nonnegative, the pdf skews to the right.
 
 e.g. time until the next customer arrives at a grocery store
 
-Notation: $X ~ \text{Gamma}(\alpha , \beta )$, $\alpha$ is the shape parameter, and $\beta$ is the scale parameter.
+Notation: $X \sim \text{Gamma}(\alpha , \beta )$, $\alpha$ is the shape parameter, and $\beta$ is the scale parameter.
 
 PDF:
 
 $$
-f(x) \int \frac{x^{\alpha - 1} e^{-\frac{x}{\beta}}}{\beta^{2} T( \alpha )}
+f(x) \int \frac{x^{\alpha - 1} e^{-\frac{x}{\beta}}}{\beta^{2} \Gamma( \alpha )}
 $$
 
 For $0 \leq x < \infty$.
@@ -727,10 +727,10 @@ For $0 \leq x < \infty$.
 Where:
 
 $$
-T( \alpha ) = \int_{0}^{\infty} x^{\alpha - 1} e^{-x} dx
+\Gamma( \alpha ) = \int_{0}^{\infty} x^{\alpha - 1} e^{-x} dx
 $$
 
-If $n$ is an integer, $T(n) = (n - 1)!$.
+If $n$ is an integer, $\Gamma(n) = (n - 1)!$.
 
 No closed form for the CDF.
 
@@ -749,23 +749,23 @@ $$
 Note:
 
 $$
-T( \alpha + 1 ) = \alpha T ( \alpha )
+T( \alpha + 1 ) = \alpha \Gamma ( \alpha )
 $$
 
 ## Chi Square Distribution
 
 $Y$ is a Gamma random variable with $\beta = 2$ and $2 \alpha$ is a positive integer.
 
-$Y$ is a chi-square RV with **degrees of freedom** $V = s \alpha$.
+$Y$ is a chi-square RV with **degrees of freedom** $V = 2 \alpha$.
 
-$Y ~ X^{2}(V)$
+$Y \sim X^{2}(V)$
 
 $V$ is the degree of freedom.
 
 PDF
 
 $$
-f(y) = \int \frac{y^{\frac{V}{2} - 1} e^{- \frac{y}{2}}}{2^{\frac{V}{2}} T(\frac{V}{2})}
+f(y) = \int \frac{y^{\frac{V}{2} - 1} e^{- \frac{y}{2}}}{2^{\frac{V}{2}} \Gamma(\frac{V}{2})}
 $$
 
 For $0 \leq y < \infty$, 0 elsewhere.
@@ -784,7 +784,7 @@ $$
 
 * Model the length of time
 * $Y$ is a Gamma RV with $\alpha = 1$
-* $Y$ is an exponential RV, $Y ~ \text{Exp}( \beta )$, $\beta > 0$.
+* $Y$ is an exponential RV, $Y \sim \text{Exp}( \beta )$, $\beta > 0$.
 
 PDF
 
