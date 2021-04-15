@@ -353,6 +353,8 @@ pre code {
 </div>
 
 
+<div id="sampling-distribution" class="section level2">
+<h2>Sampling Distribution</h2>
 <ul>
 <li>Population: The entire group we want information about</li>
 <li>Sample: A part of the population</li>
@@ -360,12 +362,93 @@ pre code {
 <p>Where <span class="math inline">\(X_{1}, X_{2}, \dots , X_{n}\)</span> represent <span class="math inline">\(n\)</span> random random variables:</p>
 <p>Sample mean</p>
 <p><span class="math display">\[
-\bar{x} = \frac{1}{n} \sum_{i = 1}^{n} X_{i}
+\bar{X} = \frac{1}{n} \sum_{i = 1}^{n} X_{i}
 \]</span></p>
 <p>Sample variance:</p>
 <p><span class="math display">\[
-s^{2} = \frac{1}{n - 1} \sum_{i = 1}^{n} ( X_{i} - \bar{x} )^{2}
+s^{2} = \frac{1}{n - 1} \sum_{i = 1}^{n} ( X_{i} - \bar{X} )^{2} = \frac{1}{n(n - 1)} [n \sum_{i = 1}^{n} X_{i}^{2} - (\sum_{i = 1}^{n} X_{i})^{2}]
 \]</span></p>
+</div>
+<div id="sampling-distribution-of-sample-means" class="section level2">
+<h2>Sampling Distribution of Sample Means</h2>
+<p><span class="math inline">\(\bar{X}\)</span> is also a normal random variable with mean and variance (<span class="math inline">\(\bar{X} \sim N( \mu , \frac{\sigma^{2}}{n} )\)</span>), given that <span class="math inline">\(X_{1}, X_{2}, \dots , X_{n} \sim N(\mu , \sigma^{2})\)</span>.</p>
+</div>
+<div id="central-limit-theorem" class="section level2">
+<h2>Central Limit Theorem</h2>
+<p>If <span class="math inline">\(\bar{X}\)</span> is a mean of a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and finite variance <span class="math inline">\(\sigma^{2}\)</span>, then limit of the limiting form of the distribution of</p>
+<p><span class="math display">\[
+Z = \frac{\bar{X} - \mu }{\sigma / \sqrt{n}}
+\]</span></p>
+<p>as <span class="math inline">\(n \to \infty\)</span>, is the standard normal distribution, i.e., <span class="math inline">\(Z \sim N(0, 1)\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mu_{\bar{X}} = \mu\)</span>, <span class="math inline">\(\sigma^{2}_{\bar{X}} = \frac{\sigma^{2}}{n}\)</span> regardless of the population distribution and sample size <span class="math inline">\(n\)</span>.</li>
+<li>When sample size <span class="math inline">\(n\)</span> is large enough (<span class="math inline">\(n &gt; 30\)</span>), <span class="math inline">\(\bar{X} \sim N( \mu , \frac{\sigma^{2}}{n} )\)</span>.</li>
+<li>The CLT provides us the shape of the distribution</li>
+</ul>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<blockquote>
+<p>When a batch of a certain chemical product is prepared, the amount of a particular impurity in the batch is a random variable with mean 4.0 g, and standard deviation 1.5 g. If 50 batches are independently prepared, what is the (approximate) probability that the sample average amount of impurity <span class="math inline">\(\bar{X}\)</span> is between 3.5 and 3.8 g?</p>
+</blockquote>
+<p>We know:</p>
+<ul>
+<li><span class="math inline">\(\mu = 4.0\)</span></li>
+<li><span class="math inline">\(\sigma = 1.5\)</span></li>
+</ul>
+<p>We know that <span class="math inline">\(n = 50 &gt; 30\)</span>, so we can apply CLT to this given the large enough sample size.</p>
+<p>CLT tells us</p>
+<ul>
+<li><span class="math inline">\(\mu_{\bar{X}} = \mu = 4.0\)</span></li>
+<li><span class="math inline">\(\sigma^{2}_{\bar{X}} = \frac{\sigma^{2}}{n}\)</span>, or <span class="math inline">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{1.5}{\sqrt{50}} = 0.2121\)</span></li>
+</ul>
+<p>Recall that <span class="math inline">\(\bar{X}\)</span> is also a <em>normal</em> random variable, of which we know the mean (<span class="math inline">\(\mu_{\bar{X}}\)</span>) and standard deviation (<span class="math inline">\(\sigma_{\bar{X}}\)</span>) of.</p>
+<p>So, we want to find:</p>
+<p><span class="math display">\[
+P(3.5 \leq \bar{X} \leq 3.8)
+\]</span></p>
+<p>We can convert this into the standard normal distribution using <span class="math inline">\(z = \frac{x - \mu}{\sigma}\)</span>:</p>
+<p><span class="math display">\[
+P(\frac{3.5 - 4}{0.2121} \leq z \leq \frac{3.8 - 4}{0.2121}) = P(-2.36 \leq z \leq -0.94) = P(z \leq -0.94) - P(z \leq -2.36)
+\]</span></p>
+<p>We can use the table to find this, which comes out to be <span class="math inline">\(0.1645\)</span>, our answer.</p>
+</div>
+<div id="sampling-distribution-of-the-difference-between-two-means" class="section level2">
+<h2>Sampling Distribution of the Difference between Two Means</h2>
+<p>Suppose we have two <em>independent</em> samples of size <span class="math inline">\(n_{1}\)</span> and <span class="math inline">\(n_{2}\)</span>. <span class="math inline">\(n_{1}\)</span> has mean <span class="math inline">\(\mu_{1}\)</span> and variance <span class="math inline">\(\sigma^{2}_{1}\)</span>. <span class="math inline">\(n_{2}\)</span> has mean <span class="math inline">\(\mu_{2}\)</span> and variance <span class="math inline">\(\sigma^{2}_{2}\)</span>. The <strong>sampling distribution</strong> of the <strong>differences of means</strong>, <span class="math inline">\(\bar{X_{1}} - \bar{X_{2}}\)</span> is approximately <em>normally distributed</em> with mean and variance given by:</p>
+<p><span class="math display">\[
+\mu_{\bar{X_{1}} - \bar{X_{2}}} = \mu_{1} - \mu_{2}
+\]</span></p>
+<p><span class="math display">\[
+\sigma^{2}_{\bar{X_{1}} - \bar{X_{2}}} = \frac{\sigma^{2}_{1}}{n_{1}} + \frac{\sigma^{2}_{2}}{n_{2}}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+Z = \frac{(\bar{X_{1}} - \bar{X_{2}}) - (\mu_{1} - \mu_{2})}{\sqrt{\sigma^{2}_{1} / n_{1} + \sigma^{2}_{2} / n_{2}}} \sim N(0, 1)
+\]</span></p>
+<p>If both <span class="math inline">\(n_{1}\)</span> and <span class="math inline">\(n_{2}\)</span> are greater than or equal to 30, the normal approximation for the distribution of <span class="math inline">\(\bar{X_{1}} - \bar{X_{2}}\)</span> is <em>very good</em> when the distributions are not too far away from normal.</p>
+</div>
+<div id="distribution-of-sample-variance" class="section level2">
+<h2>Distribution of Sample Variance</h2>
+<p>For Chi Squared distribution:</p>
+<ul>
+<li>Consider <span class="math inline">\(X_{1} \sim X^{2} (V_{1}), X_{2} \sim X^{2} (V_{2}), \dots , X_{n} \sim X^{2} (V_{n})\)</span>
+<ul>
+<li>Then, <span class="math inline">\(X_{1} + X_{2} + \dots + X_{n} \sim X^{2} (V_{1} + V_{2} + \dots + V_{n})\)</span></li>
+</ul></li>
+<li>Consider <span class="math inline">\(Z_{1}, Z_{2}, \dots , Z_{n} \sim N(0, 1)\)</span>
+<ul>
+<li>Then, <span class="math inline">\(Z^{2}_{1} + Z^{2}_{2} + \dots + Z^{2}_{n} \sim X^{2} (n)\)</span></li>
+</ul></li>
+</ul>
+<p>Consider <span class="math inline">\(X_{1}, X_{2}, \dots , X_{n}\)</span> i.i.d from a normal distribution.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(s^{2}\)</span> are independent</li>
+<li><span class="math inline">\(\frac{(n - 1) s^{2}}{\sigma^{2}} \sim X^{2} (n - 1)\)</span></li>
+<li><span class="math inline">\(\mu_{s^{2}} = \sigma^{2}\)</span>, <span class="math inline">\(\sigma^{2}_{s^{2}} = \frac{2 \sigma^{4}}{n - 1}\)</span></li>
+</ol>
+<p><span class="math inline">\(s^{2}\)</span> is a good estimate of <span class="math inline">\(\sigma^{2}\)</span>.</p>
+</div>
 
 
 
