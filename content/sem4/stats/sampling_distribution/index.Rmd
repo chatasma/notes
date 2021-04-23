@@ -25,7 +25,7 @@ $$
 
 ## Sampling Distribution of Sample Means
 
-$\bar{X}$ is also a normal random variable with mean and variance ($\bar{X} \sim N( \mu , \frac{\sigma^{2}}{n} )$), given that $X_{1}, X_{2}, \dots , X_{n} \sim N(\mu , \sigma^{2})$.
+$\bar{X}$ is also a normal random variable with mean and variance ($\bar{X} \sim \mathcal{N}( \mu , \frac{\sigma^{2}}{n} )$), given that $X_{1}, X_{2}, \dots , X_{n} \sim \mathcal{N}(\mu , \sigma^{2})$.
 
 ## Central Limit Theorem
 
@@ -35,10 +35,10 @@ $$
 Z = \frac{\bar{X} - \mu }{\sigma / \sqrt{n}}
 $$
 
-as $n \to \infty$, is the standard normal distribution, i.e., $Z \sim N(0, 1)$.
+as $n \to \infty$, is the standard normal distribution, i.e., $Z \sim \mathcal{N}(0, 1)$.
 
 * $\mu_{\bar{X}} = \mu$, $\sigma^{2}_{\bar{X}} = \frac{\sigma^{2}}{n}$ regardless of the population distribution and sample size $n$.
-* When sample size $n$ is large enough ($n > 30$), $\bar{X} \sim N( \mu , \frac{\sigma^{2}}{n} )$.
+* When sample size $n$ is large enough ($n > 30$), $\bar{X} \sim \mathcal{N}( \mu , \frac{\sigma^{2}}{n} )$.
 * The CLT provides us the shape of the distribution
 
 ## Example
@@ -88,7 +88,7 @@ $$
 Hence,
 
 $$
-Z = \frac{(\bar{X_{1}} - \bar{X_{2}}) - (\mu_{1} - \mu_{2})}{\sqrt{\sigma^{2}_{1} / n_{1} + \sigma^{2}_{2} / n_{2}}} \sim N(0, 1)
+Z = \frac{(\bar{X_{1}} - \bar{X_{2}}) - (\mu_{1} - \mu_{2})}{\sqrt{\sigma^{2}_{1} / n_{1} + \sigma^{2}_{2} / n_{2}}} \sim \mathcal{N}(0, 1)
 $$
 
 If both $n_{1}$ and $n_{2}$ are greater than or equal to 30, the normal approximation for the distribution of $\bar{X_{1}} - \bar{X_{2}}$ is _very good_ when the distributions are not too far away from normal.
@@ -99,7 +99,7 @@ For Chi Squared distribution:
 
 * Consider $X_{1} \sim X^{2} (V_{1}), X_{2} \sim X^{2} (V_{2}), \dots , X_{n} \sim X^{2} (V_{n})$
   * Then, $X_{1} + X_{2} + \dots + X_{n} \sim X^{2} (V_{1} + V_{2} + \dots + V_{n})$
-* Consider $Z_{1}, Z_{2}, \dots , Z_{n} \sim N(0, 1)$
+* Consider $Z_{1}, Z_{2}, \dots , Z_{n} \sim \mathcal{N}(0, 1)$
   * Then, $Z^{2}_{1} + Z^{2}_{2} + \dots + Z^{2}_{n} \sim X^{2} (n)$
 
 Consider $X_{1}, X_{2}, \dots , X_{n}$ i.i.d from a normal distribution.
@@ -109,3 +109,47 @@ Consider $X_{1}, X_{2}, \dots , X_{n}$ i.i.d from a normal distribution.
 3. $\mu_{s^{2}} = \sigma^{2}$, $\sigma^{2}_{s^{2}} = \frac{2 \sigma^{4}}{n - 1}$
 
 $s^{2}$ is a good estimate of $\sigma^{2}$.
+
+## t-Distribution
+
+$$
+z \sim \mathcal{N}(0, 1)
+$$
+
+$$
+V \sim X^{2} (v)
+$$
+
+$z$ and $V$ are independent
+
+
+This is a t-distribution with degrees of freedom $v$:
+
+$$
+T = \frac{z}{\sqrt{\frac{V}{v}}} \sim t(v)
+$$
+
+
+## f-Distribution
+
+F-distribution has two independent chi-squared random variables $X_{1}$ and $X_{2}$ with respective degrees of freedom $v_{1}$ and $v_{2}$.
+
+The F distribution is then defined to be the distribution of this ratio:
+
+$$
+F = \frac{X_{1} / v_{1}}{X_{2} / v_{2}}
+$$
+
+Complement expression for the f-Distribution
+
+$$
+F_{1 - \alpha}(v_{1}, v_{2}) = \frac{1}{F_{\alpha}(v_{2}, v_{1})}
+$$
+
+Consider two independent random samples of $m$ and $n$ observations from the normal populations $\mathcal{N}(\mu_{1}, \sigma_{1}^{2})$ and $\mathcal{N}(\mu_{2}, \sigma_{2}^{2})$ respectively, then:
+
+$$
+F(m - 1, n - 1) = \frac{S_{1}^{2}/\sigma_{1}^{2}}{S_{2}^{2}/\sigma_{2}^{2}}
+$$
+
+follows an F distribution. Note that $v_{1} = m - 1$ and $v_{2} = n - 1$.

@@ -1,0 +1,41 @@
+---
+title: "One and Two Sample Estimation Problems"
+date: "April 23rd, 2021"
+output: pdf_document
+---
+
+## Point Estimation
+
+$\hat{\theta}$ is a point estimate of some population parameter $\theta$.
+
+* i.e. $\bar{x}$ can be a point estimate of $\mu$.
+
+What is a "good" point estimate? Need some criteria.
+
+### Mean Squared Error (MSE) of $\hat{\theta}$:
+
+$\text{MSE}(\hat{\theta}) = E[( \hat{\theta} - \theta)^{2} ] = E[( \hat{\theta} - E(\hat{\theta}))^{2} ] + E[( E(\hat{\theta}) - \hat{\theta})^{2} ] = \text{var}(\hat{\theta}) + [\text{bias}(\hat{\theta})]^{2}$
+
+Where `bias` is $\text{bias}(\hat{\theta}) = \theta - E(\hat{\theta})$
+
+A point estimate $\hat{\theta}$ is said to be an _unbiased_ estimator of $\theta$ if:
+
+$$
+\mu_{\hat{\theta}} = E(\hat{\theta}) = \theta
+$$
+
+Can also think of it as when the `bias` is 0: $E(\hat{\theta}) = \theta \implies \text{bias} = 0$.
+
+Proposition 2:
+
+Sample mean $\bar{X} = \frac{X_{1} + X_{2} + \dots + X_{n}}{n} = \hat{\mu}_{n}$ is an unbiased estimator of the population mean $\mu$.
+
+Proposition 2:
+
+The sample variance of a random sample (i.i.d) $X_{1}, X_{2}, \dots, X_{n}$:
+
+$$
+S^{2} = \frac{1}{n - 1} [ \sum X_{i}^{2} - \frac{(\sum X_{i})^{2}}{n} ]
+$$
+
+is an unbiased estimator of population variance $\sigma^{2}$.
