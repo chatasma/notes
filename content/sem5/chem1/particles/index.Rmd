@@ -26,3 +26,132 @@ In example, if we had 11.5g of the compound now, this would decompose into 5.37g
 * Atoms of the same element have the same mass (among other properties). Atoms of different elements have different masses (among other properties).
 * In compounds, atoms of different elements make up **whole number** ratios.
 * Chemical reactions involve rearranging, separating, or combining atoms. We never create or destroy atoms.
+
+
+## The Law of Multiple Proportions
+
+This one is a bit different than constant composition.
+
+It states that if we have 2 compounds who are composed of the same elements (lets say the compounds were composed of elements A and B), that the ratio of the ratio of A to B (or B to A) of one compound to the other is a whole number. That was a mouthful.
+
+To put it into context, consider the previous compound where we had 1.14 grams of element B for every gram of element A. Then, let's say we have another compond is composed of 69.6% element B and 30.4% element A. The ratio of B to A is 2.28 in this scenario, which evenly divides into 1.14 for a ratio of ratios of 2, a whole number. This tells us that the latter compound has twice as many B atoms for every B atom in the former compound.
+
+How can we explain this? One way we can explain this is that the molecules in the former compound are arranged as AB, and the latter compound is arranged as AB~2~.
+
+And in fact, the values in the example actually correspond to the compound NO and NO~2~.
+
+## Experiments and atom structure
+
+Cathode Ray Tubes were an unlikely place for the next step of chemistry, but it helped us understand the structure of the atom better. JJ Thomson was able to deduce from his experiment involving CRTs the mass-to-charge ratio of the particles in the stream from the CRT. This value was $-5.69 \times 10^{-9}\text{ g/C}$. He was not able to independently determine the mass or charge though.
+
+Robert Millikan on the other hand was able to determine the charge of an electron, measured to be $-1.60 \times 10^{-19}\text{ C}$. Now that we know the charge, we can find the mass via the ratio; this comes out to be $9.10 \times 10^{-31}\text{ kg}$.
+
+These experiments marked the discovery of an electron. We found a subatomic particle, that exhibited the same properties (mass & charge) no matter what electron we sampled.
+
+## So.. what's an atom look like?
+
+We know electrons exist now, but how are they organized in an atom? Well, Thomson proposed the **Plum Pudding model**. This model is named like this, to depict that an atom mostly contains a diffuse positively charged "pudding" (or spread). In the pudding resides small negative charges (electrons), or the plums. Is this correct? Well only one way to find out..
+
+Rutherford comes around and does this experiment where he takes alpha particles and shoots them at a thin sheet of gold foil. Then he figures out what the path of the particles is after impact with the foil.
+
+The results of this experiment was the discovery of the nucleus. Like in biology, the nucleus refers to the center, in this case of the atom. This is an object with a positive charge that is more massive when compared to the alpha particles.
+
+With these new findings in mind, we present the **Nuclear Model of the Atom**: where the positively charged, massive part of the atom (nucleus) resides at the center. The electrons in the atom exist somewhere outside of the nucleus.
+
+To keep scale in mind, it's important to know that the atom itself is MUCH larger than the nucleus. Quantiatively, the nucleus is about 1/20,000th the size of the atom. This means the atom is mostly empty space! This makes sense, because that would explain why the alpha particles were going straight to the foil. Statistically, the nucleus makes up a small part of the atom, so only some were slightly deflected from the foil.
+
+So, what exactly is the nucleus made up of? The nucleus is made up of two fundamental particles: **protons** and **neutrons**. Protons are positively charged, and they are about 2000 times more massive than an electron. Neutrons are neutral as their name implies, but their mass is the same as the proton. Nuclei can contain several protons and neutrons, and more importantly the nucleus composition tells us the _identity_ of the atom.
+
+
+Information about the subatomic particles:
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+
+particles = c("Electron", "Proton", "Neutron")
+charges = c("-1.6 $\\times$ 10^-19^ C", "+1.6 $\\times$ 10^-19^ C", "0 C")
+masses = c("9.11 $\\times$ 10^-31^", "1.67 $\\times$ 10^-27^", "1.67 $\\times$ 10^-27^")
+amus = c("~0", "1", "1")
+df <- data.frame(Particles = particles, ElectricCharge = charges, Mass = masses, Amu = amus, stringsAsFactors = FALSE)
+colnames(df) <- c("Particle", "Electric Charge", "Mass", "amu")
+knitr::kable(df, escape = FALSE)
+```
+
+Important quantities:
+
+* **Mass Number**: # protons + # neutrons
+* **Atomic Number**: # of protons
+* **Ionic Charge**: # of protons - # of electrons
+* **Element Symbol**: (not a quantity, but directly determined by Atomic Number)
+
+### Isotope Notation
+
+A few examples:
+
+* $^{23}_{11}\text{ Na}$ -- This is sodium (which can be uniquely identified by the atomic number), which has a mass number of 23, and a total of 11 protons. That means its atomic number is also 11, and using subtraction we can determine the number of neutrons is 12. Notice, that the number of neutrons can vary without changing the identity of the atom. In fact, if we hold the number of protons constant and vary the number of neutrons, we effectively can vary the mass of the atom without changing its identity; in other words, we can have **isotopes** of the same element (**isotopes** are atoms of the same element that have different masses). We can call this species an **atom** since it has a neutral charge (the number of electrons equals the number of protons, and we know this since no charge is denoted).
+* $_{20}\text{ Ca}^{\text{2+}}$ -- This is calcium (which can be uniquely identified by the atomic number), which has 20 protons. That means its atomic number is also 20. We can also notice that this **ion** has a charge of positive 2. An **ion** is a particle which has a non-neutral charge (# of electrons does not equal # of protons). This means it is a **cation**, or an ion which has more protons than electron. Conversely, an ion with more electrons than protons is known as an **anion**.
+* $^{19}_{9}\text{ F}^{\text{-}}$ -- This is **Fluorine-19** (notice how we specified the mass after the hyphen, this is a common way to refer to isotopes). It is an ion as it has a charge, and it has 9 protons and 10 neutrons. We can also determine that there are 10 electrons based on the negative charge.
+
+## Periodic Table
+
+It is important to know how the periodic table is laid out, so here's a convenient picture:
+
+![Periodic Table](https://i.imgur.com/ktnkHTK.png)
+
+### Elements to know by name
+
+Some of these elements' symbols don't exactly match up with their name, so listed below are a few of them to keep them in mind:
+
+* **Na** -- Sodium
+* **K** -- Potassium
+* **Mn** -- Manganese
+* **Fe** -- Iron
+* **Cu** -- Copper
+* **Ag** -- Silver
+* **Sn** -- Tin
+* **W** -- Tungsten
+* **Au** -- Gold
+* **Hg** -- Mercury
+* **Pb** -- Lead
+
+## Molecules?
+
+In nature, very _few_ substances exist as just an individual atom. In standard conditions _only_ the noble gasses (that last group in the periodic table) can exist in monatomic, elemental form.
+
+In most cases, we are dealing with substances that exist as **molecules** or **ions**.
+
+So what are molecules? Molecules are **aggregates** of **two or more atoms** in a definite arrangement **held together by chemical forces called bonds**.
+
+The definite arrangement explains the fixed ratios described by the Law of Constant Composition.
+
+Some molecules consist of just two atoms, also known as **diatomic molecules**. Examples include hydrogen gas ($\text{H}_{2}$) and oxygen gas ($\text{O}_{2}$).
+
+Others can contain more than 2, also known as **polyatomic molecules**. Examples include water ($\text{H}_{2}\text{O}$) and ammonia ($\text{NH}_{3}$).
+
+## Ion Naming
+
+For anions the suffix becomes **-ide**.
+
+Some of these ion names just need to be memorized, especially the polyatomic ions..
+
+## Ionic Compounds
+
+Ionic Compounds are electrically neutral, as they are composed of ionic bonds.
+
+* Binary Ionic Compounds -- These will have one metal element with a single possible positive charge as the cation, and one non-metal element with a single possible negative charge as the anion.
+* Metal cation with Polyatomic anion -- These will have one metal element with a single possible positive charge as the cation, and a polyatomic anion with a single possible minus charge as he anion (very similar to the binary ionic compound)
+
+### Hydrates
+
+Certain ionic compounds absorb water molecules into their formula structures, known as **hydrates**. In terms of naming, you just append "<prefix>hydrate" to the compound's name.
+
+## Covalent Compounds
+
+Covalent compounds are always between a non-metal and a non-metal, and their bonds share electrons. In terms of naming, first element keeps its full name, and second element has an "ide" ending. You also use prefixes to denote the number. i.e. CO refers to carbon monoxide and $\text{CO}_{2}$ refers to carbon dioxide.
+
+## Acids
+
+Acids have a hydrogen atom as the first element. 3 categories:
+
+* H with an elemental anion (HF is Hydrofluoric acid)
+* H with a polyatomic "ate" anion ($\text{HNO}_{3}$ is nitric acid)
+* H with a polyatomic "ite" anion ($\text{HNO}_{2}$ is nitrous acid)
