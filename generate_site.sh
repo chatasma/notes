@@ -7,7 +7,7 @@ source_content="${base_dir}/content"
 target_dir="$(pwd)/public"
 target_content="${target_dir}/all"
 
-selected_semesters=(3 4)
+selected_semesters=(5)
 
 semesters_joined=$(join_by "," "${selected_semesters[@]}")
 echo $semesters_joined

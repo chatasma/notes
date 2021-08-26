@@ -1,0 +1,69 @@
+---
+title: "Significant Figures"
+date: "August 25th, 2021"
+output: pdf_document
+---
+
+## 1.8: Handling Numbers Rules: Determining Sig Figs
+
+Sig fig Examples:
+
+* 2021 -- 4
+* 2020 -- 3
+* $1.60 \times 10^{-19}$ -- 3
+* $6.022 \times 10^{23}$ -- 4
+* 7500 -- 2
+* 750 -- 2
+* 750. -- 3
+* 0.750 -- 3
+
+Precision Examples (always choose the last sig fig):
+
+* 2021 -- one's place
+* 2020 -- ten's place
+* $1.60 \times 10^{-19}$ -- $10^{-21}$'st place
+* $6.022 \times 10^{23}$ -- $10^{20}$'st place
+* 7500 -- hundred's place
+* 750 -- ten's place
+* 750. -- one's place
+* 0.750 -- thousandth's place
+
+### Addition and Subtraction and Sig figs
+
+Multiplication and Division Rule: `min(num1.sig_figs, num2.sig_figs)`
+
+Addition and Subtraction Rule: `min(num1.decimal_places, num2.decimal_places)` [Choose the least precise]
+
+Addition Subtraction Examples:
+
+* $56.78 - 0.876 = 55.90$
+* $14.023 + 29.0034 + 0.11 = 43.14$
+* $14.023 + 29.0034 + 0.1100 = 43.136$
+* $75 + 110 + 83 = 270$
+* $620 + 530 + 450 = 1.60 \times 10^{3}$
+
+In general, your measurements limit the output sig figs
+
+## 1.9: Unit Conversion
+
+Dimensional Analysis
+
+$$
+\frac{1.27\text{ kg}}{} \times \frac{2.205\text{ lbs}}{\text{kg}} = 2.80\text{ lbs}
+$$
+
+$$
+\frac{5.0\text{ km}}{} \times \frac{1\text{ mile}}{1.61\text{ km}} = 3.1\text{ miles}
+$$
+
+1 mL = 1 $\text{cm}^{3}$
+
+$$
+\frac{2.014698447 \text{ cm}^{3}}{} \times \frac{1 \text{ mL}}{1 \text{ cm}^{3}} \times \frac{1\text{ oz}}{29.5735\text{ mL}} = 0.06813\text{ oz}
+$$
+
+Notice how the `3` in the following example does not affect the final number of significant figures
+
+$$
+\frac{109.4\text{ yards}}{} \times \frac{3 \text{ feet}}{1 \text{ yards}} = 328.2\text{ feet}
+$$
