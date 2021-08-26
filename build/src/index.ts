@@ -77,7 +77,7 @@ const courses : Course[] = [];
                 try {
                     topicMetadata = await parseCSV(topicMetadataFilePath);
                 } catch (e) {}
-                if (topicMetadata != null) topic.full_name = topicMetadata[0][1];
+                if (topicMetadata != null) topic.full_name = topicMetadata[0].slice(1).join(',');
                 course.topics.push(topic);
             }
             courses.push(course);

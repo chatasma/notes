@@ -1,0 +1,28 @@
+---
+title: "Atoms, Molecules, and Ions"
+date: "August 25th, 2021"
+output: pdf_document
+---
+
+## Fundamental Observations
+
+* Antoine Lavoisier (in 1774) noticed that reactions in sealed containers conserved mass. That is to say, **the mass before the chemical change was equal to the mass after the change**.
+  * The Law of Conservation of Mass
+* Joseph Proust noticed that when different quantities of material reacted chemically, the ratio of masses of the reactants was equal to the ratio of masses of the products.
+  * The Law of Constant Composition -- A chemical compound's components in terms of mass have a fixed ratio
+    * Oxygen makes up 8/9 of water and hydrogen makes up the remaining 1/9
+
+## The Law of Constant Composition
+
+Suppose we have 10.0g of some gas, which can be decomposed into two constituent elements: element A and element B.
+
+Suppose that the 10.0g of the compound decomposes into 4.67g of element A and 5.33g of element B. This means that there are 1.14 grams of element B for every 1 gram of element A. This ratio holds for any quantity of the compound gas.
+
+In example, if we had 11.5g of the compound now, this would decompose into 5.37g of element A and 6.13g of element B.
+
+## Dalton's Atomic Theory
+
+* Each chemical element is composed of indivisible particles, _atoms_.
+* Atoms of the same element have the same mass (among other properties). Atoms of different elements have different masses (among other properties).
+* In compounds, atoms of different elements make up **whole number** ratios.
+* Chemical reactions involve rearranging, separating, or combining atoms. We never create or destroy atoms.
