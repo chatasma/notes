@@ -1,0 +1,98 @@
+---
+title: "Architectures"
+date: "August 31st, 2021"
+output: pdf_document
+---
+
+## Outline
+
+* Architectural styles
+* System architectures
+* Client-Server Model
+
+## Architectural styles
+
+* Software architectures
+  * **Logical organization** of distributed systems into **software components**
+* Well, what's a component?
+  * A **modular unit** with a **well-defined interface** that can be replaced in its environment
+* Four important styles of software architecture
+  * Layered architectures
+  * Object-based architectures
+  * Data-centered architectures
+  * Event-based architectures
+
+### Layered Style
+
+A layered architecture allows components to call the component below it.
+
+### Object-Based Style
+
+Each object corresponds to a component, and components are connected by a procedure call mechanism
+
+### Event-Based Style
+
+Processes communicate via the propogation of **events** (Think of Pub/Sub).
+
+### Data-Centered Style
+
+Processes communicate via a **common repository of data**.
+
+## System Architecture
+
+How do we place the software components on _actual machines_?
+
+There are a few important architectures:
+
+* Centralized
+* Decentralized
+* Hybrid
+
+### Centralized Architecture
+
+A server provides a service to a client (could be a process) which requests the service.
+
+How do we draw a clear distinction between a client and a server?
+
+* There isn't one
+* Many client-server apps are targeted towards supporting user access to DBs
+  * The user-interface level
+  * The processing level
+  * The data level
+
+How do we distributed a client-server application? Well we can distribute it across multiple layers:
+
+**Multi-tiered architectures**: A user interface for example can reside on a client machine, where as a database and application can reside on a server machine.
+
+Another example of a multi-tiered architecture is multiple servers acting as a replacement to a single server (i.e. we have a separate server for the application and database).
+
+### Decentralized Architeture
+
+* Peer-to-peer systems
+  * Processes that constitute P2P are equal
+  * Much of the interaction is symmetic (nodes are both clients and servers)
+  * Focus on how to organize processes in an **overlay network** (structured (like a ring network) vs unstructured (randomized organization))
+
+How do we find stuff in unstructured P2P systems? If it's randomly organized then that'll be painful. One solution could be using **superpeers**. A superpeer acts as a broker for a number of peers. When a node wants to join the network, it is assigned to a superpeer, and its request are proxied by the superpeer (in a way, this is just a layer of centralization).
+
+
+### Hybrid Architectures
+
+This is when client-server solutions are combined with decentralized architectures.
+
+**Edge-server systems** are an example of hybrid architecture. Think about ISPs and end-users, there are a number of ISP servers that provide content to their own users.
+
+**Collaborative distributed systems** are also an example of a hybrid architecture. For example, here's how a file sharing service can be implemented on a collaborative distributed system: if you want to download something from the service, you can retrieve a list of nodes from some central server, and download different chunks of your files from the list of nodes. In this way it is collaborative because you rely on several nodes to provide the content.
+
+
+## Self-Management
+
+Adaptability in distributed systems can be achieve if systems can monitor themselves. This includes **autonomic systems** and **self- systems**.
+
+Three basic approaches to adaptive software:
+
+* Separation of concerns
+* Computational reflection (introspection)
+* Component-based design
+
+Feedback control & reinforcement learning are also more interesting approaches that can be used to achieve adaptability.
