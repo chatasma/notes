@@ -133,6 +133,14 @@ For anions the suffix becomes **-ide**.
 
 Some of these ion names just need to be memorized, especially the polyatomic ions..
 
+The monatomic cations/anions are pretty straightforward.
+
+Monatomic transition metal cations to know:
+
+* $\text{Al}^{3+}$
+* $\text{Zn}^{2+}$
+* $\text{Ag}^{+}$
+
 ## Ionic Compounds
 
 Ionic Compounds are electrically neutral, as they are composed of ionic bonds.
@@ -143,6 +151,60 @@ Ionic Compounds are electrically neutral, as they are composed of ionic bonds.
 ### Hydrates
 
 Certain ionic compounds absorb water molecules into their formula structures, known as **hydrates**. In terms of naming, you just append "<prefix>hydrate" to the compound's name.
+
+### Bonding
+
+Types of bonding:
+
+* Covalent bonding (molecular)
+* Ionic bonding
+* Metallic Bonding (not covered)
+
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+covalent_col = c("Electron Sharing", "Distinct Molecules", "Molecular Formula/Empirical Formula", "Nonmetal & Nonmetal")
+ionic_col = c("Electron Transfer", "Crystal Lattice Structures", "Unit Formula", "Metal & Nonmetal")
+df <- data.frame(covalent_col, ionic_col, stringsAsFactors = FALSE)
+colnames(df) <- c("Covalent", "Ionic")
+knitr::kable(df, escape = FALSE)
+```
+
+Formulas:
+
+* The **molecular formula** is the actual number of atoms in a type of molecule.
+* The **empirical formula** is the smallest whole number ratio of atoms.
+
+## Chemical Formulas
+
+_Distinctions between molecular and empirical formula_
+
+Ethanediol (Ethylene Glycol) is a molecule that consists of 2 carbons, 6 hydrogens, and 2 oxygens.
+
+Molecular formula (actual number of atoms):
+
+$\text{C}_{2}\text{H}_{6}\text{O}_{2}$
+
+Ethanediol empirical formula (smallest whole number ratio):
+
+$\text{C}\text{H}_{3}\text{O}$
+
+Methanol molecular formula:
+
+$\text{C}\text{H}_{4}\text{O}$
+
+Methanol empirical formula:
+
+$\text{C}\text{H}_{4}\text{O}$
+
+A **structural formula** shows the connections/bonds between atoms: depict atoms by their elemental symbol, and draw lines between them to denote the bonds.
+
+A **condensed structural formula** is similar to a structural formula, but it depicts the structure without any lines as contiguous text ($\text{C}\text{H}_{2}\text{O}\text{H}\text{C}\text{H}_{2}\text{O}\text{H}$).
+
+The **line angle formula** shows carbon groups. Each line's ends/angles represent a carbon, and the carbon's other bonds are hydrogen unless explicitly written out.
+
+Dimethyl peroxide is $\text{C}_{2}\text{H}_{6}\text{O}_{2}$. Notice it is the same formula as ethanediol, but these are different molecules. If two molecules have the same molecular formula, but different structural formulas, then they are called **isomers**.
+
+Ionic formulas must use **unit structure**. Consider a NaCl crystal. The crystal lattice might be composed of many sodium and chlorine atoms, but when we use unit structure we describe the atoms in their **smallest whole number ratio**.
 
 ## Covalent Compounds
 
