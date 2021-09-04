@@ -1,0 +1,279 @@
+---
+title: "Random Variables and Distributions"
+date: "September 2nd, 2021"
+output: pdf_document
+---
+
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
+
+## Random Variables
+
+Random variables, say $X$, are variables whose possible values (state space) are drawn from some random phenomenon.
+
+* Tossing a coin
+* Rolling a die
+
+There are two types of random variables:
+
+* Discrete
+* Continuous
+
+Mostly, discrete random variables will be used in this course.
+
+### Population vs. Sample
+
+Consider some column vector $D$ from a random variable $X$.
+
+We can assume that the observed data is a random sample drawn from $X$, each $x_{i}$ is iid (independently and identically distributed)
+
+In general, the distribution from which $X$ is drawn, as well as its moments. We have the sample, and from the sample we can derive its distribution and moments. Hopefully they are close to the population distribution and moments.
+
+
+### Histograms
+
+Suppose we have a discrete variable $X$ that can take the values 1, 2, 3, 4 with the following probabilities:
+
+* $1$: $0.2$
+* $2$: $0.3$
+* $3$: $0.4$
+* $4$: $0.10$
+
+Then the probability mass function can be described by the following histogram (which is essentially the probability mass function):
+
+```{r, echo = FALSE}
+wild <- c(1, 1, 2, 2, 2, 3, 3, 3, 3, 4)
+hist(wild, breaks = 0:4, col = "darkgreen", xlab = "X", main = "Histogram of X")
+```
+
+And this equation:
+
+$$
+\hat{f}(x) = P(X = x) = \frac{1}{n} \sum_{i=1}^{n} I(x_{i} = x)
+$$
+
+Where $I$ is the identity function:
+
+$$
+I(x_{i} = x) = \begin{cases} 
+  1 & \text{if } x_{i} = x \\
+  0 & \text{if } x_{i} \neq x \\
+\end{cases}
+$$
+
+In other words, the $\hat{f}(x)$ function maps all elements in the state space of $X$ to a 1 or 0, depending on whether the element is equal to $x$. It then takes the sum, which is just the number of elements that are equal to $x$. This is similar to how we can sum logical values in R
+
+```{r}
+values <- c(1, 1, 2, 2, 2, 3, 3, 3, 3, 4)
+# There are 2 1s in the values vector
+sum(values == 1)
+```
+
+$\hat{f}(1) = 2$, since the function basically just counts how many 1s there are in the state space.
+
+### Probability Density Function
+
+A probability density function (PDF) is similar to a probability mass function (PMF), but it is for continuous random variables.
+
+A density plot visualizes the underlying probability distribution of some data by drawing a continuous curve.
+
+## Measures of Central Tendency
+
+### Mean
+
+Mean (sample):
+
+$$
+\hat{\mu} = \frac{1}{n - 1} \sum_{i = 1}^{n} x_{i}
+$$
+
+Is the mean robust/stable? Robustness meaning the measure is not affected by extreme values.
+
+* Not really, an extreme number can impact the mean.
+* Rather, a _trimmed mean_ can be used, whose extreme values are discarded.
+
+
+Expectation of an r.v., what's the difference between the expected value and the mean?
+
+```{r}
+# Suppose we are rolling a die
+x <- c(1, 2, 3, 4, 5, 6)
+# The probability of rolling any of them is 1/6
+probabilities <- rep(1/6, each = 6)
+
+# What is the average value of the die in the long run? (This is the expected value)
+expected_value <- 0 
+for (i in 1:length(x)) {
+    expected_value <- expected_value + (x[i] * probabilities[i])
+}
+print(paste("Expected value:", expected_value))
+
+# Now suppose we roll the die just 10 times, what is the average? (This is the mean)
+rolls <- c(5, 2, 6, 2, 2, 1, 2, 3, 6, 1)
+print(paste("Mean: ", mean(rolls)))
+```
+
+Notice that the mean does not equal the expected value, the mean is some average of a number of observations. The expected value is the average in the long run.
+
+
+Properties of expectation:
+
+* $E[X+Y] = E[X] + E[Y]$ (Linearity of expectation)
+* $E[aX] = aE[X]$ (where $a$ is a constant)
+* $E[XY] = E[X] * E[Y]$ (iff $X$ and $Y$ are iid)
+* $E[E[X]] = E[X]$
+
+
+### Median
+
+Median (sample):
+
+$$
+P(X \leq m) \geq \frac{1}{2} \text{ and } P(x \geq m) \geq \frac{1}{2}
+$$
+
+Is the median stable? **Yes**, it isn't affected by extreme values, and it's an actual value that the random variable takes.
+
+### Mode
+
+Mode is the value at which the PMF attains its maximum value (which value appears the most).
+
+Not really a useful measure of central tendency, since it doesn't really tell you about the center.
+
+## Measures of Dispersion
+
+Measures of dispersion includes variance and standard deviation:
+
+* Variance: this tells us how much values of $X$ deviate from the expected value of $X$.
+* Sample variance: $var(X) = \sigma^{2} = \frac{1}{n - 1} \sum_{i = 1}^{n} (x_{i} - \hat{\mu})^{2}$
+* Sample standard deviation is the squared root of the sample variance
+
+## Other measures of central tendency
+
+Maximal deviation and Mean absolute deviation
+
+$$
+mad(X) \leq stddev(X) \leq maxdev(X)
+$$
+
+## Multivariates?
+
+If we have two random variables $X_{1}$ and $X_{2}$, how do we find the measures of central tendency for them?
+
+Geometrically, we can view the random variables in n-D space as column vectors.
+
+The first and second moments (mean and variance respectively) can be computed in the same manner, but a _vector_ is returned.
+
+* The variance can be computed for _each_ attribute, $\sigma_{1}^{2}$ for $X_{1}$ and $\sigma_{2}^{2}$ for $X_{2}$.
+* The total variance is given by $var(D) = \sigma_{1}^{2} + \sigma_{2}^{2}$.
+
+## Covariance and Correlation
+
+Measure of association: **Covariance**
+
+Covariance is the measure of association or linear dependence between two variables $X_{1}$ and $X_{2}$:
+
+$$
+cov(X_{1}, X_{2}) = \hat{\sigma}_{12} = \frac{1}{n - 1} \sum_{i = 1}^{n} (x_{i1} - \hat{\mu_{1}}) * (x_{i2} - \hat{\mu_{2}})
+$$
+
+A covariance matrix is one whose dimensions are n by n, where $n$ is the number of random variables. A value at row $i$ and column $j$ represents the covariance between random variables at column $i$ and at column $j$. This means across the diagonal of the covariance matrix is just the variance of the particular random variable, as $i = j$ across the diagonal.
+
+The variance of a covariance matrix is understood to be the sum of the diagonal (or the sum of the variances of the random variables). This is also called a trace, as well as the total variance.
+
+
+Releated to covariance is **correlation**.
+
+Correlation between two variables, $X_{1}$ and $X_{2}$ is the _standardized covariance_ obtained by normalizing the covariance with the standard deviation of each variable.
+
+Why do we have both covariance and correlation then?
+
+* The range of covariance: $[ - \infty , \infty ]$
+* The range of correlation: $[-1, 1]$
+* Correlation is dimensionless
+
+And of course, correlation != causation.
+
+### Collinearity
+
+* Correlation measures the relationship between two variables
+* Collinearity occurs when the two variables are so highly correlated that we can use one to predict another; i.e.o, one variable is a linear combination of the other variable.
+  * Multicollinearity occurs when > 2 predictor variables are inter-correlated
+
+## Distributions
+
+### Gaussian Distributions
+
+Also known as normal distributions
+
+* Parameterized by mean ($\mu$) and standard deviation ($\sigma$)
+* mean = median = mode
+    * 68% of the data resides within 1 standard deviation of the mean
+    * 95% of the data resides within 2 standard deviations of the mean
+    * 99.7% of the data resides within 3 standard deviations of the mean
+
+```{r}
+# Sample of 100 normally distributed numbers
+data <- rnorm(100)
+hist(data, main = "Normal Distribution")
+```
+
+### Binomial Distributions
+
+Binomal distributions are parameterized by the _number of trials_ $n$ and _probability of success in each trial_ $p$
+
+* The PMF is given by observing $x$ successes in $n$ trials: $\Comb{n}{x} p^{x} (1 - p)^{n - x}$
+* Mean: $np$
+* Median: $\lfloor np \rfloor$ or $\lceil np \rceil$
+* Variance: $np * (1-p)$
+
+
+### Poisson Distribution
+
+Expresses the probability of a given number of events $k$ occurring in a fixed interval of time if the events occur with a known constant mean rate $\lambda$ and independently of the time since the last event (memoryless property).
+
+* Mean = variance = $\lambda$
+
+
+### Power-law Distributions
+
+Relationships where one quantity varies as a power of another (Example: area of square quadruples where length is doubled).
+
+## Graphs
+
+### X-Y plots
+
+```{r}
+a <- rbinom(100, 50, 0.5)
+b <- rnorm(100, 3.0, 1.0)
+plot(a, b, xlab="r.v. from binomial dist.", ylab = "r.v. from normal dist.", main = "Graph!")
+```
+
+### Boxplots
+
+Boxplots: These tell us 5-number summaries (min, first quartile, median, third quartile, max).
+
+* IQR is the distance between the first and third quartile
+
+```{r}
+a <- rbinom(100, 50, 0.5)
+boxplot(a)
+```
+
+### Cumulative Distribution Function (CDF)
+
+* Example: $CDF(X, 15)$ tells us how much percent of the data is less than 15
+* If $X = [2, 7, 8, 9, 10, 15, 16, 20]$, then $CDF(X, 15) = \frac{6}{8} = 0.75$
+
+```{r}
+a <- c(2, 7, 8, 9, 10, 15, 16, 20)
+plot(ecdf(a), verticals = T, do.points = F)
+```
+
+* The derivaive of the CDF is the PDF (makes sense as CDF is the area under the curve of the PDF)
+
+## Debugging in R
+
+* Isolate the problem as best as you can
+* Reproduce the problem on a small dataset
+* Debugging is an art, it takes time to become proficient at it
