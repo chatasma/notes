@@ -1,0 +1,175 @@
+---
+title: "Communication"
+date: "September 4th, 2021"
+output: pdf_document
+---
+
+## Outline
+
+* Layered Protocols
+* Remote Procedure Call (RPC)
+* Issues:
+  * Parameter Passing
+  * Binding
+  * Failure Handling
+  * Performance and implementation issues
+
+## Communication Protocols
+
+* Protocols are agreements/rules on communication
+  * OSI model
+* Protocols could be connection-oriented, or connectionless
+
+## Layered Protocols
+
+A message as it appears on the network may contain headers/trailers that encapsulate the message as it traverse through the different layers in the OSI model. We can look at the OSI model in detail.
+
+### Physical Layer
+
+* **Goal**: Raw bits over some communication channel
+* Sample Issues:
+    * How to encode a 0 or 1
+    * What voltage should be uesd?
+    * How long does a bit need to be signaled?
+    * What kind of cable should be used?
+* Example:
+  * Modems
+
+### Data Link Layer
+
+* **Goal**: Transmits error free frames (really a vector of bits) over the physical link
+* Sample Issues:
+  * How big is a frame? (framing)
+  * How can errors be detected in sending the frame?
+  * What demarks the end of a frame?
+  * How to control access to a shared channel? (flow control)
+* Examples:
+  * Ethernet framing
+
+
+### Network Layer
+
+* **Goal**: Route packets from the source to destination
+* Sample Issues:
+  * How to route packets that have to travel several hops?
+  * Congestion control algorithm: traffic shaping, flow specifications, and bandwith reservation
+  * Accounting - charge for use of the network
+  * Fragment or combine packets depending on rules of link layer
+* Examples:
+  * IP
+
+### Transport Layer
+
+* **Goal**: Accurately transport session data in order
+* Sample Issues:
+  * How to order messages and detect duplicates
+  * Error detection (corrupt packets) and retransmission
+  * Connectionless or connection-oriented
+* Examples:
+  * TCP/UDP
+
+### Session and Presentation Layer
+
+* **Goal**: Common services shared by several apps
+* Sample Issues:
+  * Allows users on different machines to establish sesions between them
+  * Encodes data in a standard agreed upon way
+
+### Application Layer
+
+* **Goal**: Common types of exchanges standardized
+* Examples: FTP, SMTP, HTTP
+
+## Middleware Protocols
+
+Middleware:
+
+* An application that logically lives in the applicaiton layer
+* Contains many general-purpose protocols that warrant their own layers
+
+## Remote Procedure Call (RPC)
+
+* Client-Server provides a mechanism for services in distribyted systems, BUT
+  * Requires explicit communication (send/recv)
+    * We don't really want that, we want the communication to be transparent in a remote procedure call
+  * **How do we make distributed computing look like traditional computing?**
+    * Can we use procedure calls?
+
+In distributed systems, the callee can be on a one system, and the caller on another.
+
+* Remote Procedure Call (RPC)
+* We do NOT want explicit message passing
+
+
+Goal: **Make RPC look like a local procedure call**
+
+* Allow **remote services** to be called as procedures
+* Call should **not be aware** that the callee is actually on a different machine (and vice versa)
+
+### Conventional Procedure Call
+
+Parameters are pushed onto the stack, then the return address, and then the local variables are pushed onto the stack.
+
+### Observations
+
+Parameters in C:
+
+* *call by reference* OR *call by value*
+* Value parameters include like numbers, characters, etc.
+* Reference parameters include pointers, or addresses in our address space.
+* Many options are language dependent
+
+Remote procedure calls can simulate this through:
+
+* Stubs -- procies
+* Marshalling
+
+
+### Stubs
+
+* Suppose a client makes a procedure call (just like a local procedure call), but to a client stub
+* Server is written as a standard procedure
+* The stubs take care of packaging arguments, and sending messages
+* The packaging is called **marshalling**
+* Stub compilers can automatically generate stubs from specs in an IDL (interface definition language)
+
+### Steps of a Remote Procedure Call
+
+1. Client procedure calls client stub normally
+2. Stub builds message, calls local OS
+3. Client's OS sends message to remote OS
+4. Remote OS gives message to server stub
+5. Server stub unpacks parameters, calls server
+6. Server does work, returns result to the stub
+7. Server stub packs it into a message, calls local OS
+8. Server OS sends message to client OS
+9. Client OS gives message to client stub
+10. Client Stub unpacks result, and returns to client
+
+
+### Marshalling: Value Parameters
+
+Problem: Different machines can have different data formats..
+
+* Consider endianness
+
+### Marshalling: Reference Parameters
+
+Problem: How do we pass pointers?
+
+* If it points to a well defined data structure, ?
+* What about data structures containing pointers?
+
+## Implementation Issues
+
+* Choice of protocol
+* Copying costs are dominant overheads
+
+## Summary
+
+* RPCs make distributed computations look like local computations
+* Issues:
+  * Parameter passing
+  * Binding
+  * Failure Handling
+  * Performance and implementation issues
