@@ -583,6 +583,106 @@ pre code {
 <li>H with a polyatomic “ite” anion (<span class="math inline">\(\text{HNO}_{2}\)</span> is nitrous acid)</li>
 </ul>
 </div>
+<div id="introduction-to-organic-compounds" class="section level2">
+<h2>Introduction to Organic compounds</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Number</th>
+<th align="left">Formula</th>
+<th align="left">Condensed Formula</th>
+<th align="left">Prefix</th>
+<th align="left">name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">?</td>
+<td align="left"><span class="math inline">\(C_{n}H_{2n+2}\)</span></td>
+<td align="left"><span class="math inline">\(C_{n}H_{2n+2}\)</span></td>
+<td align="left">Alk-</td>
+<td align="left">Alkane</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left"><span class="math inline">\(CH_{4}\)</span></td>
+<td align="left"><span class="math inline">\(CH_{4}\)</span></td>
+<td align="left">Meth-</td>
+<td align="left">Methane</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left"><span class="math inline">\(C_{2}H_{6}\)</span></td>
+<td align="left"><span class="math inline">\(CH_{3}CH_{3}\)</span></td>
+<td align="left">Eth-</td>
+<td align="left">Ethane</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left"><span class="math inline">\(C_{3}H_{8}\)</span></td>
+<td align="left"><span class="math inline">\(CH_{3}CH_{2}CH_{3}\)</span></td>
+<td align="left">Prop-</td>
+<td align="left">Propane</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="left"><span class="math inline">\(C_{4}H_{10}\)</span></td>
+<td align="left"><span class="math inline">\(CH_{3}CH_{2}CH_{2}CH_{3}\)</span></td>
+<td align="left">But-</td>
+<td align="left">Butane</td>
+</tr>
+</tbody>
+</table>
+<div id="organic-nomenclature-functional-groups" class="section level3">
+<h3>Organic Nomenclature – Functional Groups</h3>
+<p>Three examples:</p>
+<ul>
+<li>Hydroxyl Group: -<span class="math inline">\(OH\)</span> alcohol</li>
+<li>Amine Group: -<span class="math inline">\(NH_{2}\)</span> amines</li>
+<li>Carboxyl Group: -<span class="math inline">\(COOH\)</span> carboxylic acid</li>
+</ul>
+<p>Examples of the functional groups:</p>
+<ul>
+<li><span class="math inline">\(CH_{3}CH_{3}\)</span> – Ethane (Alkane, no functional group)</li>
+<li><span class="math inline">\(CH_{3}CH_{2}OH\)</span> – Ethanol (Hydroxyl group)</li>
+<li><span class="math inline">\(CH_{3}CH_{2}NH_{2}\)</span> – Ethylamine (Amine group)</li>
+<li><span class="math inline">\(CH_{3}COOH\)</span> – acetic acid (Carboxyl group)</li>
+</ul>
+</div>
+</div>
+<div id="atomic-mass" class="section level2">
+<h2>Atomic Mass</h2>
+<p>Atomic mass is <strong>not</strong> the mass number of an element.</p>
+<ul>
+<li>The mass number is simply the number of protons + number of neutrons, a whole number.</li>
+<li>The atomic mass is the average mass of the isotopes in their natural abundances for a given element
+<ul>
+<li>Isotopes can have various number of neutrons, which contribute to the mass</li>
+<li>These masses can be fractions</li>
+<li>Put simply, atomic mass is the weighted average of the masses of isotopes and their relative abundances</li>
+</ul></li>
+</ul>
+<p><strong>Example</strong>: Chlorine has two naturally occurring isotopes:</p>
+<ul>
+<li><span class="math inline">\(^{35}Cl\)</span></li>
+<li><span class="math inline">\(^{37}Cl\)</span></li>
+</ul>
+<p>These mass numbers aren’t exactly the mass:</p>
+<ul>
+<li><span class="math inline">\(^{35}Cl\)</span> – 34.97 amu</li>
+<li><span class="math inline">\(^{37}Cl\)</span> – 36.96 amu</li>
+</ul>
+<p>We also need the relative abundances</p>
+<ul>
+<li><span class="math inline">\(^{35}Cl\)</span> – 75.78% abundance</li>
+<li><span class="math inline">\(^{37}Cl\)</span> – 24.22% abundance</li>
+</ul>
+<p>To calculate the atomic mass, we take a weighted average with the abundances acting as the weights:</p>
+<pre class="r"><code>weighted_cl35 &lt;- 34.97 * 0.7578
+weighted_cl37 &lt;- 36.86 * 0.2422
+weighted_cl35 + weighted_cl37</code></pre>
+<pre><code>## [1] 35.42776</code></pre>
+</div>
 
 
 

@@ -579,6 +579,191 @@ pre code {
 </ul></li>
 </ul>
 </div>
+<div id="case-study-sun-rpc" class="section level2">
+<h2>Case Study: Sun RPC</h2>
+<ul>
+<li>One of the most widely used RPC systems
+<ul>
+<li>Also known as Open Network Computing (ONC)</li>
+<li>Originally developed by Sun, now widely available</li>
+</ul></li>
+<li>Sun RPC package has an <strong>RPC compiler (rpcgen)</strong>
+<ul>
+<li>Automatically generates the client and server stubs</li>
+</ul></li>
+<li>RPC package uses <strong>XDR (eXternal Data Representation)</strong>
+<ul>
+<li>to represent data sent between client and server stubs</li>
+</ul></li>
+<li>Has built-in representation for basic types (int, float, char) &amp; <strong>a declarative language</strong> for specifying complex data types</li>
+</ul>
+<div id="binder-port-mapper" class="section level3">
+<h3>Binder: Port Mapper</h3>
+<p><strong>1. Server start-up:</strong></p>
+<ul>
+<li>Creates port</li>
+<li>Server stub calls <code>svc_register</code> to register program # and version # with local port mapper</li>
+<li>Port mapper stores the prog #, version #, and port</li>
+</ul>
+<p><strong>2. Client start-up:</strong></p>
+<ul>
+<li>Calls <code>clnt_create</code> to locate server port</li>
+<li>Upon return, client can start to call procedures at the server</li>
+</ul>
+</div>
+<div id="sun-rpc-programming" class="section level3">
+<h3>Sun RPC Programming</h3>
+<p>The RPC library is a <strong>collection of tools</strong> for automating the creation of RPC clients and servers</p>
+<ul>
+<li><strong>RPC clients</strong> are processes that call remote procedures</li>
+<li><strong>RPC servers</strong> are processes that include procedures which are called by clients</li>
+</ul>
+</div>
+<div id="rpc-library" class="section level3">
+<h3>RPC Library</h3>
+<ul>
+<li>XDR Routines – Data is translated into standardized XDR format</li>
+<li>RPC run time library
+<ul>
+<li>call rpc service, e.g. high-level client lib <code>call_rpc(..)</code></li>
+<li>register with portmapper, e.g. high-level server lib <code>registerrpc(..)</code></li>
+<li>dispatch incoming request to correct procedure, e.g. high-level server lib <code>svc_run(..)</code></li>
+</ul></li>
+<li>Program generator: RPCGEN</li>
+</ul>
+</div>
+<div id="example-rpc-programming" class="section level3">
+<h3>Example: RPC Programming</h3>
+<ol style="list-style-type: decimal">
+<li>Write RPC protocol specification file <code>foo.x</code></li>
+<li>Write server procedure <code>fooservices.c</code></li>
+<li>Write client procedure <code>foomain.c</code></li>
+</ol>
+</div>
+<div id="example-rpcgen" class="section level3">
+<h3>Example: RPCGEN</h3>
+<ul>
+<li>A tool for automating the creation of RPC client and servers.
+<ul>
+<li>The program <code>rpcgen</code> does most of the work for you.</li>
+<li>The input to <code>rpcgen</code> is a protocol definition in the form of a list of remote procedures and parameter types.</li>
+</ul></li>
+</ul>
+</div>
+<div id="using-sunrpc" class="section level3">
+<h3>Using SunRPC</h3>
+<ol style="list-style-type: decimal">
+<li><code>rpcgen -c foo.x</code></li>
+</ol>
+<ul>
+<li>foo_clnt.c (client stubs)</li>
+<li>foo_svc.c (server main)</li>
+<li>foo_xdr.c (xdr filters)</li>
+<li>foo.h (shared header file)</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><code>gcc -o fooclient foomain.c foo_clnt.c foo_xdr.c -lnsl</code></li>
+</ol>
+<ul>
+<li>foomain.c is the client main() (and possibly other functions) that call rpc services via the client stub functions in foo_clnt.c</li>
+<li>The client stubs use the xdr functions.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><code>gcc -o fooserver fooservices.c foo_svc.c foo_xdr.c -lrpcsvc -lnsl</code></li>
+</ol>
+<ul>
+<li>fooservices.c contains the definitions of the actual remote procedures</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Copy the server <code>fooserver</code> to the remote machine and run it in the background</li>
+<li>Now you can call the remote procedure on a local machine</li>
+</ol>
+</div>
+</div>
+<div id="lightweight-rpcs" class="section level2">
+<h2>Lightweight RPCs</h2>
+<ul>
+<li>Many RPCs occur between client and server on the same machine
+<ul>
+<li>use a <strong>lightweight RPC</strong> mechanism (LRPC)</li>
+</ul></li>
+<li>Server <em>S</em> exports interface to remote proceduresa</li>
+<li>Client <em>C</em> on same machine imports interface</li>
+<li>OS kernel creates data structures including an <strong>argument stack</strong> shared between S and C</li>
+</ul>
+</div>
+<div id="other-rpc-models" class="section level2">
+<h2>Other RPC Models</h2>
+<ul>
+<li>Asynchronous RPC
+<ul>
+<li>Server can reply as soon as request is received and execute procedure later</li>
+</ul></li>
+<li>Deferred-synchronous RPC
+<ul>
+<li>Use two asynchronous RPCs</li>
+<li>Client needs a reply but can’t wait for it; server sends reply via another asynchronous RPC</li>
+</ul></li>
+<li>One-way RPC
+<ul>
+<li>Client does not even wait for an ACK from the server</li>
+</ul></li>
+</ul>
+</div>
+<div id="remote-method-invocation-rmi" class="section level2">
+<h2>Remote Method Invocation (RMI)</h2>
+<ul>
+<li>RPCs applied to <strong>objects</strong>
+<ul>
+<li><strong>Class</strong>: object-oriented abstraction; module with data and operations</li>
+<li>Seperation between <strong>interface</strong> and <strong>implementation</strong></li>
+<li>Interface resides on one machine, implementation on another</li>
+</ul></li>
+<li>RMIs support <strong>system-wide object references</strong>
+<ul>
+<li>Parameters can be object references</li>
+</ul></li>
+</ul>
+</div>
+<div id="proxies-and-skeletons" class="section level2">
+<h2>Proxies and Skeletons</h2>
+<ul>
+<li>Proxy: client stub
+<ul>
+<li>Maintains server ID, endpoint, object ID</li>
+<li>Sets up and tears down connection with the server</li>
+<li>Does serialization of local object parameters</li>
+<li>In practice, can be downloaded/constructed on the fly</li>
+</ul></li>
+<li>Skeleton: server stub
+<ul>
+<li>Does deserialization and passes parameters to the server and sends results to the proxy</li>
+</ul></li>
+</ul>
+</div>
+<div id="static-vs-dynamic-rmi" class="section level2">
+<h2>Static vs Dynamic RMI</h2>
+<p>Static invocation</p>
+<ul>
+<li>Use predefined interface definitions</li>
+<li>Require that interfaces of an object are known when client application is being developed</li>
+</ul>
+<p>Dynamic invocation</p>
+<ul>
+<li>A method invocation is composed at runtime</li>
+<li>An application selects at runtime which method it will invoke for some remote object</li>
+</ul>
+</div>
+<div id="parameter-passing" class="section level2">
+<h2>Parameter Passing</h2>
+<ul>
+<li>Less restrictive RPCs
+<ul>
+<li>Supports system-wide object references</li>
+<li>Local objects passed by value, remote objects passed by reference</li>
+</ul></li>
+</ul>
+</div>
 
 
 
