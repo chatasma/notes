@@ -173,3 +173,129 @@ Problem: How do we pass pointers?
   * Binding
   * Failure Handling
   * Performance and implementation issues
+
+## Case Study: Sun RPC
+
+* One of the most widely used RPC systems
+  * Also known as Open Network Computing (ONC)
+  * Originally developed by Sun, now widely available
+* Sun RPC package has an **RPC compiler (rpcgen)**
+  * Automatically generates the client and server stubs
+* RPC package uses **XDR (eXternal Data Representation)**
+  * to represent data sent between client and server stubs
+* Has built-in representation for basic types (int, float, char) & **a declarative language** for specifying complex data types
+
+### Binder: Port Mapper
+
+**1. Server start-up:**
+
+* Creates port
+* Server stub calls `svc_register` to register program # and version # with local port mapper
+* Port mapper stores the prog #, version #, and port
+
+**2. Client start-up:**
+
+* Calls `clnt_create` to locate server port
+* Upon return, client can start to call procedures at the server
+
+### Sun RPC Programming
+
+The RPC library is a **collection of tools** for automating the creation of RPC clients and servers
+
+* **RPC clients** are processes that call remote procedures
+* **RPC servers** are processes that include procedures which are called by clients
+
+### RPC Library
+
+* XDR Routines -- Data is translated into standardized XDR format
+* RPC run time library
+  * call rpc service, e.g. high-level client lib `call_rpc(..)`
+  * register with portmapper, e.g. high-level server lib `registerrpc(..)`
+  * dispatch incoming request to correct procedure, e.g. high-level server lib `svc_run(..)`
+* Program generator: RPCGEN
+
+
+### Example: RPC Programming
+
+1. Write RPC protocol specification file `foo.x`
+2. Write server procedure `fooservices.c`
+3. Write client procedure `foomain.c`
+
+### Example: RPCGEN
+
+* A tool for automating the creation of RPC client and servers.
+  * The program `rpcgen` does most of the work for you.
+  * The input to `rpcgen` is a protocol definition in the form of a list of remote procedures and parameter types.
+
+### Using SunRPC
+
+1. `rpcgen -c foo.x`
+  * foo_clnt.c (client stubs)
+  * foo_svc.c (server main)
+  * foo_xdr.c (xdr filters)
+  * foo.h (shared header file)
+2. `gcc -o fooclient foomain.c foo_clnt.c foo_xdr.c -lnsl`
+  * foomain.c is the client main() (and possibly other functions) that call rpc services via the client stub functions in foo_clnt.c
+  * The client stubs use the xdr functions.
+3. `gcc -o fooserver fooservices.c foo_svc.c foo_xdr.c -lrpcsvc -lnsl`
+  * fooservices.c contains the definitions of the actual remote procedures 
+4. Copy the server `fooserver` to the remote machine and run it in the background
+5. Now you can call the remote procedure on a local machine
+
+
+## Lightweight RPCs
+
+* Many RPCs occur between client and server on the same machine
+   * use a **lightweight RPC** mechanism (LRPC)
+* Server _S_ exports interface to remote proceduresa
+* Client _C_ on same machine imports interface
+* OS kernel creates data structures including an **argument stack** shared between S and C
+
+## Other RPC Models
+
+* Asynchronous RPC
+  * Server can reply as soon as request is received and execute procedure later
+* Deferred-synchronous RPC
+  * Use two asynchronous RPCs
+  * Client needs a reply but can't wait for it; server sends reply via another asynchronous RPC
+* One-way RPC
+  * Client does not even wait for an ACK from the server
+
+## Remote Method Invocation (RMI)
+
+* RPCs applied to **objects**
+  * **Class**: object-oriented abstraction; module with data and operations
+  * Seperation between **interface** and **implementation**
+  * Interface resides on one machine, implementation on another
+
+* RMIs support **system-wide object references**
+  * Parameters can be object references
+
+## Proxies and Skeletons
+
+* Proxy: client stub
+  * Maintains server ID, endpoint, object ID
+  * Sets up and tears down connection with the server
+  * Does serialization of local object parameters
+  * In practice, can be downloaded/constructed on the fly
+* Skeleton: server stub
+  * Does deserialization and passes parameters to the server and sends results to the proxy
+
+## Static vs Dynamic RMI
+
+Static invocation
+
+* Use predefined interface definitions
+* Require that interfaces of an object are known when client application is being developed
+
+Dynamic invocation
+
+* A method invocation is composed at runtime
+* An application selects at runtime which method it will invoke for some remote object
+
+
+## Parameter Passing
+
+* Less restrictive RPCs
+  * Supports system-wide object references
+  * Local objects passed by value, remote objects passed by reference

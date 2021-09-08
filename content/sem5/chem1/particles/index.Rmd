@@ -217,3 +217,66 @@ Acids have a hydrogen atom as the first element. 3 categories:
 * H with an elemental anion (HF is Hydrofluoric acid)
 * H with a polyatomic "ate" anion ($\text{HNO}_{3}$ is nitric acid)
 * H with a polyatomic "ite" anion ($\text{HNO}_{2}$ is nitrous acid)
+
+## Introduction to Organic compounds
+
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+nums <- 0:4
+nums[1] <- "?"
+formula = c("$C_{n}H_{2n+2}$", "$CH_{4}$", "$C_{2}H_{6}$", "$C_{3}H_{8}$", "$C_{4}H_{10}$")
+condensed = c("$C_{n}H_{2n+2}$", "$CH_{4}$", "$CH_{3}CH_{3}$", "$CH_{3}CH_{2}CH_{3}$", "$CH_{3}CH_{2}CH_{2}CH_{3}$")
+prefix = c("Alk-", "Meth-", "Eth-", "Prop-", "But-")
+name = c("Alkane", "Methane", "Ethane", "Propane", "Butane")
+df <- data.frame(Nums = nums, Formula = formula, Condensed = condensed, Prefix = prefix, Name = name, stringsAsFactors = FALSE)
+colnames(df) <- c("Number", "Formula", "Condensed Formula", "Prefix", "name")
+knitr::kable(df, escape = FALSE)
+```
+
+### Organic Nomenclature -- Functional Groups
+
+Three examples:
+
+* Hydroxyl Group: -$OH$ alcohol
+* Amine Group: -$NH_{2}$ amines
+* Carboxyl Group: -$COOH$ carboxylic acid
+
+Examples of the functional groups:
+
+* $CH_{3}CH_{3}$ -- Ethane (Alkane, no functional group)
+* $CH_{3}CH_{2}OH$ -- Ethanol (Hydroxyl group)
+* $CH_{3}CH_{2}NH_{2}$ -- Ethylamine (Amine group)
+* $CH_{3}COOH$ -- acetic acid (Carboxyl group)
+
+## Atomic Mass
+
+Atomic mass is **not** the mass number of an element.
+
+* The mass number is simply the number of protons + number of neutrons, a whole number.
+* The atomic mass is the average mass of the isotopes in their natural abundances for a given element
+  * Isotopes can have various number of neutrons, which contribute to the mass
+  * These masses can be fractions
+  * Put simply, atomic mass is the weighted average of the masses of isotopes and their relative abundances
+
+**Example**: Chlorine has two naturally occurring isotopes:
+
+* $^{35}Cl$ 
+* $^{37}Cl$
+
+These mass numbers aren't exactly the mass:
+
+* $^{35}Cl$ -- 34.97 amu
+* $^{37}Cl$ -- 36.96 amu
+
+We also need the relative abundances
+
+* $^{35}Cl$ -- 75.78% abundance
+* $^{37}Cl$ -- 24.22% abundance
+
+To calculate the atomic mass, we take a weighted average with the abundances acting as the weights:
+
+```{r}
+weighted_cl35 <- 34.97 * 0.7578
+weighted_cl37 <- 36.86 * 0.2422
+weighted_cl35 + weighted_cl37
+```
