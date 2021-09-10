@@ -299,3 +299,60 @@ Dynamic invocation
 * Less restrictive RPCs
   * Supports system-wide object references
   * Local objects passed by value, remote objects passed by reference
+
+### Persistence and Synchronicity combinations
+
+* **Persistent**: Receiver does not need to be running, message is persistent
+* **Transient**: Receiver needs to be running, otherwise message is discarded
+
+* **Async**: Sender continues immediately after it submits its message
+* **Sync**: Sender waits on a message to be stored in a local buffer **at the receiving host**, or actually delivered to the receiver.
+
+* **Delivery-based**: Waits for an ACK from receiver
+* **Response-based**: Waits for receiver to process request
+
+RPC & RMI belong to **transient synchronous communication**.
+
+## Message-oriented Transient Communication
+
+Many distributed systems are built on top of simple **message-oriented** model
+
+* Transport-level: Berkeley sockets
+  * Sockets are a logical communication endpoint (send/recv)
+
+
+### Message-Passing Interface (MPI)
+
+* Sockets are designed for **network communication** (TCP/IP)
+  * Simple send/receive primitives
+  * Use general-purpose protocol stacks like TCP/IP
+
+Sockets are **not a suitable abstraction** for other protocols in clusters or massively parallel systems
+
+MPI
+
+* Hardware independent
+* Designed for parallel applications on clusters
+* Transient (sync/async) communication
+* Key idea: Communication between groups of processes
+  * An endpoint can be represented as: (groupID, processID)
+  * Tons of primitives to facilitate this
+
+## Message-oriented Persistent Communication
+
+These provide intermediate storage for messages, when a sender/receiver is inactive
+
+* Example: Email
+
+The only guarantee to the sender is that their message will be delivered to the receiver **queue** (does not guarantee actual processing of the message).
+
+A data stream is a sequence of data units:
+
+* Discrete stream
+* Continuous stream
+
+For continuous streams:
+
+* Async Transmission mode: Data items are transmitted sequentially, w/ no timing constraints
+* Sync Transmission mode: Maximum end-to-end delay for each data unit
+* Isochronous Transmission mode: Data units are transferred at a particular time
