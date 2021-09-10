@@ -763,6 +763,69 @@ pre code {
 <li>Local objects passed by value, remote objects passed by reference</li>
 </ul></li>
 </ul>
+<div id="persistence-and-synchronicity-combinations" class="section level3">
+<h3>Persistence and Synchronicity combinations</h3>
+<ul>
+<li><p><strong>Persistent</strong>: Receiver does not need to be running, message is persistent</p></li>
+<li><p><strong>Transient</strong>: Receiver needs to be running, otherwise message is discarded</p></li>
+<li><p><strong>Async</strong>: Sender continues immediately after it submits its message</p></li>
+<li><p><strong>Sync</strong>: Sender waits on a message to be stored in a local buffer <strong>at the receiving host</strong>, or actually delivered to the receiver.</p></li>
+<li><p><strong>Delivery-based</strong>: Waits for an ACK from receiver</p></li>
+<li><p><strong>Response-based</strong>: Waits for receiver to process request</p></li>
+</ul>
+<p>RPC &amp; RMI belong to <strong>transient synchronous communication</strong>.</p>
+</div>
+</div>
+<div id="message-oriented-transient-communication" class="section level2">
+<h2>Message-oriented Transient Communication</h2>
+<p>Many distributed systems are built on top of simple <strong>message-oriented</strong> model</p>
+<ul>
+<li>Transport-level: Berkeley sockets
+<ul>
+<li>Sockets are a logical communication endpoint (send/recv)</li>
+</ul></li>
+</ul>
+<div id="message-passing-interface-mpi" class="section level3">
+<h3>Message-Passing Interface (MPI)</h3>
+<ul>
+<li>Sockets are designed for <strong>network communication</strong> (TCP/IP)
+<ul>
+<li>Simple send/receive primitives</li>
+<li>Use general-purpose protocol stacks like TCP/IP</li>
+</ul></li>
+</ul>
+<p>Sockets are <strong>not a suitable abstraction</strong> for other protocols in clusters or massively parallel systems</p>
+<p>MPI</p>
+<ul>
+<li>Hardware independent</li>
+<li>Designed for parallel applications on clusters</li>
+<li>Transient (sync/async) communication</li>
+<li>Key idea: Communication between groups of processes
+<ul>
+<li>An endpoint can be represented as: (groupID, processID)</li>
+<li>Tons of primitives to facilitate this</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="message-oriented-persistent-communication" class="section level2">
+<h2>Message-oriented Persistent Communication</h2>
+<p>These provide intermediate storage for messages, when a sender/receiver is inactive</p>
+<ul>
+<li>Example: Email</li>
+</ul>
+<p>The only guarantee to the sender is that their message will be delivered to the receiver <strong>queue</strong> (does not guarantee actual processing of the message).</p>
+<p>A data stream is a sequence of data units:</p>
+<ul>
+<li>Discrete stream</li>
+<li>Continuous stream</li>
+</ul>
+<p>For continuous streams:</p>
+<ul>
+<li>Async Transmission mode: Data items are transmitted sequentially, w/ no timing constraints</li>
+<li>Sync Transmission mode: Maximum end-to-end delay for each data unit</li>
+<li>Isochronous Transmission mode: Data units are transferred at a particular time</li>
+</ul>
 </div>
 
 
