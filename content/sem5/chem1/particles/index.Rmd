@@ -1,7 +1,13 @@
 ---
 title: "Atoms, Molecules, and Ions"
 date: "August 25th, 2021"
-output: pdf_document
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: true
+    toc_float: false
+header-includes: \usepackage{mhchem}
 ---
 
 ## Fundamental Observations
@@ -34,7 +40,7 @@ This one is a bit different than constant composition.
 
 It states that if we have 2 compounds who are composed of the same elements (lets say the compounds were composed of elements A and B), that the ratio of the ratio of A to B (or B to A) of one compound to the other is a whole number. That was a mouthful.
 
-To put it into context, consider the previous compound where we had 1.14 grams of element B for every gram of element A. Then, let's say we have another compond is composed of 69.6% element B and 30.4% element A. The ratio of B to A is 2.28 in this scenario, which evenly divides into 1.14 for a ratio of ratios of 2, a whole number. This tells us that the latter compound has twice as many B atoms for every B atom in the former compound.
+To put it into context, consider the previous compound where we had 1.14 grams of element B for every gram of element A. Then, let's say we have another compound is composed of 69.6% element B and 30.4% element A. The ratio of B to A is 2.28 in this scenario, which evenly divides into 1.14 for a ratio of ratios of 2, a whole number. This tells us that the latter compound has twice as many B atoms for every B atom in the former compound.
 
 How can we explain this? One way we can explain this is that the molecules in the former compound are arranged as AB, and the latter compound is arranged as AB~2~.
 
@@ -95,7 +101,7 @@ A few examples:
 
 It is important to know how the periodic table is laid out, so here's a convenient picture:
 
-![Periodic Table](https://i.imgur.com/ktnkHTK.png)
+![Periodic Table](../../../../img/periodic_table.png)
 
 ### Elements to know by name
 
@@ -146,7 +152,7 @@ Monatomic transition metal cations to know:
 Ionic Compounds are electrically neutral, as they are composed of ionic bonds.
 
 * Binary Ionic Compounds -- These will have one metal element with a single possible positive charge as the cation, and one non-metal element with a single possible negative charge as the anion.
-* Metal cation with Polyatomic anion -- These will have one metal element with a single possible positive charge as the cation, and a polyatomic anion with a single possible minus charge as he anion (very similar to the binary ionic compound)
+* Metal cation with Polyatomic anion -- These will have one metal element with a single possible positive charge as the cation, and a polyatomic anion with a single possible minus charge as the anion (very similar to the binary ionic compound)
 
 ### Hydrates
 
@@ -280,3 +286,280 @@ weighted_cl35 <- 34.97 * 0.7578
 weighted_cl37 <- 36.86 * 0.2422
 weighted_cl35 + weighted_cl37
 ```
+
+## Moles
+
+**Mole**: $6.022 \times 10^{23}$ elementary units per mole (Avogadro's number: $N_{A}$)
+
+Definition: 1 mole of $^{12} C$ atoms has a mass of 12 grams **exactly**. 
+
+$1\text{ g} = 6.022 \times 10^{23}\text{ amu}$
+
+1.27 grams of Carbon to moles?
+
+$$
+\frac{1.27\text{ g}}{} * \frac{1\text{ mol}}{12.011\text{ g}} = 0.106\text{ mol of Carbon}
+$$
+
+Moles to atoms?
+
+$$
+0.10573\text{ mol} * \frac{6.022 \times 10^{23}\text{ atoms}}{\text{mol}} = 6.37 \times 10^{22}\text{ atoms}
+$$
+
+## 5 skills of Mass Composition
+
+1. Calculate molar mass of a substance from its formula
+2. Convert between grams, moles, molecules, atoms
+3. Determine percent composition by mass
+4. Determine empirical formula from:
+   a. Percent composition
+   b. Combustion analysis data
+5. Finding a molecular formula from an empirical formula and molar mass
+
+### Example: Molar Mass of a substance
+
+1. What is the molar mass of methanol ($CH_{3}OH$)?
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+element_symbols <- c("C", "H", "O")
+atoms_quantities <- c(1, 4, 1)
+atomic_masses <- c("12.011 g/mol", "1.00794 g/mol", "15.9994 g/mol")
+mass_contribution <- c("12.011 g/mol", "4.03176 g/mol", "15.9994 g/mol")
+df <- data.frame(element_symbols, atoms_quantities, atomic_masses, mass_contribution, stringsAsFactors = FALSE)
+colnames(df) <- c("Elements", "Atoms", "Atomic Mass", "Mass contribution of each element")
+knitr::kable(df, escape = FALSE)
+```
+
+Sum the mass contribution for each element: $32.04216\text{ g/mol}$. This is the atomic mass of methanol.
+
+### Example: Conversions for mass
+
+Sample of methanol has a mass of 79.18 g. How many atoms are in the sample?
+
+* Total atoms
+* Carbon atoms
+* Hydrogen atoms
+
+Let's convert from mass to moles. Notice that we have already calculated the molar mass in the previous example: $32.04216\text{ g/mol}$.
+
+$$
+\frac{79.18\text{ g}}{} * \frac{1\text{ mol}}{32.042\text{ g}} = 2.47\text{ mol of methanol} 
+$$
+
+Moles to molecules
+
+$$
+\frac{2.4711364\text{ mol}}{} * \frac{6.022 \times 10^{23}\text{ molecules}}{\text{ mol}} = 1.488 \times 10^{24}\text{ molecules}
+$$
+
+Atoms
+
+$$
+\frac{1.488 \times 10^{24}\text{ molecules}}{} * \frac{6\text{ atom}}{\text{molecule}} = 8.928 \times 10^{24}\text{ atoms} 
+$$
+
+Carbon atoms
+
+$$
+\frac{1.488 \times 10^{24}\text{ molecules}}{} * \frac{1\text{ C atom}}{\text{molecule}} = 1.488 \times 10^{24}\text{ atoms} 
+$$
+
+Can do the same for hydrogen
+
+## Percent Composition for Chemical Formula
+
+Divide each mass contribution for each element by the total molar mass. This gives you the percent composition.
+
+```{r}
+atomic_masses <- c(12.011, 4.03176, 15.9994)
+total_mass <- sum(atomic_masses)
+((atomic_masses) / total_mass) * 100
+```
+
+## Determine empirical formula from mass percent
+
+For a certain compound, the mass percent is:
+
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+symbols <- c("C", "Cl", "H")
+percent_mass <- c("24.27%", "71.65%", "4.07%")
+df <- data.frame(symbols, percent_mass, stringsAsFactors = FALSE)
+colnames(df) <- c("Element", "Percent Mass")
+knitr::kable(df, escape = FALSE)
+```
+
+What is the empirical formula of this compound?
+
+We can think of this question as:
+
+* Assume a 100g sample, we have:
+  * 24.27 g of C
+  * 71.65 g of Cl
+  * 4.07 g of H
+
+Convert to moles, then divide by smallest value:
+
+```{r}
+masses <- c(24.27, 71.65, 4.07)
+atomic_masses <- c(12.011, 35.4527, 1.00794)
+# Moles conversion
+moles <- masses / atomic_masses
+# Get smallest value of mole for the empirical formula
+smallest_value <- min(moles)
+moles / smallest_value
+round(moles / smallest_value)
+```
+
+### Determine empirical formula from mass percent (second example)
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+symbols <- c("Na", "Cr", "O")
+percent_mass <- c("17.55%", "39.70%", "42.75%")
+df <- data.frame(symbols, percent_mass, stringsAsFactors = FALSE)
+colnames(df) <- c("Element", "Percent Mass")
+knitr::kable(df, escape = FALSE)
+```
+
+```{r}
+masses <- c(17.55, 39.70, 42.75)
+atomic_masses <- c(22.99, 52.00, 16.00)
+# Moles conversion
+moles <- masses / atomic_masses
+# Get smallest value of mole for the empirical formula
+smallest_value <- min(moles)
+moles / smallest_value
+```
+
+We can double these to get our whole number ratio
+
+```{r}
+masses <- c(17.55, 39.70, 42.75)
+atomic_masses <- c(22.99, 52.00, 16.00)
+# Moles conversion
+moles <- masses / atomic_masses
+# Get smallest value of mole for the empirical formula
+smallest_value <- min(moles)
+2 * (moles / smallest_value)
+```
+
+## Combustion Analysis
+
+Combustion analysis of a C, H, and N compound.
+
+A sample of 0.1156g yields 0.1638g $CO_{2}$ and 0.1676g $H_{2}O$.
+
+1. Find moles of $CO_{2}$
+2. Find moles of $C$
+3. Find moles of $H_{2}O$
+4. Find moles of $H$
+5. Find mass of $C$
+6. Find mass of $H$
+7. Find mass of $N$
+8. Find moles of $N$
+9. Find smallest whole number ratio
+
+```{r}
+total_sample_mass <- 0.1156
+carbondioxide_sample <- 0.1638
+water_sample <- 0.1676
+
+carbondioxide_molarmass <- 44.01
+carbon_molarmass <- 12.011
+water_molarmass <- 18.01
+hydrogen_molarmass <- 1.00794
+nitrogen_molarmass <- 14.00674
+
+carbondioxide_moles <- carbondioxide_sample / carbondioxide_molarmass
+carbon_moles <- carbondioxide_moles
+carbon_mass <- carbon_moles * carbon_molarmass
+
+water_moles <- water_sample / water_molarmass
+# For every mole of H2O, there are 2 moles of H
+hydrogen_moles <- 2 * water_moles
+hydrogen_mass <- hydrogen_moles * hydrogen_molarmass
+
+nitrogen_mass <- total_sample_mass - (carbon_mass + hydrogen_mass)
+nitrogen_moles <- nitrogen_mass / nitrogen_molarmass
+
+smallest <- min(carbon_moles, hydrogen_moles, nitrogen_moles)
+result <- c(carbon_moles, hydrogen_moles, nitrogen_moles) / smallest
+paste0("Carbon moles ", result[1])
+paste0("Hydrogen moles ", result[2])
+paste0("Nitrogen moles ", result[3])
+```
+
+So, our empirical formula is: $CH_{5}N$
+
+## Molecular Formula from Empirical Formula and Molar Mass
+
+Say we have this compound: $CH_{2}Cl$
+
+With this molecular mass: 98.95 g/mol
+
+1. Find molar mass of empirical formula
+
+```{r}
+carbon_mass <- 12.011
+hydrogen_mass <- 1.00794
+chlorine_mass <- 35.4527
+
+molar_mass <- 1 * carbon_mass + 2 * hydrogen_mass + 1 * chlorine_mass
+molar_mass
+```
+
+2. Divide molecular mass by molar mass of empirical formula
+
+```{r}
+round(98.95 / 49.47968)
+```
+
+3. This represents the scaling factor that we apply to the empirical formula. Apply scale to empirical formula.
+
+```{r}
+paste0("Carbon scaled up to ", 2 * 1)
+paste0("Hydrogen scaled up to ", 2 * 2)
+paste0("Chlorine scaled up to ", 2 * 1)
+```
+
+So, the molecular formula is $C_{2}H_{4}Cl_{2}$.
+
+## 5 Skills of Quantifying Substances in Chemical Reactions
+
+1. Writing and balancing chemical reactions
+2. Stoichiometry (quantifying substances in chemical rxns)
+3. Limiting reagents (reactants that bottleneck the reaction)
+4. Excess reagents (reactants leftover due to the bottleneck)
+5. Yields (actual yield / theoretical yield is the percent yield, where theoretical is actual if all of the excess could be used)
+
+### 3 Parts to a chemical equation (expression)
+
+$$
+A + B \rightarrow C + D
+$$
+
+A and B are **reactants (reagents)** (everything on the left hand side of the arrow).
+
+C and D are **products** (everything on the right hand side of the arrow).
+
+Rxn arrow indicates that a chemical reaction takes place.
+
+* $\rightarrow$ indicates forward rxn only (at least for this semester)
+* bidirectional arrow indicates equilibrium rxn (not this semester)
+
+Products appear on the right hand side, and represent the results of a rxn.
+
+### Balancing experssions
+
+A couple of heuristics:
+
+1. Look for elements that only appear once on each side, and balance those first.
+2. If an element appears by itself, balance last.
+
+### Stoichiometry
+
+1. Find moles of reactant, or the limiting reactant if there is one
+2. Ensure that is it not in excess (otherwise, find the limiting reactant)
+3. Use mole ratio to find the product
+4. Can find mass using molar mass

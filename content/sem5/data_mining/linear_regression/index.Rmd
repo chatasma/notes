@@ -1,0 +1,53 @@
+---
+title: "Linear Regression"
+date: "September 9th, 2021"
+output: pdf_document
+---
+
+## Linear regression: Theory
+
+A statistical process for estimating the relationship among variables.
+
+* A response variable (dependent variable, $Y$)
+* Predictor variable(s) (independent variable(s))
+
+Widely used **predicting** and **forecasting**.
+
+### Least Squares Estimation
+
+We will study the least squares estimation method.
+
+Simple linear regression equation: $Y = \beta_{0} + \beta_{1} X$. $\beta_{0}$ and $\beta_{1}$ are also called model _coefficients_, or _parameters_, or _weights_. We will use the dataset to produce _estimates_ of our weights, so that we can predict new values using the linear regression equation.
+
+Since we estimate our weights, there will be some error from the actual and predicted.
+
+* The error is called the _residual_
+  * $\epsilon_{i} = y_{i} - \hat{y}_{i} = ( \beta_{0} + \beta_{1} x_{i} ) - ( \beta_{0} + \beta_{1} x_{i} ) \forall i$
+
+This is our optimization problem (we want to minimize the residuals for all of the data points):
+
+$$
+\text{min } \sum_{i=1}^{N} ( y_{i} - \hat{\beta}_{0} - \hat{\beta}_{1} x_{i} )^{2}
+$$
+
+This sum of residuals is known as the residual sum of squares (RSS):
+
+$$
+RSS = \epsilon_{1}^{2} + \epsilon_{2}^{2} + ... + \epsilon_{n}^{2}
+$$
+
+It turns out that we can derive our weights analytically from the RSS thanks to calculus:
+
+$$
+\hat{\beta}_{1} = \frac{\sum ( y_{i} - \bar{y} ) ( x_{i} - \bar{x} ) }{\sum ( x_{i} - \bar{x} )^{2}}
+$$
+
+$$
+\hat{\beta}_{0} = \bar{y} - \hat{\beta}_{1} \bar{x}
+$$
+
+In reality, we need a catch-all ( $\epsilon$ ) for what is missed by our model:
+
+$$
+Y = \beta_{0} + \beta_{1} X + \epsilon
+$$
