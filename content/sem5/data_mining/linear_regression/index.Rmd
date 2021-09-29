@@ -51,3 +51,24 @@ In reality, we need a catch-all ( $\epsilon$ ) for what is missed by our model:
 $$
 Y = \beta_{0} + \beta_{1} X + \epsilon
 $$
+
+### Model Fit
+
+**How well does a model fit its data?**
+
+The following stats describe this:
+
+* Residual Standard Error (RSE): $\sqrt{\frac{1}{n - p - 1} RSS}$
+* $R^{2}$
+* Residual Mean Standard Error (RMSE): $\sqrt{\frac{(\sum{y_{i} - \hat{y}_{i})^{2}}}{N}}$
+
+### Residual Analysis
+
+Residual analysis helps tell us whether a model fits its data:
+
+* Residuals should not vary too much between low and high values of the fitted values
+* Centered on 0 through the range of fitted values
+* Residuals should be normally distributed
+* Residuals must be uncorrelated to each other
+
+

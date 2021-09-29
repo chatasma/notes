@@ -1,0 +1,349 @@
+---
+title: "Solutions"
+date: "September 22nd, 2021"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: true
+    toc_float: false
+header-includes: \usepackage{mhchem}
+---
+
+## Solutions
+
+Two types to discuss this semester:
+
+* Aqeueous
+* General solutions
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+properties <- c("solvent", "solute")
+aqeueous_vals <- c("water", "Substance dissolved in the water (primarily ionic compounds/salts)")
+general_vals <- c("Major component of the mixture", "Substance dissolved in the solvent")
+df <- data.frame(properties, aqeueous_vals, general_vals)
+colnames(df) <- c("Solutions", "Aqeueous", "General")
+knitr::kable(df, escape = FALSE)
+```
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+sol_types <- c("Strong electrolytes", "Non-electrolytes",  "Weak electrolytes")
+rxns <- c("Acid/Base", "Precipitation",  "Reduction-Oxidation or Oxidation-Reduction (redox)")
+eqns <- c("Molecular", "Total Ionic",  "?")
+df <- data.frame(sol_types, rxns, eqns)
+colnames(df) <- c("Solution Types", "Reactions", "Equations")
+knitr::kable(df, escape = FALSE)
+```
+
+## Solution Types
+
+**Strong electrolytic** (complete dissolution) solution
+
+* Strong electrolytic solutions are good conductors of electricity
+* We say that $NaCl$ is soluble in water: complete dissolution
+  * Molecular Equation: $NaCl\text{ (s)} \rightarrow NaCl \text{ (aq)}$
+* **Dissolution**: Ions that make up the compound *dissociate* from each other in solution.
+
+$$
+NaCl (s) \rightarrow Na^{+} (aq) + Cl^{-} (aq)
+$$
+
+**Non-electrolytic** solution
+
+* Non-conductive of electricity
+* Solutes of non-ionic compounds
+* No dissociation (like dissolves like)
+
+**Weak electrolytic** solution
+
+* Partial dissociation of ions
+* Acetic acid dissolves to an acetate ion and a hydrogen ion (the acid/proton)
+* Poor conductors of electricity
+
+## Acid Base Reactions
+
+Arrhenius definition of acids and bases
+
+* Acid is a source of $H^{+}\text{ (aq)}$ (proton), or hydronium $H_{3}O^{+}\text{ (aq)}$.
+* Base is a source of $OH^{-}\text{ (aq)}$ (hydroxide anion).
+
+
+### Strong Acids and Strong Bases
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+strong_acids <- c("$HCl$ hydrochloric", "$HBr$ Hydrobromic", "$HI$ Hydroiodic",
+    "$HNO_{3}$ Nitric", "$HClO_{4}$ Perchloric", "$HClO_{3}$ Chloric acid", "$H_{2}SO_{4}$ Sulfuric", "")
+strong_bases <- c("$LiOH$", "$NaOH$", "$KOH$", "$RbOH$", "$CsOH$", "$Ca(OH)_{2}$", "$Sr(OH)_{2}$", "$Ba(OH)_{2}$")
+df <- data.frame(strong_acids, strong_bases, stringsAsFactors = FALSE)
+colnames(df) <- c("Strong Acids", "Strong Bases")
+knitr::kable(df, escape = FALSE)
+```
+
+* $HF$ is **not** a strong acid
+
+## Redox Reaction
+
+### Assigning Oxidation numbers
+
+**Neutral elements and monatomic ions**:
+
+- Neutral elements: the oxidation number equals zero
+  - $Ne$, monatomic gas
+  - $N_{2}$/$O_{2}$, diatomic molecules
+  - $O_{3}$, triatomic
+  - $Ag$, metal
+- Monatomic ions: oxidation number equals charge on the ion
+  - $Li^{+}$ has an oxidation number of 1
+  - $Ba^{2+}$ has an oxidation number of 2
+  - $N^{3-}$ has an oxidation number of -3
+
+**Polyatomic species**:
+
+- Neutral molecules: sum of oxidation numbers = 0
+    - Carbon Monoxide ($CO$) has sum of O: $O$ is -2, $C$ is +2
+    - Carbon Dioxide ($CO_{2}$) has sum of O: $O$ is -2, $C$ is +4 (there are two oxygens)
+- Polyatomic ions: sum of oxidation numbers = charge of ion
+    - Nitrite has a charge of -1 ($NO_{2}^{-}$). Oxygen is -2, Nitrogen is +3 (note: 2 oxygens, and must add up to -1)
+
+### Priority in Assigning Oxidation Numbers
+
+1. Group 1 Alkali Metals get $+1$
+2. Group 2 Alkali Earth Metals get $+2$
+3. Fluorine gets $-1$
+4. Hydrogen gets $+1$
+5. Oxygen gets $-2$
+6. Group 17 (except F) gets $-1$
+7. Group 16 (except O) gets $-2$
+8. Group 15 gets $-3$
+
+### Example: Assigning Oxidation Numbers
+
+* $H_{2}$ (g) gets 0, it is a neutral diatomic molecule
+* $MnO_{2}$ (s) as a sum gets 0, it is a neutral compound
+  * $O$ is first, it gets -2
+  * $Mn$ has to be +4
+* $MnO_{4}^{-}$ (aq) as a sum gets -1, it is a polyatomic ion
+  * $O$ goes first with -2
+  * $Mn$ gets -7 (to sum to -1)
+* $Fe$ (s) gets 0 (neutral monatomic)
+* $Fe^{2+}$ (aq) gets +2
+* $K_{2}Cr_{2}O_{7}$ (aq) gets 0 as a sum
+  * $K$ gets +1
+  * $O$ gets -2
+  * $Cr$ gets +6
+* $CClF_{3}$ gets 0 as a sum
+  * $F$ gets -1
+  * $Cl$ gets -1
+  * $C$ gets +4
+* $ClF_{3}$ gets 0 as a sum
+  * $F$ gets -1
+  * $Cl$ gets +3
+* $H_{2}O$ gets 0 as a sum
+  * $H$ gets +1
+  * $O$ gets -2
+* $H_{2}O_{2}$ (hydrogen peroxide) gets 0 as a sum
+  * $H$ gets +1
+  * $O$ gets -1
+  * In peroxides, $O$ is -1.
+
+### Redox reactions
+
+Reduction-Oxidation and Oxidation-Reduction rxns are known as "redox" rxns.
+
+* Redox rxns are where there ox. number (also called ox. state) of at least one element changes
+
+Combusion Rxn:
+
+$$
+CH_{4} + 2O_{2} \rightarrow CO_{2} + 2H_{2}O
+$$
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+elements = c("C", "H", "O")
+reactant_side = c("-4", "+1", "0")
+product_side = c("+4", "+1", "-2")
+difference = c("+8", "0", "-2")
+charge = c("8", "0", "-2")
+df <- data.frame(elements, reactant_side, product_side, difference, charge, stringsAsFactors = FALSE)
+colnames(df) <- c("Elements", "Reactant Side", "Product Side", "Difference", "Charge")
+knitr::kable(df, escape = FALSE)
+```
+
+* **Reduction** is a _reduction_ in the oxidation number
+  * In the example, this means Oxygen is reduced
+* **Oxidation** is an _increase_ in the oxidation number
+  * In the example, this means Carbon is oxidized
+
+Associated idea:
+
+* Oxidizing agent  
+  * Thing that does the oxidation
+  * Element that is reduced 
+  * This is Oxygen in the example
+* Reducing agent  
+  * Thing that does the reduction
+  * Element that is oxidized 
+  * This is Carbon in the example
+
+### Redox Example
+
+Consider the rxn:
+
+$$
+2Al (s) + 3CuSO_{4} (aq) \rightarrow Al_{2}(SO_{4})_{3} (aq) + 3 Cu (s)
+$$
+
+Total ionic (aqeueous separate):
+
+$$
+2Al (s) + 3Cu^{2+} (aq) + 3SO_{4}^{2-} (aq) \rightarrow 2Al^{3+} + 3SO_{4}^{2-} (aq) + 3 Cu (s)
+$$
+
+Notice the $3SO_{4}^{2-}$ is a spectator ion, so we can write the _net ionic_ (excluding the spectator ion):
+
+$$
+2Al (s) + 3Cu^{2+} (aq)  \rightarrow 2Al^{3+} + 3 Cu (s)
+$$
+
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+elems = c("Al", "Cu")
+init_ox = c("0", "+2")
+final_ox = c("+3", "0")
+diff = c("+3", "-2")
+change = c("Oxidation", "Reduction")
+df <- data.frame(elems, init_ox, final_ox, diff, change, stringsAsFactors = FALSE)
+colnames(df) <- c("Elements", "Initial Ox. Num", "Final Ox. Num", "Diff", "Change")
+knitr::kable(df, escape = FALSE)
+```
+
+### Half Reaction
+
+Half rxn is a balanced chemical equation that includes electrons to maintain charge balance.
+
+Consider aluminum from the previous rxn:
+
+$$
+Al \rightarrow Al^{+3}
+$$
+
+Charge is imbalanced, must add electrons to the product side
+
+$$
+Al \rightarrow Al^{+3} + 3e^{-}
+$$
+
+Now, the charge is balanced.
+
+Notice, that aluminum loses 3 electrons, so oxidation is loss of electrons 
+
+Consider copper from the previous rxn:
+
+$$
+Cu^{2+} + 2e^{-} \rightarrow Cu
+$$
+
+Reactants need to gain 2 electrons, so reduction is gain of electrons
+
+Acronym: OIL RIG (oxidation is loss of electrons) (reduction is gain of electrons)
+
+$$
+Al \rightarrow Al^{3+} + 3e^{-}
+$$
+
+$$
+Cu^{2+} + 2e^{-} \rightarrow Cu
+$$
+
+Let's double the first and triple the second
+
+$$
+2Al \rightarrow 2Al^{3+} + 6e^{-}
+$$
+
+$$
+3Cu^{2+} + 6e^{-} \rightarrow 3Cu
+$$
+
+Electrons cancel, so we are left with:
+
+$$
+2Al + 3Cu^{2+} \rightarrow 2Al^{3+} + 3Cu
+$$
+
+## Disproportionation Reaction
+
+$$
+2 H_{2}O_{2} \rightarrow + 2H_{2}O + O_{2}
+$$
+
+```{r echo=FALSE, message=FALSE, warnings=FALSE}
+elements = c("H", "O")
+init = c("+1", "-1")
+final = c("+1", "-2/0")
+change = c("0", "-1/+1")
+df <- data.frame(elements, init, final, change, stringsAsFactors = FALSE)
+colnames(df) <- c("Element", "Init", "Final", "Change")
+knitr::kable(df, escape = FALSE)
+```
+
+A disproportionation rxn means **one element** is **both reduced and oxidized**.
+
+## Concentration
+
+We use **molarity** to figure out how much solute is in a solution
+
+* $\text{Molarity} = M = \frac{\text{moles of solute}}{\text{Liters of solution (not solvent)}}$
+* $\text{concentration} = \frac{n}{V}$ (same thing)
+  * units are $\frac{\text{mol}}{\text{L}} = M$
+  * A 1.0M solution means 1.0 moles of solute per liter
+
+### Example: Concentration
+
+1. What is the concentration of a solution that contains 0.715 moles of solute in 0.495L of solution?
+
+$$
+\text{conc} = \frac{n}{v} = \frac{0.715\text{ mol}}{0.495\text{ L}} = 1.44\text{ mol/L} = 1.44\text{ M}
+$$
+
+2. How many moles of $KI$ are in 85 mL of 0.50 M solution?
+
+$$
+\text{conc} = \frac{n}{v}
+$$
+
+$$
+n = \text{conc} * V = 0.50\text{ M} * 0.085\text{ L} = 0.042\text{ mol KI}
+$$
+
+3. What volume of 1.23M $KClO_{3}$ solution contains 0.575 mol of solute?
+
+$$
+\frac{0.575}{1.23} = 0.467\text{ L}
+$$
+
+4. To add 135g of sucrose (molar mass 342.3 g/mol) to an experiment, how many mL of 3.30 M solution must be added?
+
+a. How many of moles of sucrose does this mass represent?
+
+$$
+\frac{135}{} * \frac{1}{342.3} = 0.394\text{ mol}
+$$
+
+b. How many mL of 3.30M contain 0.394 mol?
+
+$$
+V = \frac{\text{mol}}{M} = \frac{0.394}{3.30} = 0.1195\text{ L} = 120. \text{ mL}
+$$
+
+### Stock Solution
+
+Adding 127.4 g of $NaOH$ (40.00 g/mol) to make 500.0 mL of solution.
+
+$$
+\frac{127.4}{} * \frac{1}{40.00} = 3.185\text{ mol NaOH}
+$$
+
+$$
+\frac{n}{v} = \frac{3.185}{.5} = 6.370\text{ M}
+$$

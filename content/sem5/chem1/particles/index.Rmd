@@ -563,3 +563,234 @@ A couple of heuristics:
 2. Ensure that is it not in excess (otherwise, find the limiting reactant)
 3. Use mole ratio to find the product
 4. Can find mass using molar mass
+
+## Deriving Chemical Formulas
+
+Problem statement:
+
+> Write a balanced equation for the chemical reaction when an ionic compound is formed from 0.636 g of oxygen and 0.689 g of chromium.
+
+Moles of oxygen:
+
+```{r}
+oxygen_present <- 0.636
+oxygen_molar_mass <- 32
+oxygen_present / oxygen_molar_mass
+```
+
+Moles of chromium:
+
+```{r}
+chromium_present <- 0.689
+chromium_molar_mass <- 52
+chromium_present / chromium_molar_mass
+```
+
+Ratio of moles of oxygen gas to chromium:
+
+```{r}
+oxygen_moles <- 0.019876
+chromium_moles <- 0.013251
+oxygen_moles / chromium_moles
+```
+
+This means for every 3 moles of oxygen gas we have 2 moles of chromium (1.5 mole ratio).
+
+Our chemical formula is then:
+
+$$
+2 Cr + 3 O_{2} \rightarrow 2 Cr O_{3}
+$$
+
+Notice the 2 present in the chromium compound in the products -- we had to balance.
+
+### State symbols in chemical formula
+
+In chemical formulas, you may see the state of matter appended to the substance
+
+* $\text{(s)}$ for solids
+* $\text{(l)}$ for liquids
+* $\text{(g)}$ for gasses/vapor
+* $\text{(aq)}$ for aqeuous
+
+## Limiting and Excess Reagents 
+
+Suppose we have a recipe that calls for:
+
+* 4 eggs
+* 80g eggs
+* 50g flour
+* 0.500L milk
+
+These ingredients are to make 4 servings of pastry creme.
+
+Now suppose we have readily available:
+
+* 36 eggs
+* 1000g sugar
+* 1000g flour
+* 5.000 L milk
+
+The **limiting reagent** is the eggs: they cap the recipe to be made 9 times, whereas the other ingredients can make 10 or more. The other ingredients are what we call the **excess reagents**.
+
+There are three important questions for limiting/excess reagents questions:
+
+* What is the limiting reagent?
+* How much product is formed?
+  * in moles?
+  * in grams?
+* How much of the excess reagent(s) are left after the rxn goes to completion?
+  * in moles?
+  * in grams?
+
+### Example 1
+
+For the combustion rxn between 35.00 g $C_{4}H_{10}$ (butane) and 45.00 g $O_{2}$
+
+* Limiting reagent?
+* Amount of product?
+  * in moles?
+  * in grams?
+* Amount of excess reagent?
+  * in moles?
+  * in grams?
+
+Balance equation:
+
+$$
+2 C_{4}H_{10} + 13O_{2} \rightarrow 8 CO_{2} + 10 H_{2}O
+$$
+
+Moles of butane:
+
+```{r}
+butane_present <- 35.00
+butane_molar_mass <- (12.011 * 4) + (1.00794 * 10)
+butane_present / butane_molar_mass
+```
+
+Moles of oxygen gas:
+
+```{r}
+o2_present <- 45.00
+o2_molar_mass <- 15.9994 * 2
+o2_present / o2_molar_mass
+```
+
+```{r}
+butane_moles <- 0.6021671
+o2_moles <- 1.406303
+o2_moles / butane_moles
+```
+
+Notice that this ratio of $\approx 2.3$ is less than $\frac{13}{2}$ (the mole ratio between $O_{2}$ and $C_{4}H_{10}$). This means that the oxygen gas has to be the limiting reagent, since the supply of oxygen gas is not high enough to meet the mole ratio.
+
+Now use the limiting reagent moles to find the product moles via stoichiometry:
+
+Moles of $CO_{2}$
+
+$$
+\frac{1.406303}{} * \frac{8}{13} = 0.8652 \text{ mol}
+$$
+
+This can then be converted into grams using the molar mass of carbon dioxide:
+
+$$
+0.8652 * 44.01 = 38.08
+$$
+
+Moles of $H_{2}O$
+
+$$
+\frac{1.406303}{} * \frac{10}{13} = 1.08177 \text{ mol}
+$$
+
+Grams of water:
+
+$$
+1.08177 * 18.01 = 19.49
+$$
+
+Now, how much of the excess reagents remain (in this case, butane)?
+
+Find used amount of moles of butane:
+
+$$
+1.406303 * \frac{2}{13} = 0.2163
+$$
+
+We had $0.6022$ moles of butane originally, so that means what we have remaining is:
+
+$$
+0.6022 - 0.2163 = 0.3859
+$$
+
+We can then convert to grams:
+
+$$
+0.3859 * 58.124 = 22.43
+$$
+
+So we have 22.43 grams of butane left after rxn is complete.
+
+### Example 2
+
+Suppose we have the following chemical formula:
+
+$$
+2 NH_{3} + 3O_{2} = 2 CH_{4} \rightarrow 2 HCN + 6 H_{2}O
+$$
+
+Following are the molar masses:
+
+```{r, echo = FALSE}
+ammonia_molar_mass <- 17.03
+oxygen_molar_mass <- 32.00
+methane_molar_mass <- 16.04
+hc_molar_mass <- 27.026
+water_molar_mass <- 18.016
+```
+
+Suppose we start with:
+
+* 11.5g of ammonia
+* 12.0g of oxygen gas
+* 10.5g of methane
+
+Questions to ask:
+
+* Limiting reagent?
+* Amount of product ($HCN$)?
+  * in moles?
+  * in grams?
+* Amount of excess reagent?
+  * in moles?
+  * in grams?
+
+Ammonia moles:
+
+$$
+11.5 * 17.03 = 0.675
+$$
+
+Oxygen moles:
+
+$$
+12.0 * 32.00 = 0.375
+$$
+
+Methane moles:
+
+$$
+10.5 * 16.04 = 0.655
+$$
+
+Notice that the number of oxygen moles is the smallest, yet we must have 3 moles of oxygen gas compared to the other two reactants which require only 2 moles. So, oxygen is the limiting reagent.
+
+We can then use the number of moles of oxygen gas to find the moles of HCN (This comes out to be 0.250 moles). This can then be converted to grams.
+
+Then, we can find the used moles of the excess reagents via stoichiometry with the limiting reagent, and then subtract to find the excess moles. We can then convert these into grams.
+
+## Percent Yield
+
+In the case of a limiting reagent, it's fair to say that the rxn did not go to its full potential. That is to say, there is a theoretical max potential of the rxn, and what actually happened. The **actual yield** is what we actually have left, which may or may not have suffered the consequences of a limiting reagent. The **theoretical yield** is what we would have had if the excess reagents could have been used in full. The ratio is the **percent yield**, or a description of the utilization of the reagents.
