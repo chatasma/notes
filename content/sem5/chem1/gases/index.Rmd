@@ -1,0 +1,110 @@
+---
+title: "Gases"
+date: "October 6th, 2021"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: true
+    toc_float: false
+---
+
+## Pressure Units
+
+Unit used is `psi`
+
+* Pound is force, square inch is area, so pressure is force per unit area
+
+atms (atmospheres) are a thing, where 1 atm = 14.7 psi
+
+Pascals (Pa, kg/ms^{2}) are a thing:
+
+$$
+101325\text{ Pa} = 1\text{ atm}
+$$
+
+Call a bar to be $10^{5}$ Pa, so 1 atm 1.01325 bar.
+
+mmHg/torr (millimeters of mercury) is also a unit of pressure, 760 mmHg/torr is 1 atm
+
+## Temperature
+
+$$
+1 K = -273.15 C
+$$
+
+Always work in kelvins...
+
+## Ideal Gas Law
+
+$$
+PV = nRT
+$$
+
+$$
+R = 0.082057\text{ L atm / mol K}
+$$
+
+* At STP (1 mol, 0 degrees celsius, and 1 atm), $V = 22.4$ L.
+* At SATP (Standard Ambient Temperature and Pressure) (1 mol, 25 degrees celsius, 1 bar), $V = 24.8$ L.
+
+## Partial Pressures
+
+Suppose there is a mixture of gasses A and B in a container. Suppose:
+
+* Moles of A = 1.5
+* Moles of B = 1.0
+* Total moles = A + B = 1.5 + 1.0 = 2.5
+* T = 300K, V = 10.0L
+
+Can solve for P of the mixture using ideal gas law, but what if we want to find the pressure if **only** gas A were in the container?
+
+* Simply use moles of A instead of total moles (1.5 instead of 2.5)
+
+Also, we say the pressures are additive in a mixture (can sum the individual pressures for the total pressure).
+
+
+### Mole Fraction
+
+$$
+\chi = \frac{\text{number of moles of a component}}{\text{total number of moles in the mixture}}
+$$
+
+Using gasses A and B from the pcrevious example..
+
+$$
+\chi_{A} = \frac{1.50\text{ mol}}{2.50\text{ mol}} = 0.600
+$$
+
+$$
+\chi_{B} = \frac{1.00\text{ mol}}{2.50\text{ mol}} = 0.400
+$$
+
+The mole fraction is unitless. It is a continuous value between 0 and 1.
+
+Using this concept, if we understand the proportional makeup of a gas in a mixture in terms of its moles (mole fraction), this same proportion applies to the pressure (as pressure is additive), so...:
+
+$$
+P_{i} = \chi_{i} P_{TOT}
+$$
+
+i.e. for gas A:
+
+$$
+P_{A} = 0.600 * 6.15 = 3.69
+$$
+
+## Gas Mixing
+
+Suppose two independent chambers contain the following gasses respectively
+
+* $O_{2}$ -- 1.50L, 2.50 atm
+* $NO$ -- 6.00L, 0.796 atm
+
+What will happen when the chambers can combine? (gasses can flow to each other)
+
+We know that the pressures will meet at some equilibrium (that is to say between 0.796 and 2.50 atms in this example). Do not just add the pressures.
+
+Suppose the temperature is also given. The moles of each chamber can be found, and their mole fractions can be found. The volumes can also be added. The total pressure can be calculated, and thus their partial pressures using the mole fractions.
+
+Can also solve this w/o temperature just by seeing the factor at which volume goes up by. Then, just divide the pressure for the partial pressure.

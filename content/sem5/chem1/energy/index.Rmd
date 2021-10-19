@@ -1,0 +1,56 @@
+---
+title: "Energy"
+date: "October 18th, 2021"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: true
+    toc_float: false
+---
+
+## Thermochemistry
+
+Thermochemistry: Quantification of the energy of chemical rxns and changes. It is a subset of thermodynamics.
+
+Internal energy (U): energy contained in a system.
+
+$\Delta U$ represents the **change** in energy, in other terms: $U_{f} - U_{i}$
+
+**Terminology**:
+
+* Universe -- Everything
+* System -- The part of the universe that we are studying (we need to define it)
+
+* Endothermic -- When heat **enters** the system. That is to say, the **change in energy** is _positive_, as the system gains energy.
+* Exothermic -- When heat **exits** the system, into the surroundings. That is to say, the **change in energy** is _negative_, as the system loses energy.
+
+## Types of Systems
+
+* Open: Matter and energy are exchanged w/ surroundings
+* Closed: Only energy is exchanged w/ surroundings
+* Isolated: Nothing exchanged
+
+## First Law of Thermo
+
+$$
+\Delta U = Q + W = Q - P \Delta V
+$$
+
+**Enthalpy**:
+
+$$
+\Delta H = q
+$$
+
+$q$ is a path function, $\Delta H$ is a state function
+
+* Path functions depend on the path taken
+* State functions don't depend on path (only depend on the initial and final states regardless of the pathway that took place)
+
+## Changes in Enthalpy
+
+- Due to temperature change
+- Due to chemical rxn
+- Due to phase changes
+  - evaporation/boiling (system needs to absorb heat for phase change) or condensation (system needs to release heat for phase change)

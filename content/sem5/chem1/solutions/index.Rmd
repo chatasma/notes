@@ -347,3 +347,23 @@ $$
 $$
 \frac{n}{v} = \frac{3.185}{.5} = 6.370\text{ M}
 $$
+
+### Stock Solution: Dilution
+
+Using the 6.370 M stock solution, how to get 0.100 M of NaOH 250.0 mL volumetric flask; how much of the stock solution needs to be diluted?
+
+$$
+M_{1}V_{1} = M_{2}V_{2}
+$$
+
+$$
+V_{1} = V_{2} \frac{M_{2}}{M_{1}} = 250.0 * \frac{0.1000}{6.370} = 3.925\text{ mL}
+$$
+
+Can also solve this by finding number of moles
+
+### Understanding Concentration
+
+What is in a solution when we say, "A solution of nominal concentration of 0.01M"?
+
+Suppose sodium chloride dissolve to Na and Cl: the nominal concentration of the individual ions are the same as the salt itself, since the quantities are 1:1.
