@@ -54,3 +54,83 @@ $q$ is a path function, $\Delta H$ is a state function
 - Due to chemical rxn
 - Due to phase changes
   - evaporation/boiling (system needs to absorb heat for phase change) or condensation (system needs to release heat for phase change)
+
+$\Delta H_{VAP}$: Enthalpy of vaporization:
+
+Due to change between liquid and vapor, always reported as positive value.
+
+* evaporation/boiling: liquid to gas is endothermic (system takes in heat)
+* condensation: gas to liquid is exothermic (system loses heat). $\Delta H = - \Delta H_{VAP}$
+
+$\Delta H_{FUS}$: Enthalpy of fusion:
+
+Due to change between solid and liquid
+
+* melting: solid to liquid is endothermic (system takes in heat)
+* freezing: liquid to solid is exothermic (system loses heat). $\Delta H = - \Delta H_{FUS}$
+
+$\Delta H_{SUB}$: Enthalpy of sublimation:
+
+Change between solid and gas
+
+* sublimation: solid to gas is endothermic (system takes in heat)
+* deposition: gas to solid is exothermic (system loses heat). $\Delta H = - \Delta H_{SUB}$
+
+$\Delta H_{f}$: Enthalpy of formation:
+
+Due to the chemical reaction in order to produce 1 mole of a substance from its elements in their reference (standard) states:
+
+* 25 degrees Celsius
+* 1 atm
+
+## Hess's Law
+
+Arrange formulas (reverse and apply coefficients, propagating changes to rxn enthalpy) to determine enthalpy of reaction (by summing the individual enthalpies) for specified formula.
+
+If you have enthalpies of the individual compounds that also suffices, the enthalpy of a reaction is given by the enthalpy of the products (weighted by their coefficients) - enthalpy of the reactants (weighted by their coefficients).
+
+## Heat Capacity of a System
+
+$$
+q = C \Delta T = m c \Delta T
+$$
+
+* $C$ -- Called the calorimeter constant. Units: J/Degree Celsius or J/Kelvin.
+
+Heat Capacity: The amount of heat required to change to change the temperature of a system by 1 degree celsius (or K).
+
+## Specific Heat
+
+$$
+q = mc \Delta T
+$$
+
+Amount of heat required to change the temperature of 1 gram of a substance by 1 degree celsius
+
+## Molar Heat Capacity
+
+$$
+q = Cn \Delta T
+$$
+
+Where $n$ is number of moles
+
+Amount of heat required to change temperature of 1 mole of a substance by 1 degree celsius
+
+$$
+C = cm
+$$
+
+### Calorimetry Example
+
+> A coffee calorimeter (constant pressure) contains 100.0g of $H_{2}O$(l) initially at 25 degrees Celsius. A 72.00g piece of metal initially at 97.00 degrees Celsius is added t othe calorimeter. The final temperature of both the metal/water is 29.10 degrees Celsius.
+
+$$
+q_{system} = - q_{surroundings}
+$$
+
+1. Find $q_{surroundings}$ with $q = mc \Delta T$
+2. Find $q_{system}$
+3. Find $c_{metal}$ from $q_{system}$
+
+For a chemical reaction, the system could be the chemical reaction, and the surroundings could be the solution.

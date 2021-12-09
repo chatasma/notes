@@ -1,0 +1,38 @@
+---
+title: "Atomic Structure"
+date: "October 27th, 2021"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: true
+    toc_float: false
+---
+
+Review of waves
+
+* frequency
+* wavelength
+* amplitude
+* EM spectrum
+* photoelectric effect
+
+
+Work function of a metal (energy to get an electron out):
+
+$$
+KE = hv - \Phi
+$$
+
+Quantum numbers:
+
+* $n$ -- size of orbital
+* $l$ -- shape of orbital
+    * s, p, d, f, g, h
+    * $n - 1$
+* $m_{l}$ -- orientation in space
+    * $2l + 1$
+* $m_{s}$ -- spin
+    * $2 * m_{l}$
+
+electrons in a shell: $2n^{2}$
