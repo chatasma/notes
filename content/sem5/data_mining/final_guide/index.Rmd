@@ -105,7 +105,7 @@ Start with cluster containing all points, then split into two clusters. Select o
 ### Cluster analysis
 
 * Want to maximimize distance between clusters, but minimize distance within clusters.
-  * Within Cluster SS is the smu of squares of each point of a cluster to its centroid
+  * Within Cluster SS is the sum of squares of each point of a cluster to its centroid
   * Total SS is the sum of squares of each point in the data set to the global cluster mean
   * Between SS is (Total SS - the total within cluster SS)
     * Total within cluster SS is just the sum of all Within Cluster SS
@@ -129,7 +129,7 @@ How to define distance to find closest?
 * **Single link "min"**, minimum distance between clusters
 * **Complete link "max"**, maximum distance between clusters
 
-![Centrality Measures](../../../../img/agglomerative_clustering.png)
+![Agglomerative Clustering](../../../../img/agglomerative_clustering.png)
 
 ### Density-based clustering
 
@@ -206,7 +206,7 @@ In other words:
 
 Naive algorithm to mine all frequent itemsets incurs a runtime complexity of $O(2^{|I|} * |D| * |I|)$, where the exponential term is the number of candidate itemset subsets, and the remaining terms represent the support computation (must go through each itemset for each transaction).
 
-See HW9 (Chapter 5 Exercise 9a) for an example of a **itemset lattice**, a hierarchical-like diagram which begins with the empty set $k = 0$, and branches to $k + 1$ if its parents are all frequent itemsets. Children which are omitted are considered "pruned".
+See HW9 (Chapter 5 Exercise 9a) for an example of a **itemset lattice**, a hierarchical-like diagram which begins with the empty set $k = 0$, and branches to $k + 1$ if is considered a frequent itemset. Children which are omitted are considered "pruned".
 
 The next step is to find _strong association rules_. Steps:
 
@@ -218,7 +218,7 @@ The next step is to find _strong association rules_. Steps:
 The Apriori Approach aims to optimize the frequent itemset generation step. As explained earlier, this step is (naively) computationally expensive. This is because we consider the power set. The optimization Apriori employs is based on whether subsets be prematurely filtered out. This property is demonstrated best in the itemset lattices. The Apriori principle says:
 
 * If an itemset is frequent, its subsets (parents in the itemset lattice) must all be frequent.
-* If an itemset is infrequent, its supersets are infrequent (the optimization step, the pruning in the itemset lattice).
+* If an itemset is infrequent, its supersets (children) are infrequent (the optimization step, the pruning in the itemset lattice).
 
 This reduces our search space, and reduces the runtime complexity. The theoretical complexity remains the same as bruteforce (as all itemsets may be frequent), but in practice the runtime is lower due to the pruning that occurs.
 
@@ -339,7 +339,7 @@ Then, the resulting user profile vector can be compared to item profiles. Simila
   $$
   U(x, i) = cos(\theta) = \frac{(x \cdot i)}{(|x| |i|)}
   $$
-    * 1 mean similar, 0 or -1 means not simila (in the unit circle, cosine is 1 when angle is small).
+    * 1 mean similar, 0 or -1 means not similar (in the unit circle, cosine is 1 when angle is small).
 
 ### Review: Content-Based Recommendations
 
