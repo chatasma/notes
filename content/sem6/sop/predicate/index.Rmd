@@ -1,0 +1,43 @@
+---
+title: "Predicate Logic"
+date: "January 12th, 2022"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: true
+    toc_float: false
+---
+
+Logical implication: $\Rightarrow$:
+
+- NOT used in propositions, used to _talk about_ propositions
+- $p \Rightarrow q$ means that if $p$ is true, $q$ is true
+  - Not the same as $p \rightarrow q$
+- $\Leftrightarrow$ means $p \Rightarrow q$ and $q \Rightarrow p$, describes semantic equivalence
+
+<span>![Proposition Facts](../../../../img/proposition_facts.png)</span>
+
+Example proof:
+
+<span>![Logical Proof](../../../../img/example_logical_proof.png)</span>
+
+Modus Ponens proof:
+
+<span>![Modus Ponens Proof](../../../../img/modus_ponens_proof.png)</span>
+
+Can prove tautology by proving $T \Rightarrow expr$...:
+
+<span>![Tautology Example Proof](../../../../img/tautology_proof_example.png)</span>
+
+## Predicate (First-Order) Logic
+
+- Predicates are functions of variables which evaluate to T or F
+- Extends propositional logic
+
+Quantifiers can also introduce variables (for all/there exists).
+
+DeMorgan's law for quantifiers:
+
+- "There does not exist" means "For any you can think of, it is not"
+- "Not for all.." means "There exists a case where not"
